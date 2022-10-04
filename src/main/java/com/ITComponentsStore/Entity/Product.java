@@ -15,6 +15,8 @@ public class Product {
     private String name;
     private Integer price;
     private Integer quantity;
+    private String description;
+    private String productCode;
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)

@@ -1,5 +1,6 @@
 package com.ITComponentsStore.Service.impl;
 
+import com.ITComponentsStore.Entity.ProductsSold;
 import com.ITComponentsStore.Entity.UserRol;
 import com.ITComponentsStore.Exception.DataNotFoundException;
 import com.ITComponentsStore.Exception.InvalidDataException;
@@ -33,7 +34,7 @@ public class UserRolServiceImpl implements UserRolService {
         }
         Optional<UserRol> userRolOptional = userRolRepository.findById(id);
         if(userRolOptional.isEmpty()){
-            throw new DataNotFoundException("Error! The userRol does not exist! ");
+            throw new DataNotFoundException("Error! The userRol with id " + id + " does not exist! ");
         }
         else {
             return userRolOptional;
@@ -53,13 +54,15 @@ public class UserRolServiceImpl implements UserRolService {
 
     @Override
     public void deleteUserRolById(Long id) {
+        Optional<UserRol> categoryOptional = userRolRepository.findById(id);
         if(id<0){
-            throw new InvalidDataException("Error! Your id" + id+ "it's not valid");
+            throw new InvalidDataException("Error! Your id" + id+ " it's not valid, pleas try again with id >=0");
         }
-        else{
-            userRolRepository.deleteById(id);
+        if(categoryOptional.isEmpty()){
+            throw new DataNotFoundException("Error  Product with id " + id + " it's not present in database");
+        }
 
-        }
+        userRolRepository.deleteById(id);
 
     }
 }

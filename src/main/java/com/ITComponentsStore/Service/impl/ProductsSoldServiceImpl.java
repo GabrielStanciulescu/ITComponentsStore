@@ -1,5 +1,6 @@
 package com.ITComponentsStore.Service.impl;
 
+import com.ITComponentsStore.Entity.Product;
 import com.ITComponentsStore.Entity.ProductsSold;
 import com.ITComponentsStore.Exception.DataNotFoundException;
 import com.ITComponentsStore.Exception.InvalidDataException;
@@ -33,7 +34,7 @@ public class ProductsSoldServiceImpl implements ProductsSoldService{
         }
         Optional<ProductsSold> optionalProductsSold = productsSoldRepository.findById(id);
         if(optionalProductsSold.isEmpty()){
-            throw new DataNotFoundException("Error! The products sold does not exist! ");
+            throw new DataNotFoundException("Error! The products sold with  id "+ id + " does not exist! ");
         }
         else {
             return optionalProductsSold;
@@ -53,13 +54,16 @@ public class ProductsSoldServiceImpl implements ProductsSoldService{
 
     @Override
     public void deleteProductsSoldById(Long id) {
+        Optional<ProductsSold> categoryOptional = productsSoldRepository.findById(id);
         if(id<0){
-            throw new InvalidDataException("Error! your id" + id+ "it's not valid");
+            throw new InvalidDataException("Error! Your id" + id+ " it's not valid, pleas try again with id >=0");
         }
-        else{
-            productsSoldRepository.deleteById(id);
+        if(categoryOptional.isEmpty()){
+            throw new DataNotFoundException("Error  Product with id " + id + " it's not present in database");
+        }
 
-        }
+        productsSoldRepository.deleteById(id);
+
 
     }
 }

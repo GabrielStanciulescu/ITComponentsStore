@@ -1,5 +1,6 @@
 package com.ITComponentsStore.Service.impl;
 
+import com.ITComponentsStore.Entity.Category;
 import com.ITComponentsStore.Entity.Users;
 import com.ITComponentsStore.Exception.DataNotFoundException;
 import com.ITComponentsStore.Exception.InvalidDataException;
@@ -33,7 +34,7 @@ public class UsersServiceImpl implements UsersService {
         }
         Optional<Users> optionalUsers = usersRepository.findById(id);
         if(optionalUsers.isEmpty()){
-            throw new DataNotFoundException("Error! The category does not exist! ");
+            throw new DataNotFoundException("Error! The category with id " + id + " does not exist! ");
         }
         else {
             return optionalUsers;
@@ -53,13 +54,17 @@ public class UsersServiceImpl implements UsersService {
 
     @Override
     public void deleteUserById(Long id) {
+        Optional<Users> categoryOptional = usersRepository.findById(id);
         if(id<0){
-            throw new InvalidDataException("Error! Your id" + id+ "it's not valid");
+            throw new InvalidDataException("Error! Your id" + id+ " it's not valid, pleas try again with id >=0");
         }
-        else{
-            usersRepository.deleteById(id);
+        if(categoryOptional.isEmpty()){
+            throw new DataNotFoundException("Error User with id " + id + " it's not present in database");
+        }
 
-        }
+        usersRepository.deleteById(id);
+
+
 
     }
 }

@@ -21,4 +21,11 @@ public class GlobalExceptionHandler {
         request.getHeader("Resource not found");
         return ResponseEntity.status(HttpStatus.NOT_FOUND).contentType(MediaType.APPLICATION_JSON).body("status: not found - " + ex.getMessage());
     }
+
+    @ExceptionHandler(InvalidDataException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ResponseEntity<String> invalidDataException(HttpServletRequest request, Exception ex) {
+        request.getHeader("Resource not found");
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).contentType(MediaType.APPLICATION_JSON).body("status: invalid - " + ex.getMessage());
+    }
 }
