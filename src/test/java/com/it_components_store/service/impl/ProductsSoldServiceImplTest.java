@@ -1,6 +1,6 @@
 package com.it_components_store.service.impl;
 
-import com.it_components_store.entity.ProductsSold;
+import com.it_components_store.entity.SoldProducts;
 import com.it_components_store.exception.DataNotFoundException;
 import com.it_components_store.exception.InvalidDataException;
 import com.it_components_store.repository.ProductsSoldRepository;
@@ -28,14 +28,14 @@ class ProductsSoldServiceImplTest {
     @Mock
     ProductsSoldRepository productsSoldRepository;
     @Captor
-    ArgumentCaptor<ProductsSold> productsSoldArgumentCaptor;
+    ArgumentCaptor<SoldProducts> productsSoldArgumentCaptor;
     @Captor
     ArgumentCaptor<Long> longArgumentCaptor;
 
     @Test
     @DisplayName("Test add product sold ")
     void testAddProductsSold() {
-        ProductsSold productsSold = getOneProductsSold();
+        SoldProducts productsSold = getOneProductsSold();
         productsSoldService.addProductsSold(productsSold);
         verify(productsSoldRepository,times(1)).save(productsSoldArgumentCaptor.capture());
         assertEquals(productsSold,productsSoldArgumentCaptor.getValue());
@@ -45,7 +45,7 @@ class ProductsSoldServiceImplTest {
     @DisplayName("Test throw DataNotFoundException")
     void testThrowDataNotFoundException(){
         Exception exception = assertThrows(DataNotFoundException.class,()->productsSoldService.addProductsSold(null));
-        String expected = "Error! ProductsSold not found!";
+        String expected = "Error! SoldProducts not found!";
         String actual = exception.getMessage();
         assertEquals(expected,actual);
     }
@@ -54,9 +54,9 @@ class ProductsSoldServiceImplTest {
     @DisplayName("Test get product sold")
     void testGetProductSoldByID(){
         when(productsSoldRepository.findById(1L)).thenReturn(Optional.of(getOneProductsSold()));
-        Optional<ProductsSold> productsSold = productsSoldService.getProductsSoldById(1L);
+        Optional<SoldProducts> productsSold = productsSoldService.getProductsSoldById(1L);
         if(productsSold.isPresent()) {
-            ProductsSold productsSold1 = productsSold.get();
+            SoldProducts productsSold1 = productsSold.get();
             assertEquals(getOneProductsSold(), productsSold1);
         }
     }
@@ -85,7 +85,7 @@ class ProductsSoldServiceImplTest {
     @DisplayName("Test  get list of product sold")
     void testGetListOfProductSold(){
         when(productsSoldRepository.findAll()).thenReturn(getListOfProductsSold());
-        List<ProductsSold> productsSoldList  = productsSoldService.listOfProductsSold();
+        List<SoldProducts> productsSoldList  = productsSoldService.listOfProductsSold();
         assertEquals(getListOfProductsSold(),productsSoldList);
     }
 

@@ -1,38 +1,54 @@
 package com.it_components_store.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.*;
-import org.hibernate.Hibernate;
-import org.springframework.format.annotation.DateTimeFormat;
-
-import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Objects;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import org.hibernate.Hibernate;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Getter
 @Setter
 @ToString
-@RequiredArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Builder
-@Table(name = "app_user")
+@Table(name = "users")
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idUser;
+
     private String firstName;
+
     private String lastName;
+
     private String email;
+
     private String password;
+
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthday;
+
     private String address;
+
     private String mobile;
 
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "role")
-    @ToString.Exclude
+    @ManyToOne
+    @JoinColumn(name = "id_role")
     private Role role;
 
     @Override
@@ -40,7 +56,7 @@ public class User {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
         User user = (User) o;
-        return id != null && Objects.equals(id, user.id);
+        return idUser != null && Objects.equals(idUser, user.idUser);
     }
 
     @Override

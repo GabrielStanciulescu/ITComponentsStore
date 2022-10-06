@@ -4,7 +4,7 @@ package com.it_components_store.service.impl;
 import com.it_components_store.entity.User;
 import com.it_components_store.exception.DataNotFoundException;
 import com.it_components_store.exception.InvalidDataException;
-import com.it_components_store.repository.UsersRepository;
+import com.it_components_store.repository.UserRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -28,10 +28,10 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 class UsersServiceImplTest {
     @InjectMocks
-    UsersServiceImpl usersService;
+    UserServiceImpl usersService;
 
     @Mock
-    UsersRepository usersRepository;
+    UserRepository usersRepository;
 
     @Captor
     ArgumentCaptor<User> usersArgumentCaptor;
