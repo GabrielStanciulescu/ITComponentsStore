@@ -64,7 +64,7 @@ class UsersServiceImplTest {
             Optional<User> usersOptional = usersService.getUsersById(1L);
             if (usersOptional.isPresent()){
                 User users = usersOptional.get();
-                assertEquals(getOneUser(),users);
+                assertEquals(getOneUser().toString(),users.toString());
             }
     }
 
@@ -92,7 +92,7 @@ class UsersServiceImplTest {
     void testGetAllUsers(){
             when(usersRepository.findAll()).thenReturn(getListUsers());
             List<User> usersList = usersService.getListOfUsers();
-            assertEquals(getListUsers(),usersList);
+            assertEquals(getListUsers().toString(),usersList.toString());
     }
 
     @Test

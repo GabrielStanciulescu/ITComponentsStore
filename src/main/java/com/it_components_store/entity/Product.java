@@ -1,21 +1,10 @@
 package com.it_components_store.entity;
 
-import java.util.Objects;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.Hibernate;
+
+import javax.persistence.*;
+import java.util.Objects;
 
 @Getter
 @Setter
@@ -41,13 +30,19 @@ public class Product {
 
     private String code;
 
+    @Column(nullable = false)
+    private Integer quantity;
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_category")
     private Category category;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_sold_products")
-    private SoldProducts soldProducts;
+
+
+    @ManyToOne
+    @JoinColumn(name = "id_order")
+    private Order order;
+
 
     @Override
     public boolean equals(Object o) {

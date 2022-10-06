@@ -49,7 +49,7 @@ class UsersControllerTest {
         Optional<User> userOptional = usersController.getUsersById(1L);
         if(userOptional.isPresent()){
             User user = userOptional.get();
-            assertEquals(getOneUser(), user);
+            assertEquals(getOneUser().toString(), user.toString());
         }
     }
 
@@ -58,7 +58,7 @@ class UsersControllerTest {
     void testGetAllCategory(){
         when(userService.getListOfUsers()).thenReturn(getListUsers());
         List<User> usersList = usersController.getAllUsers();
-        assertEquals(getListUsers(), usersList);
+        assertEquals(getListUsers().toString(),usersList.toString());
     }
 
     @Test
