@@ -1,47 +1,53 @@
 package com.it_components_store.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.*;
-import org.hibernate.Hibernate;
-
-import javax.persistence.*;
-import java.util.List;
 import java.util.Objects;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import org.hibernate.Hibernate;
 
 @Getter
 @Setter
 @ToString
-@RequiredArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Entity
+@Table(name = "products")
 public class Product {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idProduct;
+
     private String name;
+
     private Integer price;
-    private Integer quantity;
+
+    private Integer stock;
+
     private String description;
-    private String productCode;
 
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category")
-    @ToString.Exclude
+    private String code;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_category")
     private Category category;
-    
 
-    public Product(Long idProduct, String name, Integer price, Integer quantity, String description, String productCode, Category category) {
-        this.idProduct = idProduct;
-        this.name = name;
-        this.price = price;
-        this.quantity = quantity;
-        this.description = description;
-        this.productCode = productCode;
-        this.category = category;
-    }
-
-    @OneToMany(mappedBy = "product", fetch = FetchType.EAGER)
-    List<ProductsSold> productsSoldList;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_sold_products")
+    private SoldProducts soldProducts;
 
     @Override
     public boolean equals(Object o) {

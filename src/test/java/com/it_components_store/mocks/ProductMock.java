@@ -4,21 +4,23 @@ import com.it_components_store.entity.Category;
 import com.it_components_store.entity.Product;
 
 import java.util.List;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ProductMock {
-    public static Product getOneProduct(){
-        Category category = new Category(1L,"Mouse");
-        return   new   Product(1L,"mouse",23456,200,"Mouse gaming","pokmn85",category);
+    public static Product getOneProduct() {
+        Category category = Category.builder().idCategory(1L).name("Mouse").build();
+        return Product.builder().idProduct(1L).name("mouse").stock(23456).price(200).description("Mouse gaming").code("pokmn85").category(category).build();
 
     }
 
-    public static List<Product> getListOfProduct(){
-        Category category = new Category(1L,"Mouse");
-        Product product = new Product(1L,"mouse",23456,200,"Mouse gaming","pokmn85",category);
-        Product product2 = new Product(2L,"mouse",23456,200,"Mouse gaming","pokmn85",category);
-        Product product3 = new Product(3L,"mouse",23456,200,"Mouse gaming","pokmn85",category);
-
-        return List.of(product,product2,product3);
-
+    public static List<Product> getListOfProduct() {
+        Category category = Category.builder().idCategory(1L).name("Mouse").build();
+        return List.of(
+                Product.builder().idProduct(1L).name("mouse").stock(23456).price(200).description("Mouse gaming").code("pokmn85").category(category).build(),
+                Product.builder().idProduct(1L).name("mouse").stock(23456).price(200).description("Mouse gaming").code("pokmn85").category(category).build(),
+                Product.builder().idProduct(1L).name("mouse").stock(23456).price(200).description("Mouse gaming").code("pokmn85").category(category).build()
+        );
     }
 }

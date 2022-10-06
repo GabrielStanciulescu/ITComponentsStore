@@ -1,10 +1,13 @@
 package com.it_components_store.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.List;
 import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,21 +24,26 @@ import org.hibernate.Hibernate;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "roles")
-public class Role {
+@Table(name = "sold_products")
+public class SoldProducts {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idRole;
+    private Long idSoldProducts;
 
-    private String name;
+    private Integer quantity;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "soldProducts")
+    @ToString.Exclude
+    private List<Product> products;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Role role = (Role) o;
-        return idRole != null && Objects.equals(idRole, role.idRole);
+        SoldProducts that = (SoldProducts) o;
+        return idSoldProducts != null && Objects.equals(idSoldProducts, that.idSoldProducts);
     }
 
     @Override
