@@ -18,7 +18,7 @@ public class UsersController {
 
     @PostMapping("/get")
     public void addUsers(@RequestBody User user) {
-        user.setRole(Role.builder().idRole(1L).name("ADMIN").build());
+        user.setRole(Role.builder().idRole(1L).name("ROLE_ADMIN").build());
         usersService.addUsers(user);
     }
 
