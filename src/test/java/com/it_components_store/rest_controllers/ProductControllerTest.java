@@ -1,8 +1,7 @@
 package com.it_components_store.rest_controllers;
 
-import com.it_components_store.entity.Product;
-import com.it_components_store.service.CategoryService;
-import com.it_components_store.service.ProductService;
+import com.it_components_store.dto.ProductDto;
+import com.it_components_store.service.impl.ProductServiceImpl;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -15,9 +14,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.List;
 import java.util.Optional;
 
-import static com.it_components_store.mocks.CategoryMock.getOneCategory;
-import static com.it_components_store.mocks.ProductMock.getListOfProduct;
-import static com.it_components_store.mocks.ProductMock.getOneProduct;
+import static com.it_components_store.mocks.ProductMockDto.getListOfProductDto;
+import static com.it_components_store.mocks.ProductMockDto.getOneProductDto;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
@@ -27,13 +25,11 @@ class ProductControllerTest {
     ProductController productController;
 
     @Mock
-    ProductService productService;
+    ProductServiceImpl productService;
 
-    @Mock
-    CategoryService categoryService;
 
     @Captor
-    ArgumentCaptor<Product> productArgumentCaptor;
+    ArgumentCaptor<ProductDto> productArgumentCaptor;
 
     @Captor
     ArgumentCaptor<Long> longArgumentCaptor;
@@ -42,11 +38,10 @@ class ProductControllerTest {
     @Test
     @DisplayName("Test add product")
     void testAddProduct() {
-        when(categoryService.getCategoryById(1L)).thenReturn(Optional.of(getOneCategory()));
-        Product product = getOneProduct();
-        productController.addProduct(product, 1L);
+        ProductDto product = getOneProductDto();
+        productController.addProduct(product);
         verify(productService, times(1)).adProduct(productArgumentCaptor.capture());
-        assertEquals(getOneProduct(), productArgumentCaptor.getValue());
+        assertEquals(getOneProductDto(), productArgumentCaptor.getValue());
 
 
     }
@@ -54,20 +49,20 @@ class ProductControllerTest {
     @Test
     @DisplayName("Test get product by name")
     void testGetProductByName() {
-        when(productService.getProductById(1L)).thenReturn(Optional.of(getOneProduct()));
-        Optional<Product> productOptional = productController.getProductById(1L);
+        when(productService.getProductById(1L)).thenReturn(Optional.of(getOneProductDto()));
+        Optional<ProductDto> productOptional = productController.getProductById(1L);
         if (productOptional.isPresent()) {
-            Product product = productOptional.get();
-            assertEquals(getOneProduct(), product);
+            ProductDto product = productOptional.get();
+            assertEquals(getOneProductDto(), product);
         }
     }
 
     @Test
     @DisplayName("Test get all product")
     void testGetAllProduct() {
-        when(productService.getListOfProduct()).thenReturn(getListOfProduct());
-        List<Product> productList = productController.getAllProduct();
-        assertEquals(getListOfProduct(), productList);
+        when(productService.getListOfProduct()).thenReturn(getListOfProductDto());
+        List<ProductDto> productList = productController.getAllProduct();
+        assertEquals(getListOfProductDto(), productList);
     }
 
     @Test

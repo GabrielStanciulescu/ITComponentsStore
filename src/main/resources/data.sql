@@ -1,8 +1,7 @@
 INSERT INTO categories(name) VALUES ('Mouse'), ('RAM'), ('HDD'), ('SSD'), ('CPU'), ('GPU'), ('Mother Board'), ('Monitor');
 
-INSERT INTO sold_products(quantity) VALUES (20), (25), (25), (20), (23), (20), (20), (20);
 
-INSERT INTO products(description, name, price, code, stock, id_category, id_sold_products)
+INSERT INTO products(description, name, price, code, stock, id_category,quantity )
 VALUES ('Mouse gaming A+ KuaFu 7200 DPI', 'Mouse Gaming', 236, 'kC458631SERG', 300, 1, 1),
        ('Mouse optic Lenovo 300, Negru', 'Mouse ', 136, 'kC4111631SERG', 100, 1, 2),
        ('Mouse gaming A+ Mammoth, RGB, 6400DPI', 'Mouse Gaming', 536, 'kC4LO0P631SERG', 20, 1, 3),
@@ -25,6 +24,8 @@ VALUES ('Mouse gaming A+ KuaFu 7200 DPI', 'Mouse Gaming', 236, 'kC458631SERG', 3
        ('Placa video Gigabyte GeForce® RTX 2060 D6, 6GB GDDR6, 192-bit', 'GPU', 1929, 'mz-v8p1t0bw', 200, 6, 1),
        ('Placa video Gigabyte GeForce® RTX 2060 D6, 6GB GDDR6, 192-bit', 'GPU', 1929, 'mz-v8p1t0bw', 200, 6, 1),
        ('Placa video Gigabyte GeForce® RTX 2060 D6, 6GB GDDR6, 192-bit', 'GPU', 1929, 'mz-v8p1t0bw', 200, 6, 1);
+
+INSERT INTO products(code, description, name, price, quantity, stock, id_category, id_order) VALUES ();
 
 INSERT INTO roles(name) VALUES ('ADMIN'), ('USER');
 

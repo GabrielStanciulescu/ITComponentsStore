@@ -2,11 +2,10 @@ package com.it_components_store.mocks;
 
 import com.it_components_store.entity.Category;
 import com.it_components_store.entity.Product;
-
-import java.util.List;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ProductMock {
     public static Product getOneProduct() {
@@ -23,4 +22,5 @@ public class ProductMock {
                 Product.builder().idProduct(1L).name("mouse").stock(23456).price(200).description("Mouse gaming").code("pokmn85").category(category).build()
         );
     }
+
 }
