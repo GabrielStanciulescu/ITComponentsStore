@@ -1,9 +1,11 @@
 package com.it_components_store.service.impl;
 
 import com.it_components_store.dto.ProductDto;
+import com.it_components_store.entity.Category;
 import com.it_components_store.entity.Product;
 import com.it_components_store.exception.DataNotFoundException;
 import com.it_components_store.exception.InvalidDataException;
+import com.it_components_store.repository.CategoryRepository;
 import com.it_components_store.repository.ProductRepository;
 import com.it_components_store.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +21,9 @@ import java.util.Optional;
 public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository productRepository;
+    private  final CategoryRepository categoryRepository;
     private final ModelMapper modelMapper;
+
 
     @Override
     public void adProduct(ProductDto productDto) {
@@ -76,4 +80,45 @@ public class ProductServiceImpl implements ProductService {
 
     }
 
+    @Override
+    public void updateProduct(ProductDto productDto, Long id) {
+        Product product = productRepository.findById(id).orElseThrow(()->new DataNotFoundException("Error Category with id " + id + " it's not present in database"));
+        Long idCategory = productDto.getCategoryId();
+        Category categoryFromDto = categoryRepository.findById(idCategory).orElseThrow(()->new DataNotFoundException("Error Category with id " + idCategory + " it's not present in database"));
+        product.setName(productDto.getName());
+        product.setPrice(productDto.getPrice());
+        product.setStock(productDto.getStock());
+        product.setDescription(productDto.getDescription());
+        product.setCode(productDto.getCode());
+        product.setQuantity(product.getQuantity());
+        product.setCategory(categoryFromDto);
+        productRepository.save(product);
+
+
+
+
+
+    }
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

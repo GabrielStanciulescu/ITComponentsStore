@@ -8,11 +8,9 @@ import com.it_components_store.repository.ProductRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.ArgumentCaptor;
-import org.mockito.Captor;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
+import org.mockito.*;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.modelmapper.ModelMapper;
 
 import java.util.Collections;
 import java.util.List;
@@ -31,8 +29,8 @@ class ProductServiceImplTest {
     @InjectMocks
     ProductServiceImpl productService;
 
-
-//     ModelMapper modelMapper;  @spy , !!!!
+    @Spy
+     ModelMapper modelMapper;
 
     @Mock
     ProductRepository productRepository;

@@ -13,12 +13,10 @@
         <div class="row gy-3">
             <div class="col-3"></div>
             <div class="col-6 ms-4 "><h1> Adaugare produs</h1></div>
-<!--            <a th:href="@{/dashboard/product/new}" type="button" class="btn btn-primary">Adauga produs</a>-->
             <div class="col-12"></div>
         </div>
     </div>
     <div class="container">
-
         <form th:action="@{/dashboard/product/save}" method="post" th:object="${product}">
             <div class="row gy-2 ">
                 <div class="col-6">
@@ -41,10 +39,6 @@
                     <label for="stocFurnizor" class="form-label">Stock furnizor</label>
                     <input type="text" th:field="*{stock}" class="form-control" id="stocFurnizor">
                 </div>
-           
-
-           
-
                 <div class="col-6">
                     <label for="codProdus" class="form-label">Cod produs</label>
                     <input type="text" th:field="*{name}" class="form-control" id="codProdus" >
@@ -68,13 +62,6 @@
                 </div>
             </div>
 
-
-
-            
-            
-
-    
-        
         </form>
     </div>
 

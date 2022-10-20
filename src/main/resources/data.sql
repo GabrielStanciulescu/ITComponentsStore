@@ -25,7 +25,8 @@ VALUES ('Mouse gaming A+ KuaFu 7200 DPI', 'Mouse Gaming', 236, 'kC458631SERG', 3
        ('Placa video Gigabyte GeForce® RTX 2060 D6, 6GB GDDR6, 192-bit', 'GPU', 1929, 'mz-v8p1t0bw', 200, 6, 1),
        ('Placa video Gigabyte GeForce® RTX 2060 D6, 6GB GDDR6, 192-bit', 'GPU', 1929, 'mz-v8p1t0bw', 200, 6, 1);
 
-INSERT INTO products(code, description, name, price, quantity, stock, id_category, id_order) VALUES ();
+INSERT INTO products(description, name, price, code, stock, id_category,quantity )
+VALUES ('Mouse gaming A+ KuaFu 7200 DPI', 'Mouse Gaming', 236, 'kC458631SERG', 300, 1, 1);
 
 INSERT INTO roles(name) VALUES ('ADMIN'), ('USER');
 

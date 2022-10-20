@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,53 +17,53 @@
         </div>
     </div>
     <div class="container">
-        <form>
+        <form action="#" th:action="@{/dashboard/update/{id}(id=${productDto.idProduct})}" method="post" th:object="${productDto}">
             <div class="row gy-2 ">
                 <div class="col-6">
                     <label for="productName" class="form-label">Nume Produs</label>
-                    <input type="text" class="form-control" id="productName" >
+                    <input type="text" class="form-control" th:field="*{name}" id="productName" >
                 </div>
 
                 <div class="col-6">
 
                     <label for="descriere produs" class="form-label">Desriere produs</label>
-                    <input type="text" class="form-control" id="descriere produs">
+                    <input type="text" class="form-control" th:field="*{description}" id="descriere produs">
                 </div>
                 <div class="col-6">
                     <label for="cantitate" class="form-label">Cantitate</label>
-                    <input type="text" class="form-control" id="cantitate" >
+                    <input type="text" class="form-control" th:field="*{stock}" id="cantitate" >
                 </div>
-    
+
                 <div class="col-6">
                     <label for="stocFurnizor" class="form-label">Stock furnizor</label>
-                    <input type="text" class="form-control" id="stocFurnizor">
+                    <input type="text" class="form-control" th:field="*{quantity}" id="stocFurnizor">
                 </div>
                 <div class="col-6">
                     <label for="codProdus" class="form-label">Cod produs</label>
-                    <input type="text" class="form-control" id="codProdus" >
+                    <input type="text" class="form-control" th:field="*{code}" id="codProdus" >
                 </div>
-    
+
                 <div class="col-6">
-    
+
                     <label for="price" class="form-label">Pret</label>
-                    <input type="text" class="form-control" id="price">
+                    <input type="text" class="form-control" th:field="*{price}" id="price">
                 </div>
-           
-           
+
+
                 <div class="col-12">
-    
+
                     <label for="idCategory" class="form-label">ID Categorie</label>
-                    <input type="text" class="form-control" id="idCategory">
+                    <input type="text" class="form-control" th:field="*{categoryId}" id="idCategory">
                 </div>
-               
+
                 <div class="col">
-                    <button type="button" class="btn btn-success">Aplica modificari</button>
+                    <button type="submit" class="btn btn-success">Aplica modificari</button>
                 </div>
-                <div class="col">
-                    <button type="button" class="btn btn-danger">Sterge produs</button>
-                </div>
+<!--                <div class="col">-->
+<!--                    <button type="button" class="btn btn-danger">Sterge produs</button>-->
+<!--                </div>-->
             </div>
-        
+
         </form>
     </div>
 
