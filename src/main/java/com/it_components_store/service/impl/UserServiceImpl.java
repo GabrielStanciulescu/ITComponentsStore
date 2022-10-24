@@ -1,11 +1,14 @@
 package com.it_components_store.service.impl;
 
+import com.it_components_store.dto.UserDto;
 import com.it_components_store.entity.User;
 import com.it_components_store.exception.DataNotFoundException;
 import com.it_components_store.exception.InvalidDataException;
 import com.it_components_store.repository.UserRepository;
 import com.it_components_store.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,18 +19,22 @@ import java.util.Optional;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository usersRepository;
+    private final ModelMapper modelMapper;
 
     @Override
-    public void addUsers(User users) {
-        if (users == null) {
+    public void addUsers(UserDto userDto) {
+        if (userDto == null) {
             throw new DataNotFoundException("Error Category not found!");
         } else {
-            usersRepository.save(users);
+            userDto.setIdRole(2L);
+            User user = modelMapper.map(userDto, new TypeToken<User>() {}.getType());
+            usersRepository.save(user);
         }
+
     }
 
     @Override
-    public Optional<User> getUsersById(Long id) {
+    public Optional<UserDto> getUsersById(Long id) {
         if (id < 0) {
             throw new InvalidDataException("Error! Your id " + id + " it's not valid");
         }
@@ -35,18 +42,24 @@ public class UserServiceImpl implements UserService {
         if (optionalUsers.isEmpty()) {
             throw new DataNotFoundException("Error! The category with id " + id + " does not exist!");
         } else {
-            return optionalUsers;
+            User user = optionalUsers.get();
+            UserDto userDto = modelMapper.map(user, UserDto.class);
+            return Optional.of(userDto);
         }
     }
 
     @Override
-    public List<User> getListOfUsers() {
+    public List<UserDto> getListOfUsers() {
         List<User> usersList = usersRepository.findAll();
         if (usersList.isEmpty()) {
             throw new DataNotFoundException("Error! Category list it's empty");
         } else {
-            return usersList;
+            List<UserDto> userDtoList;
+            userDtoList = modelMapper.map(usersList, new TypeToken<List<UserDto>>() {}.getType());
+
+            return userDtoList;
         }
+
     }
 
     @Override
@@ -60,4 +73,6 @@ public class UserServiceImpl implements UserService {
         }
         usersRepository.deleteById(id);
     }
-}
+
+    }
+

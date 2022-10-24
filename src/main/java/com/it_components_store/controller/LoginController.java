@@ -1,5 +1,6 @@
 package com.it_components_store.controller;
 
+import com.it_components_store.dto.UserDto;
 import com.it_components_store.entity.User;
 import com.it_components_store.service.impl.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
@@ -26,7 +27,7 @@ public class LoginController {
     }
 
     @PostMapping("/registerUser")
-    public String userRegister(@ModelAttribute("user") User user){
+    public String userRegister(@ModelAttribute("user") UserDto user){
         userService.addUsers(user);
          return "redirect:/login";
     }

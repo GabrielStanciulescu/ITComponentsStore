@@ -1,6 +1,7 @@
 package com.it_components_store.service.impl;
 
 
+import com.it_components_store.dto.UserDto;
 import com.it_components_store.entity.User;
 import com.it_components_store.exception.DataNotFoundException;
 import com.it_components_store.exception.InvalidDataException;
@@ -8,16 +9,17 @@ import com.it_components_store.repository.UserRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.ArgumentCaptor;
-import org.mockito.Captor;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
+import org.mockito.*;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.modelmapper.ModelMapper;
 
 
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+
+import static com.it_components_store.mocks.UserMockDto.getListUsersDto;
+import static com.it_components_store.mocks.UserMockDto.getOneUserDto;
 import static com.it_components_store.mocks.UsersMock.getListUsers;
 import static com.it_components_store.mocks.UsersMock.getOneUser;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -29,7 +31,8 @@ import static org.mockito.Mockito.*;
 class UsersServiceImplTest {
     @InjectMocks
     UserServiceImpl usersService;
-
+    @Spy
+    ModelMapper modelMapper;
     @Mock
     UserRepository usersRepository;
 
@@ -42,10 +45,10 @@ class UsersServiceImplTest {
         @Test
         @DisplayName("Testing add Users")
         void addUserTest() {
-            User users = getOneUser();
-            usersService.addUsers(users);
-            verify(usersRepository,times(1)).save(usersArgumentCaptor.capture());
-            assertEquals(users,usersArgumentCaptor.getValue());
+            UserDto userDto = getOneUserDto();
+            usersService.addUsers(userDto);
+            verify(usersRepository).save(usersArgumentCaptor.capture());
+            assertEquals(getOneUser().toString(),usersArgumentCaptor.getValue().toString());
     }
 
     @Test
@@ -61,10 +64,10 @@ class UsersServiceImplTest {
     @DisplayName("Test getUserByID")
     void testGetUserById(){
             when(usersRepository.findById(1L)).thenReturn(Optional.of(getOneUser()));
-            Optional<User> usersOptional = usersService.getUsersById(1L);
+            Optional<UserDto> usersOptional = usersService.getUsersById(1L);
             if (usersOptional.isPresent()){
-                User users = usersOptional.get();
-                assertEquals(getOneUser().toString(),users.toString());
+                UserDto users = usersOptional.get();
+                assertEquals(getOneUserDto().toString(),users.toString());
             }
     }
 
@@ -91,8 +94,8 @@ class UsersServiceImplTest {
     @DisplayName("Test get all users")
     void testGetAllUsers(){
             when(usersRepository.findAll()).thenReturn(getListUsers());
-            List<User> usersList = usersService.getListOfUsers();
-            assertEquals(getListUsers().toString(),usersList.toString());
+            List<UserDto> usersList = usersService.getListOfUsers();
+            assertEquals(getListUsersDto().toString(),usersList.toString());
     }
 
     @Test
