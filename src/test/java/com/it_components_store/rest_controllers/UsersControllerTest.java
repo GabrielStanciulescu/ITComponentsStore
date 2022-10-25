@@ -1,8 +1,6 @@
 package com.it_components_store.rest_controllers;
 
 import com.it_components_store.dto.UserDto;
-import com.it_components_store.entity.User;
-import com.it_components_store.service.UserService;
 import com.it_components_store.service.impl.UserServiceImpl;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -18,8 +16,6 @@ import java.util.Optional;
 
 import static com.it_components_store.mocks.UserMockDto.getListUsersDto;
 import static com.it_components_store.mocks.UserMockDto.getOneUserDto;
-import static com.it_components_store.mocks.UsersMock.getListUsers;
-import static com.it_components_store.mocks.UsersMock.getOneUser;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 

@@ -1,7 +1,6 @@
 package com.it_components_store.service;
 
 import com.it_components_store.dto.UserDto;
-import com.it_components_store.entity.User;
 
 import java.util.List;
 import java.util.Optional;

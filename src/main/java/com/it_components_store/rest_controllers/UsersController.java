@@ -1,13 +1,11 @@
 package com.it_components_store.rest_controllers;
 
 import com.it_components_store.dto.UserDto;
-import com.it_components_store.entity.Role;
-import com.it_components_store.entity.User;
-import com.it_components_store.service.UserService;
 import com.it_components_store.service.impl.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 import java.util.Optional;
 

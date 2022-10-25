@@ -5,7 +5,6 @@ INSERT INTO products(description, name, price, code, stock, id_category,quantity
 VALUES ('Mouse gaming A+ KuaFu 7200 DPI', 'Mouse Gaming', 236, 'kC458631SERG', 300, 1, 1),
        ('Mouse optic Lenovo 300, Negru', 'Mouse ', 136, 'kC4111631SERG', 100, 1, 2),
        ('Mouse gaming A+ Mammoth, RGB, 6400DPI', 'Mouse Gaming', 536, 'kC4LO0P631SERG', 20, 1, 3),
-       ('Memorie Kingston FURY Beast 16GB DDR4 3200MHz CL16 Dual Channel Kit', 'RAM', 2336, 'RMKL90LPO0', 20, 2, 3),
        ('Memorie Kingston FURY Beast 8GB DDR4 2666MHz CL16', 'RAM', 6336, 'RMKL90LDPO0', 20, 2, 1),
        ('Memorie G.Skill Aegis 8GB DDR4 3200MHz CL16', 'RAM', 1336, 'RMKL90LDPODDS0', 20, 2, 1),
        ('Hard disk Seagate BarraCuda 2TB SATA-III 7200RPM 256MB', 'HDD', 336, 'ULP45328', 55, 3, 1),

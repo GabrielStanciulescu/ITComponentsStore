@@ -58,6 +58,12 @@
                 <td>[[${productDto.code}]]</td>
                 <td>[[${productDto.categoryId}]]</td>
                 <td>  <a th:href="@{/dashboard/product/update/{id}(id=${productDto.idProduct})}" class="btn btn-sm btn-primary">&ensp;Modifica</a></td>
+
+                <td> <form action="#" th:action="@{/dashboard/delete/{id}(id=${productDto.idProduct})}" th:method="post" th:object="${productDto}" >
+                    <div class="col">
+                        <button type="submit" class="btn btn-sm btn-danger">Sterge produs</button>
+                    </div>
+                </form></td>
             </tr>
         </th:block>
         </tbody>

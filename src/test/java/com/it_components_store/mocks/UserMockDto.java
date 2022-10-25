@@ -1,8 +1,6 @@
 package com.it_components_store.mocks;
 
 import com.it_components_store.dto.UserDto;
-import com.it_components_store.entity.Role;
-import com.it_components_store.entity.User;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
