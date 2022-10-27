@@ -5,24 +5,25 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>IT Components Store</title>
     <header th:replace="~{/fragments/layout :: header}"></header>
 </head>
 <body>
     <div class="container">
-        <div class="row">
+        <div class="row gy-3">
             <th:block th:each="productDto: ${productList}">
             <div class="col">
                 <div class="card" style="width: 18rem;">
 
-                    <img class="card-img-top" src="https://picsum.photos/286/180" alt="Card image cap">
+                    <img class="card-img-top" th:src="@{${productDto.imageUrl}}" alt="Card image cap">
                     <div class="card-body">
                       <h5 class="card-title">[[${productDto.name}]]</h5>
                       <p class="card-text">[[${productDto.description}]]</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <p class="card-text"> stock magazin [[${productDto.stock}]] </p>
+                        <p class = "card-text">[[${productDto.price}]] RON </p>
+                      <a href="#" class="btn btn-primary">Adauga in cos</a>
                     </div>
                   </div>
-
             </div>
         </th:block>
         </div>

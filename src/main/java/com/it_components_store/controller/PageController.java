@@ -18,7 +18,7 @@ public class PageController {
     public String getRamPage(Model model, @PathVariable Long id){
         List<ProductDto> productList = productService.getListOfProductByCategory(id);
         model.addAttribute("productList", productList);
-        return "RamPage";
+        return "ITpage";
 
     }
 }
