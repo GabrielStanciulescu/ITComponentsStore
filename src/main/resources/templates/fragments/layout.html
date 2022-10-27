@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+    <title>Document</title>
+
+    <header th:fragment="header">
+        <h3>IT Components Store</h3>
+        <div class="container">
+            <ul class="nav  bg-danger ">
+                <li class="nav-item">
+                  <a class="nav-link active text-white" aria-current="page" th:href="@{/page/category/2}">Memorii</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active text-white" th:href="@{/page/category/3}" >HDD</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active text-white" th:href="@{/page/category/4}" >SSD</a>
+                </li>
+                <li class="nav-item active text-white">
+                  <a class="nav-link active text-white" th:href="@{/page/category/5}" >CPU</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active active text-white " aria-current="page" th:href="@{/page/category/6}">GPU</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active text-white" th:href="@{/page/category/7}">Placi de baza</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active text-white" th:href="@{/page/category/1}">Mouse </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active text-white" th:href="@{/page/category/8}" >Monitoare</a>
+                  </li>
+              </ul>
+            
+        </div>
+    
+    </header>
+</head>
+<body>
+
+    
+</body>
+</html>
