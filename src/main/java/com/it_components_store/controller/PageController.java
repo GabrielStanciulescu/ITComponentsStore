@@ -21,4 +21,11 @@ public class PageController {
         return "ITpage";
 
     }
+
+    @GetMapping("/search")
+    public String getProductByDescription(Model model, String keyword){
+        List<ProductDto> productList = productService.getProductByDescription(keyword);
+        model.addAttribute("productList", productList);
+        return "ITpage";
+    }
 }

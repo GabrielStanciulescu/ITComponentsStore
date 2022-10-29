@@ -112,6 +112,18 @@ public class ProductServiceImpl implements ProductService {
         }
     }
 
+    @Override
+    public List<ProductDto> getProductByDescription(String description) {
+        List<Product> productList = productRepository.getProducts(description);
+        if (productList.isEmpty()) {
+            throw new DataNotFoundException("Error! Product list it's empty");
+        } else {
+            List<ProductDto> productDtoList;
+            productDtoList = modelMapper.map(productList, new TypeToken<List<ProductDto>>() {}.getType());
+            return  productDtoList;
+        }
+    }
+
 
 }
 

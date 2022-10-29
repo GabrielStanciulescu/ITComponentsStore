@@ -1,8 +1,6 @@
 package com.it_components_store.rest_controllers;
 
 import com.it_components_store.dto.ProductDto;
-import com.it_components_store.entity.Product;
-import com.it_components_store.repository.ProductRepository;
 import com.it_components_store.service.impl.ProductServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
@@ -17,7 +15,6 @@ import java.util.Optional;
 public class ProductController {
 
     private final ProductServiceImpl productService;
-    private final ProductRepository productRepository;
     @PostMapping("/add")
     public void addProduct(@RequestBody ProductDto product) {
 
@@ -43,6 +40,8 @@ public class ProductController {
     public List<ProductDto> getAllProductByCategory(@PathVariable Long id) {
         return productService.getListOfProductByCategory(id);
     }
+
+
 
 
 }
