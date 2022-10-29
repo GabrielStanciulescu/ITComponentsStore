@@ -43,24 +43,19 @@ public class DashBoardController {
         if(productDtoOptional.isPresent()){
             ProductDto productDto = productDtoOptional.get();
             model.addAttribute("productDto",productDto );
-
         }
         return "modify";
     }
 
     @PostMapping("/dashboard/update/{id}")
     public String updateProduct(@ModelAttribute("productDto") ProductDto productDto, @PathVariable Long id){
-
         productService.updateProduct(productDto, id);
-
         return "redirect:/dashboard";
     }
 
     @PostMapping("/dashboard/delete/{id}") //!!! de verificat
     public String deleteProduct(@PathVariable Long id){
-
         productService.deleteProductById(id);
-
         return "redirect:/dashboard";
     }
 }

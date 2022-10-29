@@ -1,7 +1,5 @@
 INSERT INTO categories(name) VALUES ('Mouse'), ('RAM'), ('HDD'), ('SSD'), ('CPU'), ('GPU'), ('Mother Board'), ('Monitor');
 
-
-
 INSERT INTO products(code, description, image_url, name, price, quantity, id_category, stock)
  VALUES ('F4-2133C15S-4GNT','Memorie G.Skill F4 4GB DDR4 2133MHz CL15','https://3.grgs.ro/images/products/1/1415042/1508458/thumbnails/f4-4gb-ddr4-2133mhz-cl15-12v-e59b5b4301e36cb391413b36afcf8a04.jpg'
  ,'RAM',23,100, 2,100),
@@ -105,11 +103,9 @@ INSERT INTO products(code, description, image_url, name, price, quantity, id_cat
         ('F4-2133C15S-4GNT','Placa video MSI Radeon RX 6600 MECH 2X 8GB GDDR6 128-bit','https://3.grgs.ro/images/products/1/9551/2281094/thumbnails/radeon-rx-6600-mech-2x-oc-8gb-gddr6-128-bit-dfce7399853d457f07017f99266a8e86.jpg'
         ,'GPU',23,100, 6,100);
 
-
-
 INSERT INTO roles(name) VALUES ('ADMIN'), ('USER');
 
-INSERT INTO users(address, birthday, email, first_name, last_name, mobile, password, id_role)
+INSERT INTO users(address, birthday, email, first_name, mobile, last_name, password, id_role)
 VALUES ('Ghinea dorinel nr13', '1999-08-01', 'gabriel.stanciulescu@gmail.com', 'Stanciulescu', '0748839324', 'qmajdyhn', 'Gabriel', 1),
        ('Arinului 20', '200-08-01', 'constantin.gabriel@gmail.com', 'Constantin', '0748839324', 'qmajdyhn', 'Gabriel', 2),
        ('Ghinea dorinel nr13', '1999-08-01', 'gabriel.stanciulescu@gmail.com', 'Stanciulescu', '0748839324', 'qmajdyhn', 'Gabriel', 2),
@@ -118,14 +114,3 @@ VALUES ('Ghinea dorinel nr13', '1999-08-01', 'gabriel.stanciulescu@gmail.com', '
        ('Ghinea dorinel nr13', '1999-08-01', 'gabriel.stanciulescu@gmail.com', 'Stanciulescu', '0748839324', 'qmajdyhn', 'Gabriel', 2),
        ('Ghinea dorinel nr13', '1999-08-01', 'gabriel.stanciulescu@gmail.com', 'Stanciulescu', '0748839324', 'qmajdyhn', 'Gabriel', 2),
        ('Ghinea dorinel nr13', '1999-08-01', 'gabriel.stanciulescu@gmail.com', 'Stanciulescu', '0748839324', 'qmajdyhn', 'Gabriel', 1);
-
-
-
-
-
-
-
-
-
-
-

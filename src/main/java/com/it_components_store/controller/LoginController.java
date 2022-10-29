@@ -16,11 +16,6 @@ public class LoginController {
 
     private final UserServiceImpl userService;
 
-    @GetMapping("/login")
-    public String login(){
-        return "login";
-    }
-
     @GetMapping("/register")
     public String register(Model model){
         User user = new User();
@@ -29,8 +24,18 @@ public class LoginController {
     }
 
     @PostMapping("/registerUser")
-    public String userRegister(@ModelAttribute("user") UserDto user){
+    public String userRegister(@ModelAttribute("user") UserDto user) {
         userService.addUsers(user);
          return "redirect:/login";
+    }
+
+    @GetMapping("/login")
+    public String login(){
+        return "login";
+    }
+
+    @PostMapping("/login")
+    public String userLogin(@ModelAttribute("user") UserDto user) {
+        return "redirect:/dashboard";
     }
 }
