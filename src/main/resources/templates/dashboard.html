@@ -25,12 +25,27 @@
                   </select> 
             </div>
             <div class="col">
+                <form   th:action="@{/search/dashboard}" method="get" class="d-flex justify-content-around">
+                    <input type="search" class="form-control" name="keyword"  th:value="${keyword}" placeholder="Cautare produs" aria-label="Search">
+                    <button class="btn btn-primary" type="submit">Cauta</button>
+                </form>
+
+              
+
+            </div>
+         
+            
+            <div class="col">
                 <a th:href="@{/dashboard/product/new}" type="button" class="btn btn-primary">Adauga produs</a>
               </div>
               <div class="col">
+                
               </div>
         </div>
     </div>
+ 
+    
+
    
     </div>
 <div class="container">
@@ -66,6 +81,8 @@
                 </form></td>
             </tr>
         </th:block>
+
+       
         </tbody>
       </table>
 </div>

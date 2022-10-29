@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void addUsers(UserDto userDto) {
         if (userDto == null) {
-            throw new DataNotFoundException("Error Category not found!");
+            throw new DataNotFoundException("Category not found!");
         } else {
             userDto.setIdRole(2L);
             User user = modelMapper.map(userDto, new TypeToken<User>() {}.getType());
@@ -36,11 +36,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public Optional<UserDto> getUsersById(Long id) {
         if (id < 0) {
-            throw new InvalidDataException("Error! Your id " + id + " it's not valid");
+            throw new InvalidDataException("Your id " + id + " it's not valid");
         }
         Optional<User> optionalUsers = usersRepository.findById(id);
         if (optionalUsers.isEmpty()) {
-            throw new DataNotFoundException("Error! The category with id " + id + " does not exist!");
+            throw new DataNotFoundException("The category with id " + id + " does not exist!");
         } else {
             User user = optionalUsers.get();
             UserDto userDto = modelMapper.map(user, UserDto.class);
@@ -52,7 +52,7 @@ public class UserServiceImpl implements UserService {
     public List<UserDto> getListOfUsers() {
         List<User> usersList = usersRepository.findAll();
         if (usersList.isEmpty()) {
-            throw new DataNotFoundException("Error! Category list it's empty");
+            throw new DataNotFoundException("Category list it's empty");
         } else {
             List<UserDto> userDtoList;
             userDtoList = modelMapper.map(usersList, new TypeToken<List<UserDto>>() {}.getType());
@@ -66,10 +66,10 @@ public class UserServiceImpl implements UserService {
     public void deleteUserById(Long id) {
         Optional<User> categoryOptional = usersRepository.findById(id);
         if (id < 0) {
-            throw new InvalidDataException("Error! Your id " + id + " it's not valid, pleas try again with id >=0");
+            throw new InvalidDataException("Your id " + id + " it's not valid, pleas try again with id >=0");
         }
         if (categoryOptional.isEmpty()) {
-            throw new DataNotFoundException("Error User with id " + id + " it's not present in database");
+            throw new DataNotFoundException("User with id " + id + " it's not present in database");
         }
         usersRepository.deleteById(id);
     }

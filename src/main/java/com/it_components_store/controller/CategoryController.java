@@ -12,16 +12,15 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
-public class PageController {
+public class CategoryController {
     private final ProductServiceImpl productService;
-    @GetMapping("/page/category/{id}")
+    @GetMapping("/category/{id}")
     public String getRamPage(Model model, @PathVariable Long id){
-        List<ProductDto> productList = productService.getListOfProductByCategory(id);
+        List<ProductDto> productList = productService.getListOfProductsByCategory(id);
         model.addAttribute("productList", productList);
         return "ITpage";
 
     }
-
     @GetMapping("/search")
     public String getProductByDescription(Model model, String keyword){
         List<ProductDto> productList = productService.getProductByDescription(keyword);

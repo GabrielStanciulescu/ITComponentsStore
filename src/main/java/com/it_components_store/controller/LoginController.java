@@ -25,15 +25,9 @@ public class LoginController {
         model.addAttribute("user",user);
         return "register";
     }
-
     @PostMapping("/registerUser")
     public String userRegister(@ModelAttribute("user") UserDto user){
         userService.addUsers(user);
          return "redirect:/login";
     }
-
-
-
-
-
 }

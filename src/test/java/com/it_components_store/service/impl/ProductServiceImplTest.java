@@ -46,7 +46,7 @@ class ProductServiceImplTest {
     @DisplayName("Test add product")
     void addProductTest() {
         ProductDto productDto = getOneProductDto();
-        productService.adProduct(productDto);
+        productService.addProduct(productDto);
         verify(productRepository).save(productArgumentCaptor.capture());
         assertEquals(getOneProduct(),productArgumentCaptor.getValue());
     }
@@ -54,7 +54,7 @@ class ProductServiceImplTest {
     @Test
     @DisplayName("Test throw DataNotFoundException exception at add product")
     void throwExceptionAddProduct(){
-        Exception exception  = assertThrows(DataNotFoundException.class,()->productService.adProduct(null));
+        Exception exception  = assertThrows(DataNotFoundException.class,()->productService.addProduct(null));
         String expected = "Error! Product not found!";
         String actual = exception.getMessage();
         assertEquals(expected,actual);

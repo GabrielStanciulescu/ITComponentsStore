@@ -20,9 +20,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class ProductControllerTest {
+class ProductRestControllerTest {
     @InjectMocks
-    ProductController productController;
+    ProductRestController productRestController;
 
     @Mock
     ProductServiceImpl productService;
@@ -39,8 +39,8 @@ class ProductControllerTest {
     @DisplayName("Test add product")
     void testAddProduct() {
         ProductDto product = getOneProductDto();
-        productController.addProduct(product);
-        verify(productService, times(1)).adProduct(productArgumentCaptor.capture());
+        productRestController.addProduct(product);
+        verify(productService, times(1)).addProduct(productArgumentCaptor.capture());
         assertEquals(getOneProductDto(), productArgumentCaptor.getValue());
 
 
@@ -50,7 +50,7 @@ class ProductControllerTest {
     @DisplayName("Test get product by name")
     void testGetProductByName() {
         when(productService.getProductById(1L)).thenReturn(Optional.of(getOneProductDto()));
-        Optional<ProductDto> productOptional = productController.getProductById(1L);
+        Optional<ProductDto> productOptional = productRestController.getProductById(1L);
         if (productOptional.isPresent()) {
             ProductDto product = productOptional.get();
             assertEquals(getOneProductDto(), product);
@@ -61,14 +61,14 @@ class ProductControllerTest {
     @DisplayName("Test get all product")
     void testGetAllProduct() {
         when(productService.getListOfProduct()).thenReturn(getListOfProductDto());
-        List<ProductDto> productList = productController.getAllProduct();
+        List<ProductDto> productList = productRestController.getAllProduct();
         assertEquals(getListOfProductDto(), productList);
     }
 
     @Test
     @DisplayName("Test delete product")
     void testDeleteProduct() {
-        productController.deleteById(1L);
+        productRestController.deleteById(1L);
         verify(productService, times(1)).deleteProductById(longArgumentCaptor.capture());
         assertEquals(1, longArgumentCaptor.getValue());
     }

@@ -12,14 +12,13 @@ import java.util.Optional;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(value = "/api/product", produces = MediaType.APPLICATION_JSON_VALUE)
-public class ProductController {
+public class ProductRestController {
 
     private final ProductServiceImpl productService;
     @PostMapping("/add")
     public void addProduct(@RequestBody ProductDto product) {
 
-            productService.adProduct(product);
-
+            productService.addProduct(product);
     }
     @GetMapping("/{id}")
     public Optional<ProductDto> getProductById(@PathVariable Long id) {
@@ -38,7 +37,7 @@ public class ProductController {
 
     @GetMapping("/allbycategory/{id}")
     public List<ProductDto> getAllProductByCategory(@PathVariable Long id) {
-        return productService.getListOfProductByCategory(id);
+        return productService.getListOfProductsByCategory(id);
     }
 
 

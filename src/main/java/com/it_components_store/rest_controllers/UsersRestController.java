@@ -12,7 +12,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping(value = "/api/users", produces = MediaType.APPLICATION_JSON_VALUE)
-public class UsersController {
+public class UsersRestController {
 
     private final UserServiceImpl usersService;
 

@@ -20,9 +20,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class UsersControllerTest {
+class UsersRestControllerTest {
     @InjectMocks
-    UsersController usersController;
+    UsersRestController usersRestController;
 
     @Mock
     UserServiceImpl userService;
@@ -36,7 +36,7 @@ class UsersControllerTest {
     @Test
     void addUsers() {
         UserDto user = getOneUserDto();
-        usersController.addUsers(user);
+        usersRestController.addUsers(user);
         verify(userService,times(1)).addUsers(userArgumentCaptor.capture());
       assertEquals(user,userArgumentCaptor.getValue());
 
@@ -46,7 +46,7 @@ class UsersControllerTest {
     @DisplayName("Test get user by name")
     void testGetUserByName() {
         when(userService.getUsersById(1L)).thenReturn(Optional.of(getOneUserDto()));
-        Optional<UserDto> userOptional = usersController.getUsersById(1L);
+        Optional<UserDto> userOptional = usersRestController.getUsersById(1L);
         if(userOptional.isPresent()){
             UserDto user = userOptional.get();
             assertEquals(getOneUserDto().toString(), user.toString());
@@ -57,14 +57,14 @@ class UsersControllerTest {
     @DisplayName("Test get all users")
     void testGetAllCategory(){
         when(userService.getListOfUsers()).thenReturn(getListUsersDto());
-        List<UserDto> usersList = usersController.getAllUsers();
+        List<UserDto> usersList = usersRestController.getAllUsers();
         assertEquals(getListUsersDto().toString(),usersList.toString());
     }
 
     @Test
     @DisplayName("Test delete user")
     void testDeleteUser(){
-        usersController.deleteById(1L);
+        usersRestController.deleteById(1L);
         verify(userService,times(1)).deleteUserById(longArgumentCaptor.capture());
         assertEquals(1, longArgumentCaptor.getValue());
     }

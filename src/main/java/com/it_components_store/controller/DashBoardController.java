@@ -34,7 +34,7 @@ public class DashBoardController {
     }
     @PostMapping("/dashboard/product/save")
     public String saveNewProduct( @ModelAttribute("product") ProductDto productDto){
-        productService.adProduct(productDto);
+        productService.addProduct(productDto);
         return "redirect:/dashboard";
 
     }
@@ -65,11 +65,10 @@ public class DashBoardController {
         return "redirect:/dashboard";
     }
 
-
-
-
-
-
-
-
+    @GetMapping("/search/dashboard")
+    public String getProductByDescription(Model model, String keyword){
+        List<ProductDto> productList = productService.getProductByDescription(keyword);
+        model.addAttribute("productList", productList);
+        return "dashboard";
+    }
 }

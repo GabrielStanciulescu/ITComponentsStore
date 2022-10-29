@@ -25,7 +25,6 @@ public class Order {
         Order order = (Order) o;
         return Objects.equals(idOrder, order.idOrder);
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(idOrder);
