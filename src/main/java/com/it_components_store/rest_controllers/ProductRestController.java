@@ -15,10 +15,12 @@ import java.util.Optional;
 public class ProductRestController {
 
     private final ProductServiceImpl productService;
+
     @PostMapping("/add")
     public void addProduct(@RequestBody ProductDto product) {
 
             productService.addProduct(product);
+
     }
     @GetMapping("/{id}")
     public Optional<ProductDto> getProductById(@PathVariable Long id) {
@@ -39,6 +41,8 @@ public class ProductRestController {
     public List<ProductDto> getAllProductByCategory(@PathVariable Long id) {
         return productService.getListOfProductsByCategory(id);
     }
+
+
 
 
 

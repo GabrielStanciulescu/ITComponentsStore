@@ -110,7 +110,19 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<ProductDto> getProductByDescription(String description) {
-        List<Product> productList = productRepository.getProducts(description);
+        List<Product> productList = productRepository.findAllByDescriptionIsContainingIgnoreCase(description);
+        if (productList.isEmpty()) {
+            throw new DataNotFoundException("Product list it's empty");
+        } else {
+            List<ProductDto> productDtoList;
+            productDtoList = modelMapper.map(productList, new TypeToken<List<ProductDto>>() {}.getType());
+            return  productDtoList;
+        }
+    }
+
+    @Override
+    public List<ProductDto> getByCustomSearch(String custom) {
+        List<Product> productList = productRepository.findByCustomSearch(custom);
         if (productList.isEmpty()) {
             throw new DataNotFoundException("Product list it's empty");
         } else {

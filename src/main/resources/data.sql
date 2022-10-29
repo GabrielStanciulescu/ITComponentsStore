@@ -92,7 +92,7 @@ INSERT INTO products(code, description, image_url, name, price, quantity, id_cat
         ,'GPU',23,100, 6,100),
         ('F4-2133C15S-4GNT','Placa video Gainward GeForce RTX 3060 Ghost LHR 12GB GDDR6 192-bit','https://3.grgs.ro/images/products/1/7958/2147094/thumbnails/geforce-rtx-3060-ghost-lhr-12gb-gddr6-192-bit-10919669f9935ebf7f292daf6a43b8cd.jpg'
         ,'GPU',23,100, 6,100),
-        ('F4-2133C15S-4GNT','Placa video GIGABYTE GeForce RTX 3060 EAGLE LHR 12GB GDDR6 192-bit','https://3.grgs.ro/images/products/1/5113/2241666/thumbnails/geforce-rtx-3060-eagle-lhr-12gb-gddr6-192-bit-2a8f848de5e2d8fdafa50570a998fdb5.jpg'
+        ('F4-2133C15S-4GNT','Placa video GIGABYTE GeForce RTX 3060 LHR 12GB GDDR6 192-bit','https://3.grgs.ro/images/products/1/5113/2241666/thumbnails/geforce-rtx-3060-eagle-lhr-12gb-gddr6-192-bit-2a8f848de5e2d8fdafa50570a998fdb5.jpg'
         ,'GPU',23,100, 6,100),
         ('F4-2133C15S-4GNT','Placa video Palit GeForce RTX 3060 Ti Dual LHR 8GB GDDR6 256-bit','https://1.grgs.ro/images/products/1/2118138/2118506/thumbnails/geforce-rtx-3060-ti-dual-8gb-gddr6-256-bit-9f0c838e1a637cee7e8873083510a44a.jpg'
         ,'GPU',23,100, 6,100),
@@ -103,13 +103,69 @@ INSERT INTO products(code, description, image_url, name, price, quantity, id_cat
         ('F4-2133C15S-4GNT','Placa video ASUS GeForce RTX 3050 DUAL OC LHR 8GB GDDR6 128-bit','https://4.grgs.ro/images/products/1/9805/2334756/thumbnails/geforce-rtx-3050-dual-oc-lhr-8gb-gddr6-128-bit-63641329b2edb32c119a67d67c4275a9.jpg'
         ,'GPU',23,100, 6,100),
         ('F4-2133C15S-4GNT','Placa video MSI Radeon RX 6600 MECH 2X 8GB GDDR6 128-bit','https://3.grgs.ro/images/products/1/9551/2281094/thumbnails/radeon-rx-6600-mech-2x-oc-8gb-gddr6-128-bit-dfce7399853d457f07017f99266a8e86.jpg'
-        ,'GPU',23,100, 6,100);
+        ,'GPU',23,100, 6,100),
+
+
+        ('F4-2133C15S-4GNT','Placa de baza ASUS PRIME H310M-K R2.0','https://3.grgs.ro/images/products/1/5015/1772992/thumbnails/prime-h310m-k-r20-ee27e813e8d0c1a1e94b328ef1d4b5be.jpg'
+        ,'Board',23,100, 7,100),
+        ('F4-2133C15S-4GNT','Placa de baza ASUS PRIME H310M-R R2.0','https://5.grgs.ro/images/products/1/1804216/1768500/thumbnails/h310m-r-r20-ec662ea4b7460dba316dc3893b3e1146.jpg'
+        ,'Board',23,100, 7,100),
+        ('F4-2133C15S-4GNT','Placa de baza GIGABYTE H410M H V3','https://5.grgs.ro/images/products/1/1724/2215614/thumbnails/h410m-h-v3-1c84950a38b7b1cd4585dfc1bab5f417.jpg'
+        ,'Board',23,100, 7,100),
+        ('F4-2133C15S-4GNT','Placa de baza ASRock H510M-HVS R2.0','https://2.grgs.ro/images/products/1/4659/2241034/thumbnails/h510m-hvs-7d3ee31c4da706ad18832902c7c05339.jpg'
+        ,'Board',23,100, 7,100),
+        ('F4-2133C15S-4GNT','Placa de baza GIGABYTE Z590 GAMING X','https://3.grgs.ro/images/products/1/9395/2134686/thumbnails/z590-gaming-x-45c1e55d7c60e37b636c0c0c23aaf352.jpg'
+        ,'Board',23,100, 7,100),
+        ('F4-2133C15S-4GNT','Placa de baza GIGABYTE B660M GAMING X DDR4','https://4.grgs.ro/images/products/1/9805/2335920/thumbnails/gigabyte-b660m-gaming-x-ddr4-lga-1700-1xhdmi-1xdp-4xsata-6gb-s-cdcc5193a300b596077a47676d94c2cf.jpg'
+        ,'Board',23,100, 7,100),
+        ('F4-2133C15S-4GNT','Placa de baza GIGABYTE B550 AORUS ELITE V2','https://3.grgs.ro/images/products/1/4917/2068982/thumbnails/b550-aorus-elite-v2-d5f73fdc77512e76f582123fcd0ab811.png'
+        ,'Board',23,100, 7,100),
+        ('F4-2133C15S-4GNT','Placa de baza ASRock Z790 PRO RS/D4','https://2.grgs.ro/images/products/1/7985/2490152/thumbnails/z790-pro-rs-d4-608a8c22edd3d979f41b279b207c739d.jpg'
+        ,'Board',23,100, 7,100),
+        ('F4-2133C15S-4GNT','Placa de baza ASRock B650E PG RIPTIDE WIFI','https://4.grgs.ro/images/products/1/9552/2486548/thumbnails/b650e-pg-riptide-wifi-0eca9ea1821c610b2e532a5fc87589e7.jpg'
+        ,'Board',23,100, 7,100),
+
+        ('F4-2133C15S-4GNT','Mouse Gaming AQIRYS Acrux','https://4.grgs.ro/images/products/1/352/2125886/thumbnails/acrux-d6a7f73caf16cd53f3147963e4a8f0c4.jpg'
+        ,'Mouse',23,100, 1,100),
+        ('F4-2133C15S-4GNT','Mouse Logitech MX Master 3 Wireless/Bluetooh, Black','https://1.grgs.ro/images/products/1/2001/2251302/thumbnails/910-005710-a108291fc68e434b0ef0f7d00af3124c.jpg'
+        ,'',23,100, 1,100),
+        ('F4-2133C15S-4GNT','Mouse Gaming Redragon TitanoBoa2 V2 RGBTip mouse: Wired','https://5.grgs.ro/images/products/1/3395/2294886/thumbnails/titanoboa2-v2-rgb-fcf4203958eef4166db4fe4250323792.jpg'
+        ,'Mouse',23,100, 1,100),
+        ('F4-2133C15S-4GNT','Mouse Gaming Redragon Impact Elite RGB Wireless','https://3.grgs.ro/images/products/1/3991/2481608/thumbnails/impact-elite-rgb-wireless-cc321bd21930045c334a3b2f319432e1.jpg'
+        ,'Mouse',23,100, 1,100),
+        ('F4-2133C15S-4GNT','Mouse ASUS UT280 Black','https://3.grgs.ro/images/products/1/1088254/1427910/thumbnails/ut280-black-79812ce7ab79f749820bb6f291a6a0e7.jpg'
+        ,'Mouse',23,100, 1,100),
+        ('F4-2133C15S-4GNT','Mouse Logitech M185, Wireless, Red','https://5.grgs.ro/images/products/1/5/270249/thumbnails/m185-red-35c83e9f058bd3c8b43fce47dcae336c.jpg'
+        ,'Mouse',23,100, 1,100),
+        ('F4-2133C15S-4GNT','Mouse Logitech M185, Wireless, Blue','https://4.grgs.ro/images/products/1/4/270247/thumbnails/m185-blue-fddb91f584e58054e5fcbae98dfd4421.jpg'
+        ,'Mouse',23,100, 1,100),
+        ('F4-2133C15S-4GNT','Mouse HP 200 Black','https://1.grgs.ro/images/products/1/472773/1451142/thumbnails/200-black-a8fb3be311b1ebee697136e7bb5c5b2d.jpg'
+        ,'Mouse',23,100, 1,100),
+        ('F4-2133C15S-4GNT','Mouse Microsoft Wireless Mobile 1850 Black','https://3.grgs.ro/images/products/1/862955/869194/thumbnails/mobile-1850-black-eadfb882d2186b7c16c71c9f80837f67.jpg'
+        ,'Mouse',23,100, 1,100),
+
+        ('F4-2133C15S-4GNT','Monitor LED ViewSonic Gaming  Curbat 23.6 inch FHD VA 1 ms 165 Hz','https://1.grgs.ro/images/products/1/75/2439344/thumbnails/gaming-vx2418c-curbat-238-inch-fhd-va-1-ms-165-hz-freesync-premium-c940fd7352f9943958e7675928f3b2bf.jpg'
+        ,'Monitor',23,100, 8,100),
+        ('F4-2133C15S-4GNT','Monitor LED LG Gaming  23.8 inch FHD IPS 5 ms 75 Hz FreeSync','https://5.grgs.ro/images/products/1/1642372/1648688/thumbnails/gaming-22mk430h-215-inch-5-ms-black-free-sync-75hz-9b240323c84bd034a6a94670e70d0a96.jpg'
+        ,'Monitor',23,100, 8,100),
+        ('F4-2133C15S-4GNT','Monitor LED Acer Gaming VG270 27 inch FHD IPS 1 ms 75 Hz FreeSync','https://2.grgs.ro/images/products/1/1723568/1726852/thumbnails/gaming-vg270bmiix-27-inch-1-ms-black-freesync-75-hz-ea27d4b0fa2c900bf07f8437519b5cc8.jpg'
+        ,'Monitor',23,100, 8,100),
+        ('F4-2133C15S-4GNT','Monitor LED Acer Gaming PG1 23.8 inch FHD VA 1 ms 144 Hz','https://2.grgs.ro/images/products/1/1154/2413832/thumbnails/pg1-238-inch-fhd-va-1-ms-144-hz-freesync-premium-a1c30d09f4e114794f692b5084c7b065.jpg'
+        ,'Monitor',23,100, 8,100),
+        ('F4-2133C15S-4GNT','Monitor LED ViewSonic  23.8 inch FHD VA 4 ms 60 Hz','https://2.grgs.ro/images/products/1/6878/2309410/thumbnails/va2406-h-238-inch-fhd-va-4-ms-60-hz-a1576fc75558f64d3695cc397da65a2e.jpg'
+        ,'Monitor',23,100, 8,100),
+        ('F4-2133C15S-4GNT','Monitor LED DELL  23.8 inch FHD VA 5 ms 75 Hz FreeSync','https://5.grgs.ro/images/products/1/7132/2239838/thumbnails/se2422h-238-inch-5-ms-negru-freesync-75-hz-098b953d3a928735461c53e7f13a632e.jpg'
+        ,'Monitor',23,100, 8,100),
+        ('F4-2133C15S-4GNT','Monitor LED Tesla 24MC625BF 23.8 inch FHD IPS 5 ms 75 Hz','https://3.grgs.ro/images/products/1/710/2380220/thumbnails/24mc625bf-238-inch-fhd-ips-5-ms-75-hz-freesync-4d7d11e6ea8e6aa1386d232d737b371a.jpg'
+        ,'Monitor',23,100, 8,100),
+        ('F4-2133C15S-4GNT','Monitor LED Acer V247Y 23.8 inch FHD IPS 4 ms 75 Hz','https://2.grgs.ro/images/products/1/4960/2403988/thumbnails/v247y-238-inch-fhd-ips-4-ms-75-hz-771c1ef195affe86e2e4e7a9697a71e6.jpg'
+        ,'Monitor',23,100, 8,100);
 
 
 
 INSERT INTO roles(name) VALUES ('ADMIN'), ('USER');
 
-INSERT INTO users(address, birthday, email, first_name, last_name, mobile, password, id_role)
+INSERT INTO users(address, birthday, email, first_name,mobile ,  password, last_name, id_role)
 VALUES ('Ghinea dorinel nr13', '1999-08-01', 'gabriel.stanciulescu@gmail.com', 'Stanciulescu', '0748839324', 'qmajdyhn', 'Gabriel', 1),
        ('Arinului 20', '200-08-01', 'constantin.gabriel@gmail.com', 'Constantin', '0748839324', 'qmajdyhn', 'Gabriel', 2),
        ('Ghinea dorinel nr13', '1999-08-01', 'gabriel.stanciulescu@gmail.com', 'Stanciulescu', '0748839324', 'qmajdyhn', 'Gabriel', 2),

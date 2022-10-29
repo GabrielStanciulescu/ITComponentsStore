@@ -13,5 +13,6 @@ public interface ProductService {
     void updateProduct(ProductDto productDto, Long id);
     List<ProductDto> getListOfProductsByCategory(Long id);
     List<ProductDto> getProductByDescription(String description);
+    List<ProductDto> getByCustomSearch(String custom);
 
 }
