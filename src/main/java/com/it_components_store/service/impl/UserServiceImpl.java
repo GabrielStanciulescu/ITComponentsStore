@@ -24,23 +24,22 @@ public class UserServiceImpl implements UserService {
     @Override
     public void addUsers(UserDto userDto) {
         if (userDto == null) {
-            throw new DataNotFoundException("Error Category not found!");
+            throw new DataNotFoundException("User not found!");
         } else {
             userDto.setIdRole(2L);
-            User user = modelMapper.map(userDto, new TypeToken<User>() {}.getType());
+            User user = modelMapper.map(userDto, User.class);
             usersRepository.save(user);
         }
-
     }
 
     @Override
     public Optional<UserDto> getUsersById(Long id) {
         if (id < 0) {
-            throw new InvalidDataException("Error! Your id " + id + " it's not valid");
+            throw new InvalidDataException(String.format("User with id %s is invalid", id));
         }
         Optional<User> optionalUsers = usersRepository.findById(id);
         if (optionalUsers.isEmpty()) {
-            throw new DataNotFoundException("Error! The category with id " + id + " does not exist!");
+            throw new DataNotFoundException(String.format("User with id %s is not present in database", id));
         } else {
             User user = optionalUsers.get();
             UserDto userDto = modelMapper.map(user, UserDto.class);
@@ -52,27 +51,25 @@ public class UserServiceImpl implements UserService {
     public List<UserDto> getListOfUsers() {
         List<User> usersList = usersRepository.findAll();
         if (usersList.isEmpty()) {
-            throw new DataNotFoundException("Error! Category list it's empty");
+            throw new DataNotFoundException("User list it's empty"); // this should not exist
         } else {
             List<UserDto> userDtoList;
-            userDtoList = modelMapper.map(usersList, new TypeToken<List<UserDto>>() {}.getType());
-
+            userDtoList = modelMapper.map(usersList, new TypeToken<List<UserDto>>() {
+            }.getType());
             return userDtoList;
         }
-
     }
 
     @Override
     public void deleteUserById(Long id) {
-        Optional<User> categoryOptional = usersRepository.findById(id);
+        Optional<User> userOptional = usersRepository.findById(id);
         if (id < 0) {
-            throw new InvalidDataException("Error! Your id " + id + " it's not valid, pleas try again with id >=0");
+            throw new InvalidDataException(String.format("User id %s it's not valid, pleas try again with id >=0", id));
         }
-        if (categoryOptional.isEmpty()) {
-            throw new DataNotFoundException("Error User with id " + id + " it's not present in database");
+        if (userOptional.isEmpty()) {
+            throw new DataNotFoundException(String.format("User with id %s is not present in database", id));
         }
         usersRepository.deleteById(id);
     }
-
-    }
+}
 

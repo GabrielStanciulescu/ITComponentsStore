@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 @RequiredArgsConstructor
 public class LoginController {
+
     private final UserServiceImpl userService;
+
     @GetMapping("/login")
     public String login(){
         return "login";
@@ -31,9 +33,4 @@ public class LoginController {
         userService.addUsers(user);
          return "redirect:/login";
     }
-
-
-
-
-
 }

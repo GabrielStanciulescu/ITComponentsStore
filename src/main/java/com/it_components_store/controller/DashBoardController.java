@@ -1,7 +1,5 @@
 package com.it_components_store.controller;
 
-//import com.it_components_store.entity.ProductDto;
-
 import com.it_components_store.dto.ProductDto;
 import com.it_components_store.service.impl.ProductServiceImpl;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +16,7 @@ import java.util.Optional;
 @Controller
 @RequiredArgsConstructor
 public class DashBoardController {
+
     private final ProductServiceImpl productService;
 
     @GetMapping("/dashboard")
@@ -34,7 +33,7 @@ public class DashBoardController {
     }
     @PostMapping("/dashboard/product/save")
     public String saveNewProduct( @ModelAttribute("product") ProductDto productDto){
-        productService.adProduct(productDto);
+        productService.addProduct(productDto);
         return "redirect:/dashboard";
 
     }
@@ -64,12 +63,4 @@ public class DashBoardController {
 
         return "redirect:/dashboard";
     }
-
-
-
-
-
-
-
-
 }

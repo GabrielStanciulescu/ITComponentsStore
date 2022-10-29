@@ -22,8 +22,12 @@ public class ProductDto {
     private String description;
 
     private String code;
+
     private Integer quantity;
-    private Long categoryId;
+
     private String imageUrl;
 
+    private Long categoryId;
+
+    private Long orderId;
 }

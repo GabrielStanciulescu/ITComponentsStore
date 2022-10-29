@@ -6,11 +6,11 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ProductService {
-    void adProduct(ProductDto productDto);
+    void addProduct(ProductDto productDto);
     Optional<ProductDto> getProductById(Long id);
     List<ProductDto> getListOfProduct();
     void deleteProductById(Long id);
     void updateProduct(ProductDto productDto, Long id);
-    List<ProductDto> getListOfProductByCategory( Long id);
+    List<ProductDto> getListOfProductsByCategory( Long id);
 
 }

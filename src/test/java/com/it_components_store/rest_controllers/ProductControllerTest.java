@@ -40,7 +40,7 @@ class ProductControllerTest {
     void testAddProduct() {
         ProductDto product = getOneProductDto();
         productController.addProduct(product);
-        verify(productService, times(1)).adProduct(productArgumentCaptor.capture());
+        verify(productService, times(1)).addProduct(productArgumentCaptor.capture());
         assertEquals(getOneProductDto(), productArgumentCaptor.getValue());
 
 
