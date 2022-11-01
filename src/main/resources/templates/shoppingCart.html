@@ -9,8 +9,18 @@
     <header th:replace="~{/fragments/layout :: header}"></header>
 </head>
 <body>
-
 <div class="container">
+    <div class="card float-right" style="width: 25rem;">
+        <div class="card-body">
+            <h5 class="card-title">Sumar comanda</h5>
+            <p class="card-text">Cost livrare: 25 RON </p>
+            <p class="card-text">Cost Total: [[${price}]] RON </p>
+
+<!--            <a href="#" class="card-link">Another link</a>-->
+            <button type="submit" class="btn btn-sm  btn-primary">Comanda </button>
+
+        </div>
+    </div>
     <div class="row gy-3">
         <th:block th:each="shoppingCartDto: ${shoppingCart}">
             <div class="col-12">
@@ -24,16 +34,25 @@
                                 <h5 class="card-title">[[${shoppingCartDto.name}]]</h5>
                                 <p class="card-text">[[${shoppingCartDto.description}]]</p>
                                 <p class="card-text"> Cantitate: [[${shoppingCartDto.quantity}]] </p>
-                                <p class="card-text"><small class="text-muted">Sterge produs</small></p>
+                                <p class="card-text"> Pret: [[${shoppingCartDto.price}]] RON </p>
+                                <form action="#" th:action="@{/deleteproduct/{id}(id=${shoppingCartDto.idShoppingCart})}" th:method="post" th:object="${productDto}" >
+
+                                        <button type="submit" class="btn btn-sm btn-danger">Sterge din lista</button>
+
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
+
+
         </th:block>
 
+
     </div>
+
 
 
 

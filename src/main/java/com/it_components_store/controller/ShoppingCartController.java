@@ -28,7 +28,12 @@ public class ShoppingCartController {
     @GetMapping("/shoppingcart")
     public String getShoppingCart(Model model) {
         List<ShoppingCartDto> shoppingCart = shoppingCartService.getListOfShoppingCart();
-        model.addAttribute("shoppingCart", shoppingCart);
+        Integer price=0;
+        for (ShoppingCartDto shoppingCartDto : shoppingCart) {
+            price += shoppingCartDto.getPrice();
+        }
+        model.addAttribute("shoppingCart", shoppingCart );
+        model.addAttribute("price", price);
         return "shoppingCart";
     }
 
@@ -39,12 +44,18 @@ public class ShoppingCartController {
            throw new DataNotFoundException("Product not found");
         }
         ProductDto productDto = productDtoOptional.get();
-        ShoppingCartDto shoppingCartDto = modelMapper.map(productDto, new TypeToken<ShoppingCartDto>() {
-        }.getType());
+        ShoppingCartDto shoppingCartDto = modelMapper.map(productDto, new TypeToken<ShoppingCartDto>() {}.getType());
         shoppingCartDto.setQuantity(1);
         shoppingCartService.addShoppingCart(shoppingCartDto);
         System.out.println("arata mi id ul" + idProduct);
             return "redirect:/category/" + idProduct;
+        }
+
+        @PostMapping("/deleteproduct/{id}")
+    public  String deleteProduct(@PathVariable Long id){
+        shoppingCartService.deleteShoppingCartById(id);
+
+        return "redirect:/shoppingcart";
         }
     }
 

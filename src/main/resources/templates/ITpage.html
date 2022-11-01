@@ -23,9 +23,8 @@
                         <p class="card-text"> stock magazin [[${productDto.stock}]] </p>
                         <p class = "card-text">[[${productDto.price}]] RON </p>
                         <form action="#" th:action="@{/add/cart/{id}/{idProduct}(id=${productDto.idProduct},idProduct=${productDto.categoryId})  }" th:method="post"  >
-                            <div class="col">
                                 <button type="submit" class="btn btn-sm btn-primary">Adauga in cos</button>
-                            </div>
+
                         </form>
                     </div>
                   </div>
