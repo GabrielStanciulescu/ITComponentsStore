@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Controller
@@ -28,9 +29,11 @@ public class ShoppingCartController {
     @GetMapping("/shoppingcart")
     public String getShoppingCart(Model model) {
         List<ShoppingCartDto> shoppingCart = shoppingCartService.getListOfShoppingCart();
-        Integer price=0;
+        int price=0;
         for (ShoppingCartDto shoppingCartDto : shoppingCart) {
-            price += shoppingCartDto.getPrice();
+            int quantity = shoppingCartDto.getQuantity();
+
+            price += shoppingCartDto.getPrice()*quantity;
         }
         model.addAttribute("shoppingCart", shoppingCart );
         model.addAttribute("price", price);
@@ -38,14 +41,16 @@ public class ShoppingCartController {
     }
 
     @PostMapping("/add/cart/{id}/{idProduct}")
-    public String addShoppingCart(@PathVariable Long id , @PathVariable Long idProduct) {
+    public String addShoppingCart(@PathVariable Long id , @PathVariable Long idProduct, Integer quantity) {
         Optional<ProductDto> productDtoOptional = productService.getProductById(id);
         if (productDtoOptional.isEmpty()) {
            throw new DataNotFoundException("Product not found");
         }
         ProductDto productDto = productDtoOptional.get();
         ShoppingCartDto shoppingCartDto = modelMapper.map(productDto, new TypeToken<ShoppingCartDto>() {}.getType());
-        shoppingCartDto.setQuantity(1);
+        shoppingCartDto.setQuantity(Objects.requireNonNullElse(quantity, 1));
+
+
         shoppingCartService.addShoppingCart(shoppingCartDto);
         System.out.println("arata mi id ul" + idProduct);
             return "redirect:/category/" + idProduct;

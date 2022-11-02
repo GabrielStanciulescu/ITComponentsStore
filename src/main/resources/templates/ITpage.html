@@ -24,6 +24,7 @@
                         <p class = "card-text">[[${productDto.price}]] RON </p>
                         <form action="#" th:action="@{/add/cart/{id}/{idProduct}(id=${productDto.idProduct},idProduct=${productDto.categoryId})  }" th:method="post"  >
                                 <button type="submit" class="btn btn-sm btn-primary">Adauga in cos</button>
+                            <input type="text" class="form-control float-right col-3" name="quantity" th:value="${quantity}" placeholder="1" >
 
                         </form>
                     </div>
