@@ -10,9 +10,7 @@ import java.util.List;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
     List<Product> getAllByCategory_IdCategory(Long id);
-
     List<Product> findAllByDescriptionIsContainingIgnoreCase(String keywords);
-
     @Query(value = "SELECT * FROM products ORDER BY ?1",nativeQuery = true)
     List<Product> findByCustomSearch(String custom);
 }

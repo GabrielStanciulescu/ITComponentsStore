@@ -17,13 +17,9 @@ public class ShoppingCart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idShoppingCart;
     private String name;
-
     private Integer price;
-
     private Integer quantity;
-
     private String description;
-
     private String imageUrl;
 
     @ManyToOne

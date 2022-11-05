@@ -20,7 +20,7 @@
                     <div class="card-body">
                       <h5 class="card-title">[[${productDto.name}]]</h5>
                       <p class="card-text">[[${productDto.description}]]</p>
-                        <p class="card-text"> stock magazin [[${productDto.stock}]] </p>
+                        <p class="card-text"> stock magazin [[${productDto.quantity}]] </p>
                         <p class = "card-text">[[${productDto.price}]] RON </p>
                         <form action="#" th:action="@{/add/cart/{id}/{idProduct}(id=${productDto.idProduct},idProduct=${productDto.categoryId})  }" th:method="post"  >
                                 <button type="submit" class="btn btn-sm btn-primary">Adauga in cos</button>

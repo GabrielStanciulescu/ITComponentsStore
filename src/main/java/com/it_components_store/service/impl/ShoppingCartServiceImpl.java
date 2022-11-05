@@ -30,7 +30,6 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         }
 
     }
-
     @Override
     public Optional<ShoppingCartDto> getShoppingCartById(Long id) {
         if (id < 0) {
@@ -45,7 +44,6 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
             return Optional.of(shoppingCartDto);
         }
     }
-
     @Override
     public List<ShoppingCartDto> getListOfShoppingCart() {
         List<ShoppingCart> shoppingCartList = shoppingCartRepository.findAll();
@@ -57,7 +55,6 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
             return  shoppingCartDtoList;
         }
     }
-
     @Override
     public void deleteShoppingCartById(Long id) {
         Optional<ShoppingCart> shoppingCart = shoppingCartRepository.findById(id);
@@ -69,5 +66,10 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         }
         shoppingCartRepository.deleteById(id);
 
+    }
+
+    @Override
+    public void deleteAll() {
+        shoppingCartRepository.deleteAll();
     }
 }

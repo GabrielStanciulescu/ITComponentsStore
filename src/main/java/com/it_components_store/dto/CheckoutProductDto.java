@@ -9,16 +9,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class OrderDto {
-    private String firstName;
+public class CheckoutProductDto {
+    private Long id;
     private String orderCode;
-    private String lastName;
-    private String email;
-    private String address;
-    private String mobile;
-    private String description;
-    private Integer quantity;
-    private Long idProduct;
     private Integer price;
+
+
 
 }
