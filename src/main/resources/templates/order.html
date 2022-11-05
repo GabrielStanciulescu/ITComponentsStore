@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modificare</title>
+    <title>Detalii comanda</title>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
@@ -15,12 +15,12 @@
     <div class="row main">
         <div class="panel-heading">
             <div class="panel-title text-center">
-                <h1 class="title" href="#"> <a class="navbar-brand" th:href="@{/login}">Detalii comanda</a></h1>
+                <h1 class="title" href="#"> <a class="navbar-brand" >Detalii comanda</a></h1>
 
                 <hr />
             </div>
 
-            <form action="#" th:action="@{/registerUser}"  method="post" th:object="${user}">
+            <form action="#" th:action="@{/orderpage/orderproducts}"  method="post" th:object="${order}">
                 <div class="row gy-3">
 
 

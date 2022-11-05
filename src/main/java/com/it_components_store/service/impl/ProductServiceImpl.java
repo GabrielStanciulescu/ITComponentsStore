@@ -23,8 +23,6 @@ public class ProductServiceImpl implements ProductService {
     private final ProductRepository productRepository;
     private  final CategoryRepository categoryRepository;
     private final ModelMapper modelMapper;
-
-
     @Override
     public void addProduct(ProductDto productDto) {
         if (productDto == null) {
@@ -34,7 +32,6 @@ public class ProductServiceImpl implements ProductService {
              productRepository.save(product);
         }
     }
-
     @Override
     public Optional<ProductDto> getProductById(Long id) {
         if (id < 0) {
@@ -50,7 +47,6 @@ public class ProductServiceImpl implements ProductService {
         }
 
     }
-
     @Override
     public List<ProductDto> getListOfProduct() {
         List<Product> productList = productRepository.findAll();
@@ -63,7 +59,6 @@ public class ProductServiceImpl implements ProductService {
         }
 
     }
-
     @Override
     public void deleteProductById(Long id) {
 
@@ -75,11 +70,7 @@ public class ProductServiceImpl implements ProductService {
             throw new DataNotFoundException("Category with id " + id + " it's not present in database");
         }
         productRepository.deleteById(id);
-
-
-
     }
-
     @Override
     public void updateProduct(ProductDto productDto, Long id) {
         Product product = productRepository.findById(id).orElseThrow(()->new DataNotFoundException("Category with id " + id + " it's not present in database"));
@@ -90,7 +81,7 @@ public class ProductServiceImpl implements ProductService {
         product.setStock(productDto.getStock());
         product.setDescription(productDto.getDescription());
         product.setCode(productDto.getCode());
-        product.setQuantity(product.getQuantity());
+        product.setQuantity(productDto.getQuantity());
         product.setCategory(categoryFromDto);
         product.setImageUrl(productDto.getImageUrl());
         productRepository.save(product);
@@ -107,7 +98,6 @@ public class ProductServiceImpl implements ProductService {
             return  productDtoList;
         }
     }
-
     @Override
     public List<ProductDto> getProductByDescription(String description) {
         List<Product> productList = productRepository.findAllByDescriptionIsContainingIgnoreCase(description);
@@ -119,7 +109,6 @@ public class ProductServiceImpl implements ProductService {
             return  productDtoList;
         }
     }
-
     @Override
     public List<ProductDto> getByCustomSearch(String custom) {
         List<Product> productList = productRepository.findByCustomSearch(custom);

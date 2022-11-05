@@ -22,30 +22,20 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Builder
 @Table(name = "users")
 public class User {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUser;
-
     private String firstName;
-
     private String lastName;
-
     private String email;
-
     private String password;
-
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthday;
-
     private String address;
-
     private String mobile;
-
     @ManyToOne()
     @JoinColumn(name = "id_role")
     private Role role;
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -53,7 +43,6 @@ public class User {
         User user = (User) o;
         return idUser != null && Objects.equals(idUser, user.idUser);
     }
-
     @Override
     public int hashCode() {
         return getClass().hashCode();

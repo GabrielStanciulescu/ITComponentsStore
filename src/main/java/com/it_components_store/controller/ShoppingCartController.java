@@ -52,7 +52,6 @@ public class ShoppingCartController {
 
 
         shoppingCartService.addShoppingCart(shoppingCartDto);
-        System.out.println("arata mi id ul" + idProduct);
             return "redirect:/category/" + idProduct;
         }
 

@@ -10,6 +10,7 @@ public interface ShoppingCartService {
     Optional<ShoppingCartDto> getShoppingCartById(Long id);
     List<ShoppingCartDto> getListOfShoppingCart();
     void deleteShoppingCartById(Long id);
+    void deleteAll();
 
 
 }

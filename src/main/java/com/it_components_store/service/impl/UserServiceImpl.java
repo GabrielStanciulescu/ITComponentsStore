@@ -17,10 +17,8 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
-
     private final UserRepository usersRepository;
     private final ModelMapper modelMapper;
-
     @Override
     public void addUsers(UserDto userDto) {
         if (userDto == null) {
@@ -30,9 +28,7 @@ public class UserServiceImpl implements UserService {
             User user = modelMapper.map(userDto, new TypeToken<User>() {}.getType());
             usersRepository.save(user);
         }
-
     }
-
     @Override
     public Optional<UserDto> getUsersById(Long id) {
         if (id < 0) {
