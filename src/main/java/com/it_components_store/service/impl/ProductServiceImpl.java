@@ -38,7 +38,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Optional<ProductDto> getProductById(Long id) {
         if (id < 0) {
-            throw new InvalidDataException("Tour id " + id + " it's not valid");
+            throw new InvalidDataException("Your id " + id + " it's not valid");
         }
         Optional<Product> optionalProduct = productRepository.findById(id);
         if (optionalProduct.isEmpty()) {

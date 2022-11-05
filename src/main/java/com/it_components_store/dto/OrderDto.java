@@ -5,16 +5,28 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.UUID;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class ShoppingCartDto {
-    private Long idShoppingCart;
-    private String name;
-    private Integer price;
+public class OrderDto {
+    private UUID uuid;
+    private String firstName;
+
+    private String lastName;
+
+    private String email;
+
+    private String address;
+
+    private String mobile;
+
     private String description;
-    private Integer  quantity;
-    private String imageUrl;
+    private Integer quantity;
+
+
     private Long idProduct;
+
 }

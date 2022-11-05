@@ -40,7 +40,7 @@ public class ShoppingCartController {
         return "shoppingCart";
     }
 
-    @PostMapping("/add/cart/{id}/{idProduct}")
+    @PostMapping("/add/cart/{id}/{idProduct}") //De modificat !!!!!!!!!!!!
     public String addShoppingCart(@PathVariable Long id , @PathVariable Long idProduct, Integer quantity) {
         Optional<ProductDto> productDtoOptional = productService.getProductById(id);
         if (productDtoOptional.isEmpty()) {
