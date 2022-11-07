@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
@@ -79,9 +80,27 @@ public class OrderController {
 
             CheckoutProductDto checkoutProductDto = modelMapper.map(orderDto,new TypeToken<CheckoutProductDto>() {}.getType());
             checkoutProductDto.setPrice(totalPrice);
+            checkoutProductDto.setLocalDate(LocalDate.now());
             checkoutProductService.addCheckoutProduct(checkoutProductDto);
            shoppingCartService.deleteAll();
         }
         return "redirect:/category/1";
+    }
+
+
+    @GetMapping("/orderpage/dashboard")
+    public String getPageOfOrder(Model model){
+        List<CheckoutProductDto> checkoutProductDtoList = checkoutProductService.listOfCheckoutProductDto();
+        model.addAttribute("checkoutProduct", checkoutProductDtoList);
+
+
+        return "orderPageDashboard";
+    }
+
+    @GetMapping("/search/orderpage")
+    public String getProductByDescription(Model model, String keyword){
+        List<OrderDto>orderDtoList = orderService.getOrderByOrderCode(keyword);
+        model.addAttribute("orderList", orderDtoList);
+        return "orderPageSearch";
     }
 }

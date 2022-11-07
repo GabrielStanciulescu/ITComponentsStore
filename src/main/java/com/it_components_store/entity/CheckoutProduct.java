@@ -3,6 +3,7 @@ package com.it_components_store.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -18,6 +19,7 @@ public class CheckoutProduct {
     private Long id;
     private Integer price;
     private String orderCode;
+    private LocalDate localDate;
 //    @ManyToOne()
 //    @JoinColumn(name = "orderCode")
 //    private Order order;

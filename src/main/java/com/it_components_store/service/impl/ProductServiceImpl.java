@@ -109,15 +109,4 @@ public class ProductServiceImpl implements ProductService {
             return  productDtoList;
         }
     }
-    @Override
-    public List<ProductDto> getByCustomSearch(String custom) {
-        List<Product> productList = productRepository.findByCustomSearch(custom);
-        if (productList.isEmpty()) {
-            throw new DataNotFoundException("Product list it's empty");
-        } else {
-            List<ProductDto> productDtoList;
-            productDtoList = modelMapper.map(productList, new TypeToken<List<ProductDto>>() {}.getType());
-            return  productDtoList;
-        }
-    }
 }

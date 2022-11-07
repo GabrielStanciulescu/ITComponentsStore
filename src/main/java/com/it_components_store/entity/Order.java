@@ -41,9 +41,10 @@ public class Order {
     private String mobile;
     private String description;
     private Integer quantity;
-    @ManyToOne()
-    @JoinColumn(name = "idProduct")
-    private Product product;
+    private Long idProduct;
+//    @ManyToOne()
+//    @JoinColumn(name = "idProduct")
+//    private Product product;
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

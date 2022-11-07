@@ -10,5 +10,6 @@ public interface OrderService {
     Optional<OrderDto> getOrderById(Long id);
     List<OrderDto> listOfOrders();
     void deleteOrderByID(Long id);
+    List<OrderDto> getOrderByOrderCode(String keywords);
 
 }

@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class OrderDto {
+    private Long id;
     private String firstName;
     private String orderCode;
     private String lastName;
