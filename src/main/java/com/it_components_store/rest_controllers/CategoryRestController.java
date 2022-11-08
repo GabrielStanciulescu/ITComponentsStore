@@ -17,25 +17,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(value = "/api/category", produces = MediaType.APPLICATION_JSON_VALUE)
-public class CategoryController {
+public class CategoryRestController {
 
     private final CategoryService categoryService;
-
     @PostMapping()
     public void addCategory(@RequestBody Category category) {
         categoryService.addCategory(category);
     }
-
     @GetMapping("/{id}")
     Optional<Category> getCategoryById(@PathVariable Long id) {
         return categoryService.getCategoryById(id);
     }
-
     @GetMapping("/all")
     List<Category> getAllCategories() {
         return categoryService.getListOfCategory();
     }
-
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable Long id) {
         categoryService.deleteCategoryById(id);

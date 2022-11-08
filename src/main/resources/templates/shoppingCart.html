@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>IT Components Store</title>
+    <header th:replace="~{/fragments/layout :: header}"></header>
+</head>
+<body>
+<div class="container">
+    <div class="card float-right" style="width: 25rem;">
+        <div class="card-body">
+            <h5 class="card-title">Sumar comanda</h5>
+            <p class="card-text">Cost livrare: Gratuit </p>
+            <p class="card-text">Cost Total: [[${price}]] RON </p>
+
+<!--            <a href="#" class="card-link">Another link</a>-->
+            <a th:href="@{/orderpage}" type="button" class="btn btn-primary">Comanda</a>
+
+        </div>
+    </div>
+    <div class="row gy-3">
+        <th:block th:each="shoppingCartDto: ${shoppingCart}">
+            <div class="col-12">
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img th:src="@{${shoppingCartDto.imageUrl}}" class="img-fluid rounded-start" alt="image product">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">[[${shoppingCartDto.name}]]</h5>
+                                <p class="card-text">[[${shoppingCartDto.description}]]</p>
+                                <p class="card-text"> Cantitate: [[${shoppingCartDto.quantity}]] </p>
+                                <p class="card-text"> Pret: [[${shoppingCartDto.price}]] RON </p>
+                                <form action="#" th:action="@{/deleteproduct/{id}(id=${shoppingCartDto.idShoppingCart})}" th:method="post" th:object="${productDto}" >
+
+                                        <button type="submit" class="btn btn-sm btn-danger">Sterge din lista</button>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </th:block>
+
+
+    </div>
+
+
+
+
+</div>
+
+
+</body>
+</html>

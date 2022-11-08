@@ -1,37 +1,34 @@
 package com.it_components_store.rest_controllers;
 
-import com.it_components_store.entity.Role;
-import com.it_components_store.entity.User;
-import com.it_components_store.service.UserService;
+import com.it_components_store.dto.UserDto;
+import com.it_components_store.service.impl.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
 @RestController
 @RequestMapping(value = "/api/users", produces = MediaType.APPLICATION_JSON_VALUE)
-public class UsersController {
+public class UsersRestController {
 
-    private final UserService usersService;
+    private final UserServiceImpl usersService;
 
-    @PostMapping("/get")
-    public void addUsers(@RequestBody User user) {
-        user.setRole(Role.builder().idRole(1L).name("ROLE_ADMIN").build());
-        usersService.addUsers(user);
+    @PostMapping("/add")
+    public void addUsers(@RequestBody UserDto userDto) {
+
+        usersService.addUsers(userDto);
     }
-
     @GetMapping("/{id}")
-    Optional<User> getUsersById(@PathVariable Long id) {
+    Optional<UserDto> getUsersById(@PathVariable Long id) {
         return usersService.getUsersById(id);
     }
-
     @GetMapping("/all")
-    List<User> getAllUsers() {
+    List<UserDto> getAllUsers() {
         return usersService.getListOfUsers();
     }
-
     @DeleteMapping("/{id}")
     void deleteById(@PathVariable Long id) {
         usersService.deleteUserById(id);

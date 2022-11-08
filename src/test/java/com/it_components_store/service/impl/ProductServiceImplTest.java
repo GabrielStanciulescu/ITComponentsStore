@@ -1,4 +1,6 @@
 package com.it_components_store.service.impl;
+
+import com.it_components_store.dto.ProductDto;
 import com.it_components_store.entity.Product;
 import com.it_components_store.exception.DataNotFoundException;
 import com.it_components_store.exception.InvalidDataException;
@@ -6,23 +8,30 @@ import com.it_components_store.repository.ProductRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.ArgumentCaptor;
-import org.mockito.Captor;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
+import org.mockito.*;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.modelmapper.ModelMapper;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+
 import static com.it_components_store.mocks.ProductMock.getListOfProduct;
 import static com.it_components_store.mocks.ProductMock.getOneProduct;
-import static org.junit.jupiter.api.Assertions.*;
+import static com.it_components_store.mocks.ProductMockDto.getListOfProductDto;
+import static com.it_components_store.mocks.ProductMockDto.getOneProductDto;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class ProductServiceImplTest {
     @InjectMocks
     ProductServiceImpl productService;
+
+    @Spy
+     ModelMapper modelMapper;
+
     @Mock
     ProductRepository productRepository;
 
@@ -36,16 +45,16 @@ class ProductServiceImplTest {
     @Test
     @DisplayName("Test add product")
     void addProductTest() {
-        Product product = getOneProduct();
-        productService.adProduct(product);
+        ProductDto productDto = getOneProductDto();
+        productService.addProduct(productDto);
         verify(productRepository).save(productArgumentCaptor.capture());
-        assertEquals(product,productArgumentCaptor.getValue());
+        assertEquals(getOneProduct(),productArgumentCaptor.getValue());
     }
 
     @Test
     @DisplayName("Test throw DataNotFoundException exception at add product")
     void throwExceptionAddProduct(){
-        Exception exception  = assertThrows(DataNotFoundException.class,()->productService.adProduct(null));
+        Exception exception  = assertThrows(DataNotFoundException.class,()->productService.addProduct(null));
         String expected = "Error! Product not found!";
         String actual = exception.getMessage();
         assertEquals(expected,actual);
@@ -55,10 +64,10 @@ class ProductServiceImplTest {
     @DisplayName("Test get product")
     void testGetProduct(){
         when(productRepository.findById(1L)).thenReturn(Optional.of(getOneProduct()));
-        Optional<Product> optionalProduct = productService.getProductById(1L);
+        Optional<ProductDto> optionalProduct = productService.getProductById(1L);
         if(optionalProduct.isPresent()){
-            Product product = optionalProduct.get();
-            assertEquals(getOneProduct(),product);
+            ProductDto product = optionalProduct.get();
+            assertEquals(getOneProductDto(),product);
 
         }
     }
@@ -87,8 +96,8 @@ class ProductServiceImplTest {
     @DisplayName("Test getListOfPRoduct")
     void  testGetListOfProduct(){
         when(productRepository.findAll()).thenReturn(getListOfProduct());
-        List<Product> productList = productService.getListOfProduct();
-        assertEquals( getListOfProduct(),productList);
+        List<ProductDto> productList = productService.getListOfProduct();
+        assertEquals( getListOfProductDto(),productList);
     }
 
     @Test

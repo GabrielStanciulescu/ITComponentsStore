@@ -2,13 +2,8 @@ package com.it_components_store.entity;
 
 import java.time.LocalDate;
 import java.util.Objects;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -27,30 +22,20 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Builder
 @Table(name = "users")
 public class User {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUser;
-
     private String firstName;
-
     private String lastName;
-
     private String email;
-
     private String password;
-
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthday;
-
     private String address;
-
     private String mobile;
-
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "id_role")
     private Role role;
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -58,7 +43,6 @@ public class User {
         User user = (User) o;
         return idUser != null && Objects.equals(idUser, user.idUser);
     }
-
     @Override
     public int hashCode() {
         return getClass().hashCode();

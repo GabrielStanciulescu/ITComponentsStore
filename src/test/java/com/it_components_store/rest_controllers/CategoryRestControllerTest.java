@@ -18,9 +18,9 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class CategoryControllerTest {
+class CategoryRestControllerTest {
     @InjectMocks
-    CategoryController categoryController;
+    CategoryRestController categoryRestController;
 
     @Mock
     CategoryService categoryService;
@@ -35,7 +35,7 @@ class CategoryControllerTest {
     @DisplayName("Test add category")
     void addCategory() {
         Category category = getOneCategory();
-        categoryController.addCategory(category);
+        categoryRestController.addCategory(category);
         verify(categoryService, times(1)).addCategory(categoryArgumentCaptor.capture());
         assertEquals(category, categoryArgumentCaptor.getValue());
     }
@@ -44,7 +44,7 @@ class CategoryControllerTest {
     @DisplayName("Test get category by name")
     void testGetCategoryByName() {
         when(categoryService.getCategoryById(1L)).thenReturn(Optional.of(getOneCategory()));
-        Optional<Category> categoryOptional = categoryController.getCategoryById(1L);
+        Optional<Category> categoryOptional = categoryRestController.getCategoryById(1L);
         if(categoryOptional.isPresent()){
             Category category = categoryOptional.get();
             assertEquals(getOneCategory(), category);
@@ -55,14 +55,14 @@ class CategoryControllerTest {
     @DisplayName("Test get all Category")
     void testGetAllCategory(){
         when(categoryService.getListOfCategory()).thenReturn(categoryList());
-        List<Category> categoryList = categoryController.getAllCategories();
+        List<Category> categoryList = categoryRestController.getAllCategories();
         assertEquals(categoryList(), categoryList);
     }
 
     @Test
     @DisplayName("Test delete category")
     void testDeleteCategory(){
-        categoryController.deleteById(1L);
+        categoryRestController.deleteById(1L);
         verify(categoryService,times(1)).deleteCategoryById(longArgumentCaptor.capture());
         assertEquals(1, longArgumentCaptor.getValue());
     }

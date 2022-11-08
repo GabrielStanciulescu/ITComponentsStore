@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificare</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row gy-3">
+            <div class="col-3"></div>
+            <div class="col-6 ms-4 "><h1> Modifiare produs</h1></div>
+            <div class="col-12"></div>
+        </div>
+    </div>
+    <div class="container">
+        <form action="#" th:action="@{/dashboard/update/{id}(id=${productDto.idProduct})}" method="post" th:object="${productDto}">
+            <div class="row gy-2 ">
+                <div class="col-6">
+                    <label for="productName" class="form-label">Nume Produs</label>
+                    <input type="text" class="form-control" th:field="*{name}" id="productName" >
+                </div>
+
+                <div class="col-6">
+
+                    <label for="descriere produs" class="form-label">Desriere produs</label>
+                    <input type="text" class="form-control" th:field="*{description}" id="descriere produs">
+                </div>
+                <div class="col-6">
+                    <label for="cantitate" class="form-label">Cantitate</label>
+                    <input type="text" class="form-control" th:field="*{quantity}" id="cantitate" >
+                </div>
+
+                <div class="col-6">
+                    <label for="stocFurnizor" class="form-label">Stock furnizor</label>
+                    <input type="text" class="form-control" th:field="*{stock}" id="stocFurnizor">
+                </div>
+                <div class="col-6">
+                    <label for="codProdus" class="form-label">Cod produs</label>
+                    <input type="text" class="form-control" th:field="*{code}" id="codProdus" >
+                </div>
+
+                <div class="col-6">
+
+                    <label for="price" class="form-label">Pret</label>
+                    <input type="text" class="form-control" th:field="*{price}" id="price">
+                </div>
+
+
+                <div class="col-6">
+
+                    <label for="idCategory" class="form-label">ID Categorie</label>
+                    <input type="text" class="form-control" th:field="*{categoryId}" id="idCategory">
+                </div>
+
+                <div class="col-6">
+
+                    <label for="urlImg" class="form-label">Url imagine</label>
+                    <input type="text" th:field="*{imageUrl}" class="form-control" id="urlImg">
+                </div>
+
+
+                <div class="col">
+                    <button type="submit" class="btn btn-success">Aplica modificari</button>
+                </div>
+
+                <div class ="col">
+
+                   <a th:href="@{/dashboard}" type="button" class="btn btn-secondary" style="width:15%"> Inapoi</a>
+                </div>
+
+            </div>
+        </form>
+
+
+
+
+    </div>
+
+
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
+</html>
