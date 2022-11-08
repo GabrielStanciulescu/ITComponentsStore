@@ -53,15 +53,53 @@ git clone https://github.com/GabrielStanciulescu/ITComponentsStore.git
 
 5. Install an IDE (Integrated Development Environment) that supports Java to run the application (IntelliJ is
    preferred): [https://www.jetbrains.com/idea/download/?fromIDE=#section=windows](https://www.jetbrains.com/idea/download/?fromIDE=#section=windows)
-6. In MySQL Workbench create a new query. Enter and run the following command:
 
 
-7. Inside the src/main/resources/application.properties file modify the username and password with the credentials set in the installation wizard:
+
+6. Inside the src/main/resources/application.properties file modify the username and password with the credentials set in the installation wizard:
 
 ```properties
 spring.datasource.username=postgres
 spring.datasource.password=[insert_your_password]
 ```
 
-8. Execute the application by running the main() method inside src/main/java/com/it_components_store/ItComponentsStoreApplication.java or by executing de terminal command: `./mvnw clean spring-boot:run`
+7. Execute the application by running the main() method inside src/main/java/com/it_components_store/ItComponentsStoreApplication.java or by executing de terminal command: `./mvnw clean spring-boot:run`
    . This should activate the Tomcat Container and provide access to http://localhost:8090 and create the tables needed inside the database.
+### Web Application Flows:
+* **Registration Page**: Here, the user has to input the provided fields to create an account. Their credentials are saved in the database and can be accessed for later use.
+![register](./src/main/resources/static/documentation/1_registration.jpg)
+
+* **Login Page**: Here, the user has to input the credentials of an existing account. By doing that, they will be redirected to the home page and have access to the secured endpoints available
+  for his role(security is not implemented for logging to work)
+![Login](./src/main/resources/static/documentation/2_login.jpg)
+
+* **Home Page**: Here, the user can add the products to the shopping cart
+  ![Home](./src/main/resources/static/documentation/3_home.jpeg)
+
+* **Search Bar**: The search bar makes it easier to find the product
+![Search](./src/main/resources/static/documentation/4_search.jpeg)
+
+* **Shopping Cart**: 
+* ![Shopping cart](./src/main/resources/static/documentation/5_cart.jpeg)
+
+* **Order Details**:
+* ![Order Details](./src/main/resources/static/documentation/5.1_order_details.jpg)
+
+* **Dashboard**:
+* ![Dashboard](./src/main/resources/static/documentation/6_dashboard.jpg)
+
+* **Add Product from Dashboard**:
+* ![Add Product](./src/main/resources/static/documentation/7_add_product.jpg)
+
+* **Modify Product from Dashboard**:
+* ![Modify Product](./src/main/resources/static/documentation/8_modify_product.jpg)
+
+* **Order Page**:
+* ![Order](./src/main/resources/static/documentation/9_order.jpg)
+
+* **Order details **:
+* ![Order](./src/main/resources/static/documentation/10_order.jpg)
+
+
+
+

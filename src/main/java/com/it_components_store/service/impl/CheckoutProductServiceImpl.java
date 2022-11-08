@@ -1,7 +1,6 @@
 package com.it_components_store.service.impl;
 
 import com.it_components_store.dto.CheckoutProductDto;
-import com.it_components_store.dto.ProductDto;
 import com.it_components_store.entity.CheckoutProduct;
 import com.it_components_store.exception.DataNotFoundException;
 import com.it_components_store.repository.CheckoutProductRepository;

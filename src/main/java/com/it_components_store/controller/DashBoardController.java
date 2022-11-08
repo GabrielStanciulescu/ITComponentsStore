@@ -57,7 +57,7 @@ public class DashBoardController {
         return "redirect:/dashboard";
     }
 
-    @PostMapping("/dashboard/delete/{id}") //!!! de verificat
+    @PostMapping("/dashboard/delete/{id}")
     public String deleteProduct(@PathVariable Long id){
 
         productService.deleteProductById(id);

@@ -22,7 +22,7 @@
                       <p class="card-text">[[${productDto.description}]]</p>
                         <p class="card-text"> stock magazin [[${productDto.quantity}]] </p>
                         <p class = "card-text">[[${productDto.price}]] RON </p>
-                        <form action="#" th:action="@{/add/cart/{id}/{idProduct}(id=${productDto.idProduct},idProduct=${productDto.categoryId})  }" th:method="post"  >
+                        <form action="#" th:action="@{/add/cart/{id}/{idCategory}(id=${productDto.idProduct},idCategory=${productDto.categoryId})  }" th:method="post"  >
                                 <button type="submit" class="btn btn-sm btn-primary">Adauga in cos</button>
                             <input type="number" min="1" max="50" class="form-control float-right col-3" name="quantity" th:value="${quantity}" placeholder="1" >
 

@@ -40,8 +40,8 @@ public class ShoppingCartController {
         return "shoppingCart";
     }
 
-    @PostMapping("/add/cart/{id}/{idProduct}") //De modificat !!!!!!!!!!!!
-    public String addShoppingCart(@PathVariable Long id , @PathVariable Long idProduct, Integer quantity) {
+    @PostMapping("/add/cart/{id}/{idCategory}")
+    public String addShoppingCart(@PathVariable Long id , @PathVariable Long idCategory, Integer quantity) {
         Optional<ProductDto> productDtoOptional = productService.getProductById(id);
         if (productDtoOptional.isEmpty()) {
            throw new DataNotFoundException("Product not found");
@@ -52,7 +52,7 @@ public class ShoppingCartController {
 
 
         shoppingCartService.addShoppingCart(shoppingCartDto);
-            return "redirect:/category/" + idProduct;
+            return "redirect:/category/" + idCategory;
         }
 
         @PostMapping("/deleteproduct/{id}")

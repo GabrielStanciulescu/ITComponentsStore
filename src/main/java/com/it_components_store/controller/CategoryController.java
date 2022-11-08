@@ -21,7 +21,7 @@ public class CategoryController {
         return "ITpage";
 
     }
-    @GetMapping("/search")
+    @GetMapping("/search/category")
     public String getProductByDescription(Model model, String keyword){
         List<ProductDto> productList = productService.getProductByDescription(keyword);
         model.addAttribute("productList", productList);
