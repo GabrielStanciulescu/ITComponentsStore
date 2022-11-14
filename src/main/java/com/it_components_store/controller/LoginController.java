@@ -9,12 +9,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequiredArgsConstructor
+@RequestMapping("/login")
 public class LoginController {
     private final UserServiceImpl userService;
-    @GetMapping("/login")
+    @GetMapping()
     public String login(){
         return "login";
     }
@@ -28,6 +30,7 @@ public class LoginController {
     @PostMapping("/registerUser")
     public String userRegister(@ModelAttribute("user") UserDto user){
         userService.addUsers(user);
+        System.out.println("test");
          return "redirect:/login";
     }
 }

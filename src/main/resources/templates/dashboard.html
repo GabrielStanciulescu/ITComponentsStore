@@ -25,7 +25,7 @@
         <!--                  </select>-->
         <!--            </div>-->
         <div class="col-3">
-            <form   th:action="@{/search/dashboard}" method="get" class="d-flex justify-content-around">
+            <form   th:action="@{/dashboard/search/dashboard}" method="get" class="d-flex justify-content-around">
                 <input type="search" class="form-control" name="keyword"  th:value="${keyword}" placeholder="Cautare produs" aria-label="Search">
                 <button class="btn btn-primary" type="submit">Cauta</button>
             </form>

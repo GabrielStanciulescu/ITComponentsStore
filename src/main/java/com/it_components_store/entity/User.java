@@ -33,9 +33,11 @@ public class User {
     private LocalDate birthday;
     private String address;
     private String mobile;
+
     @ManyToOne()
     @JoinColumn(name = "id_role")
     private Role role;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
