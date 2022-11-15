@@ -21,6 +21,11 @@ public class LoginController {
         return "login";
     }
 
+    @GetMapping("/error")
+    public String loginError(){
+        return "loginError";
+    }
+
     @GetMapping("/register")
     public String register(Model model){
         User user = new User();
@@ -30,7 +35,6 @@ public class LoginController {
     @PostMapping("/registerUser")
     public String userRegister(@ModelAttribute("user") UserDto user){
         userService.addUsers(user);
-        System.out.println("test");
          return "redirect:/login";
     }
 }
