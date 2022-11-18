@@ -40,9 +40,20 @@
         <div class="col">
             <a th:href="@{/category/1}" type="button" class="btn btn-primary">Pagina produse</a>
         </div>
-        <div class="col-6">
+        <div class="col">
             <a th:href="@{/orderpage/dashboard}" type="button" class="btn btn-primary">Pagina vanzari</a>
         </div>
+
+
+
+        <div class="col-4">
+            <form name="logoutForm" class="" th:action="@{/logout}" method="post">
+
+                <button class="btn btn-danger  " type="submit">Deconectare</button>
+            </form>
+        </div>
+
+
 
 
 

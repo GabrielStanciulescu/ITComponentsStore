@@ -1,6 +1,7 @@
 package com.it_components_store.entity;
 
 import java.time.LocalDate;
+import java.util.Iterator;
 import java.util.Objects;
 import javax.persistence.*;
 
@@ -44,6 +45,13 @@ public class User {
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
         User user = (User) o;
         return idUser != null && Objects.equals(idUser, user.idUser);
+    }
+
+    public boolean hasRole(String roleName){
+        if(role.getName().equals(roleName)){
+            return  true;
+        }
+        return  false;
     }
     @Override
     public int hashCode() {

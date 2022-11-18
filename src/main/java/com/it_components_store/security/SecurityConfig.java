@@ -1,5 +1,6 @@
 package com.it_components_store.security;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -10,7 +11,12 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 @EnableWebSecurity()
+@RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+    private final LoginSuccessHandler loginSuccessHandler;
+
+
+
     @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
@@ -32,7 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .mvcMatchers("/orderpage").hasAnyRole("ADMIN")
 
                 .and()
-                .formLogin(form-> form.defaultSuccessUrl("/category/1")
-                        .loginPage("/login").failureUrl("/login/error")).logout();
+                .formLogin(form-> form
+                        .loginPage("/login").successHandler(loginSuccessHandler).failureUrl("/login/error")).logout();
     }
 }
