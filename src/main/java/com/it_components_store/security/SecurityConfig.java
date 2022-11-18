@@ -20,6 +20,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.httpBasic();
         http.authorizeRequests()
                 .mvcMatchers("/dashboard").hasAnyRole("ADMIN")
+                .mvcMatchers("/orderpage/dashboard").hasAnyRole("ADMIN")
                 .mvcMatchers("/category/1").hasAnyRole("USER","ADMIN")
                 .mvcMatchers("/category/2").hasAnyRole("USER","ADMIN")
                 .mvcMatchers("/category/3").hasAnyRole("USER","ADMIN")
@@ -29,9 +30,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .mvcMatchers("/category/7").hasAnyRole("USER","ADMIN")
                 .mvcMatchers("/category/8").hasAnyRole("USER","ADMIN")
                 .mvcMatchers("/orderpage").hasAnyRole("ADMIN")
-                .mvcMatchers("/orderpage/dashboard").hasAnyRole("ADMIN")
+
                 .and()
                 .formLogin(form-> form.defaultSuccessUrl("/category/1")
-                        .loginPage("/login").failureUrl("/login/error"));
+                        .loginPage("/login").failureUrl("/login/error")).logout();
     }
 }

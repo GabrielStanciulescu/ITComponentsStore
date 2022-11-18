@@ -17,7 +17,7 @@
         <h3>IT Components Store</h3>
 
 
-        <div class="container mb-4 ">
+        <div class="container-sm mb-4 ">
             <ul class="nav  bg-danger ">
                 <li class="nav-item">
                   <a class="nav-link active text-white" aria-current="page" th:href="@{/category/2}">Memorii</a>
@@ -59,6 +59,16 @@
                         <form class="form-inline bg-danger" th:action="@{/shoppingcart}" method="get">
 
                             <button class="btn btn-light  my-1 my-sm-0" type="submit">Cosul meu</button>
+                        </form>
+                    </nav>
+
+                </li>
+
+                <li>
+                    <nav class="nav  bg-danger ml-3" >
+                        <form name="logoutForm" class="form-inline bg-danger" th:action="@{/logout}" method="post">
+
+                            <button class="btn btn-light  my-1 my-sm-0" type="submit">Deconectare</button>
                         </form>
                     </nav>
 

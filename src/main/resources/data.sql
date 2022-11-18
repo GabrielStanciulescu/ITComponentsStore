@@ -163,17 +163,11 @@ INSERT INTO products(code, description, image_url, name, price, quantity, id_cat
 
 
 
-INSERT INTO roles(name) VALUES ('ADMIN'), ('USER');
+INSERT INTO roles(name) VALUES ('ROLE_USER'), ('ROLE_ADMIN');
 
 INSERT INTO users(address, birthday, email, first_name,mobile ,  password, last_name, id_role)
-VALUES ('Ghinea dorinel nr13', '1999-08-01', 'gabriel.stanciulescu@gmail.com', 'Stanciulescu', '0748839324', 'qmajdyhn', 'Gabriel', 1),
-       ('Arinului 20', '200-08-01', 'constantin.gabriel@gmail.com', 'Constantin', '0748839324', 'qmajdyhn', 'Gabriel', 2),
-       ('Ghinea dorinel nr13', '1999-08-01', 'gabriel.stanciulescu@gmail.com', 'Stanciulescu', '0748839324', 'qmajdyhn', 'Gabriel', 2),
-       ('Ghinea dorinel nr13', '1999-08-01', 'gabriel.stanciulescu@gmail.com', 'Stanciulescu', '0748839324', 'qmajdyhn', 'Gabriel', 2),
-       ('Ghinea dorinel nr13', '1999-08-01', 'gabriel.stanciulescu@gmail.com', 'Stanciulescu', '0748839324', 'qmajdyhn', 'Gabriel', 2),
-       ('Ghinea dorinel nr13', '1999-08-01', 'gabriel.stanciulescu@gmail.com', 'Stanciulescu', '0748839324', 'qmajdyhn', 'Gabriel', 2),
-       ('Ghinea dorinel nr13', '1999-08-01', 'gabriel.stanciulescu@gmail.com', 'Stanciulescu', '0748839324', 'qmajdyhn', 'Gabriel', 2),
-       ('Ghinea dorinel nr13', '1999-08-01', 'gabriel.stanciulescu@gmail.com', 'Stanciulescu', '0748839324', 'qmajdyhn', 'Gabriel', 1);
+VALUES ('Brasov', '1999-08-01', 'gabriel.stanciulescu@admin.itcomponents.ro', 'Stanciulescu', '0748000000', '$2a$12$R7SYQz6YjarscS/c3qqVjeg.kPJQuPRK5yOORqXQXcXrz62G.eEPC', 'Gabriel', 2),-- password: qmajdyhn
+       ('Brasov', '1999-08-01', 'gabriel.stanciulescu@gmail.com', 'Stanciulescu', '0748000000', '$2a$12$R7SYQz6YjarscS/c3qqVjeg.kPJQuPRK5yOORqXQXcXrz62G.eEPC', 'Gabriel', 1); -- password: qmajdyhn
 
 
 
