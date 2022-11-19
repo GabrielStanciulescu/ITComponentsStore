@@ -19,6 +19,10 @@ public class LoginSuccessHandler extends SavedRequestAwareAuthenticationSuccessH
 
             response.sendRedirect("/category/1");
         }
+        if(securityUsers.hasRole("ROLE_EMPLOYEE")){
+
+            response.sendRedirect("/dashboard");
+        }
 
 
     }
