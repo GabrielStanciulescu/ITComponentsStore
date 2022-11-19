@@ -18,7 +18,7 @@ public class LoginController {
     private final UserServiceImpl userService;
     @GetMapping()
     public String login(){
-        return "login";
+        return "login/login";
     }
 
     @GetMapping("/logout")
@@ -28,14 +28,14 @@ public class LoginController {
 
     @GetMapping("/error")
     public String loginError(){
-        return "loginError";
+        return "login/LoginError";
     }
 
     @GetMapping("/register")
     public String register(Model model){
         User user = new User();
         model.addAttribute("user",user);
-        return "register";
+        return "login/register";
     }
     @PostMapping("/registerUser")
     public String userRegister(@ModelAttribute("user") UserDto user){

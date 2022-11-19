@@ -37,7 +37,7 @@ public class ShoppingCartController {
         }
         model.addAttribute("shoppingCart", shoppingCart );
         model.addAttribute("price", price);
-        return "shoppingCart";
+        return "principalPage/shoppingCart";
     }
 
     @PostMapping("/add/cart/{id}/{idCategory}")

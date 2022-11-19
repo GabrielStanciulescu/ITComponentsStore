@@ -35,7 +35,7 @@ public class OrderController {
     @GetMapping("/orderpage")
     public String getOrderPage(Model model){
         model.addAttribute("order", new OrderDto());
-        return "order";
+        return "principalPage/order";
     }
     @PostMapping("/orderpage/orderproducts")
     public String order(@ModelAttribute("order") OrderDto orderDto){
@@ -94,13 +94,13 @@ public class OrderController {
         model.addAttribute("checkoutProduct", checkoutProductDtoList);
 
 
-        return "orderPageDashboard";
+        return "dashboard/orderPageDashboard";
     }
 
     @GetMapping("/search/orderpage")
     public String getProductByDescription(Model model, String keyword){
         List<OrderDto>orderDtoList = orderService.getOrderByOrderCode(keyword);
         model.addAttribute("orderList", orderDtoList);
-        return "orderPageSearch";
+        return "dashboard/orderPageSearch";
     }
 }

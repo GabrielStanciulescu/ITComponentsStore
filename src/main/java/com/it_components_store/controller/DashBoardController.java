@@ -22,13 +22,13 @@ public class DashBoardController {
     public String showProduct(Model model){
         List<ProductDto> productList = productService.getListOfProduct();
         model.addAttribute("productList", productList);
-        return "dashboard";
+        return "dashboard/dashboard";
     }
 
     @GetMapping("/product/new")
     public String addNewProduct(Model model){
         model.addAttribute("product", new ProductDto());
-        return "add";
+        return "dashboard/add";
     }
     @PostMapping("/product/save")
     public String saveNewProduct( @ModelAttribute("product") ProductDto productDto){
@@ -44,7 +44,7 @@ public class DashBoardController {
             model.addAttribute("productDto",productDto );
 
         }
-        return "modify";
+        return "dashboard/modify";
     }
 
     @PostMapping("/update/{id}")
@@ -67,7 +67,7 @@ public class DashBoardController {
     public String getProductByDescription(Model model, String keyword){
         List<ProductDto> productList = productService.getProductByDescription(keyword);
         model.addAttribute("productList", productList);
-        return "dashboard";
+        return "dashboard/dashboard";
     }
 
 

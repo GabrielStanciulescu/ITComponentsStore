@@ -20,13 +20,13 @@ public class CategoryController {
     public String getRamPage(Model model, @PathVariable Long id){
         List<ProductDto> productList = productService.getListOfProductsByCategory(id);
         model.addAttribute("productList", productList);
-        return "ITpage";
+        return "principalPage/ITpage";
 
     }
     @GetMapping("/search/category")
     public String getProductByDescription(Model model, String keyword){
         List<ProductDto> productList = productService.getProductByDescription(keyword);
         model.addAttribute("productList", productList);
-        return "ITpage";
+        return "principalPage/ITpage";
     }
 }

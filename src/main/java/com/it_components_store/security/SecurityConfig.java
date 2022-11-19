@@ -36,7 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .mvcMatchers("/category/7").hasAnyRole("USER","ADMIN","EMPLOYEE")
                 .mvcMatchers("/category/8").hasAnyRole("USER","ADMIN","EMPLOYEE")
                 .mvcMatchers("/dashboard/delete/{id}").hasAnyRole("ADMIN")
-                .mvcMatchers("/orderpage/dashboard").hasAnyRole("ADMIN","EMPLOYEE").and().exceptionHandling().accessDeniedPage("/error/403")
+//                .mvcMatchers("/orderpage/dasgboard").hasAnyRole("ADMIN","EMPLOYEE").and().exceptionHandling().accessDeniedPage("/error/403")
 
                 .and()
                 .formLogin(form-> form
