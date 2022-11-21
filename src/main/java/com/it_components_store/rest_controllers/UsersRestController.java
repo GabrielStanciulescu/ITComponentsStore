@@ -1,7 +1,7 @@
 package com.it_components_store.rest_controllers;
 
 import com.it_components_store.dto.UserDto;
-import com.it_components_store.service.impl.UserServiceImpl;
+import com.it_components_store.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +14,7 @@ import java.util.Optional;
 @RequestMapping(value = "/api/users", produces = MediaType.APPLICATION_JSON_VALUE)
 public class UsersRestController {
 
-    private final UserServiceImpl usersService;
+    private final UserService usersService;
 
     @PostMapping("/add")
     public void addUsers(@RequestBody UserDto userDto) {

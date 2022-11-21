@@ -1,7 +1,7 @@
 package com.it_components_store.rest_controllers;
 
 import com.it_components_store.dto.OrderDto;
-import com.it_components_store.service.impl.OrderServiceImpl;
+import com.it_components_store.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +13,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @RequestMapping(value = "/api/order", produces = MediaType.APPLICATION_JSON_VALUE)
 public class OrderRestController {
-    private final OrderServiceImpl orderService;
+    private final OrderService orderService;
 
     @PostMapping("/add")
     public void addProduct(@RequestBody OrderDto orderDto) {

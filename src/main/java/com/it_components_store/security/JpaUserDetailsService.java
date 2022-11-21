@@ -1,7 +1,7 @@
 package com.it_components_store.security;
 
 import com.it_components_store.entity.User;
-import com.it_components_store.service.impl.UserServiceImpl;
+import com.it_components_store.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -13,7 +13,7 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class JpaUserDetailsService implements UserDetailsService {
-    private final UserServiceImpl userServiceImpl;
+    private final UserService userServiceImpl;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

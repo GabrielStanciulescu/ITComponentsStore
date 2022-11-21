@@ -16,18 +16,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private final LoginSuccessHandler loginSuccessHandler;
 
     @Bean
-    public PasswordEncoder passwordEncoder(){
+    public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .mvcMatchers("/dashboard").hasAnyRole("ADMIN","EMPLOYEE")
-                .mvcMatchers("/orderpage/dashboard").hasAnyRole("ADMIN","EMPLOYEE")
-                .mvcMatchers("/search/orderpage").hasAnyRole("ADMIN","EMPLOYEE")
+                .mvcMatchers("/dashboard").hasAnyRole("ADMIN", "EMPLOYEE")
+                .mvcMatchers("/orderpage/dashboard").hasAnyRole("ADMIN", "EMPLOYEE")
+                .mvcMatchers("/search/orderpage").hasAnyRole("ADMIN", "EMPLOYEE")
                 .mvcMatchers("/dashboard/delete/{id}").hasAnyRole("ADMIN")
+                .mvcMatchers("/category/{id}").hasAnyRole("ADMIN", "EMPLOYEE", "USER")
                 .and()
-                .formLogin(form-> form
+                .formLogin(form -> form
                         .loginPage("/login").successHandler(loginSuccessHandler).failureUrl("/login/error")).logout();
     }
 }
