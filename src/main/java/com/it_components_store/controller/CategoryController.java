@@ -1,7 +1,7 @@
 package com.it_components_store.controller;
 
 import com.it_components_store.dto.ProductDto;
-import com.it_components_store.service.impl.ProductServiceImpl;
+import com.it_components_store.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/category")
 public class CategoryController {
-    private final ProductServiceImpl productService;
+    private final ProductService productService;
     @GetMapping("/{id}")
     public String getRamPage(Model model, @PathVariable Long id){
         List<ProductDto> productList = productService.getListOfProductsByCategory(id);

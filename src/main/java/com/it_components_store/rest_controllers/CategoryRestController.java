@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CategoryRestController {
 
     private final CategoryService categoryService;
+
     @PostMapping()
     public void addCategory(@RequestBody Category category) {
         categoryService.addCategory(category);

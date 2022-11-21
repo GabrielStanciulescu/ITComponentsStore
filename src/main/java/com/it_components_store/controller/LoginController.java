@@ -2,7 +2,7 @@ package com.it_components_store.controller;
 
 import com.it_components_store.dto.UserDto;
 import com.it_components_store.entity.User;
-import com.it_components_store.service.impl.UserServiceImpl;
+import com.it_components_store.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequiredArgsConstructor
 @RequestMapping("/login")
 public class LoginController {
-    private final UserServiceImpl userService;
+    private final UserService userService;
     @GetMapping()
     public String login(){
         return "login/login";

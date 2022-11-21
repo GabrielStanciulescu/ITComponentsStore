@@ -3,8 +3,8 @@ package com.it_components_store.controller;
 import com.it_components_store.dto.ProductDto;
 import com.it_components_store.dto.ShoppingCartDto;
 import com.it_components_store.exception.DataNotFoundException;
-import com.it_components_store.service.impl.ProductServiceImpl;
-import com.it_components_store.service.impl.ShoppingCartServiceImpl;
+import com.it_components_store.service.ProductService;
+import com.it_components_store.service.ShoppingCartService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -21,8 +21,8 @@ import java.util.Optional;
 @Controller
 @RequiredArgsConstructor
 public class ShoppingCartController {
-    private final ShoppingCartServiceImpl shoppingCartService;
-    private final ProductServiceImpl productService;
+    private final ShoppingCartService shoppingCartService;
+    private final ProductService productService;
     private final ModelMapper modelMapper;
 
 

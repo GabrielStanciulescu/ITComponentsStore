@@ -1,9 +1,8 @@
 package com.it_components_store.controller;
 
-//import com.it_components_store.entity.ProductDto;
 
 import com.it_components_store.dto.ProductDto;
-import com.it_components_store.service.impl.ProductServiceImpl;
+import com.it_components_store.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,12 +15,13 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @RequestMapping("/dashboard")
 public class DashBoardController {
-    private final ProductServiceImpl productService;
+    private final ProductService productService;
 
     @GetMapping()
     public String showProduct(Model model){
         List<ProductDto> productList = productService.getListOfProduct();
         model.addAttribute("productList", productList);
+
         return "dashboard/dashboard";
     }
 

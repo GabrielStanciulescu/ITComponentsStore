@@ -20,10 +20,5 @@ public class CheckoutProduct {
     private Integer price;
     private String orderCode;
     private LocalDate localDate;
-//    @ManyToOne()
-//    @JoinColumn(name = "orderCode")
-//    private Order order;
-
-
 
 }

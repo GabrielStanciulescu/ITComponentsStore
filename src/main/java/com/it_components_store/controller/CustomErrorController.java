@@ -13,7 +13,7 @@ public class CustomErrorController   implements ErrorController {
 
     @RequestMapping("/error")
     public String handleError(HttpServletRequest request) {
-        String errorPage = ""; // default
+        String errorPage = "";
 
         Object status = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
 
@@ -21,17 +21,15 @@ public class CustomErrorController   implements ErrorController {
             int statusCode = Integer.parseInt(status.toString());
 
             if (statusCode == HttpStatus.NOT_FOUND.value()) {
-                // handle HTTP 404 Not Found error
+
                 errorPage = "errorPage/pageNotFound";
 
             }
             else if (statusCode == HttpStatus.FORBIDDEN.value()) {
-                // handle HTTP 403 Forbidden error
                 errorPage = "errorPage/forbiddenPage";
 
             } else if (statusCode == HttpStatus.INTERNAL_SERVER_ERROR.value()) {
-                // handle HTTP 500 Internal Server error
-                errorPage = "error/500";
+                errorPage = "errorPage/errorPage";
 
             }
         }

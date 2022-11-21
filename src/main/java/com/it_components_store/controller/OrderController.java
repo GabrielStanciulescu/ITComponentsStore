@@ -5,10 +5,10 @@ import com.it_components_store.dto.OrderDto;
 import com.it_components_store.dto.ProductDto;
 import com.it_components_store.dto.ShoppingCartDto;
 import com.it_components_store.exception.DataNotFoundException;
-import com.it_components_store.service.impl.CheckoutProductServiceImpl;
-import com.it_components_store.service.impl.OrderServiceImpl;
-import com.it_components_store.service.impl.ProductServiceImpl;
-import com.it_components_store.service.impl.ShoppingCartServiceImpl;
+import com.it_components_store.service.CheckoutProductService;
+import com.it_components_store.service.OrderService;
+import com.it_components_store.service.ProductService;
+import com.it_components_store.service.ShoppingCartService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -26,11 +26,11 @@ import java.util.Random;
 @Controller
 @RequiredArgsConstructor
 public class OrderController {
-    private final ShoppingCartServiceImpl shoppingCartService;
-    private final OrderServiceImpl orderService;
-    private final CheckoutProductServiceImpl checkoutProductService;
+    private final ShoppingCartService shoppingCartService;
+    private final OrderService orderService;
+    private final CheckoutProductService checkoutProductService;
     private final ModelMapper modelMapper;
-    private final ProductServiceImpl productService;
+    private final ProductService productService;
 
     @GetMapping("/orderpage")
     public String getOrderPage(Model model){
