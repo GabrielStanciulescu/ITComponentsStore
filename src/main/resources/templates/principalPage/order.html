@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalii comanda</title>
     <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 <body>
 
@@ -15,12 +16,12 @@
     <div class="row main">
         <div class="panel-heading">
             <div class="panel-title text-center">
-                <h1 class="title" href="#"> <a class="navbar-brand" >Detalii comanda</a></h1>
+                <h1 class="title" href="#"><a class="navbar-brand">Detalii comanda</a></h1>
 
-                <hr />
+                <hr/>
             </div>
 
-            <form action="#" th:action="@{/orderpage/orderproducts}"  method="post" th:object="${order}">
+            <form action="#" th:action="@{/orderpage/orderproducts}" method="post" th:object="${order}">
                 <div class="row gy-3">
 
 
@@ -30,7 +31,8 @@
                             <label for="firstName" class="cols-sm-2 control-label">Your Name</label>
                             <div class="cols-sm-10">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" name="firstName" id="firstName" th:field="*{firstName}" placeholder="Enter your Name" required="required"/>
+                                    <input type="text" class="form-control" name="firstName" id="firstName"
+                                           th:field="*{firstName}" placeholder="Enter your Name" required="required"/>
                                 </div>
                             </div>
                         </div>
@@ -41,7 +43,8 @@
                             <div class="cols-sm-10">
                                 <div class="input-group">
 
-                                    <input type="text" class="form-control" name="mobile" id="mobile"  th:field="*{mobile}"  placeholder="Enter your Number" required="required"/>
+                                    <input type="text" class="form-control" name="mobile" id="mobile"
+                                           th:field="*{mobile}" placeholder="Enter your Number" required="required"/>
                                 </div>
                             </div>
                         </div>
@@ -52,7 +55,8 @@
                             <div class="cols-sm-10">
                                 <div class="input-group">
 
-                                    <input type="text" class="form-control" name="lastName" id="lastName" th:field="*{lastName}"  placeholder="Last Name" required="required"/>
+                                    <input type="text" class="form-control" name="lastName" id="lastName"
+                                           th:field="*{lastName}" placeholder="Last Name" required="required"/>
                                 </div>
                             </div>
                         </div>
@@ -64,12 +68,12 @@
                             <div class="cols-sm-10">
                                 <div class="input-group">
 
-                                    <input type="text" class="form-control" name="email" id="email"  th:field="*{email}"  placeholder="Enter your E-mail" required="required"/>
+                                    <input type="text" class="form-control" name="email" id="email" th:field="*{email}"
+                                           placeholder="Enter your E-mail" required="required"/>
                                 </div>
                             </div>
                         </div>
                     </div>
-
 
 
                     <div class="col">
@@ -78,12 +82,14 @@
                             <div class="cols-sm-10">
                                 <div class="input-group">
 
-                                    <input type="text" class="form-control" name="address" id="address" th:field="*{address}"  placeholder="Enter your Address" required="required"/>
+                                    <input type="text" class="form-control" name="address" id="address"
+                                           th:field="*{address}" placeholder="Enter your Address" required="required"/>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Finalizeaza comanda</button>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Finalizeaza comanda
+                    </button>
                 </div>
             </form>
 
@@ -92,8 +98,9 @@
 </div>
 
 
-
 <!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
 </body>
 </html>

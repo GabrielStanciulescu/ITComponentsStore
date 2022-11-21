@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -37,6 +38,7 @@ public class Category {
         Category category = (Category) o;
         return idCategory != null && Objects.equals(idCategory, category.idCategory);
     }
+
     @Override
     public int hashCode() {
         return getClass().hashCode();

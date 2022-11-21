@@ -16,30 +16,32 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/login")
 public class LoginController {
     private final UserService userService;
+
     @GetMapping()
-    public String login(){
+    public String login() {
         return "login/login";
     }
 
     @GetMapping("/logout")
-    public String logOut(){
+    public String logOut() {
         return "login";
     }
 
     @GetMapping("/error")
-    public String loginError(){
+    public String loginError() {
         return "login/LoginError";
     }
 
     @GetMapping("/register")
-    public String register(Model model){
+    public String register(Model model) {
         User user = new User();
-        model.addAttribute("user",user);
+        model.addAttribute("user", user);
         return "login/register";
     }
+
     @PostMapping("/registerUser")
-    public String userRegister(@ModelAttribute("user") UserDto user){
+    public String userRegister(@ModelAttribute("user") UserDto user) {
         userService.addUsers(user);
-         return "redirect:/login";
+        return "redirect:/login";
     }
 }

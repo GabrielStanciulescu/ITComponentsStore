@@ -9,7 +9,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
-public class CustomErrorController   implements ErrorController {
+public class CustomErrorController implements ErrorController {
 
     @RequestMapping("/error")
     public String handleError(HttpServletRequest request) {
@@ -24,8 +24,7 @@ public class CustomErrorController   implements ErrorController {
 
                 errorPage = "errorPage/pageNotFound";
 
-            }
-            else if (statusCode == HttpStatus.FORBIDDEN.value()) {
+            } else if (statusCode == HttpStatus.FORBIDDEN.value()) {
                 errorPage = "errorPage/forbiddenPage";
 
             } else if (statusCode == HttpStatus.INTERNAL_SERVER_ERROR.value()) {

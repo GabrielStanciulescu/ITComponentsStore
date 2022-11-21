@@ -19,9 +19,10 @@ public class ProductRestController {
     @PostMapping("/add")
     public void addProduct(@RequestBody ProductDto product) {
 
-            productService.addProduct(product);
+        productService.addProduct(product);
 
     }
+
     @GetMapping("/{id}")
     public Optional<ProductDto> getProductById(@PathVariable Long id) {
         return productService.getProductById(id);
@@ -41,10 +42,6 @@ public class ProductRestController {
     public List<ProductDto> getAllProductByCategory(@PathVariable Long id) {
         return productService.getListOfProductsByCategory(id);
     }
-
-
-
-
 
 
 }

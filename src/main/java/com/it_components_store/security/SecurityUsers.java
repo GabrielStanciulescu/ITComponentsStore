@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.Collections;
+
 @RequiredArgsConstructor
 @Getter
 public class SecurityUsers implements UserDetails {
@@ -19,14 +20,17 @@ public class SecurityUsers implements UserDetails {
         return Collections.singleton(new SimpleGrantedAuthority(user.getRole().getName()));
 
     }
+
     @Override
     public String getPassword() {
         return user.getPassword();
     }
+
     @Override
     public String getUsername() {
         return user.getEmail();
     }
+
     @Override
     public boolean isAccountNonExpired() {
         return true;
@@ -47,8 +51,8 @@ public class SecurityUsers implements UserDetails {
         return true;
     }
 
-    public boolean hasRole(String rolName){
-        return  this.user.hasRole(rolName);
+    public boolean hasRole(String rolName) {
+        return this.user.hasRole(rolName);
 
     }
 }

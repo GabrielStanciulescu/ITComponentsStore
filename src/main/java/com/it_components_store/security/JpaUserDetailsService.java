@@ -14,6 +14,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class JpaUserDetailsService implements UserDetailsService {
     private final UserServiceImpl userServiceImpl;
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<User> optionalUser = userServiceImpl.getUserByEmail(username);

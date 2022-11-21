@@ -33,44 +33,43 @@ public class OrderController {
     private final ProductService productService;
 
     @GetMapping("/orderpage")
-    public String getOrderPage(Model model){
+    public String getOrderPage(Model model) {
         model.addAttribute("order", new OrderDto());
         return "principalPage/order";
     }
+
     @PostMapping("/orderpage/orderproducts")
-    public String order(@ModelAttribute("order") OrderDto orderDto){
+    public String order(@ModelAttribute("order") OrderDto orderDto) {
         List<ShoppingCartDto> shoppingCartDtoList = shoppingCartService.getListOfShoppingCart();
-        if(shoppingCartDtoList.isEmpty()){
+        if (shoppingCartDtoList.isEmpty()) {
             throw new DataNotFoundException("Exception!");
-        }
-        else {
+        } else {
             int leftLimit = 97;
             int rightLimit = 122;
             int targetStringLength = 10;
             Random random = new Random();
-            int totalPrice=0;
+            int totalPrice = 0;
             String generatedString = random.ints(leftLimit, rightLimit + 1)
                     .limit(targetStringLength)
                     .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
                     .toString();
-            for(ShoppingCartDto shoppingCartDto :shoppingCartDtoList){
+            for (ShoppingCartDto shoppingCartDto : shoppingCartDtoList) {
                 orderDto.setDescription(shoppingCartDto.getDescription());
                 orderDto.setQuantity(shoppingCartDto.getQuantity());
                 orderDto.setOrderCode(generatedString);
                 orderDto.setIdProduct(shoppingCartDto.getIdProduct());
                 orderDto.setPrice(shoppingCartDto.getPrice());
-                totalPrice += shoppingCartDto.getPrice()*shoppingCartDto.getQuantity();
+                totalPrice += shoppingCartDto.getPrice() * shoppingCartDto.getQuantity();
                 orderService.addOrder(orderDto);
 
                 Optional<ProductDto> optionalProductDto = productService.getProductById(shoppingCartDto.getIdProduct());
-                if(optionalProductDto.isEmpty()){
+                if (optionalProductDto.isEmpty()) {
                     throw new DataNotFoundException("Product not found");
 
-                }
-                else {
+                } else {
                     ProductDto productDto = optionalProductDto.get();
                     Integer numberOfProducts = productDto.getQuantity();
-                    productDto.setQuantity(numberOfProducts-shoppingCartDto.getQuantity());
+                    productDto.setQuantity(numberOfProducts - shoppingCartDto.getQuantity());
                     productService.updateProduct(productDto, productDto.getIdProduct());
 
 
@@ -78,18 +77,19 @@ public class OrderController {
 
             }
 
-            CheckoutProductDto checkoutProductDto = modelMapper.map(orderDto,new TypeToken<CheckoutProductDto>() {}.getType());
+            CheckoutProductDto checkoutProductDto = modelMapper.map(orderDto, new TypeToken<CheckoutProductDto>() {
+            }.getType());
             checkoutProductDto.setPrice(totalPrice);
             checkoutProductDto.setLocalDate(LocalDate.now());
             checkoutProductService.addCheckoutProduct(checkoutProductDto);
-           shoppingCartService.deleteAll();
+            shoppingCartService.deleteAll();
         }
         return "redirect:/category/1";
     }
 
 
     @GetMapping("/orderpage/dashboard")
-    public String getPageOfOrder(Model model){
+    public String getPageOfOrder(Model model) {
         List<CheckoutProductDto> checkoutProductDtoList = checkoutProductService.listOfCheckoutProductDto();
         model.addAttribute("checkoutProduct", checkoutProductDtoList);
 
@@ -98,8 +98,8 @@ public class OrderController {
     }
 
     @GetMapping("/search/orderpage")
-    public String getProductByDescription(Model model, String keyword){
-        List<OrderDto>orderDtoList = orderService.getOrderByOrderCode(keyword);
+    public String getProductByDescription(Model model, String keyword) {
+        List<OrderDto> orderDtoList = orderService.getOrderByOrderCode(keyword);
         model.addAttribute("orderList", orderDtoList);
         return "dashboard/orderPageSearch";
     }

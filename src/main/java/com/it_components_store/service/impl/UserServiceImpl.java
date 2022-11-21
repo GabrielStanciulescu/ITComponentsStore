@@ -21,6 +21,7 @@ public class UserServiceImpl implements UserService {
     private final UserRepository usersRepository;
     private final ModelMapper modelMapper;
     private final PasswordEncoder passwordEncoder;
+
     @Override
     public void addUsers(UserDto userDto) {
         if (userDto == null) {
@@ -31,10 +32,12 @@ public class UserServiceImpl implements UserService {
             String encode = passwordEncoder.encode(password);
             userDto.setPassword(encode);
 
-            User user = modelMapper.map(userDto, new TypeToken<User>() {}.getType());
+            User user = modelMapper.map(userDto, new TypeToken<User>() {
+            }.getType());
             usersRepository.save(user);
         }
     }
+
     @Override
     public Optional<UserDto> getUsersById(Long id) {
         if (id < 0) {
@@ -57,7 +60,8 @@ public class UserServiceImpl implements UserService {
             throw new DataNotFoundException("Category list it's empty");
         } else {
             List<UserDto> userDtoList;
-            userDtoList = modelMapper.map(usersList, new TypeToken<List<UserDto>>() {}.getType());
+            userDtoList = modelMapper.map(usersList, new TypeToken<List<UserDto>>() {
+            }.getType());
 
             return userDtoList;
         }

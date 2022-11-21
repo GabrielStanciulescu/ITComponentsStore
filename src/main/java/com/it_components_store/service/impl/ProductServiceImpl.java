@@ -21,17 +21,20 @@ import java.util.Optional;
 public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository productRepository;
-    private  final CategoryRepository categoryRepository;
+    private final CategoryRepository categoryRepository;
     private final ModelMapper modelMapper;
+
     @Override
     public void addProduct(ProductDto productDto) {
         if (productDto == null) {
             throw new DataNotFoundException("Product not found!");
         } else {
-             Product product = modelMapper.map(productDto, new TypeToken<Product>() {}.getType());
-             productRepository.save(product);
+            Product product = modelMapper.map(productDto, new TypeToken<Product>() {
+            }.getType());
+            productRepository.save(product);
         }
     }
+
     @Override
     public Optional<ProductDto> getProductById(Long id) {
         if (id < 0) {
@@ -42,11 +45,12 @@ public class ProductServiceImpl implements ProductService {
             throw new DataNotFoundException("Error! The product with id " + id + " does not exist!");
         } else {
             Product product = optionalProduct.get();
-            ProductDto productDto = modelMapper.map(product,ProductDto.class);
+            ProductDto productDto = modelMapper.map(product, ProductDto.class);
             return Optional.of(productDto);
         }
 
     }
+
     @Override
     public List<ProductDto> getListOfProduct() {
         List<Product> productList = productRepository.findAll();
@@ -54,11 +58,13 @@ public class ProductServiceImpl implements ProductService {
             throw new DataNotFoundException("Product list it's empty");
         } else {
             List<ProductDto> productDtoList;
-            productDtoList = modelMapper.map(productList, new TypeToken<List<ProductDto>>() {}.getType());
-            return  productDtoList;
+            productDtoList = modelMapper.map(productList, new TypeToken<List<ProductDto>>() {
+            }.getType());
+            return productDtoList;
         }
 
     }
+
     @Override
     public void deleteProductById(Long id) {
 
@@ -71,11 +77,12 @@ public class ProductServiceImpl implements ProductService {
         }
         productRepository.deleteById(id);
     }
+
     @Override
     public void updateProduct(ProductDto productDto, Long id) {
-        Product product = productRepository.findById(id).orElseThrow(()->new DataNotFoundException("Category with id " + id + " it's not present in database"));
+        Product product = productRepository.findById(id).orElseThrow(() -> new DataNotFoundException("Category with id " + id + " it's not present in database"));
         Long idCategory = productDto.getCategoryId();
-        Category categoryFromDto = categoryRepository.findById(idCategory).orElseThrow(()->new DataNotFoundException("Category with id " + idCategory + " it's not present in database"));
+        Category categoryFromDto = categoryRepository.findById(idCategory).orElseThrow(() -> new DataNotFoundException("Category with id " + idCategory + " it's not present in database"));
         product.setName(productDto.getName());
         product.setPrice(productDto.getPrice());
         product.setStock(productDto.getStock());
@@ -94,10 +101,12 @@ public class ProductServiceImpl implements ProductService {
             throw new DataNotFoundException("Product list it's empty");
         } else {
             List<ProductDto> productDtoList;
-            productDtoList = modelMapper.map(productList, new TypeToken<List<ProductDto>>() {}.getType());
-            return  productDtoList;
+            productDtoList = modelMapper.map(productList, new TypeToken<List<ProductDto>>() {
+            }.getType());
+            return productDtoList;
         }
     }
+
     @Override
     public List<ProductDto> getProductByDescription(String description) {
         List<Product> productList = productRepository.findAllByDescriptionIsContainingIgnoreCase(description);
@@ -105,8 +114,9 @@ public class ProductServiceImpl implements ProductService {
             throw new DataNotFoundException("Product list it's empty");
         } else {
             List<ProductDto> productDtoList;
-            productDtoList = modelMapper.map(productList, new TypeToken<List<ProductDto>>() {}.getType());
-            return  productDtoList;
+            productDtoList = modelMapper.map(productList, new TypeToken<List<ProductDto>>() {
+            }.getType());
+            return productDtoList;
         }
     }
 }

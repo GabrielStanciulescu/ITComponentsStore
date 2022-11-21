@@ -27,6 +27,7 @@ public class Order {
     private String description;
     private Integer quantity;
     private Long idProduct;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -34,6 +35,7 @@ public class Order {
         Order order = (Order) o;
         return Objects.equals(id, order.id);
     }
+
     @Override
     public int hashCode() {
         return Objects.hash(id);

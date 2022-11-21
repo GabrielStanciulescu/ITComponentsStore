@@ -70,11 +70,12 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public List<OrderDto> getOrderByOrderCode(String keywords) {
         List<Order> orderList = orderRepository.findAllByOrderCodeIsContainingIgnoreCase(keywords);
-        if(orderList.isEmpty()){
+        if (orderList.isEmpty()) {
             throw new DataNotFoundException("Order list it's empty");
         }
         List<OrderDto> orderDtoList;
-        orderDtoList = modelMapper.map(orderList, new TypeToken<List<OrderDto>>() {}.getType());
+        orderDtoList = modelMapper.map(orderList, new TypeToken<List<OrderDto>>() {
+        }.getType());
         return orderDtoList;
     }
 

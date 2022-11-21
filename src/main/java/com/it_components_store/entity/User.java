@@ -41,12 +41,13 @@ public class User {
         return idUser != null && Objects.equals(idUser, user.idUser);
     }
 
-    public boolean hasRole(String roleName){
-        if(role.getName().equals(roleName)){
-            return  true;
+    public boolean hasRole(String roleName) {
+        if (role.getName().equals(roleName)) {
+            return true;
         }
-        return  false;
+        return false;
     }
+
     @Override
     public int hashCode() {
         return getClass().hashCode();

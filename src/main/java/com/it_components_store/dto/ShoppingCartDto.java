@@ -14,7 +14,7 @@ public class ShoppingCartDto {
     private String name;
     private Integer price;
     private String description;
-    private Integer  quantity;
+    private Integer quantity;
     private String imageUrl;
     private Long idProduct;
 }

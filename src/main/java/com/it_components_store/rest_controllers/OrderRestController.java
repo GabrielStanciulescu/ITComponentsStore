@@ -14,20 +14,24 @@ import java.util.Optional;
 @RequestMapping(value = "/api/order", produces = MediaType.APPLICATION_JSON_VALUE)
 public class OrderRestController {
     private final OrderServiceImpl orderService;
+
     @PostMapping("/add")
     public void addProduct(@RequestBody OrderDto orderDto) {
         orderService.addOrder(orderDto);
     }
+
     @GetMapping("/{id}")
-    public Optional<OrderDto> getOrderByID( @PathVariable Long id){
+    public Optional<OrderDto> getOrderByID(@PathVariable Long id) {
         return orderService.getOrderById(id);
     }
+
     @GetMapping("/ollOrder")
-    public List<OrderDto> getAllOrder(){
+    public List<OrderDto> getAllOrder() {
         return orderService.listOfOrders();
     }
+
     @DeleteMapping("delete/{id}")
-    public void deleteById(@PathVariable Long id){
+    public void deleteById(@PathVariable Long id) {
         orderService.deleteOrderByID(id);
 
     }

@@ -19,6 +19,7 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idRole;
     private String name;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -26,6 +27,7 @@ public class Role {
         Role role = (Role) o;
         return idRole != null && Objects.equals(idRole, role.idRole);
     }
+
     @OneToMany(mappedBy = "role")
     List<User> userList;
 

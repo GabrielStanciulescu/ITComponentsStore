@@ -2,8 +2,10 @@ package com.it_components_store.entity;
 
 import lombok.*;
 import org.hibernate.Hibernate;
+
 import javax.persistence.*;
 import java.util.Objects;
+
 @Getter
 @Setter
 @ToString
@@ -27,6 +29,7 @@ public class Product {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_category")
     private Category category;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -34,6 +37,7 @@ public class Product {
         Product product = (Product) o;
         return idProduct != null && Objects.equals(idProduct, product.idProduct);
     }
+
     @Override
     public int hashCode() {
         return getClass().hashCode();

@@ -21,17 +21,19 @@ public class ShoppingCartRestController {
     private final ModelMapper modelMapper;
 
     @PostMapping("/add/{id}")
-    public void addShoppingCart(@PathVariable Long id){
+    public void addShoppingCart(@PathVariable Long id) {
         Optional<ProductDto> productDtoOptionaltest = productService.getProductById(id);
-        if(productDtoOptionaltest.isPresent()){
+        if (productDtoOptionaltest.isPresent()) {
             ProductDto productDto = productDtoOptionaltest.get();
-            ShoppingCartDto shoppingCartDto = modelMapper.map(productDto, new TypeToken<ShoppingCartDto>() {}.getType());
+            ShoppingCartDto shoppingCartDto = modelMapper.map(productDto, new TypeToken<ShoppingCartDto>() {
+            }.getType());
             shoppingCartDto.setQuantity(1);
             shoppingCartService.addShoppingCart(shoppingCartDto);
         }
     }
+
     @GetMapping("/getShopping/{id}")
-    public Optional<ShoppingCartDto> getShoppingCart(@PathVariable Long id){
+    public Optional<ShoppingCartDto> getShoppingCart(@PathVariable Long id) {
         return shoppingCartService.getShoppingCartById(id);
 
     }

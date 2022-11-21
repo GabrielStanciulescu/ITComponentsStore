@@ -21,14 +21,17 @@ public class UsersRestController {
 
         usersService.addUsers(userDto);
     }
+
     @GetMapping("/{id}")
     Optional<UserDto> getUsersById(@PathVariable Long id) {
         return usersService.getUsersById(id);
     }
+
     @GetMapping("/all")
     List<UserDto> getAllUsers() {
         return usersService.getListOfUsers();
     }
+
     @DeleteMapping("/{id}")
     void deleteById(@PathVariable Long id) {
         usersService.deleteUserById(id);
