@@ -1,17 +1,12 @@
 package com.it_components_store.entity;
 
-import java.time.LocalDate;
-import java.util.Objects;
-import javax.persistence.*;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.Hibernate;
 import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.Objects;
 
 @Getter
 @Setter
@@ -33,9 +28,11 @@ public class User {
     private LocalDate birthday;
     private String address;
     private String mobile;
+
     @ManyToOne()
     @JoinColumn(name = "id_role")
     private Role role;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -43,6 +40,14 @@ public class User {
         User user = (User) o;
         return idUser != null && Objects.equals(idUser, user.idUser);
     }
+
+    public boolean hasRole(String roleName) {
+        if (role.getName().equals(roleName)) {
+            return true;
+        }
+        return false;
+    }
+
     @Override
     public int hashCode() {
         return getClass().hashCode();

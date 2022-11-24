@@ -1,4 +1,4 @@
-INSERT INTO categories(name) VALUES ('Mouse'), ('RAM'), ('HDD'), ('SSD'), ('CPU'), ('GPU'), ('Mother Board'), ('Monitor');
+INSERT INTO categories(name) VALUES ('Mouse'), ('RAM'), ('HDD'), ('SSD'), ('CPU'), ('GPU'), ('Mother Board'), ('Monitor'),('Carcasa'),('Sursa'), ('Casti');
 
 
 
@@ -159,21 +159,80 @@ INSERT INTO products(code, description, image_url, name, price, quantity, id_cat
         ('F4-2133C15S-4GNT','Monitor LED Tesla 24MC625BF 23.8 inch FHD IPS 5 ms 75 Hz','https://3.grgs.ro/images/products/1/710/2380220/thumbnails/24mc625bf-238-inch-fhd-ips-5-ms-75-hz-freesync-4d7d11e6ea8e6aa1386d232d737b371a.jpg'
         ,'Monitor',2500,100, 8,100),
         ('F4-2133C15S-4GNT','Monitor LED Acer V247Y 23.8 inch FHD IPS 4 ms 75 Hz','https://2.grgs.ro/images/products/1/4960/2403988/thumbnails/v247y-238-inch-fhd-ips-4-ms-75-hz-771c1ef195affe86e2e4e7a9697a71e6.jpg'
-        ,'Monitor',1586,100, 8,100);
+        ,'Monitor',1586,100, 8,100),
 
 
 
-INSERT INTO roles(name) VALUES ('ADMIN'), ('USER');
+        ('F4-2133C15S-4GNT','Carcasa Floston RED BARS','https://3.grgs.ro/images/products/1/1457254/1502254/thumbnails/red-bars-26d6a2fe310e2dae66435364f697ee13.jpg'
+        ,'Carcasa',145,100, 9,100),
+        ('F4-2133C15S-4GNT','Carcasa Redragon Devastator','https://5.grgs.ro/images/products/1/6769/2109646/thumbnails/devastator-e0ae8f000690ff0345a8853e2734fdcd.jpg'
+        ,'Carcasa',145,100, 9,100),
+        ('F4-2133C15S-4GNT','Carcasa AQIRYS Bellatrix Pro White','https://4.grgs.ro/images/products/1/6878/2308718/thumbnails/bellatrix-pro-white-c730f5413c2974d2b5178bef99a1e96c.jpg'
+        ,'Carcasa',167,100, 9,100),
+        ('F4-2133C15S-4GNT','Carcasa Floston Blue Style','https://5.grgs.ro/images/products/1/1034/2046126/thumbnails/blue-style-6fa77d6f469b0b70d5f4ecc34c3abedc.jpg'
+        ,'Carcasa',184,100, 9,100),
+        ('F4-2133C15S-4GNT','Carcasa Floston Dark Brushed RGB','https://4.grgs.ro/images/products/1/1977958/1988478/thumbnails/dark-brushed-rgb-f29a08737a51f1ff7de64e37da3e21ff.jpg'
+        ,'Carcasa',145,100, 9,100),
+        ('F4-2133C15S-4GNT','Carcasa Gamemax Typhoon COC','https://3.grgs.ro/images/products/1/1240/2331908/thumbnails/typhoon-oc-c303473062273a6c6e5334031c324cca.jpg'
+        ,'Carcasa',217,100, 9,100),
+        ('F4-2133C15S-4GNT','Carcasa Segotep LUX II Black RGB','https://4.grgs.ro/images/products/1/7958/2149150/thumbnails/lux-ii-black-rgb-90d863d384a78c8e3b14487455d0c3e6.jpg'
+        ,'Carcasa',145,100, 9,100),
+        ('F4-2133C15S-4GNT','Carcasa Segotep Nova S6 Black','https://3.grgs.ro/images/products/1/6878/2308638/thumbnails/nova-s6-black-9c0982ae4a71e3c673897f94274886d6.jpg'
+        ,'Carcasa',230,100, 9,100),
+        ('F4-2133C15S-4GNT','Carcasa ALPHAGEAR Sentinel ARGB','https://1.grgs.ro/images/products/1/7958/2149846/thumbnails/sentinel-argb-a4ddbe09ec82b4b4c7bce4c88bf1cfe4.jpg'
+        ,'Carcasa',268,100, 9,100),
+        ('F4-2133C15S-4GNT','Carcasa AQIRYS Canopus White ARGB','https://4.grgs.ro/images/products/1/1724/2219078/thumbnails/canopus-white-argb-7dd918b97219b0398a64c0b6d04c58d3.jpg'
+        ,'Carcasa',145,100, 9,100),
+
+
+        ('F4-2133C15S-4GNT','Sursa Segotep ATX-500WH','https://2.grgs.ro/images/products/1/4/260785/thumbnails/atx-500wh-5c5322b52a93467de39bb1993c1b021d.jpg'
+        ,'Sursa',145,100, 10,100),
+        ('F4-2133C15S-4GNT','Sursa Floston FL500 Extra','https://4.grgs.ro/images/products/1/5/376201/thumbnails/fl500-extra-22bfe990c70298dae910721f50eda969.jpg'
+        ,'Sursa',145,100, 10,100),
+        ('F4-2133C15S-4GNT','Sursa AQIRYS Pulsar, 80+ Bronze, 750W','https://4.grgs.ro/images/products/1/5113/2139458/thumbnails/pulsar-80-plus-bronze-750w-07e71f531aa064634a914bcf8875461e.jpg'
+        ,'Sursa',226,100, 10,100),
+        ('F4-2133C15S-4GNT','Sursa Aerocool LUX RGB, 80+ Bronze, 650W','https://3.grgs.ro/images/products/1/753/1818980/thumbnails/lux-rgb-80-plus-bronze-550w-deb8cc6ff8507be22a27708bf85985fe.png'
+        ,'Sursa',145,100, 10,100),
+        ('F4-2133C15S-4GNT','Sursa Gamemax VP-800-RGB, 80+ Bronze, 800W','https://1.grgs.ro/images/products/1/3026/2132666/thumbnails/vp-800-rgb-80-plus-bronze-800w-74b5db9f78b39ac0562b689362649b79.jpg'
+        ,'Sursa',256,100, 10,100),
+        ('F4-2133C15S-4GNT','Sursa PCCOOLER GI-BR700, 80+ Bronze, 700W','https://5.grgs.ro/images/products/1/7571/2325016/thumbnails/gi-br700-80-plus-bronze-700w-92346a88869865bfc65fea954f9f1d80.jpg'
+        ,'Sursa',145,100, 10,100),
+        ('F4-2133C15S-4GNT','Sursa Seasonic G12 GC-550, 80+ Gold, 550W','https://4.grgs.ro/images/products/1/4659/2162506/thumbnails/g12-gc-550-80-plus-gold-550w-53e77fea10e7ed382844ecf36d1599d0.jpg'
+        ,'Sursa',324,100, 10,100),
+        ('F4-2133C15S-4GNT','Sursa Redragon RGPS650W, 80+ Gold, 650W','https://4.grgs.ro/images/products/1/3395/2294874/thumbnails/rgps650w-80-plus-gold-650w-89610c948bde0f0c62a2f1e266a4daaa.jpg'
+        ,'Sursa',145,100, 10,100),
+        ('F4-2133C15S-4GNT','Sursa Seasonic G12 GM-550, 80+ Gold, 550W','https://1.grgs.ro/images/products/1/2948/2430604/thumbnails/g12-gm-550-series-80-plus-gold-a5e6bca1ed9743da7ce7f6cd6e5fb219.jpg'
+        ,'Sursa',145,100, 10,100),
+        ('F4-2133C15S-4GNT','Sursa Inaza Fusion, 80+ Gold, 700W','https://2.grgs.ro/images/products/1/2510/2237914/thumbnails/sursa-inaza-fusion-700w-71a9b88f9ea0552a2239e2d8f7540ab7.jpg'
+        ,'Sursa',145,100, 10,100),
+
+        ('F4-2133C15S-4GNT','Casti Gaming Corsair Virtuoso RGB Carbon Wireless','https://3.grgs.ro/images/products/1/6166/1949666/thumbnails/virtuoso-rgb-carbon-wireless-72304c553ce6fcab14f5d893770f09ad.png'
+        ,'Casti',989,100, 11,100),
+        ('F4-2133C15S-4GNT','Casti Gaming ASUS ROG Delta S RGB','https://1.grgs.ro/images/products/1/9395/2135238/thumbnails/casti-gaming-asus-rog-delta-s-iluminare-rgb-8c2f6b583442f15082da9f988068ac06.jpg'
+        ,'Casti',999,100, 11,100),
+        ('F4-2133C15S-4GNT','Casti Gaming Logitech G735 Lightspeed Wireless RGB White','https://5.grgs.ro/images/products/1/1862/2447912/thumbnails/981-001083-afaa06382eee05766feaad2e42017a97.jpg'
+        ,'Casti',1980,100, 11,100),
+        ('F4-2133C15S-4GNT','Casti Gaming Logitech G PRO X Wireless Lightspeed','https://5.grgs.ro/images/products/1/6954/2060402/thumbnails/g-pro-x-wireless-lightspeed-90c33ec200d0803a46556093e88e3c26.jpg'
+        ,'Casti',809,100, 11,100),
+        ('F4-2133C15S-4GNT','Casti Gaming SkullCandy PLYR Black DigiHype','https://2.grgs.ro/images/products/1/6995/2506759/thumbnails/s6ppy-p003-400b4eddf8d290df8e4b288affb2df33.jpg'
+        ,'Casti',699,100, 11,100),
+        ('F4-2133C15S-4GNT','Casti Gaming Alienware AW510H Lunar Light','https://5.grgs.ro/images/products/1/1990682/1994022/thumbnails/aw510h-lunar-light-798d86c9d97a1690ba876c93e239e5c6.jpg'
+        ,'Casti',599,100, 11,100),
+        ('F4-2133C15S-4GNT','Casti Gaming SkullCandy SLYR Pro Blue Digi Hype','https://5.grgs.ro/images/products/1/6995/2506787/thumbnails/slyr-pro-blue-digi-hype-d54ed28a993d6599d708d74be201213b.jpg'
+        ,'Casti',620,100, 11,100),
+        ('F4-2133C15S-4GNT','Casti Gaming SkullCandy SLYR Pro Black DigiHype','https://4.grgs.ro/images/products/1/6995/2506767/thumbnails/s6spy-p003-6f87b55cf77b12949ab91420ba10df59.jpg'
+        ,'Casti',499,100, 11,100),
+        ('F4-2133C15S-4GNT','Casti Gaming SPC Gear VIRO Plus','https://5.grgs.ro/images/products/1/6954/2060418/thumbnails/viro-plus-0f78032e4559a4dc7e9dddb5da45332c.jpg'
+        ,'Casti',182,100, 11,100);
+
+
+
+INSERT INTO roles(name) VALUES ('ROLE_USER'), ('ROLE_ADMIN'),('ROLE_EMPLOYEE');
 
 INSERT INTO users(address, birthday, email, first_name,mobile ,  password, last_name, id_role)
-VALUES ('Ghinea dorinel nr13', '1999-08-01', 'gabriel.stanciulescu@gmail.com', 'Stanciulescu', '0748839324', 'qmajdyhn', 'Gabriel', 1),
-       ('Arinului 20', '200-08-01', 'constantin.gabriel@gmail.com', 'Constantin', '0748839324', 'qmajdyhn', 'Gabriel', 2),
-       ('Ghinea dorinel nr13', '1999-08-01', 'gabriel.stanciulescu@gmail.com', 'Stanciulescu', '0748839324', 'qmajdyhn', 'Gabriel', 2),
-       ('Ghinea dorinel nr13', '1999-08-01', 'gabriel.stanciulescu@gmail.com', 'Stanciulescu', '0748839324', 'qmajdyhn', 'Gabriel', 2),
-       ('Ghinea dorinel nr13', '1999-08-01', 'gabriel.stanciulescu@gmail.com', 'Stanciulescu', '0748839324', 'qmajdyhn', 'Gabriel', 2),
-       ('Ghinea dorinel nr13', '1999-08-01', 'gabriel.stanciulescu@gmail.com', 'Stanciulescu', '0748839324', 'qmajdyhn', 'Gabriel', 2),
-       ('Ghinea dorinel nr13', '1999-08-01', 'gabriel.stanciulescu@gmail.com', 'Stanciulescu', '0748839324', 'qmajdyhn', 'Gabriel', 2),
-       ('Ghinea dorinel nr13', '1999-08-01', 'gabriel.stanciulescu@gmail.com', 'Stanciulescu', '0748839324', 'qmajdyhn', 'Gabriel', 1);
+VALUES ('Brasov', '1999-08-01', 'gabriel.stanciulescu@admin.itcomponents.ro', 'Stanciulescu', '0748000000', '$2a$12$R7SYQz6YjarscS/c3qqVjeg.kPJQuPRK5yOORqXQXcXrz62G.eEPC', 'Gabriel', 2),-- password: qmajdyhn
+       ('Brasov', '1999-08-01', 'gabriel.stanciulescu@gmail.com', 'Stanciulescu', '0748000000', '$2a$12$R7SYQz6YjarscS/c3qqVjeg.kPJQuPRK5yOORqXQXcXrz62G.eEPC', 'Gabriel', 1),-- password: qmajdyhn
+       ('Brasov', '1999-08-01', 'gabriel.stanciulescu@itcomponents.ro', 'Stanciulescu', '0748000000', '$2a$12$R7SYQz6YjarscS/c3qqVjeg.kPJQuPRK5yOORqXQXcXrz62G.eEPC', 'Gabriel', 3); -- password: qmajdyhn
 
 
 

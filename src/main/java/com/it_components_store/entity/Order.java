@@ -14,21 +14,6 @@ import java.util.Objects;
 @Entity
 @Table(name = "orders")
 public class Order {
-//    @Id
-//    @GeneratedValue(generator = "UUID")
-//    @GenericGenerator(
-//            name = "UUID",
-//            strategy = "org.hibernate.id.UUIDGenerator",
-//            parameters = {
-//                    @org.hibernate.annotations.Parameter(
-//                            name = "uuid_gen_strategy_class",
-//                            value = "org.hibernate.id.uuid.CustomVersionOneStrategy"
-//                    )
-//
-//            }
-//    )
-//    @Column(name = "id", updatable = false, nullable = false)
-//    private UUID uuid; //23 40  //100
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -42,9 +27,7 @@ public class Order {
     private String description;
     private Integer quantity;
     private Long idProduct;
-//    @ManyToOne()
-//    @JoinColumn(name = "idProduct")
-//    private Product product;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -52,6 +35,7 @@ public class Order {
         Order order = (Order) o;
         return Objects.equals(id, order.id);
     }
+
     @Override
     public int hashCode() {
         return Objects.hash(id);

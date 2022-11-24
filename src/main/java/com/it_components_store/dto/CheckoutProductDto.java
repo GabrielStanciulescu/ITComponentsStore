@@ -18,5 +18,4 @@ public class CheckoutProductDto {
     private LocalDate localDate;
 
 
-
 }

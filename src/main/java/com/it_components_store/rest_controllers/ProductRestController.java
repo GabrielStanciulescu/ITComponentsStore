@@ -1,7 +1,7 @@
 package com.it_components_store.rest_controllers;
 
 import com.it_components_store.dto.ProductDto;
-import com.it_components_store.service.impl.ProductServiceImpl;
+import com.it_components_store.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -14,14 +14,15 @@ import java.util.Optional;
 @RequestMapping(value = "/api/product", produces = MediaType.APPLICATION_JSON_VALUE)
 public class ProductRestController {
 
-    private final ProductServiceImpl productService;
+    private final ProductService productService;
 
     @PostMapping("/add")
     public void addProduct(@RequestBody ProductDto product) {
 
-            productService.addProduct(product);
+        productService.addProduct(product);
 
     }
+
     @GetMapping("/{id}")
     public Optional<ProductDto> getProductById(@PathVariable Long id) {
         return productService.getProductById(id);
@@ -41,10 +42,6 @@ public class ProductRestController {
     public List<ProductDto> getAllProductByCategory(@PathVariable Long id) {
         return productService.getListOfProductsByCategory(id);
     }
-
-
-
-
 
 
 }

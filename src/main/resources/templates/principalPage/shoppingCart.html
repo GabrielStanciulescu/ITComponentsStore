@@ -16,7 +16,7 @@
             <p class="card-text">Cost livrare: Gratuit </p>
             <p class="card-text">Cost Total: [[${price}]] RON </p>
 
-<!--            <a href="#" class="card-link">Another link</a>-->
+            <!--            <a href="#" class="card-link">Another link</a>-->
             <a th:href="@{/orderpage}" type="button" class="btn btn-primary">Comanda</a>
 
         </div>
@@ -27,7 +27,8 @@
                 <div class="card mb-3" style="max-width: 540px;">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <img th:src="@{${shoppingCartDto.imageUrl}}" class="img-fluid rounded-start" alt="image product">
+                            <img th:src="@{${shoppingCartDto.imageUrl}}" class="img-fluid rounded-start"
+                                 alt="image product">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
@@ -35,9 +36,11 @@
                                 <p class="card-text">[[${shoppingCartDto.description}]]</p>
                                 <p class="card-text"> Cantitate: [[${shoppingCartDto.quantity}]] </p>
                                 <p class="card-text"> Pret: [[${shoppingCartDto.price}]] RON </p>
-                                <form action="#" th:action="@{/deleteproduct/{id}(id=${shoppingCartDto.idShoppingCart})}" th:method="post" th:object="${productDto}" >
+                                <form action="#"
+                                      th:action="@{/deleteproduct/{id}(id=${shoppingCartDto.idShoppingCart})}"
+                                      th:method="post" th:object="${productDto}">
 
-                                        <button type="submit" class="btn btn-sm btn-danger">Sterge din lista</button>
+                                    <button type="submit" class="btn btn-sm btn-danger">Sterge din lista</button>
 
                                 </form>
                             </div>
@@ -47,13 +50,10 @@
             </div>
 
 
-
         </th:block>
 
 
     </div>
-
-
 
 
 </div>

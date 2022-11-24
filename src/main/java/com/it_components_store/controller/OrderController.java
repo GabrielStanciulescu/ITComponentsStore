@@ -5,10 +5,10 @@ import com.it_components_store.dto.OrderDto;
 import com.it_components_store.dto.ProductDto;
 import com.it_components_store.dto.ShoppingCartDto;
 import com.it_components_store.exception.DataNotFoundException;
-import com.it_components_store.service.impl.CheckoutProductServiceImpl;
-import com.it_components_store.service.impl.OrderServiceImpl;
-import com.it_components_store.service.impl.ProductServiceImpl;
-import com.it_components_store.service.impl.ShoppingCartServiceImpl;
+import com.it_components_store.service.CheckoutProductService;
+import com.it_components_store.service.OrderService;
+import com.it_components_store.service.ProductService;
+import com.it_components_store.service.ShoppingCartService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -26,51 +26,50 @@ import java.util.Random;
 @Controller
 @RequiredArgsConstructor
 public class OrderController {
-    private final ShoppingCartServiceImpl shoppingCartService;
-    private final OrderServiceImpl orderService;
-    private final CheckoutProductServiceImpl checkoutProductService;
+    private final ShoppingCartService shoppingCartService;
+    private final OrderService orderService;
+    private final CheckoutProductService checkoutProductService;
     private final ModelMapper modelMapper;
-    private final ProductServiceImpl productService;
+    private final ProductService productService;
 
     @GetMapping("/orderpage")
-    public String getOrderPage(Model model){
+    public String getOrderPage(Model model) {
         model.addAttribute("order", new OrderDto());
-        return "order";
+        return "principalPage/order";
     }
+
     @PostMapping("/orderpage/orderproducts")
-    public String order(@ModelAttribute("order") OrderDto orderDto){
+    public String order(@ModelAttribute("order") OrderDto orderDto) {
         List<ShoppingCartDto> shoppingCartDtoList = shoppingCartService.getListOfShoppingCart();
-        if(shoppingCartDtoList.isEmpty()){
+        if (shoppingCartDtoList.isEmpty()) {
             throw new DataNotFoundException("Exception!");
-        }
-        else {
+        } else {
             int leftLimit = 97;
             int rightLimit = 122;
             int targetStringLength = 10;
             Random random = new Random();
-            int totalPrice=0;
+            int totalPrice = 0;
             String generatedString = random.ints(leftLimit, rightLimit + 1)
                     .limit(targetStringLength)
                     .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
                     .toString();
-            for(ShoppingCartDto shoppingCartDto :shoppingCartDtoList){
+            for (ShoppingCartDto shoppingCartDto : shoppingCartDtoList) {
                 orderDto.setDescription(shoppingCartDto.getDescription());
                 orderDto.setQuantity(shoppingCartDto.getQuantity());
                 orderDto.setOrderCode(generatedString);
                 orderDto.setIdProduct(shoppingCartDto.getIdProduct());
                 orderDto.setPrice(shoppingCartDto.getPrice());
-                totalPrice += shoppingCartDto.getPrice()*shoppingCartDto.getQuantity();
+                totalPrice += shoppingCartDto.getPrice() * shoppingCartDto.getQuantity();
                 orderService.addOrder(orderDto);
 
                 Optional<ProductDto> optionalProductDto = productService.getProductById(shoppingCartDto.getIdProduct());
-                if(optionalProductDto.isEmpty()){
+                if (optionalProductDto.isEmpty()) {
                     throw new DataNotFoundException("Product not found");
 
-                }
-                else {
+                } else {
                     ProductDto productDto = optionalProductDto.get();
                     Integer numberOfProducts = productDto.getQuantity();
-                    productDto.setQuantity(numberOfProducts-shoppingCartDto.getQuantity());
+                    productDto.setQuantity(numberOfProducts - shoppingCartDto.getQuantity());
                     productService.updateProduct(productDto, productDto.getIdProduct());
 
 
@@ -78,29 +77,30 @@ public class OrderController {
 
             }
 
-            CheckoutProductDto checkoutProductDto = modelMapper.map(orderDto,new TypeToken<CheckoutProductDto>() {}.getType());
+            CheckoutProductDto checkoutProductDto = modelMapper.map(orderDto, new TypeToken<CheckoutProductDto>() {
+            }.getType());
             checkoutProductDto.setPrice(totalPrice);
             checkoutProductDto.setLocalDate(LocalDate.now());
             checkoutProductService.addCheckoutProduct(checkoutProductDto);
-           shoppingCartService.deleteAll();
+            shoppingCartService.deleteAll();
         }
         return "redirect:/category/1";
     }
 
 
     @GetMapping("/orderpage/dashboard")
-    public String getPageOfOrder(Model model){
+    public String getPageOfOrder(Model model) {
         List<CheckoutProductDto> checkoutProductDtoList = checkoutProductService.listOfCheckoutProductDto();
         model.addAttribute("checkoutProduct", checkoutProductDtoList);
 
 
-        return "orderPageDashboard";
+        return "dashboard/orderPageDashboard";
     }
 
     @GetMapping("/search/orderpage")
-    public String getProductByDescription(Model model, String keyword){
-        List<OrderDto>orderDtoList = orderService.getOrderByOrderCode(keyword);
+    public String getProductByDescription(Model model, String keyword) {
+        List<OrderDto> orderDtoList = orderService.getOrderByOrderCode(keyword);
         model.addAttribute("orderList", orderDtoList);
-        return "orderPageSearch";
+        return "dashboard/orderPageSearch";
     }
 }

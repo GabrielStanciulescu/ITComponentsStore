@@ -9,6 +9,7 @@ import com.it_components_store.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,16 +20,24 @@ import java.util.Optional;
 public class UserServiceImpl implements UserService {
     private final UserRepository usersRepository;
     private final ModelMapper modelMapper;
+    private final PasswordEncoder passwordEncoder;
+
     @Override
     public void addUsers(UserDto userDto) {
         if (userDto == null) {
             throw new DataNotFoundException("Category not found!");
         } else {
-            userDto.setIdRole(2L);
-            User user = modelMapper.map(userDto, new TypeToken<User>() {}.getType());
+            userDto.setIdRole(1L);
+            String password = userDto.getPassword();
+            String encode = passwordEncoder.encode(password);
+            userDto.setPassword(encode);
+
+            User user = modelMapper.map(userDto, new TypeToken<User>() {
+            }.getType());
             usersRepository.save(user);
         }
     }
+
     @Override
     public Optional<UserDto> getUsersById(Long id) {
         if (id < 0) {
@@ -51,7 +60,8 @@ public class UserServiceImpl implements UserService {
             throw new DataNotFoundException("Category list it's empty");
         } else {
             List<UserDto> userDtoList;
-            userDtoList = modelMapper.map(usersList, new TypeToken<List<UserDto>>() {}.getType());
+            userDtoList = modelMapper.map(usersList, new TypeToken<List<UserDto>>() {
+            }.getType());
 
             return userDtoList;
         }
@@ -70,5 +80,18 @@ public class UserServiceImpl implements UserService {
         usersRepository.deleteById(id);
     }
 
+
+    @Override
+    public Optional<User> getUserByEmail(String email) {
+        Optional<User> optionalUsers = usersRepository.findUsersByEmail(email);
+        if (optionalUsers.isEmpty()) {
+            throw new DataNotFoundException("The user does not exist!");
+        } else {
+            User user = optionalUsers.get();
+
+            return Optional.of(user);
+        }
     }
+
+}
 

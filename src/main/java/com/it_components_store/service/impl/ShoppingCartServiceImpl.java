@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class ShoppingCartServiceImpl implements ShoppingCartService {
@@ -21,15 +22,16 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
     @Override
     public void addShoppingCart(ShoppingCartDto shoppingCartDto) {
-        if(shoppingCartDto==null){
+        if (shoppingCartDto == null) {
             throw new DataNotFoundException("Product not found!");
-        }
-        else{
-            ShoppingCart shoppingCart = modelMapper.map(shoppingCartDto, new TypeToken<ShoppingCart>() {}.getType());
+        } else {
+            ShoppingCart shoppingCart = modelMapper.map(shoppingCartDto, new TypeToken<ShoppingCart>() {
+            }.getType());
             shoppingCartRepository.save(shoppingCart);
         }
 
     }
+
     @Override
     public Optional<ShoppingCartDto> getShoppingCartById(Long id) {
         if (id < 0) {
@@ -40,10 +42,11 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
             throw new DataNotFoundException("Error! The product with id " + id + " does not exist!");
         } else {
             ShoppingCart shoppingCart = shoppingCartOptional.get();
-            ShoppingCartDto shoppingCartDto = modelMapper.map(shoppingCart,ShoppingCartDto.class);
+            ShoppingCartDto shoppingCartDto = modelMapper.map(shoppingCart, ShoppingCartDto.class);
             return Optional.of(shoppingCartDto);
         }
     }
+
     @Override
     public List<ShoppingCartDto> getListOfShoppingCart() {
         List<ShoppingCart> shoppingCartList = shoppingCartRepository.findAll();
@@ -51,10 +54,12 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
             throw new DataNotFoundException("Product list it's empty");
         } else {
             List<ShoppingCartDto> shoppingCartDtoList;
-            shoppingCartDtoList = modelMapper.map(shoppingCartList, new TypeToken<List<ShoppingCartDto>>() {}.getType());
-            return  shoppingCartDtoList;
+            shoppingCartDtoList = modelMapper.map(shoppingCartList, new TypeToken<List<ShoppingCartDto>>() {
+            }.getType());
+            return shoppingCartDtoList;
         }
     }
+
     @Override
     public void deleteShoppingCartById(Long id) {
         Optional<ShoppingCart> shoppingCart = shoppingCartRepository.findById(id);

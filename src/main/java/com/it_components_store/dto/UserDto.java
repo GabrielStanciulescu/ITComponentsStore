@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -29,5 +30,5 @@ public class UserDto {
     private String address;
 
     private String mobile;
-    private Long  idRole;
+    private Long idRole;
 }

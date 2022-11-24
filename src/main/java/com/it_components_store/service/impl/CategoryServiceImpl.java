@@ -5,8 +5,10 @@ import com.it_components_store.exception.DataNotFoundException;
 import com.it_components_store.exception.InvalidDataException;
 import com.it_components_store.repository.CategoryRepository;
 import com.it_components_store.service.CategoryService;
+
 import java.util.List;
 import java.util.Optional;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +26,7 @@ public class CategoryServiceImpl implements CategoryService {
             categoryRepository.save(category);
         }
     }
+
     @Override
     public Optional<Category> getCategoryById(Long id) {
         if (id < 0) {
@@ -36,6 +39,7 @@ public class CategoryServiceImpl implements CategoryService {
             return optionalCategory;
         }
     }
+
     @Override
     public List<Category> getListOfCategory() {
         List<Category> categoryList = categoryRepository.findAll();
@@ -45,6 +49,7 @@ public class CategoryServiceImpl implements CategoryService {
             return categoryList;
         }
     }
+
     @Override
     public void deleteCategoryById(Long id) {
         Optional<Category> categoryOptional = categoryRepository.findById(id);
