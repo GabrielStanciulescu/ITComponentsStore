@@ -26,8 +26,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .mvcMatchers("/dashboard").hasAnyRole("ADMIN", "EMPLOYEE")
                 .mvcMatchers("/orderpage/dashboard").hasAnyRole("ADMIN", "EMPLOYEE")
                 .mvcMatchers("/search/orderpage").hasAnyRole("ADMIN", "EMPLOYEE")
-                .mvcMatchers("/dashboard/delete/{id}").hasAnyRole("ADMIN")
-                .mvcMatchers("/category/{id}").hasAnyRole("ADMIN", "EMPLOYEE", "USER")
+                .mvcMatchers("/dashboard/delete/*").hasAnyRole("ADMIN")
+                .mvcMatchers("/category/*").hasAnyRole("ADMIN", "EMPLOYEE", "USER")
                 .and()
                 .formLogin(form -> form
                         .loginPage("/login").successHandler(loginSuccessHandler).failureUrl("/login/error")).logout();
