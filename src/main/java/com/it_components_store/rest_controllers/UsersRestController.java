@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,7 +18,7 @@ public class UsersRestController {
     private final UserService usersService;
 
     @PostMapping("/add")
-    public void addUsers(@RequestBody UserDto userDto) {
+    public void addUsers(@Valid @RequestBody UserDto userDto) {
 
         usersService.addUsers(userDto);
     }

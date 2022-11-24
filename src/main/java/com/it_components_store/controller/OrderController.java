@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.validation.Valid;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -39,7 +40,7 @@ public class OrderController {
     }
 
     @PostMapping("/orderpage/orderproducts")
-    public String order(@ModelAttribute("order") OrderDto orderDto) {
+    public String order(@ModelAttribute("order") @Valid OrderDto orderDto) {
         List<ShoppingCartDto> shoppingCartDtoList = shoppingCartService.getListOfShoppingCart();
         if (shoppingCartDtoList.isEmpty()) {
             throw new DataNotFoundException("Exception!");

@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,7 +17,7 @@ public class OrderRestController {
     private final OrderService orderService;
 
     @PostMapping("/add")
-    public void addProduct(@RequestBody OrderDto orderDto) {
+    public void addProduct( @Valid  @RequestBody OrderDto orderDto) {
         orderService.addOrder(orderDto);
     }
 

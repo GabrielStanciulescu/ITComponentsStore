@@ -31,6 +31,9 @@ public class CustomErrorController implements ErrorController {
                 errorPage = "errorPage/errorPage";
 
             }
+            else if(statusCode == HttpStatus.BAD_REQUEST.value()){
+                errorPage = "errorPage/badRequestPage";
+            }
         }
 
         return errorPage;

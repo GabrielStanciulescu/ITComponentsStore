@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.validation.Valid;
+
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/login")
@@ -40,7 +42,7 @@ public class LoginController {
     }
 
     @PostMapping("/registerUser")
-    public String userRegister(@ModelAttribute("user") UserDto user) {
+    public String userRegister(@Valid @ModelAttribute("user")  UserDto user) {
         userService.addUsers(user);
         return "redirect:/login";
     }
