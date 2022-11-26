@@ -9,6 +9,7 @@ import com.it_components_store.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,7 @@ public class UserServiceImpl implements UserService {
     private final UserRepository usersRepository;
     private final ModelMapper modelMapper;
     private final PasswordEncoder passwordEncoder;
+
 
     @Override
     public void addUsers(UserDto userDto) {
@@ -92,6 +94,45 @@ public class UserServiceImpl implements UserService {
             return Optional.of(user);
         }
     }
+
+    @Override
+    public Optional<User> getByResetPasswordToken(String token) {
+        Optional<User> optionalUser = usersRepository.findUserByResetPasswordToken(token);
+        if (optionalUser.isEmpty()) {
+            throw new DataNotFoundException("The user does not exist!");
+        } else {
+            User user = optionalUser.get();
+
+            return Optional.of(user);
+        }
+
+
+    }
+
+    @Override
+    public void  updateResetPasswordToken(String token, String email) {
+        Optional<User> optionalUsers = usersRepository.findUsersByEmail(email);
+        if (optionalUsers.isEmpty()) {
+            throw new DataNotFoundException("The user does not exist!");
+        } else {
+            User user = optionalUsers.get();
+            user.setResetPasswordToken(token);
+            usersRepository.save(user);
+
+
+        }
+    }
+
+    @Override
+    public void updatePassword(User user, String newPassword) {
+        String encodedPassword = passwordEncoder.encode(newPassword);
+        user.setPassword(encodedPassword);
+        user.setResetPasswordToken(null);
+        usersRepository.save(user);
+
+
+    }
+
 
 }
 

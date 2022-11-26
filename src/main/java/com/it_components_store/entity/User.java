@@ -28,6 +28,8 @@ public class User {
     private LocalDate birthday;
     private String address;
     private String mobile;
+    @Column(name = "reset_password_token")
+    private String resetPasswordToken;
 
     @ManyToOne()
     @JoinColumn(name = "id_role")
