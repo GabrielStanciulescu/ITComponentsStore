@@ -6,8 +6,10 @@ import com.it_components_store.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,12 +34,14 @@ public class DashBoardController {
     }
 
     @PostMapping("/product/save")
-    public String saveNewProduct(@ModelAttribute("product") ProductDto productDto) {
-        productService.addProduct(productDto);
-        return "redirect:/dashboard";
-
+    public String saveNewProduct(@ModelAttribute("product") @Valid ProductDto productDto, Errors errors) {
+        if (errors.hasErrors()) {
+            return "dashboard/add";
+        } else {
+            productService.addProduct(productDto);
+            return "redirect:/dashboard";
+        }
     }
-
     @GetMapping("/product/update/{id}")
     public String viewUpdateProduct(Model model, @PathVariable Long id) {
         Optional<ProductDto> productDtoOptional = productService.getProductById(id);
@@ -50,13 +54,17 @@ public class DashBoardController {
     }
 
     @PostMapping("/update/{id}")
-    public String updateProduct(@ModelAttribute("productDto") ProductDto productDto, @PathVariable Long id) {
+    public String updateProduct(@Valid @ModelAttribute("productDto") ProductDto productDto, Errors errors, @PathVariable Long id, Model model) {
+        productDto.setIdProduct(id);
+        model.addAttribute("productDto", productDto);
+        if (errors.hasErrors()) {
+            return "dashboard/modify";
+        } else {
+            productService.updateProduct(productDto, id);
 
-        productService.updateProduct(productDto, id);
-
-        return "redirect:/dashboard";
+            return "redirect:/dashboard";
+        }
     }
-
     @PostMapping("/delete/{id}")
     public String deleteProduct(@PathVariable Long id) {
 

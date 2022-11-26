@@ -13,7 +13,7 @@
 <div class="container">
     <div class="row gy-3">
         <div class="col-3"></div>
-        <div class="col-6 ms-4 "><h1> Modifiare produs</h1></div>
+        <div class="col-6 ms-4 "><h1> Modificare produs</h1></div>
         <div class="col-12"></div>
     </div>
 </div>
@@ -24,31 +24,43 @@
             <div class="col-6">
                 <label for="productName" class="form-label">Nume Produs</label>
                 <input type="text" class="form-control" th:field="*{name}" id="productName">
+                <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="alert alert-danger" role="alert">
+                </div>
             </div>
 
             <div class="col-6">
 
                 <label for="descriere produs" class="form-label">Desriere produs</label>
                 <input type="text" class="form-control" th:field="*{description}" id="descriere produs">
+                <div th:if="${#fields.hasErrors('description')}" th:errors="*{description}" class="alert alert-danger" role="alert">
+                </div>
             </div>
             <div class="col-6">
                 <label for="cantitate" class="form-label">Cantitate</label>
                 <input type="text" class="form-control" th:field="*{quantity}" id="cantitate">
+                <div th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}" class="alert alert-danger" role="alert">
+                </div>
             </div>
 
             <div class="col-6">
                 <label for="stocFurnizor" class="form-label">Stock furnizor</label>
                 <input type="text" class="form-control" th:field="*{stock}" id="stocFurnizor">
+                <div th:if="${#fields.hasErrors('stock')}" th:errors="*{stock}" class="alert alert-danger" role="alert">
+                </div>
             </div>
             <div class="col-6">
                 <label for="codProdus" class="form-label">Cod produs</label>
                 <input type="text" class="form-control" th:field="*{code}" id="codProdus">
+                <div th:if="${#fields.hasErrors('code')}" th:errors="*{code}" class="alert alert-danger" role="alert">
+                </div>
             </div>
 
             <div class="col-6">
 
                 <label for="price" class="form-label">Pret</label>
                 <input type="text" class="form-control" th:field="*{price}" id="price">
+                <div th:if="${#fields.hasErrors('price')}" th:errors="*{price}" class="alert alert-danger" role="alert">
+                </div>
             </div>
 
 
@@ -56,12 +68,16 @@
 
                 <label for="idCategory" class="form-label">ID Categorie</label>
                 <input type="text" class="form-control" th:field="*{categoryId}" id="idCategory">
+                <div th:if="${#fields.hasErrors('categoryId')}" th:errors="*{categoryId}" class="alert alert-danger" role="alert">
+                </div>
             </div>
 
             <div class="col-6">
 
                 <label for="urlImg" class="form-label">Url imagine</label>
                 <input type="text" th:field="*{imageUrl}" class="form-control" id="urlImg">
+                <div th:if="${#fields.hasErrors('imageUrl')}" th:errors="*{imageUrl}" class="alert alert-danger" role="alert">
+                </div>
             </div>
 
 
@@ -71,7 +87,7 @@
 
             <div class="col">
 
-                <a th:href="@{/templates/dashboard}" type="button" class="btn btn-secondary" style="width:15%">
+                <a th:href="@{/dashboard}" type="button" class="btn btn-secondary" style="width:15%">
                     Inapoi</a>
             </div>
 

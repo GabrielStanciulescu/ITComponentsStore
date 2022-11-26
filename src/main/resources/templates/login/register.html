@@ -36,6 +36,7 @@
                                            th:field="*{firstName}" placeholder="Enter your Name" required="required"/>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                     <div class="col-6">
@@ -47,6 +48,8 @@
                                     <input type="text" class="form-control" name="mobile" id="mobile"
                                            th:field="*{mobile}" placeholder="Enter your Number" required="required"/>
                                 </div>
+                            </div>
+                            <div th:if="${#fields.hasErrors('mobile')}" th:errors="*{mobile}" class="alert alert-danger" role="alert">
                             </div>
                         </div>
                     </div>
@@ -60,6 +63,8 @@
                                            th:field="*{lastName}" placeholder="Last Name" required="required"/>
                                 </div>
                             </div>
+                            <div th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="alert alert-danger" role="alert">
+                            </div>
                         </div>
                     </div>
                     <div class="col-6">
@@ -70,6 +75,8 @@
                                     <input type="date" class="form-control" name="birthday" id="birthday"
                                            th:field="*{birthday}" placeholder="Enter Your BirthDay"/>
                                 </div>
+                            </div>
+                            <div th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}" class="alert alert-danger" role="alert">
                             </div>
                         </div>
                     </div>
@@ -84,6 +91,8 @@
                                            placeholder="Enter your E-mail" required="required"/>
                                 </div>
                             </div>
+                            <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="alert alert-danger" role="alert">
+                            </div>
                         </div>
                     </div>
                     <div class="col-6">
@@ -96,6 +105,8 @@
                                            th:field="*{password}" placeholder="Enter your Password"
                                            required="required"/>
                                 </div>
+                            </div>
+                            <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="alert alert-danger" role="alert">
                             </div>
                         </div>
                     </div>
@@ -110,6 +121,8 @@
                                     <input type="text" class="form-control" name="address" id="address"
                                            th:field="*{address}" placeholder="Enter your Address" required="required"/>
                                 </div>
+                            </div>
+                            <div th:if="${#fields.hasErrors('password')}" th:errors="*{address}" class="alert alert-danger" role="alert">
                             </div>
                         </div>
                     </div>
