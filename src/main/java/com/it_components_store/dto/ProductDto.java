@@ -15,29 +15,33 @@ import javax.validation.constraints.Size;
 public class ProductDto {
 
     private Long idProduct;
-    @Size(max = 30, message = "The maximum length for product name")
+    @Size(min = 3, message = "Numele produslui trebuie sa contina mai mult de 3 caractere!")
+    @Size(max = 25, message = "Numele produslui trebuie sa contina mai putin  de 25 de caractere!")
     private String name;
 
-    @NotNull
+    @NotNull(message = "Introdu pretul")
     private Integer price;
 
-    @NotNull
+    @NotNull(message = "Introdu numarul de stocuri ")
     private Integer stock;
-    @NotNull
-    @Size(max = 100)
 
+    @NotNull(message = "Adauga descrierea produslui")
+    @Size(min = 3, message = "Descrierea produslui trebuie sa contina mai mult de 2 caractere!")
+    @Size(max = 100, message = "Descrierea produslui trebuie sa contina  mai putin de 100 de caractere!")
     private String description;
-    @NotNull
-    @Size(max = 20)
+
+    @Size(min = 3, message = "Codul produslui trebuie sa contina mai mult de 3 caractere!")
+    @Size(max = 30, message = "Codul produslui trebuie sa contina mai putin de 30 caractere!")
     private String code;
 
-    @NotNull
+    @NotNull(message = "Adauga cantitatea")
     private Integer quantity;
 
-    @NotNull
+    @NotNull(message = "Adauga categoria produsului")
     private Long categoryId;
 
-    @NotNull
+    @NotNull(message = "Adauga adresa URL a imaginii produslui!")
     private String imageUrl;
+
 
 }

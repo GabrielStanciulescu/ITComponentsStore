@@ -128,7 +128,7 @@ INSERT INTO products(code, description, image_url, name, price, quantity, id_cat
         ('F4-2133C15S-4GNT','Mouse Gaming AQIRYS Acrux','https://4.grgs.ro/images/products/1/352/2125886/thumbnails/acrux-d6a7f73caf16cd53f3147963e4a8f0c4.jpg'
         ,'Mouse',23,100, 1,100),
         ('F4-2133C15S-4GNT','Mouse Logitech MX Master 3 Wireless/Bluetooh, Black','https://1.grgs.ro/images/products/1/2001/2251302/thumbnails/910-005710-a108291fc68e434b0ef0f7d00af3124c.jpg'
-        ,'',23,100, 1,100),
+        ,'Mouse',23,100, 1,100),
         ('F4-2133C15S-4GNT','Mouse Gaming Redragon TitanoBoa2 V2 RGBTip mouse: Wired','https://5.grgs.ro/images/products/1/3395/2294886/thumbnails/titanoboa2-v2-rgb-fcf4203958eef4166db4fe4250323792.jpg'
         ,'Mouse',45,100, 1,100),
         ('F4-2133C15S-4GNT','Mouse Gaming Redragon Impact Elite RGB Wireless','https://3.grgs.ro/images/products/1/3991/2481608/thumbnails/impact-elite-rgb-wireless-cc321bd21930045c334a3b2f319432e1.jpg'
