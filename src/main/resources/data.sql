@@ -28,7 +28,7 @@ INSERT INTO products(code, description, image_url, name, price, quantity, id_cat
         ('F4-2133C15S-4GNT','Memorie TeamGroup Elite 8GB DDR4 3200MHz CL22','https://5.grgs.ro/images/products/1/1358815/2333480/thumbnails/tp-ddr4-8gb-2400-ted48g2400c1-792d8a06ea47ad547e6c2a4f1034db78.jpg'
         ,'RAM',360,100, 2,100),
         ('F4-2133C15S-4GNT','Memorie G.Skill Aegis 8GB DDR4 3200MHz CL16','https://5.grgs.ro/images/products/1/1541210/1956426/thumbnails/aegis-8gb-ddr4-3000mhz-cl16-135v-549095585383bb53d19a7c58c95fc41c.jpg'
-        ,'HDD',120,100, 3,100),
+        ,'RAM',120,100, 2,100),
 
         ('F4-2133C15S-4GNT','Hard disk WD Blue 1TB SATA-III 7200 RPM 64MB','https://2.grgs.ro/images/products/1/5/376435/thumbnails/blue-1tb-sata-iii-7200-rpm-64mb-5149c8225cffe963332c7127be366c0a.jpg'
         ,'HDD',250,100, 3,100),

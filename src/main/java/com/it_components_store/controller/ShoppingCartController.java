@@ -46,11 +46,11 @@ public class ShoppingCartController {
         if (productDtoOptional.isEmpty()) {
             throw new DataNotFoundException("Product not found");
         }
+
         ProductDto productDto = productDtoOptional.get();
         ShoppingCartDto shoppingCartDto = modelMapper.map(productDto, new TypeToken<ShoppingCartDto>() {
         }.getType());
         shoppingCartDto.setQuantity(Objects.requireNonNullElse(quantity, 1));
-
 
         shoppingCartService.addShoppingCart(shoppingCartDto);
         return "redirect:/category/" + idCategory;

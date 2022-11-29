@@ -37,6 +37,9 @@
                                 </div>
                             </div>
 
+                            <div th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" class="alert alert-danger" role="alert">
+                            </div>
+
                         </div>
                     </div>
                     <div class="col-6">
@@ -122,7 +125,7 @@
                                            th:field="*{address}" placeholder="Enter your Address" required="required"/>
                                 </div>
                             </div>
-                            <div th:if="${#fields.hasErrors('password')}" th:errors="*{address}" class="alert alert-danger" role="alert">
+                            <div th:if="${#fields.hasErrors('address')}" th:errors="*{address}" class="alert alert-danger" role="alert">
                             </div>
                         </div>
                     </div>
