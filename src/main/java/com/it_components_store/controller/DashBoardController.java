@@ -75,7 +75,8 @@ public class DashBoardController {
 
     @GetMapping("/search/dashboard")
     public String getProductByDescription(Model model, String keyword) {
-        List<ProductDto> productList = productService.getProductByDescription(keyword);
+        String search = keyword.trim();
+        List<ProductDto> productList = productService.getProductByDescription(search);
         model.addAttribute("productList", productList);
         return "dashboard/dashboard";
     }

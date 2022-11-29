@@ -15,23 +15,22 @@ import javax.validation.constraints.Size;
 @Builder
 public class OrderDto {
     private Long id;
-    @Size(max = 20, message = "The maximum length for  first name ")
+    @Size(max = 30, message = "Numele trebuie sa contina mai putin de 30 de caractere!")
     private String firstName;
 
     private String orderCode;
-    @Size(max = 20, message = "The maximum length for  last name ")
+    @Size(max = 30, message = "Prenumele  trebuie sa contina mai putin de 30 de caractere!")
     private String lastName;
 
-    @Pattern(regexp = "^[\\w.+\\-]+@gmail\\.com$", message = "The email is invalid")
-    @Size(max = 100, message = "The maximum length is 100 characters")
+    @Pattern(regexp = "^[\\w.+\\-]+@gmail\\.com$", message = "Adresa de mail este invalida!")
+    @Size(max = 100, message = "Lungimea dresei de mail nu poate avea 100 de caractere!")
     private String email;
-
     @NotNull
-    @Size(max = 30, message = "The maximum length for address is 30 characters")
+    @Size(max = 50, message = "Adresa  trebuie sa contina mai putin de 50 de caractere!")
     private String address;
 
     @NotNull
-    @Size(max = 15, message = "The maximum length for mobile is 15 characters")
+    @Pattern(regexp = "^(\\+4|)?(07\\d{2}|02\\d{2}|03\\d{2})(\\s|\\.|)?(\\d{3}(\\s|\\.|)){2}$",message = "Numarul  de telefon este invalid!")
     private String mobile;
 
     private String description;

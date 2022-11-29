@@ -22,6 +22,7 @@ public class UserServiceImpl implements UserService {
     private final ModelMapper modelMapper;
     private final PasswordEncoder passwordEncoder;
 
+
     @Override
     public void addUsers(UserDto userDto) {
         if (userDto == null) {
@@ -92,6 +93,45 @@ public class UserServiceImpl implements UserService {
             return Optional.of(user);
         }
     }
+
+    @Override
+    public Optional<User> getByResetPasswordToken(String token) {
+        Optional<User> optionalUser = usersRepository.findUserByResetPasswordToken(token);
+        if (optionalUser.isEmpty()) {
+            throw new DataNotFoundException("The user does not exist!");
+        } else {
+            User user = optionalUser.get();
+
+            return Optional.of(user);
+        }
+
+
+    }
+
+    @Override
+    public void  updateResetPasswordToken(String token, String email) {
+        Optional<User> optionalUsers = usersRepository.findUsersByEmail(email);
+        if (optionalUsers.isEmpty()) {
+            throw new DataNotFoundException("The user does not exist!");
+        } else {
+            User user = optionalUsers.get();
+            user.setResetPasswordToken(token);
+            usersRepository.save(user);
+
+
+        }
+    }
+
+    @Override
+    public void updatePassword(User user, String newPassword) {
+        String encodedPassword = passwordEncoder.encode(newPassword);
+        user.setPassword(encodedPassword);
+        user.setResetPasswordToken(null);
+        usersRepository.save(user);
+
+
+    }
+
 
 }
 

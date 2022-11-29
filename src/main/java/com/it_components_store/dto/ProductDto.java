@@ -40,7 +40,8 @@ public class ProductDto {
     @NotNull(message = "Adauga categoria produsului")
     private Long categoryId;
 
-    @NotNull(message = "Adauga adresa URL a imaginii produslui!")
+    @Size(min = 3, message = "Adauga URL")
+
     private String imageUrl;
 
 

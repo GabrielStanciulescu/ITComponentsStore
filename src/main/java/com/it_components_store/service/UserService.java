@@ -12,6 +12,10 @@ public interface UserService {
     List<UserDto> getListOfUsers();
     void deleteUserById(Long id);
     Optional<User> getUserByEmail(String email);
+    Optional<User> getByResetPasswordToken(String token);
+    void updateResetPasswordToken(String token, String email);
+    void updatePassword(User user, String newPassword);
+
 
 
 }
