@@ -5,6 +5,7 @@ import com.it_components_store.dto.OrderDto;
 import com.it_components_store.dto.ProductDto;
 import com.it_components_store.dto.ShoppingCartDto;
 import com.it_components_store.exception.DataNotFoundException;
+import com.it_components_store.security.SecurityUsers;
 import com.it_components_store.service.CheckoutProductService;
 import com.it_components_store.service.OrderService;
 import com.it_components_store.service.ProductService;
@@ -12,6 +13,7 @@ import com.it_components_store.service.ShoppingCartService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -41,7 +43,8 @@ public class OrderController {
     }
 
     @PostMapping("/orderpage/orderproducts")
-    public String order(@ModelAttribute("order") @Valid OrderDto orderDto, Errors errors) {
+    public String order(@ModelAttribute("order") @Valid OrderDto orderDto, Errors errors, Authentication authentication) {
+        SecurityUsers securityUsers = (SecurityUsers) authentication.getPrincipal();
        if(errors.hasErrors()){
            return "principalPage/order";
        }
@@ -85,8 +88,10 @@ public class OrderController {
                checkoutProductDto.setPrice(totalPrice);
                checkoutProductDto.setLocalDate(LocalDate.now());
                checkoutProductService.addCheckoutProduct(checkoutProductDto);
-               shoppingCartService.deleteAll();
+               shoppingCartService.deleteByIdUser(securityUsers.getUser().getIdUser());
+
            }
+
            return "redirect:/category/1";
 
        }

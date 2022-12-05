@@ -17,4 +17,6 @@ public class ShoppingCartDto {
     private Integer quantity;
     private String imageUrl;
     private Long idProduct;
+    private Long idUser;
+
 }
