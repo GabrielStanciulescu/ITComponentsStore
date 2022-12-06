@@ -50,19 +50,6 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     }
 
     @Override
-    public List<ShoppingCartDto> getListOfShoppingCart() {
-        List<ShoppingCart> shoppingCartList = shoppingCartRepository.findAll();
-        if (shoppingCartList.isEmpty()) {
-            throw new DataNotFoundException("Product list it's empty");
-        } else {
-            List<ShoppingCartDto> shoppingCartDtoList;
-            shoppingCartDtoList = modelMapper.map(shoppingCartList, new TypeToken<List<ShoppingCartDto>>() {
-            }.getType());
-            return shoppingCartDtoList;
-        }
-    }
-
-    @Override
     public void deleteShoppingCartById(Long id) {
         Optional<ShoppingCart> shoppingCart = shoppingCartRepository.findById(id);
         if (id < 0) {

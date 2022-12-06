@@ -23,7 +23,7 @@ public class ShoppingCart {
     private String imageUrl;
     @ManyToOne
     @JoinColumn(name = "idUser")
-    private User idUser;
+    private User user;
 
     @ManyToOne
     @JoinColumn(name = "idProduct")
