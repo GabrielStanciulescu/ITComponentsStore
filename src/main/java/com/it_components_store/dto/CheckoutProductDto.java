@@ -16,6 +16,7 @@ public class CheckoutProductDto {
     private String orderCode;
     private Integer price;
     private LocalDate localDate;
+    private Long idUser;
 
 
 }

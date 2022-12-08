@@ -8,4 +8,5 @@ import java.util.List;
 public interface CheckoutProductService {
     void addCheckoutProduct(CheckoutProductDto checkoutProductDto);
     List<CheckoutProductDto> listOfCheckoutProductDto();
+    List<CheckoutProductDto> getListOfCheckoutProductByIdUser(Long idUSer);
 }

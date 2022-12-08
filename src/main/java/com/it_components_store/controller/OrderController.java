@@ -91,6 +91,7 @@ public class OrderController {
                }.getType());
                checkoutProductDto.setPrice(totalPrice);
                checkoutProductDto.setLocalDate(LocalDate.now());
+               checkoutProductDto.setIdUser(securityUsers.getUser().getIdUser());
                checkoutProductService.addCheckoutProduct(checkoutProductDto);
                shoppingCartService.deleteByIdUser(securityUsers.getUser().getIdUser());
                sendMail.sendEmailToOrder(orderDto.getEmail(),shoppingCartDtoList );
