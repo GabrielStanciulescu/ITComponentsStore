@@ -44,10 +44,7 @@ public class User {
     }
 
     public boolean hasRole(String roleName) {
-        if (role.getName().equals(roleName)) {
-            return true;
-        }
-        return false;
+        return role.getName().equals(roleName);
     }
 
     @Override
