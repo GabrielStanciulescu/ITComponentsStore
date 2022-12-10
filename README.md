@@ -81,6 +81,8 @@ spring.mail.properties.mail.smtp.starttls.enable=true
 ```
 
 
+
+
 ### Web Application Flows:
 * **Registration Page**: Here, the user has to input the provided fields to create an account. Their credentials are saved in the database and can be accessed for later use.
 ![register](src/main/resources/static/documentation/1_registration.jpg)
@@ -93,21 +95,40 @@ spring.mail.properties.mail.smtp.starttls.enable=true
 * **Forgot Password**:Here, the user can recover the password
 ![Forgot Password](src/main/resources/static/documentation/3_forgot_password.jpg)
 
-* **Reset Password**
+
+* **Reset Password**: You will receive a password reset email
+  ![Reset Password From email ](src/main/resources/static/documentation/16_send_email_reset_password.jpg)
+
+* **Reset Password**: Here, the user can change the password
   ![Reset Password](src/main/resources/static/documentation/13_reset_password.jpg)
+
+
+
+* **Security alert**:Here, the user will receive an email with the password change
+  ![Security alert](src/main/resources/static/documentation/17_security_alert.jpg)
 
 
 * **Home Page**: Here, the user can add the products to the shopping cart
   ![Home](src/main/resources/static/documentation/4_home.jpg)
 
 * **Search Bar**: The search bar makes it easier to find the product
-![Search](src/main/resources/static/documentation/5_search.jpg)
+  ![Search](src/main/resources/static/documentation/5_search.jpg)
 
 * **Shopping Cart**: 
 * ![Shopping cart](src/main/resources/static/documentation/6_cart.jpg)
 
+* **My Account**:
+* ![My Account](src/main/resources/static/documentation/14_my_account.jpg)
+
 * **Order Details**:
 * ![Order Details](src/main/resources/static/documentation/7_order.jpg)
+
+
+* **Order Details from Email**
+* ![Order Details_from email](src/main/resources/static/documentation/15_order_details_mail.jpg)
+
+* **Order Details from My Account**
+* ![Order Details_from account ](src/main/resources/static/documentation/15_order_detalis_account.jpg)
 
 * **Dashboard**: When the user has the role of administrator, he will be redirected to the dashboard, depending on the role, he will be able to modify, add and delete products from the database
 * ![Dashboard](src/main/resources/static/documentation/8_dashboard.jpg)
