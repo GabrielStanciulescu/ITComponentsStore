@@ -5,6 +5,8 @@ import com.it_components_store.dto.OrderDto;
 import com.it_components_store.dto.ProductDto;
 import com.it_components_store.dto.ShoppingCartDto;
 import com.it_components_store.exception.DataNotFoundException;
+import com.it_components_store.mail.SendMail;
+import com.it_components_store.security.SecurityUsers;
 import com.it_components_store.service.CheckoutProductService;
 import com.it_components_store.service.OrderService;
 import com.it_components_store.service.ProductService;
@@ -12,6 +14,7 @@ import com.it_components_store.service.ShoppingCartService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -19,7 +22,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.mail.MessagingException;
 import javax.validation.Valid;
+import java.io.UnsupportedEncodingException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -33,6 +38,7 @@ public class OrderController {
     private final CheckoutProductService checkoutProductService;
     private final ModelMapper modelMapper;
     private final ProductService productService;
+    private final SendMail sendMail;
 
     @GetMapping("/orderpage")
     public String getOrderPage(Model model) {
@@ -41,12 +47,13 @@ public class OrderController {
     }
 
     @PostMapping("/orderpage/orderproducts")
-    public String order(@ModelAttribute("order") @Valid OrderDto orderDto, Errors errors) {
+    public String order(@ModelAttribute("order") @Valid OrderDto orderDto, Errors errors, Authentication authentication) throws MessagingException, UnsupportedEncodingException {
+        SecurityUsers securityUsers = (SecurityUsers) authentication.getPrincipal();
        if(errors.hasErrors()){
            return "principalPage/order";
        }
        else {
-           List<ShoppingCartDto> shoppingCartDtoList = shoppingCartService.getListOfShoppingCart();
+           List<ShoppingCartDto> shoppingCartDtoList = shoppingCartService.getListOfShoppingCartByUserId(securityUsers.getUser().getIdUser());
            if (shoppingCartDtoList.isEmpty()) {
                throw new DataNotFoundException("Exception!");
            } else {
@@ -84,9 +91,13 @@ public class OrderController {
                }.getType());
                checkoutProductDto.setPrice(totalPrice);
                checkoutProductDto.setLocalDate(LocalDate.now());
+               checkoutProductDto.setIdUser(securityUsers.getUser().getIdUser());
                checkoutProductService.addCheckoutProduct(checkoutProductDto);
-               shoppingCartService.deleteAll();
+               shoppingCartService.deleteByIdUser(securityUsers.getUser().getIdUser());
+               sendMail.sendEmailToOrder(orderDto.getEmail(),shoppingCartDtoList );
+
            }
+
            return "redirect:/category/1";
 
        }

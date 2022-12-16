@@ -18,7 +18,7 @@ public class CategoryController {
     private final ProductService productService;
 
     @GetMapping("/{id}")
-    public String getRamPage(Model model, @PathVariable Long id) {
+    public String getPrincipalPage(Model model, @PathVariable Long id) {
         List<ProductDto> productList = productService.getListOfProductsByCategory(id);
         model.addAttribute("productList", productList);
         return "principalPage/ITpage";

@@ -38,4 +38,9 @@ public class ShoppingCartRestController {
 
     }
 
+    @DeleteMapping("/delete/{id}")
+    void deleteByid(@PathVariable Long id){
+        shoppingCartService.deleteByIdUser(id);
+    }
+
 }

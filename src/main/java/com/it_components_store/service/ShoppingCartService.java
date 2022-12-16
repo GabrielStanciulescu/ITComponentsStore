@@ -7,10 +7,14 @@ import java.util.Optional;
 
 public interface ShoppingCartService {
     void addShoppingCart(ShoppingCartDto shoppingCartDto);
+
     Optional<ShoppingCartDto> getShoppingCartById(Long id);
-    List<ShoppingCartDto> getListOfShoppingCart();
+
     void deleteShoppingCartById(Long id);
-    void deleteAll();
+
+    void deleteByIdUser(Long idUser);
+
+    List<ShoppingCartDto> getListOfShoppingCartByUserId(Long id);
 
 
 }

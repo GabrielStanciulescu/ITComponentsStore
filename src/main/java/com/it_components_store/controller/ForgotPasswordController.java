@@ -1,20 +1,18 @@
 package com.it_components_store.controller;
 
 import com.it_components_store.entity.User;
+import com.it_components_store.mail.SendMail;
 import com.it_components_store.mail.Utility;
 import com.it_components_store.service.UserService;
 import lombok.RequiredArgsConstructor;
 import net.bytebuddy.utility.RandomString;
 import org.springframework.data.repository.query.Param;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.mail.MessagingException;
-import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
 import java.util.Optional;
@@ -23,7 +21,8 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class ForgotPasswordController {
     private final UserService userService;
-    private final JavaMailSender mailSender;
+    private final SendMail sendMail;
+
     @GetMapping("/forgot_password")
     public String showForgotPasswordForm() {
         return "login/forgot_password_form";
@@ -35,7 +34,7 @@ public class ForgotPasswordController {
         try{
             userService.updateResetPasswordToken(token, email);
             String resetPasswordLink = Utility.getSiteURL(request) + "/reset_password?token=" + token;
-            sendEmail(email, resetPasswordLink);
+            sendMail.sendEmailToForgotPassword(email, resetPasswordLink);
             model.addAttribute("message", "Ti-am trimis un mail cu resetarea parolei! ");
         }
         catch (Exception e) {
@@ -44,35 +43,15 @@ public class ForgotPasswordController {
         return "login/forgot_password_form";
     }
 
-    public void sendEmail(String recipientEmail, String link)  throws MessagingException, UnsupportedEncodingException {
-        MimeMessage message = mailSender.createMimeMessage();
-        MimeMessageHelper helper = new MimeMessageHelper(message);
 
-        helper.setFrom("Insert your email for sending", "IT components Support ");
-        helper.setTo(recipientEmail);
-
-        String subject = "Here's the link to reset your password";
-
-        String content = "<p>Hello,</p>"
-                + "<p>You have requested to reset your password.</p>"
-                + "<p>Click the link below to change your password:</p>"
-                + "<p><a href=\"" + link + "\">Change my password</a></p>"
-                + "<br>"
-                + "<p>Ignore this email if you do remember your password, "
-                + "or you have not made the request.</p>";
-
-        helper.setSubject(subject);
-
-        helper.setText(content, true);
-        mailSender.send(message);
-    }
     @GetMapping("/reset_password")
-    public String showResetPasswordForm(@Param(value = "token") String token, Model model) {
+    public String showResetPasswordForm(@Param(value = "token") String token, Model model) throws MessagingException, UnsupportedEncodingException {
         Optional<User> optionalUser = userService.getByResetPasswordToken(token);
         if(optionalUser.isEmpty()){
             model.addAttribute("message", "Invalid Token");
             return "message";
         }
+        sendMail.sendEmailToResetPassword(optionalUser.get().getEmail());
         model.addAttribute("token", token);
 
         return "login/reset_password_form";

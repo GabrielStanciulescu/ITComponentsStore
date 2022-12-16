@@ -21,6 +21,9 @@ public class ShoppingCart {
     private Integer quantity;
     private String description;
     private String imageUrl;
+    @ManyToOne
+    @JoinColumn(name = "idUser")
+    private User user;
 
     @ManyToOne
     @JoinColumn(name = "idProduct")

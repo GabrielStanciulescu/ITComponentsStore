@@ -44,4 +44,17 @@ public class CheckoutProductServiceImpl implements CheckoutProductService {
 
     }
 
+    @Override
+    public List<CheckoutProductDto> getListOfCheckoutProductByIdUser(Long idUSer) {
+        List<CheckoutProduct> checkoutProductList = checkoutProductRepository.getCheckoutProductByIdUser(idUSer);
+        if (checkoutProductList.isEmpty()) {
+            throw new DataNotFoundException("Checkout Product list it's empty");
+        } else {
+            List<CheckoutProductDto> checkoutProductDtoList;
+            checkoutProductDtoList = modelMapper.map(checkoutProductList, new TypeToken<List<CheckoutProductDto>>() {
+            }.getType());
+            return checkoutProductDtoList;
+        }
+    }
+
 }

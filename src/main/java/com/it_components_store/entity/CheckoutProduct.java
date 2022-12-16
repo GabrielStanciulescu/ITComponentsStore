@@ -21,4 +21,8 @@ public class CheckoutProduct {
     private String orderCode;
     private LocalDate localDate;
 
+    @ManyToOne
+    @JoinColumn(name = "idUser")
+    private User user;
+
 }

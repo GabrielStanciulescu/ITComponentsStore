@@ -10,12 +10,14 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class ShoppingCartServiceImpl implements ShoppingCartService {
     private final ShoppingCartRepository shoppingCartRepository;
     private final ModelMapper modelMapper;
@@ -48,19 +50,6 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     }
 
     @Override
-    public List<ShoppingCartDto> getListOfShoppingCart() {
-        List<ShoppingCart> shoppingCartList = shoppingCartRepository.findAll();
-        if (shoppingCartList.isEmpty()) {
-            throw new DataNotFoundException("Product list it's empty");
-        } else {
-            List<ShoppingCartDto> shoppingCartDtoList;
-            shoppingCartDtoList = modelMapper.map(shoppingCartList, new TypeToken<List<ShoppingCartDto>>() {
-            }.getType());
-            return shoppingCartDtoList;
-        }
-    }
-
-    @Override
     public void deleteShoppingCartById(Long id) {
         Optional<ShoppingCart> shoppingCart = shoppingCartRepository.findById(id);
         if (id < 0) {
@@ -74,7 +63,20 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     }
 
     @Override
-    public void deleteAll() {
-        shoppingCartRepository.deleteAll();
+    public void deleteByIdUser(Long idUser) throws InvalidDataException {
+        shoppingCartRepository.deleteShoppingCartByIdUser(idUser);
+    }
+
+    @Override
+    public List<ShoppingCartDto> getListOfShoppingCartByUserId(Long id) {
+        List<ShoppingCart> shoppingCartList = shoppingCartRepository.getShoppingCartByIdUser(id);
+        if (shoppingCartList.isEmpty()) {
+            throw new DataNotFoundException("Product list it's empty");
+        } else {
+            List<ShoppingCartDto> shoppingCartDtoList;
+            shoppingCartDtoList = modelMapper.map(shoppingCartList, new TypeToken<List<ShoppingCartDto>>() {
+            }.getType());
+            return shoppingCartDtoList;
+        }
     }
 }

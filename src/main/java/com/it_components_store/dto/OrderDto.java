@@ -23,7 +23,7 @@ public class OrderDto {
     private String lastName;
 
     @Pattern(regexp = "^[\\w.+\\-]+@gmail\\.com$", message = "Adresa de mail este invalida!")
-    @Size(max = 100, message = "Lungimea dresei de mail nu poate avea 100 de caractere!")
+    @Size(max = 50, message = "Lungimea dresei de mail nu poate avea mai mult de 50 de caractere!")
     private String email;
     @NotNull
     @Size(max = 50, message = "Adresa  trebuie sa contina mai putin de 50 de caractere!")

@@ -25,10 +25,6 @@ public class LoginController {
         return "login/login";
     }
 
-    @GetMapping("/logout")
-    public String logOut() {
-        return "login";
-    }
 
     @GetMapping("/error")
     public String loginError() {
