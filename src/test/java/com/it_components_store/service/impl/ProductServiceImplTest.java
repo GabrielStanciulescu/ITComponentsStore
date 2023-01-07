@@ -55,7 +55,7 @@ class ProductServiceImplTest {
     @DisplayName("Test throw DataNotFoundException exception at add product")
     void throwExceptionAddProduct(){
         Exception exception  = assertThrows(DataNotFoundException.class,()->productService.addProduct(null));
-        String expected = "Error! Product not found!";
+        String expected = "Product not found!";
         String actual = exception.getMessage();
         assertEquals(expected,actual);
     }
@@ -76,7 +76,7 @@ class ProductServiceImplTest {
     @DisplayName("Test get product throw InvalidDataException")
     void testThrowInvalidDataExceptionGetProduct(){
         Exception exception = assertThrows(InvalidDataException.class,()->productService.getProductById(-1L));
-        String expected = "Error! Tour id -1 it's not valid";
+        String expected = "Your id -1 it's not valid";
         String actual = exception.getMessage();
         assertEquals(expected,actual);
     }
@@ -86,7 +86,7 @@ class ProductServiceImplTest {
     void testThrowDataNotFoundExceptionGetProduct(){
         when(productRepository.findById(1L)).thenReturn(Optional.empty());
         Exception exception = assertThrows(DataNotFoundException.class,()->productService.getProductById(1L));
-        String expected = "Error! The product with id 1 does not exist!";
+        String expected = "The product with id 1 does not exist!";
         String actual = exception.getMessage();
         assertEquals(expected,actual);
 
@@ -105,7 +105,7 @@ class ProductServiceImplTest {
     void testThrowDataNotFoundExceptionListOfProduct(){
         when(productRepository.findAll()).thenReturn(Collections.emptyList());
         Exception exception = assertThrows(DataNotFoundException.class,()->productService.getListOfProduct());
-        String expected = "Error! Product list it's empty";
+        String expected = "Product list it's empty";
         String actual = exception.getMessage();
         assertEquals(expected,actual);
     }
@@ -124,7 +124,7 @@ class ProductServiceImplTest {
     @DisplayName("Test throw InvalidDataException delete product")
     void testThrowInvalidDataExceptionDeleteProduct(){
         Exception exception = assertThrows(InvalidDataException.class,()->productService.deleteProductById(-1L));
-        String expected = "Error! Your id -1 it's not valid, please try again with id >=0";
+        String expected = "Your id -1 it's not valid, please try again with id >=0";
         String actual = exception.getMessage();
         assertEquals(expected,actual);
     }
@@ -133,8 +133,15 @@ class ProductServiceImplTest {
     void testThrowDataNotFoundExceptionDeleteProduct(){
         when(productRepository.findById(1L)).thenReturn(Optional.empty());
         Exception exception = assertThrows(DataNotFoundException.class,()->productService.deleteProductById(1L));
-        String expected = "Error Category with id 1 it's not present in database";
+        String expected = "Category with id 1 it's not present in database";
         String actual = exception.getMessage();
         assertEquals(expected,actual);
+    }
+
+    @Test
+    @DisplayName("Test update product")
+    void testUpdateProduct(){
+
+
     }
 }

@@ -42,7 +42,7 @@ public class ProductServiceImpl implements ProductService {
         }
         Optional<Product> optionalProduct = productRepository.findById(id);
         if (optionalProduct.isEmpty()) {
-            throw new DataNotFoundException("Error! The product with id " + id + " does not exist!");
+            throw new DataNotFoundException("The product with id " + id + " does not exist!");
         } else {
             Product product = optionalProduct.get();
             ProductDto productDto = modelMapper.map(product, ProductDto.class);
