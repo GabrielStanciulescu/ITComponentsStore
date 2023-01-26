@@ -4,6 +4,7 @@ import com.it_components_store.dto.ProductDto;
 import com.it_components_store.entity.Product;
 import com.it_components_store.exception.DataNotFoundException;
 import com.it_components_store.exception.InvalidDataException;
+import com.it_components_store.repository.CategoryRepository;
 import com.it_components_store.repository.ProductRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -16,6 +17,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+import static com.it_components_store.mocks.CategoryMock.getOneCategory;
 import static com.it_components_store.mocks.ProductMock.getListOfProduct;
 import static com.it_components_store.mocks.ProductMock.getOneProduct;
 import static com.it_components_store.mocks.ProductMockDto.getListOfProductDto;
@@ -34,6 +36,9 @@ class ProductServiceImplTest {
 
     @Mock
     ProductRepository productRepository;
+
+    @Mock
+    CategoryRepository categoryRepository;
 
     @Captor
     ArgumentCaptor<Product> productArgumentCaptor;
@@ -142,6 +147,50 @@ class ProductServiceImplTest {
     @DisplayName("Test update product")
     void testUpdateProduct(){
 
+        ProductDto productDto = getOneProductDto();
+        when(productRepository.findById(1L)).thenReturn(Optional.of(getOneProduct()));
+        when(categoryRepository.findById(1L)).thenReturn(Optional.of(getOneCategory()));
+        productService.updateProduct(productDto, 1L);
 
+        verify(productRepository).save(productArgumentCaptor.capture());
+        assertEquals(productDto, getOneProductDto());
+
+    }
+    @Test
+    @DisplayName(" Test get list of product by category")
+    void testGetListOfProductsByCategory(){
+        when(productRepository.getAllByCategory_IdCategory(1L)).thenReturn(getListOfProduct());
+
+        List<ProductDto> productDtoList = productService.getListOfProductsByCategory(1L);
+        assertEquals(productDtoList, getListOfProductDto());
+
+    }
+    @Test
+    @DisplayName("Test Throw GetList Of Products By Category ")
+    void testThrowGetListOfProductsByCategory(){
+        when(productRepository.getAllByCategory_IdCategory(1L)).thenReturn(Collections.emptyList());
+        Exception exception = assertThrows(DataNotFoundException.class,()->productService.getListOfProductsByCategory(1L));
+        String expected = "Product list it's empty";
+        String actual = exception.getMessage();
+        assertEquals(expected,actual);
+
+
+    }
+    @Test
+    @DisplayName("Test get product by description")
+    void testGetProductByDescription(){
+        when(productRepository.findAllByDescriptionIsContainingIgnoreCase("test")).thenReturn(getListOfProduct());
+        List<ProductDto> productDtoList = productService.getProductByDescription("test");
+        assertEquals(getListOfProductDto(), productDtoList);
+
+    }
+    @Test
+    @DisplayName("Throw Get Product By Description")
+    void testThrowGetProductByDescription(){
+        when(productRepository.findAllByDescriptionIsContainingIgnoreCase("test")).thenReturn(Collections.emptyList());
+        Exception exception = assertThrows(DataNotFoundException.class,()->productService.getProductByDescription("test"));
+        String expected = "Product list it's empty";
+        String actual = exception.getMessage();
+        assertEquals(expected,actual);
     }
 }
