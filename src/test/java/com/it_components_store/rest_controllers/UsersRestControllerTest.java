@@ -14,8 +14,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.List;
 import java.util.Optional;
 
-import static com.it_components_store.mocks.UserMockDto.getListUsersDto;
-import static com.it_components_store.mocks.UserMockDto.getOneUserDto;
+import static com.it_components_store.mocks.MocksDto.UserMockDto.getListUsersDto;
+import static com.it_components_store.mocks.MocksDto.UserMockDto.getOneUserDto;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 

@@ -18,8 +18,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-import static com.it_components_store.mocks.UserMockDto.getListUsersDto;
-import static com.it_components_store.mocks.UserMockDto.getOneUserDto;
+import static com.it_components_store.mocks.MocksDto.UserMockDto.getListUsersDto;
+import static com.it_components_store.mocks.MocksDto.UserMockDto.getOneUserDto;
 import static com.it_components_store.mocks.UsersMock.getListUsers;
 import static com.it_components_store.mocks.UsersMock.getOneUser;
 import static org.junit.jupiter.api.Assertions.*;

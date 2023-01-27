@@ -16,8 +16,8 @@ import java.util.List;
 
 import static com.it_components_store.mocks.CheckoutProductMock.getListOfCheckout;
 import static com.it_components_store.mocks.CheckoutProductMock.getOneCheckout;
-import static com.it_components_store.mocks.CheckoutProductMockDto.getListOfCheckoutDto;
-import static com.it_components_store.mocks.CheckoutProductMockDto.getOneCheckoutDto;
+import static com.it_components_store.mocks.MocksDto.CheckoutProductMockDto.getListOfCheckoutDto;
+import static com.it_components_store.mocks.MocksDto.CheckoutProductMockDto.getOneCheckoutDto;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.verify;

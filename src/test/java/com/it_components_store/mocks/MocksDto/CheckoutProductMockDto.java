@@ -1,4 +1,4 @@
-package com.it_components_store.mocks;
+package com.it_components_store.mocks.MocksDto;
 
 import com.it_components_store.dto.CheckoutProductDto;
 import com.it_components_store.entity.User;
