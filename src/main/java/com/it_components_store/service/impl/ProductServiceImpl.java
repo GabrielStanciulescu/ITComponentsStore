@@ -30,7 +30,9 @@ public class ProductServiceImpl implements ProductService {
             throw new DataNotFoundException("Product not found!");
         } else {
             Product product = modelMapper.map(productDto, new TypeToken<Product>() {
+
             }.getType());
+
             productRepository.save(product);
         }
     }
