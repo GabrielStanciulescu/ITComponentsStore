@@ -48,7 +48,7 @@ class CategoryServiceImplTest {
     @DisplayName("Testing throw exception add category")
     void testThrowAddCategory() {
         Exception exception = assertThrows(DataNotFoundException.class, () -> categoryService.addCategory(null));
-        String expected = "Error Category not found!";
+        String expected = "Category not found!";
         String actual = exception.getMessage();
         assertEquals(expected, actual);
 
@@ -67,7 +67,7 @@ class CategoryServiceImplTest {
     @DisplayName("Test exception getCategory by Name InvalidDataException because id it-s <0")
     void testThrowGetCategoryByID() {
         Exception exception = assertThrows(InvalidDataException.class, () -> categoryService.getCategoryById(-1L));
-        String expected = "Error! Your id -1 it's not valid";
+        String expected = "Your id -1 it's not valid";
         String actual = exception.getMessage();
         assertEquals(expected, actual);
     }
@@ -77,7 +77,7 @@ class CategoryServiceImplTest {
     void testThrowGetCategoryById() {
         when(categoryRepository.findById(1L)).thenReturn(Optional.empty());
         Exception exception = assertThrows(DataNotFoundException.class, () -> categoryService.getCategoryById(1L));
-        String expected = "Error! The category with id 1 does not exist!";
+        String expected = "The category with id 1 does not exist!";
         String actual = exception.getMessage();
         assertEquals(expected, actual);
 
@@ -96,7 +96,7 @@ class CategoryServiceImplTest {
     void testThrowGetListOdCategory() {
         when(categoryRepository.findAll()).thenReturn(Collections.emptyList());
         Exception exception = assertThrows(DataNotFoundException.class, () -> categoryService.getListOfCategory());
-        String expected = "Error! Category list it's empty";
+        String expected = "Category list it's empty";
         String actual = exception.getMessage();
         assertEquals(expected, actual);
 
@@ -116,7 +116,7 @@ class CategoryServiceImplTest {
     @DisplayName("Test throw InvalidDataException exception ")
     void testThrowDelete() {
         Exception exception = assertThrows(InvalidDataException.class, () -> categoryService.deleteCategoryById(-1L));
-        String expected = "Error! Your id -1 it's not valid, pleas try again with id >=0";
+        String expected = "Your id -1 it's not valid, pleas try again with id >=0";
         String actual = exception.getMessage();
         assertEquals(expected, actual);
     }
@@ -125,7 +125,7 @@ class CategoryServiceImplTest {
     void testThrowDeleteEmptyDb() {
 
         Exception exception = assertThrows(DataNotFoundException.class, () -> categoryService.deleteCategoryById(1L));
-        String expected = "Error Category with id 1 it's not present in database";
+        String expected = "Category with id 1 it's not present in database";
         String actual = exception.getMessage();
         assertEquals(expected, actual);
     }

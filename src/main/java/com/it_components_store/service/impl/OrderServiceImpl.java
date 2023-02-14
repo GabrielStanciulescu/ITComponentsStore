@@ -34,7 +34,7 @@ public class OrderServiceImpl implements OrderService {
     public Optional<OrderDto> getOrderById(Long id) {
         Optional<Order> optionalOrder = orderRepository.findById(id);
         if (optionalOrder.isEmpty()) {
-            throw new DataNotFoundException("Error! The Order with id " + id + " does not exist!");
+            throw new DataNotFoundException("The Order with id " + id + " does not exist!");
         } else {
             Order order = optionalOrder.get();
             OrderDto orderDto = modelMapper.map(order, OrderDto.class);

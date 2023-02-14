@@ -37,7 +37,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     @Override
     public Optional<ShoppingCartDto> getShoppingCartById(Long id) {
         if (id < 0) {
-            throw new InvalidDataException("Tour id " + id + " it's not valid");
+            throw new InvalidDataException("Your id " + id + " it's not valid");
         }
         Optional<ShoppingCart> shoppingCartOptional = shoppingCartRepository.findById(id);
         if (shoppingCartOptional.isEmpty()) {

@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void addUsers(UserDto userDto) {
         if (userDto == null) {
-            throw new DataNotFoundException("Category not found!");
+            throw new DataNotFoundException("User not found!");
         } else {
             userDto.setIdRole(1L);
             String password = userDto.getPassword();

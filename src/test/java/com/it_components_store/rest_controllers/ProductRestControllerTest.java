@@ -14,8 +14,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.List;
 import java.util.Optional;
 
-import static com.it_components_store.mocks.ProductMockDto.getListOfProductDto;
-import static com.it_components_store.mocks.ProductMockDto.getOneProductDto;
+import static com.it_components_store.mocks.MocksDto.ProductMockDto.getListOfProductDto;
+import static com.it_components_store.mocks.MocksDto.ProductMockDto.getOneProductDto;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 

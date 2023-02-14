@@ -12,19 +12,17 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.*;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.modelmapper.ModelMapper;
-
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-import java.util.Random;
 
-import static com.it_components_store.mocks.UserMockDto.getListUsersDto;
-import static com.it_components_store.mocks.UserMockDto.getOneUserDto;
+import static com.it_components_store.mocks.MocksDto.UserMockDto.getListUsersDto;
+import static com.it_components_store.mocks.MocksDto.UserMockDto.getOneUserDto;
 import static com.it_components_store.mocks.UsersMock.getListUsers;
 import static com.it_components_store.mocks.UsersMock.getOneUser;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 
@@ -36,9 +34,10 @@ class UsersServiceImplTest {
     ModelMapper modelMapper;
     @Mock
     UserRepository usersRepository;
-
     @Captor
     ArgumentCaptor<User> usersArgumentCaptor;
+    @Mock
+    PasswordEncoder passwordEncoder;
 
     @Captor
     ArgumentCaptor<Long> longArgumentCaptor;
@@ -47,16 +46,18 @@ class UsersServiceImplTest {
         @DisplayName("Testing add Users")
         void addUserTest() {
             UserDto userDto = getOneUserDto();
+            when(passwordEncoder.encode("asaSAsaSAs")).thenReturn("$2a$12$fr391cwxTqQwqG0gQ5e0aOhfOAtoTwV/1t9NWZCP6/s17PjOO81by");
             usersService.addUsers(userDto);
             verify(usersRepository).save(usersArgumentCaptor.capture());
-            assertEquals(getOneUser().toString(),usersArgumentCaptor.getValue().toString());
+
+            assertEquals(usersArgumentCaptor.getValue().toString(), getOneUser().toString());
     }
 
     @Test
-    @DisplayName("Test throw DataNotFoundException ")
+    @DisplayName("Test throw DataNotFoundException for method addUsers ")
     void testThrowDataNotFoundException(){
             Exception exception = assertThrows(DataNotFoundException.class,()->usersService.addUsers(null));
-            String expected = "Error Category not found!";
+            String expected = "User not found!";
             String actual = exception.getMessage();
             assertEquals(expected,actual);
     }
@@ -68,25 +69,26 @@ class UsersServiceImplTest {
             Optional<UserDto> usersOptional = usersService.getUsersById(1L);
             if (usersOptional.isPresent()){
                 UserDto users = usersOptional.get();
+                users.setPassword("asaSAsaSAs");
                 assertEquals(getOneUserDto().toString(),users.toString());
             }
     }
 
     @Test
-    @DisplayName("Test throw InvalidDataException")
+    @DisplayName("Test throw InvalidDataException for method getUsersById")
     void testThrowInvalidDataExceptionGetById(){
         Exception exception = assertThrows(InvalidDataException.class,()->usersService.getUsersById(-1L));
-        String expected = "Error! Your id -1 it's not valid";
+        String expected = "Your id -1 it's not valid";
         String actual = exception.getMessage();
         assertEquals(expected,actual);
     }
 
     @Test
-    @DisplayName("Test throw DataNotFoundException")
+    @DisplayName("Test throw DataNotFoundException for method getUsersById")
     void testThrowDataNotFoundExceptionGetById(){
         when(usersRepository.findById(1L)).thenReturn(Optional.empty());
         Exception exception = assertThrows(DataNotFoundException.class,()->usersService.getUsersById(1L));
-        String expected = "Error! The category with id 1 does not exist!";
+        String expected = "The category with id 1 does not exist!";
         String actual = exception.getMessage();
         assertEquals(expected,actual);
     }
@@ -100,11 +102,11 @@ class UsersServiceImplTest {
     }
 
     @Test
-    @DisplayName("Test throw DataNotFoundException ")
+    @DisplayName("Test throw DataNotFoundException for method getListOfUsers ")
     void testThrowDataNotFoundExceptionGetAll(){
             when(usersRepository.findAll()).thenReturn(Collections.emptyList());
         Exception exception = assertThrows(DataNotFoundException.class,()->usersService.getListOfUsers());
-        String expected = "Error! Category list it's empty";
+        String expected = "Category list it's empty";
         String actual = exception.getMessage();
         assertEquals(expected,actual);
     }
@@ -120,40 +122,101 @@ class UsersServiceImplTest {
     }
 
     @Test
-    @DisplayName("Test throw InvalidDataException exception ")
+    @DisplayName("Test throw InvalidDataException exception  for method deleteUserById ")
     void testThrowDelete() {
         Exception exception = assertThrows(InvalidDataException.class, () -> usersService.deleteUserById(-1L));
-        String expected = "Error! Your id -1 it's not valid, pleas try again with id >=0";
+        String expected = "Your id -1 it's not valid, pleas try again with id >=0";
         String actual = exception.getMessage();
         assertEquals(expected, actual);
     }
 
     @Test
-    @DisplayName("Test throw DataNotFoundException exception ")
+    @DisplayName("Test throw DataNotFoundException exception for method deleteUserById ")
     void testThrowDeleteEmptyDb() {
 
         Exception exception = assertThrows(DataNotFoundException.class, () -> usersService.deleteUserById(1L));
-        String expected = "Error User with id 1 it's not present in database";
+        String expected = "User with id 1 it's not present in database";
         String actual = exception.getMessage();
         assertEquals(expected, actual);
     }
 
 
+    @Test
+    @DisplayName("Test get user by Email")
+    void testGetUserByEmail(){
+            when(usersRepository.findUsersByEmail("gabriel.stanculescu08@gmail.com")).thenReturn(Optional.of(getOneUser()));
+            Optional<User> userOptional = usersService.getUserByEmail("gabriel.stanculescu08@gmail.com");
+            if(userOptional.isPresent()){
+                User user = userOptional.get();
+                assertEquals(getOneUser().toString(), user.toString());
+            }
+
+    }
+
+    @Test
+    @DisplayName("Test throw DataNotFoundException for method getUserByEmail ")
+    void testGetUserByEmailThrowException(){
+            when(usersRepository.findUsersByEmail("gabriel.stanculescu08@gmail.com")).thenReturn(Optional.empty());
+            Exception exception = assertThrows(DataNotFoundException.class, ()->usersService.getUserByEmail("gabriel.stanculescu08@gmail.com"));
+             String expected = "The user does not exist!";
+            String actual = exception.getMessage();
+            assertEquals(expected,actual);
+    }
+
+    @Test
+    @DisplayName("Test getByResetPasswordToken ")
+    void testGetByResetPasswordToken(){
+            when(usersRepository.findUserByResetPasswordToken("BED1fNhxlAky6m0VZZ4h6QwWccWpzd")).thenReturn(Optional.of(getOneUser()));
+            Optional<User> userOptional = usersService.getByResetPasswordToken("BED1fNhxlAky6m0VZZ4h6QwWccWpzd");
+            if (userOptional.isPresent()){
+                User user = userOptional.get();
+                assertEquals(getOneUser().toString(),user.toString());
+            }
+    }
+
+    @Test
+    @DisplayName("Test throw DataNotFoundException for method getByResetPasswordToken")
+    void testThrowGetByResetPasswordToken(){
+            when(usersRepository.findUserByResetPasswordToken("BED1fNhxlAky6m0VZZ4h6QwWccWpzd")).thenReturn(Optional.empty());
+            Exception exception = assertThrows(DataNotFoundException.class, ()->usersService.getByResetPasswordToken("BED1fNhxlAky6m0VZZ4h6QwWccWpzd"));
+            String expected = "The user does not exist!";
+            String actual = exception.getMessage();
+            assertEquals(expected,actual);
+    }
+
 
 
     @Test
-    public void givenUsingJava8_whenGeneratingRandomAlphabeticString_thenCorrect() {
-        int leftLimit = 97; // letter 'a'
-        int rightLimit = 122; // letter 'z'
-        int targetStringLength = 10;
-        Random random = new Random();
+    @DisplayName("Test get user by Email")
+    void testUpdateResetPasswordToken(){
+        when(usersRepository.findUsersByEmail("gabriel.stanculescu08@gmail.com")).thenReturn(Optional.of(getOneUser()));
+        usersService. updateResetPasswordToken("BED1fNhxlAky6m0VZZ4h6QwWccWpzd","gabriel.stanculescu08@gmail.com");
+        verify(usersRepository).save(usersArgumentCaptor.capture());
+        assertEquals(usersArgumentCaptor.getValue().toString(), getOneUser().toString());
+    }
 
-        String generatedString = random.ints(leftLimit, rightLimit + 1)
-                .limit(targetStringLength)
-                .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
-                .toString();
+    @Test
+    @DisplayName("Test throw DataNotFoundException for method updateResetPasswordToken")
+    void testThrowExceptionUpdateResetPasswordToken(){
+        when(usersRepository.findUsersByEmail("gabriel.stanculescu08@gmail.com")).thenReturn(Optional.empty());
+        Exception exception = assertThrows(DataNotFoundException.class, ()->usersService.updateResetPasswordToken("BED1fNhxlAky6m0VZZ4h6QwWccWpzd","gabriel.stanculescu08@gmail.com"));
+        String expected = "The user does not exist!";
+        String actual = exception.getMessage();
+        assertEquals(expected,actual);
 
-        System.out.println(generatedString);
+    }
+
+    @Test
+    @DisplayName("Test updatePassword")
+    void testUpdatePassword(){
+            User user = getOneUser();
+        when(passwordEncoder.encode("asaSAsaSAs")).thenReturn("$2a$12$fr391cwxTqQwqG0gQ5e0aOhfOAtoTwV/1t9NWZCP6/s17PjOO81by");
+        usersService.updatePassword(user, "asaSAsaSAs");
+        verify(usersRepository).save(usersArgumentCaptor.capture());
+        user.setResetPasswordToken("BED1fNhxlAky6m0VZZ4h6QwWccWpzd");
+        assertEquals(usersArgumentCaptor.getValue().toString(), getOneUser().toString());
+
+
     }
 
 
@@ -161,13 +224,16 @@ class UsersServiceImplTest {
 
 
 
-
-
-
-
-
-
-
+//
+//    void addUserTest() {
+//        UserDto userDto = getOneUserDto();
+//        when(passwordEncoder.encode("asaSAsaSAs")).thenReturn("$2a$12$fr391cwxTqQwqG0gQ5e0aOhfOAtoTwV/1t9NWZCP6/s17PjOO81by");
+//        usersService.addUsers(userDto);
+//        verify(usersRepository).save(usersArgumentCaptor.capture());
+//
+//        assertEquals(usersArgumentCaptor.getValue().toString(), getOneUser().toString());
+//    }
+//
 
 
 
