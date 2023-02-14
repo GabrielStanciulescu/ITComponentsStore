@@ -19,7 +19,7 @@ public class SendMail {
     public void sendEmailToOrder(String recipientEmail,  List<ShoppingCartDto> shoppingCartDtoList) throws MessagingException, UnsupportedEncodingException {
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message);
-        helper.setFrom("Insert your mail", "IT components Store ");
+        helper.setFrom("Insert mail", "IT components Store ");
         helper.setTo(recipientEmail);
 
         String subject = "Multumim pentru comanda!";
@@ -42,7 +42,7 @@ public class SendMail {
     public void sendEmailToForgotPassword(String recipientEmail, String link)  throws MessagingException, UnsupportedEncodingException {
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message);
-        helper.setFrom("Insert your mail", "IT components Support ");
+        helper.setFrom("Insert mail", "IT components Support ");
         helper.setTo(recipientEmail);
 
         String subject = "Iată linkul pentru a vă reseta parola";
@@ -65,7 +65,7 @@ public class SendMail {
     public void sendEmailToResetPassword(String recipientEmail)  throws MessagingException, UnsupportedEncodingException{
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message);
-        helper.setFrom("Insert your mail", "IT components Support ");
+        helper.setFrom("Insert mail", "IT components Support ");
         helper.setTo(recipientEmail);
 
         String subject = "Alerta de securitate";
