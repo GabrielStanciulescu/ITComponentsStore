@@ -2,7 +2,10 @@ package com.it_components_store.controller;
 
 
 import com.it_components_store.dto.ProductDto;
+import com.it_components_store.dto.UserDto;
+import com.it_components_store.entity.User;
 import com.it_components_store.service.ProductService;
+import com.it_components_store.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +21,7 @@ import java.util.Optional;
 @RequestMapping("/dashboard")
 public class DashBoardController {
     private final ProductService productService;
+    private final UserService userService;
 
     @GetMapping()
     public String showProduct(Model model) {
@@ -80,6 +84,68 @@ public class DashBoardController {
         model.addAttribute("productList", productList);
         return "dashboard/dashboard";
     }
+
+    @GetMapping("/users")
+    public String getUsers(Model model){
+        List<UserDto> userDtoList = userService.getListOfUsers();
+        model.addAttribute("userDtoList", userDtoList);
+        return "dashboard/dashboardUsers";
+
+    }
+    @GetMapping("/users/add")
+    public String getPageAddNewUser(Model model){
+        model.addAttribute("user", new User());
+        return "dashboard/addUser";
+    }
+    @PostMapping("/users/add/newUser")
+    public String addNewUser(@Valid @ModelAttribute("user") UserDto user, Errors errors){
+        if (errors.hasErrors()) {
+            return "dashboard/users/add";
+        } else {
+            userService.addUsers(user);
+            return "redirect:/dashboard/users";
+        }
+    }
+    @GetMapping("/users/update/{id}")
+    public String viewUpdateUser(Model model, @PathVariable Long id){
+        Optional<UserDto> optionalUserDto = userService.getUsersById(id);
+        if(optionalUserDto.isPresent()){
+            UserDto userDto = optionalUserDto.get();
+            model.addAttribute("user", userDto);
+        }
+
+
+        return "dashboard/modifyUser";
+    }
+
+    @PostMapping("/users/updateUser/{id}")
+    public String updateUser(@ModelAttribute("user")UserDto userDto, @PathVariable Long id, Model model){
+        userDto.setIdUser(id);
+        model.addAttribute("user", userDto);
+
+            userService.updateUser(userDto, id);
+            return "redirect:/dashboard/users";
+
+    }
+    @GetMapping("/users/search")
+    public String searchUser(Model model, String keyword){
+        String search = keyword.trim();
+        List<UserDto> userDtoList = userService.getUsersByFirstName(search);
+        model.addAttribute("userDtoList", userDtoList);
+        return "dashboard/dashboardUsers";
+    }
+
+    @PostMapping("/users/delete/{id}")
+     public String deleteUserById(@PathVariable Long id){
+
+        userService.deleteUserById(id);
+
+        return "redirect:/dashboard/users";
+    }
+
+
+
+
 
 
 }

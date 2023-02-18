@@ -15,6 +15,9 @@ public interface UserService {
     Optional<User> getByResetPasswordToken(String token);
     void updateResetPasswordToken(String token, String email);
     void updatePassword(User user, String newPassword);
+    void updateUser(UserDto userDto, Long id);
+    List<UserDto> getUsersByFirstName(String firstName);
+
 
 
 

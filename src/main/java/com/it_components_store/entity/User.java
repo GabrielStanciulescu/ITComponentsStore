@@ -31,6 +31,8 @@ public class User {
     @Column(name = "reset_password_token")
     private String resetPasswordToken;
 
+
+
     @ManyToOne()
     @JoinColumn(name = "id_role")
     private Role role;

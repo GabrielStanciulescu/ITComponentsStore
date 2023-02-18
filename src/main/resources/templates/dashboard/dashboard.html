@@ -21,7 +21,7 @@
         <div class="col-3">
             <form th:action="@{/dashboard/search/dashboard}" method="get" class="d-flex justify-content-around">
                 <input type="search" class="form-control" name="keyword" th:value="${keyword}"
-                       placeholder="Cautare produs" aria-label="Search">
+                       placeholder="Cauta produs" aria-label="Search">
                 <button class="btn btn-primary" type="submit">Cauta</button>
             </form>
 
@@ -33,14 +33,17 @@
         </div>
 
         <div class="col">
-            <a th:href="@{/category/1}" type="button" class="btn btn-primary">Pagina produse</a>
+            <a th:href="@{/category/1}" type="button" class="btn btn-primary">Pagina Produse</a>
         </div>
         <div class="col">
-            <a th:href="@{/orderpage/dashboard}" type="button" class="btn btn-primary">Pagina vanzari</a>
+            <a th:href="@{/orderpage/dashboard}" type="button" class="btn btn-primary">Pagina Vanzari</a>
+        </div>
+        <div class="col">
+            <a th:href="@{/dashboard/users}" type="button" class="btn btn-primary">Pagina Utilzatori</a>
         </div>
 
 
-        <div class="col-4">
+        <div class="col-3">
             <form name="logoutForm" class="" th:action="@{/logout}" method="post">
 
                 <button class="btn btn-danger  " type="submit">Deconectare</button>

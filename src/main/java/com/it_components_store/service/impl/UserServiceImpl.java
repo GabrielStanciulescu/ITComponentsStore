@@ -70,6 +70,21 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<UserDto> getUsersByFirstName(String firstName) {
+        List<User> userList = usersRepository.findAllByFirstNameIsContainingIgnoreCase(firstName);
+        if(userList.isEmpty()) {
+            throw new DataNotFoundException("User not found");
+        }
+        else{
+            List<UserDto> userDtoList;
+            userDtoList = modelMapper.map(userList, new TypeToken<List<UserDto>>(){
+            }.getType());
+
+        return userDtoList;
+        }
+    }
+
+    @Override
     public void deleteUserById(Long id) {
         Optional<User> categoryOptional = usersRepository.findById(id);
         if (id < 0) {
@@ -92,6 +107,26 @@ public class UserServiceImpl implements UserService {
 
             return Optional.of(user);
         }
+    }
+
+    @Override
+    public void updateUser(UserDto userDto, Long id) {
+        User user = usersRepository.findById(id).orElseThrow(()-> new DataNotFoundException("User with id " + id + " it's not present in database"));
+        if(userDto.getPassword()!=""){
+            String password = userDto.getPassword();
+            String encode = passwordEncoder.encode(password);
+            userDto.setPassword(encode);
+            user.setPassword(userDto.getPassword());
+        }
+
+            //!!
+        user.setAddress(userDto.getAddress());
+        user.setBirthday(userDto.getBirthday());
+        user.setEmail(userDto.getEmail());
+        user.setFirstName(userDto.getFirstName());
+        user.setLastName(userDto.getLastName());
+        user.setMobile(userDto.getMobile());
+        usersRepository.save(user);
     }
 
     @Override

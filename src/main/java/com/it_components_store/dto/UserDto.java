@@ -33,7 +33,7 @@ public class UserDto {
     private String email;
 
     @NotNull(message = "Introdu parola")
-    @Size(min=7, max = 100, message = "Parola trebuie sa contina minim 7 caractere")
+    @Size(min=1, max = 100, message = "Parola trebuie sa contina minim 7 caractere")
     private String password;
 
     @NotNull(message = "Introdu data nasterii")

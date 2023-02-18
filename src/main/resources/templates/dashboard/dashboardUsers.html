@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+<div class="container-md">
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-6"><h1>Dashboard</h1></div>
+</div>
+
+<div class="row">
+
+    <div class="col-3">
+        <form th:action="@{/dashboard/users/search}" method="get" class="d-flex justify-content-around">
+            <input type="search" class="form-control" name="keyword" th:value="${keyword}"
+                   placeholder="Cauta utilizator" aria-label="Search">
+            <button class="btn btn-primary" type="submit">Cauta</button>
+        </form>
+
+    </div>
+
+
+    <div class="col">
+        <a th:href="@{/dashboard/users/add}" type="button" class="btn btn-primary">Adauga Utilizator</a>
+    </div>
+
+
+
+
+    <div class="col-3">
+
+            <a th:href="@{/dashboard}" type="button" class="btn btn-secondary">Inapoi</a>
+
+
+
+    </div>
+
+
+</div>
+</div>
+</div>
+
+
+</div>
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nume</th>
+            <th scope="col">Prenume</th>
+            <th scope="col">Actiuni</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="userDto: ${userDtoList}">
+            <tr>
+                <th scope="row">[[${userDto.idUser}]]</th>
+                <td>[[${userDto.firstName}]]</td>
+                <td>[[${userDto.lastName}]]</td>
+                <td><a th:href="@{/dashboard/users/update/{id}(id=${userDto.idUser})}"
+                       class="btn btn-sm btn-primary">&ensp;Modifica/detalii</a></td>
+
+                <td>
+                    <form action="#" th:action="@{/dashboard/delete/{id}(id=${userDto.idUser})}" th:method="post"
+                          th:object="${productDto}">
+                        <div class="col">
+                            <button type="submit" class="btn btn-sm btn-warning">Blocheaza/Deblocheaza</button>
+                        </div>
+                    </form>
+                </td>
+
+                <td>
+                    <form action="#" th:action="@{/dashboard/users/delete/{id}(id=${userDto.idUser})}" th:method="post"
+                          th:object="${productDto}">
+                        <div class="col">
+                            <button type="submit" class="btn btn-sm btn-danger">Sterge</button>
+                        </div>
+                    </form>
+                </td>
+
+
+            </tr>
+        </th:block>
+
+
+        </tbody>
+    </table>
+</div>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+</body>
+</html>
