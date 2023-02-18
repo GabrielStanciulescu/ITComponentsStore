@@ -143,6 +143,32 @@ public class DashBoardController {
         return "redirect:/dashboard/users";
     }
 
+    @GetMapping("/users/active/{id}")
+    public String makeActive(@PathVariable Long id){
+        Optional<UserDto> optionalUserDto = userService.getUsersById(id);
+        if(optionalUserDto.isPresent()){
+            UserDto userDto = optionalUserDto.get();
+            userDto.setIsActive(true);
+            userService.updateIsActiveUser(userDto, id);
+        }
+        return "redirect:/dashboard/users";
+
+
+    }
+
+    @GetMapping("/users/inactive/{id}")
+    public String makeInactive(@PathVariable Long id){
+        Optional<UserDto> optionalUserDto = userService.getUsersById(id);
+        if(optionalUserDto.isPresent()){
+            UserDto userDto = optionalUserDto.get();
+            userDto.setIsActive(false);
+            userService.updateIsActiveUser(userDto, id);
+        }
+        return "redirect:/dashboard/users";
+
+
+    }
+
 
 
 

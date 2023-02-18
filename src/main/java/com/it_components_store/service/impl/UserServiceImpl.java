@@ -29,6 +29,7 @@ public class UserServiceImpl implements UserService {
             throw new DataNotFoundException("User not found!");
         } else {
             userDto.setIdRole(1L);
+            userDto.setIsActive(true);
             String password = userDto.getPassword();
             String encode = passwordEncoder.encode(password);
             userDto.setPassword(encode);
@@ -118,14 +119,20 @@ public class UserServiceImpl implements UserService {
             userDto.setPassword(encode);
             user.setPassword(userDto.getPassword());
         }
-
-            //!!
         user.setAddress(userDto.getAddress());
         user.setBirthday(userDto.getBirthday());
         user.setEmail(userDto.getEmail());
         user.setFirstName(userDto.getFirstName());
         user.setLastName(userDto.getLastName());
         user.setMobile(userDto.getMobile());
+        user.setIsActive(userDto.getIsActive());
+        usersRepository.save(user);
+    }
+
+    @Override
+    public void updateIsActiveUser(UserDto userDto, Long id) {
+        User user = usersRepository.findById(id).orElseThrow(()-> new DataNotFoundException("User with id " + id + " it's not present in database"));
+        user.setIsActive(userDto.getIsActive());
         usersRepository.save(user);
     }
 

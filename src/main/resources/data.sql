@@ -229,10 +229,10 @@ INSERT INTO products(code, description, image_url, name, price, quantity, id_cat
 
 INSERT INTO roles(name) VALUES ('ROLE_USER'), ('ROLE_ADMIN'),('ROLE_EMPLOYEE');
 
-INSERT INTO users(address, birthday, email, first_name,mobile ,  password, last_name, id_role)
-VALUES ('Brasov', '1999-08-01', 'gabriel.stanciulescu@admin.itcomponents.ro', 'Stanciulescu', '0748000000', '$2a$12$R7SYQz6YjarscS/c3qqVjeg.kPJQuPRK5yOORqXQXcXrz62G.eEPC', 'Gabriel', 2),-- password: qmajdyhn
-       ('Brasov', '1999-08-01', 'gabriel.stanciulescu@gmail.com', 'Stanciulescu', '0748000000', '$2a$12$R7SYQz6YjarscS/c3qqVjeg.kPJQuPRK5yOORqXQXcXrz62G.eEPC', 'Gabriel', 1),-- password: qmajdyhn
-       ('Brasov', '1999-08-01', 'gabriel.stanciulescu@itcomponents.ro', 'Stanciulescu', '0748000000', '$2a$12$R7SYQz6YjarscS/c3qqVjeg.kPJQuPRK5yOORqXQXcXrz62G.eEPC', 'Gabriel', 3); -- password: qmajdyhn
+INSERT INTO users(address, birthday, email, first_name,mobile ,  password, last_name, id_role, active)
+VALUES ('Brasov', '1999-08-01', 'gabriel.stanciulescu@admin.itcomponents.ro', 'Stanciulescu', '0748000000', '$2a$12$R7SYQz6YjarscS/c3qqVjeg.kPJQuPRK5yOORqXQXcXrz62G.eEPC', 'Gabriel', 2, true),-- password: qmajdyhn
+       ('Brasov', '1999-08-01', 'gabriel.stanciulescu@gmail.com', 'Stanciulescu', '0748000000', '$2a$12$R7SYQz6YjarscS/c3qqVjeg.kPJQuPRK5yOORqXQXcXrz62G.eEPC', 'Gabriel', 1, true),-- password: qmajdyhn
+       ('Brasov', '1999-08-01', 'gabriel.stanciulescu@itcomponents.ro', 'Stanciulescu', '0748000000', '$2a$12$R7SYQz6YjarscS/c3qqVjeg.kPJQuPRK5yOORqXQXcXrz62G.eEPC', 'Gabriel', 3, true); -- password: qmajdyhn
 
 
 

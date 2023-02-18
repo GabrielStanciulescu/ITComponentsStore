@@ -17,6 +17,7 @@ public interface UserService {
     void updatePassword(User user, String newPassword);
     void updateUser(UserDto userDto, Long id);
     List<UserDto> getUsersByFirstName(String firstName);
+    void updateIsActiveUser(UserDto userDto, Long id);
 
 
 

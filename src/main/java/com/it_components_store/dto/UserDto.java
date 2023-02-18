@@ -49,6 +49,8 @@ public class UserDto {
     @Size(max = 10, message = "The maximum length for mobile is 15 characters")
     private String mobile;
 
+    private Boolean isActive;
+
     private String resetPasswordToken;
 
     private Long idRole;
