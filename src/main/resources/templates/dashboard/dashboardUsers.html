@@ -71,13 +71,6 @@
 
                 <td>
 
-                <td><a th:href="@{/dashboard/users/active/{id}(id=${userDto.idUser})}"
-                       class="btn btn-sm btn-warning">&ensp;Activare cont</a></td>
-
-                <td><a th:href="@{/dashboard/users/inactive/{id}(id=${userDto.idUser})}"
-                       class="btn btn-sm btn-warning">&ensp;Dezactivare cont</a></td>
-
-
                 <td>
                     <form action="#" th:action="@{/dashboard/users/delete/{id}(id=${userDto.idUser})}" th:method="post"
                           th:object="${productDto}">
