@@ -11,6 +11,10 @@ import com.it_components_store.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -96,6 +100,8 @@ public class ProductServiceImpl implements ProductService {
         productRepository.save(product);
     }
 
+
+
     @Override
     public List<ProductDto> getListOfProductsByCategory(Long id) {
         List<Product> productList = productRepository.getAllByCategory_IdCategory(id);
@@ -120,5 +126,33 @@ public class ProductServiceImpl implements ProductService {
             }.getType());
             return productDtoList;
         }
+    }
+
+    @Override
+    public Page<ProductDto> getProductPagination(int currentPage, int size) {
+        Pageable pageable = PageRequest.of(currentPage, size);
+        Page<Product> productPage = productRepository.findAll(pageable);
+        List<Product> listOfProduct = productPage.getContent();
+
+        List<ProductDto> listOfProductDto;
+        listOfProductDto = modelMapper.map(listOfProduct, new TypeToken<List<ProductDto>>(){
+
+        }.getType());
+
+        Page<ProductDto> productDtoPage1 = new PageImpl<>(listOfProductDto);
+        return  productDtoPage1;
+    }
+    @Override
+    public Integer getTotalNumberOfPage(int currentPage, int size) {
+        Pageable pageable = PageRequest.of(currentPage, size);
+        Page<Product> productPage = productRepository.findAll(pageable);
+        return productPage.getTotalPages();
+    }
+
+    @Override
+    public Long getTotalNumberOfElements(int currentPage, int size) {
+        Pageable pageable = PageRequest.of(currentPage, size);
+        Page<Product> productPage = productRepository.findAll(pageable);
+        return productPage.getTotalElements();
     }
 }

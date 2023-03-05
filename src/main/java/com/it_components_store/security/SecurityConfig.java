@@ -23,7 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .mvcMatchers("/dashboard").hasAnyRole("ADMIN", "EMPLOYEE")
+                .mvcMatchers("/dashboard/*").hasAnyRole("ADMIN", "EMPLOYEE")
                 .mvcMatchers("/orderpage/dashboard").hasAnyRole("ADMIN", "EMPLOYEE")
                 .mvcMatchers("/search/orderpage").hasAnyRole("ADMIN", "EMPLOYEE")
                 .mvcMatchers("/dashboard/delete/*").hasAnyRole("ADMIN")

@@ -7,6 +7,7 @@ import com.it_components_store.entity.User;
 import com.it_components_store.service.ProductService;
 import com.it_components_store.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -25,8 +26,15 @@ public class DashBoardController {
 
     @GetMapping()
     public String showProduct(Model model) {
-        List<ProductDto> productList = productService.getListOfProduct();
-        model.addAttribute("productList", productList);
+
+        Page<ProductDto> productPage = productService.getProductPagination(1, 11);
+
+        List<ProductDto> productDtoList = productPage.getContent();
+        model.addAttribute("productList", productDtoList);
+        model.addAttribute("currentPage",  1);
+        model.addAttribute("totalPages", productService.getTotalNumberOfPage(1, 11));
+        model.addAttribute("totalItem", productService.getTotalNumberOfElements(1, 11));
+
 
         return "dashboard/dashboard";
     }
@@ -82,7 +90,7 @@ public class DashBoardController {
         String search = keyword.trim();
         List<ProductDto> productList = productService.getProductByDescription(search);
         model.addAttribute("productList", productList);
-        return "dashboard/dashboard";
+        return "dashboard/productSearch";
     }
 
     @GetMapping("/users")
@@ -141,6 +149,18 @@ public class DashBoardController {
         userService.deleteUserById(id);
 
         return "redirect:/dashboard/users";
+    }
+    @GetMapping("/page/{pg}")
+    public String findPaginated( @PathVariable int pg, Model model){
+        Page<ProductDto> productPage = productService.getProductPagination(pg, 11);
+
+        List<ProductDto> productDtoList = productPage.getContent();
+        model.addAttribute("productList", productDtoList);
+        model.addAttribute("currentPage",  pg);
+        model.addAttribute("totalPages", productService.getTotalNumberOfPage(pg, 11));
+        model.addAttribute("totalItem", productService.getTotalNumberOfElements(pg, 11));
+
+        return "dashboard/dashboard";
     }
 
 
