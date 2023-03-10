@@ -23,7 +23,7 @@
                         <p class="card-text"> stock magazin [[${productDto.quantity}]] </p>
                         <p class="card-text">[[${productDto.price}]] RON </p>
                         <form action="#"
-                              th:action="@{/add/cart/{id}/{idCategory}/{page}(id=${productDto.idProduct},idCategory=${productDto.categoryId}, page=${currentPage})  }"
+                              th:action="@{/add/cart/{id}(id=${productDto.idProduct})  }"
                               th:method="post">
                             <button type="submit" class="btn btn-sm btn-primary">Adauga in cos</button>
                             <input type="number" min="1" max="50" class="form-control float-right col-3" name="quantity"
@@ -35,28 +35,6 @@
             </div>
         </th:block>
     </div>
-
-    <div class="row gy-3">
-        <nav aria-label="Page navigation example">
-            <ul class="pagination">
-                <li th:if="${currentPage !=0}" class="page-item"><a class="page-link" th:href="@{/category/{id}/page/{page}(id =${categoryId},page=${currentPage-1} )} ">Inapoi</a></li>
-
-
-                <li th:each="i:${#numbers.sequence(0,totalPages-1)}"  th:classappend="${currentPage==i ? 'active' : '' }"  class="page-item">
-
-                    <a class="page-link" th:href="@{/category/{id}/page/{page}(id =${categoryId},page=${i})}">[[${i}]]</a>
-
-                </li>
-
-                <li th:if="${currentPage+1!=totalPages}" class="page-item"><a class="page-link" th:href="@{/category/{id}/page/{page}(id =${categoryId},page=${currentPage+1} )} ">Urmatorul</a></li>
-            </ul>
-        </nav>
-    </div>
-
-
-
-
-
 
 </div>
 

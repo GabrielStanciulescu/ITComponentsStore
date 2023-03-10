@@ -132,10 +132,9 @@ public class ProductServiceImpl implements ProductService {
     public Page<ProductDto> getProductPagination(int currentPage, int size) {
         Pageable pageable = PageRequest.of(currentPage, size);
         Page<Product> productPage = productRepository.findAll(pageable);
-        List<Product> listOfProduct = productPage.getContent();
 
         List<ProductDto> listOfProductDto;
-        listOfProductDto = modelMapper.map(listOfProduct, new TypeToken<List<ProductDto>>(){
+        listOfProductDto = modelMapper.map(productPage.getContent(), new TypeToken<List<ProductDto>>(){
 
         }.getType());
 
@@ -153,6 +152,35 @@ public class ProductServiceImpl implements ProductService {
     public Long getTotalNumberOfElements(int currentPage, int size) {
         Pageable pageable = PageRequest.of(currentPage, size);
         Page<Product> productPage = productRepository.findAll(pageable);
+        return productPage.getTotalElements();
+    }
+
+    @Override
+    public Page<ProductDto> getAllProductByCategory(Long id, int currentPage, int size) {
+        Pageable pageable = PageRequest.of(currentPage, size);
+        Page<Product> productPage = productRepository.getAllByCategory_IdCategory(id, pageable);
+
+
+        List<ProductDto> listOfProductDto;
+        listOfProductDto = modelMapper.map(productPage.getContent(), new TypeToken<List<ProductDto>>(){
+
+        }.getType());
+
+        Page<ProductDto> productDtoPage1 = new PageImpl<>(listOfProductDto);
+        return  productDtoPage1;
+    }
+
+    @Override
+    public Integer getTotalNumberOfPageByCategory(Long id, int currentPage, int size) {
+        Pageable pageable = PageRequest.of(currentPage, size);
+        Page<Product> productPage = productRepository.getAllByCategory_IdCategory(id,pageable);
+        return productPage.getTotalPages();
+    }
+
+    @Override
+    public Long getTotalNumberOfElementsByCategory(Long id, int currentPage, int size) {
+        Pageable pageable = PageRequest.of(currentPage, size);
+        Page<Product> productPage = productRepository.getAllByCategory_IdCategory(id,pageable);
         return productPage.getTotalElements();
     }
 }

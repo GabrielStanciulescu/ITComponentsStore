@@ -17,5 +17,10 @@ public interface ProductService {
     Page<ProductDto> getProductPagination(int currentPage, int size);
     Integer getTotalNumberOfPage(int currentPage, int size);
     Long getTotalNumberOfElements(int currentPage, int size);
+    Integer getTotalNumberOfPageByCategory(Long id, int currentPage, int size);
+    Long getTotalNumberOfElementsByCategory(Long id, int currentPage, int size);
+
+    Page<ProductDto> getAllProductByCategory(Long id, int currentPage, int size);
+
 
 }
