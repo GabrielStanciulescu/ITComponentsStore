@@ -30,6 +30,10 @@ public class User {
     private String mobile;
     @Column(name = "reset_password_token")
     private String resetPasswordToken;
+    @Column(name = "active")
+    private Boolean isActive;
+
+
 
     @ManyToOne()
     @JoinColumn(name = "id_role")

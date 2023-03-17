@@ -47,8 +47,8 @@ public class ShoppingCartController {
         return "principalPage/shoppingCart";
     }
 
-    @PostMapping("/add/cart/{id}/{idCategory}")
-    public String addShoppingCart(@PathVariable Long id, @PathVariable Long idCategory, Integer quantity, Authentication authentication) {
+    @PostMapping("/add/cart/{id}/{idCategory}/{page}")
+    public String addShoppingCart(@PathVariable Long id, @PathVariable Long idCategory, Integer quantity, @PathVariable Integer page, Authentication authentication) {
         SecurityUsers securityUsers = (SecurityUsers) authentication.getPrincipal();
         Optional<ProductDto> productDtoOptional = productService.getProductById(id);
         if (productDtoOptional.isEmpty()) {
@@ -62,8 +62,28 @@ public class ShoppingCartController {
         shoppingCartDto.setIdUser(securityUsers.getUser().getIdUser());
 
         shoppingCartService.addShoppingCart(shoppingCartDto);
-        return "redirect:/category/" + idCategory;
+        return "redirect:/category/" + idCategory + "/page/" + page;
     }
+
+
+    @PostMapping("/add/cart/{id}")
+    public String addShoppingCartBySearch(@PathVariable Long id, Integer quantity, Authentication authentication) {
+        SecurityUsers securityUsers = (SecurityUsers) authentication.getPrincipal();
+        Optional<ProductDto> productDtoOptional = productService.getProductById(id);
+        if (productDtoOptional.isEmpty()) {
+            throw new DataNotFoundException("Product not found");
+        }
+
+        ProductDto productDto = productDtoOptional.get();
+        ShoppingCartDto shoppingCartDto = modelMapper.map(productDto, new TypeToken<ShoppingCartDto>() {
+        }.getType());
+        shoppingCartDto.setQuantity(Objects.requireNonNullElse(quantity, 1));
+        shoppingCartDto.setIdUser(securityUsers.getUser().getIdUser());
+
+        shoppingCartService.addShoppingCart(shoppingCartDto);
+        return "redirect:/shoppingcart";
+    }
+
 
     @PostMapping("/deleteproduct/{id}")
     public String deleteProduct(@PathVariable Long id) {

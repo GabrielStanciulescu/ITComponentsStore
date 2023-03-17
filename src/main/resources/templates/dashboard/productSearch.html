@@ -33,7 +33,7 @@
         </div>
 
         <div class="col">
-            <a th:href="@{/category/1/page/0}" type="button" class="btn btn-primary">Pagina Produse</a>
+            <a th:href="@{/category/1}" type="button" class="btn btn-primary">Pagina Produse</a>
         </div>
         <div class="col">
             <a th:href="@{/orderpage/dashboard}" type="button" class="btn btn-primary">Pagina Vanzari</a>
@@ -107,25 +107,5 @@
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
 
-<div class="container">
-
-    <p>Produse : [[${totalItem}]]</p>
-
-    <nav aria-label="Page navigation example">
-        <ul class="pagination">
-            <li th:if="${currentPage !=1}" class="page-item"><a class="page-link" th:href="@{'/dashboard/page/'+${currentPage-1}}">Inapoi</a></li>
-
-
-            <li th:each="i:${#numbers.sequence(1,totalPages-1)}"  th:classappend="${currentPage==i ? 'active' : '' }"  class="page-item">
-
-                <a class="page-link" th:href="@{'/dashboard/page/'+${i}}">[[${i}]]</a>
-
-
-            </li>
-
-            <li th:if="${currentPage+1!=totalPages}" class="page-item"><a class="page-link" th:href="@{'/dashboard/page/'+${currentPage+1}}">Urmatorul</a></li>
-        </ul>
-    </nav>
-</div>
 </body>
 </html>

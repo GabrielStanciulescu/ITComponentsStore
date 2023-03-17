@@ -2,8 +2,12 @@ package com.it_components_store.controller;
 
 
 import com.it_components_store.dto.ProductDto;
+import com.it_components_store.dto.UserDto;
+import com.it_components_store.entity.User;
 import com.it_components_store.service.ProductService;
+import com.it_components_store.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -18,11 +22,19 @@ import java.util.Optional;
 @RequestMapping("/dashboard")
 public class DashBoardController {
     private final ProductService productService;
+    private final UserService userService;
 
     @GetMapping()
     public String showProduct(Model model) {
-        List<ProductDto> productList = productService.getListOfProduct();
-        model.addAttribute("productList", productList);
+
+        Page<ProductDto> productPage = productService.getProductPagination(1, 11);
+
+        List<ProductDto> productDtoList = productPage.getContent();
+        model.addAttribute("productList", productDtoList);
+        model.addAttribute("currentPage",  1);
+        model.addAttribute("totalPages", productService.getTotalNumberOfPage(1, 11));
+        model.addAttribute("totalItem", productService.getTotalNumberOfElements(1, 11));
+
 
         return "dashboard/dashboard";
     }
@@ -78,8 +90,79 @@ public class DashBoardController {
         String search = keyword.trim();
         List<ProductDto> productList = productService.getProductByDescription(search);
         model.addAttribute("productList", productList);
+        return "dashboard/productSearch";
+    }
+
+    @GetMapping("/users")
+    public String getUsers(Model model){
+        List<UserDto> userDtoList = userService.getListOfUsers();
+        model.addAttribute("userDtoList", userDtoList);
+        return "dashboard/dashboardUsers";
+
+    }
+    @GetMapping("/users/add")
+    public String getPageAddNewUser(Model model){
+        model.addAttribute("user", new User());
+        return "dashboard/addUser";
+    }
+    @PostMapping("/users/add/newUser")
+    public String addNewUser(@Valid @ModelAttribute("user") UserDto user, Errors errors){
+        if (errors.hasErrors()) {
+            return "dashboard/users/add";
+        } else {
+            userService.addUsers(user);
+            return "redirect:/dashboard/users";
+        }
+    }
+    @GetMapping("/users/update/{id}")
+    public String viewUpdateUser(Model model, @PathVariable Long id){
+        Optional<UserDto> optionalUserDto = userService.getUsersById(id);
+        if(optionalUserDto.isPresent()){
+            UserDto userDto = optionalUserDto.get();
+            model.addAttribute("user", userDto);
+        }
+
+
+        return "dashboard/modifyUser";
+    }
+
+    @PostMapping("/users/updateUser/{id}")
+    public String updateUser(@ModelAttribute("user")UserDto userDto, @PathVariable Long id, Model model){
+        userDto.setIdUser(id);
+        model.addAttribute("user", userDto);
+
+            userService.updateUser(userDto, id);
+            return "redirect:/dashboard/users";
+
+    }
+    @GetMapping("/users/search")
+    public String searchUser(Model model, String keyword){
+        String search = keyword.trim();
+        List<UserDto> userDtoList = userService.getUsersByFirstName(search);
+        model.addAttribute("userDtoList", userDtoList);
+        return "dashboard/dashboardUsers";
+    }
+
+    @PostMapping("/users/delete/{id}")
+     public String deleteUserById(@PathVariable Long id){
+
+        userService.deleteUserById(id);
+
+        return "redirect:/dashboard/users";
+    }
+    @GetMapping("/page/{pg}")
+    public String findPaginated( @PathVariable int pg, Model model){
+        Page<ProductDto> productPage = productService.getProductPagination(pg, 11);
+
+        List<ProductDto> productDtoList = productPage.getContent();
+        model.addAttribute("productList", productDtoList);
+        model.addAttribute("currentPage",  pg);
+        model.addAttribute("totalPages", productService.getTotalNumberOfPage(pg, 11));
+        model.addAttribute("totalItem", productService.getTotalNumberOfElements(pg, 11));
+
         return "dashboard/dashboard";
     }
+
 
 
 }

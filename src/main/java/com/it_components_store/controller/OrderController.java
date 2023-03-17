@@ -98,7 +98,7 @@ public class OrderController {
 
            }
 
-           return "redirect:/category/1";
+           return "redirect:/category/2/page/0";
 
        }
     }

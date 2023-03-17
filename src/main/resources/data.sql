@@ -29,6 +29,23 @@ INSERT INTO products(code, description, image_url, name, price, quantity, id_cat
         ,'RAM',360,100, 2,100),
         ('F4-2133C15S-4GNT','Memorie G.Skill Aegis 8GB DDR4 3200MHz CL16','https://5.grgs.ro/images/products/1/1541210/1956426/thumbnails/aegis-8gb-ddr4-3000mhz-cl16-135v-549095585383bb53d19a7c58c95fc41c.jpg'
         ,'RAM',120,100, 2,100),
+        ('F4-2133C15S-4GNT','Memorie Patriot Viper 4 Blackout 16GB DDR4 3200MHz CL16 Dual Channel','https://4.grgs.ro/images/products/1/6811/1945742/thumbnails/viper-4-blackout-16gb-ddr4-3000mhz-cl16-dual-channel-kit-c77490fd3f7cdb1e616016f38c182fa2.jpg'
+        ,'RAM',120,100, 2,100),
+        ('F4-2133C15S-4GNT','Memorie Corsair Vengeance RGB 64GB DDR5 5600MHz CL36 Dual Channel Kit','https://1.grgs.ro/images/products/1/8295/2527559/thumbnails/corsair-vengeance-rgb-ddr5-5600-xmp-30-cl36-64-gb-dual-kit-schwarz-ff1f15b1621afab314ca25c72a582f9b.jpg'
+        ,'RAM',120,100, 2,100),
+        ('F4-2133C15S-4GNT','Memorie Kingston Kingston FURY Beast 64GB DDR5 5600MHz CL40','https://2.grgs.ro/images/products/1/7754/2364808/thumbnails/ks-ddr5-64gb-k2-5600-kf556c40bbk2-64-3da3c2f4ce2e3cd837d9e10ed3978b05.jpg'
+        ,'RAM',120,100, 2,100),
+        ('F4-2133C15S-4GNT','Memorie G.Skill Trident Z Neo 64GB DDR4 3200MHz CL16 Dual Channel Kit','https://3.grgs.ro/images/products/1/1202/2104114/thumbnails/trident-z-neo-16gb-ddr4-3600mhz-cl18-135v-dual-channel-kit-ca064082b16a2e96c18d1a9b9229ff81.png'
+        ,'RAM',120,100, 2,100),
+        ('F4-2133C15S-4GNT','Memorie Patriot Viper Venom RGB 32GB DDR5 6200MHz CL40 Dual Channel Kit','https://1.grgs.ro/images/products/1/8221/2373028/thumbnails/patriot-viper-rgb-venom-32gb-ddr5-kit-2x16gb-6200mhz-cl40-40-40-40-76-135v-d63e04d351e5e73b04178fea00bcf99a.jpg'
+        ,'RAM',120,100, 2,100),
+        ('F4-2133C15S-4GNT','Memorie Corsair Vengeance LPX Black 64GB DDR4 3200MHz CL16 Dual Channel','https://1.grgs.ro/images/products/1/853128/1949882/thumbnails/vengeance-lpx-black-16gb-ddr4-2133mhz-cl13-dual-channel-kit-0e412d141030cd1573663ef64b0dea75.jpg'
+        ,'RAM',120,100, 2,100),
+        ('F4-2133C15S-4GNT','Memorie Kingston FURY Beast RGB 32GB DDR5 6000MHz CL40 Dual Channel','https://1.grgs.ro/images/products/1/710/2377796/thumbnails/fury-beast-rgb-kf560c40bbak2-32-32fcb65e9709192449c2039d064aa3d5.jpg'
+        ,'RAM',120,100, 2,100),
+        ('F4-2133C15S-4GNT','Memorie Corsair Vengeance 32GB DDR5 5600MHz CL36 Dual Channel Kit','https://1.grgs.ro/images/products/1/2770/2455100/thumbnails/ddr5-5600mt-s-64gb-2x32gb-dimm-unbuffered-40-40-40-77-std-pmic-amd-expo-vengeance-ddr5-cool-grey-heatspreader-black-pcb-125v-f8cbd631ac8120295b6b098bf5950480.jpg'
+        ,'RAM',120,100, 2,100),
+
 
         ('F4-2133C15S-4GNT','Hard disk WD Blue 1TB SATA-III 7200 RPM 64MB','https://2.grgs.ro/images/products/1/5/376435/thumbnails/blue-1tb-sata-iii-7200-rpm-64mb-5149c8225cffe963332c7127be366c0a.jpg'
         ,'HDD',250,100, 3,100),
@@ -45,6 +62,24 @@ INSERT INTO products(code, description, image_url, name, price, quantity, id_cat
         ('F4-2133C15S-4GNT','Hard disk Seagate IronWolf 2TB SATA-III 5900RPM 64MB','https://3.grgs.ro/images/products/1/7201/2159346/thumbnails/red-plus-2tb-sata-iii-5400rpm-128mb-fb285ad22b60be7856b3b08d10724773.jpg'
         ,'HDD',212,100, 3,100),
         ('F4-2133C15S-4GNT','Hard disk Seagate IronWolf 3TB SATA-III 5400RPM 256MB','https://5.grgs.ro/images/products/1/710/2377808/thumbnails/seagate-3tb-nas-hdd-st3000vn006-636384779804a906e63ce0b1c4878f8f.jpg'
+        ,'HDD',362,100, 3,100),
+        ('F4-2133C15S-4GNT','Hard disk Seagate IronWolf Pro 12TB SATA-III 7200RPM 256MB','https://4.grgs.ro/images/products/1/4590/1868478/thumbnails/ironwolf-pro-12tb-sata-iii-7200rpm-256mb-ece0e9d6c6abf2d14313dcd8d65bd332.jpg'
+        ,'HDD',362,100, 3,100),
+        ('F4-2133C15S-4GNT','Hard disk Seagate IronWolf 12TB SATA-III 7200RPM 256MB','https://4.grgs.ro/images/products/1/2998/1868474/thumbnails/ironwolf-12tb-sata-iii-7200rpm-256mb-4bcd5285395a57229888f1d15fa28d51.jpg'
+        ,'HDD',362,100, 3,100),
+        ('F4-2133C15S-4GNT','Hard disk Seagate IronWolf Pro 8TB SATA-III 7200RPM 256MB','https://4.grgs.ro/images/products/1/4590/2487680/thumbnails/ironwolf-pro-8tb-sata-iii-7200rpm-256mb-ef59c9b1856077e5efcf8cca9e45d05f.jpg'
+        ,'HDD',362,100, 3,100),
+        ('F4-2133C15S-4GNT','Hard disk Seagate IronWolf 8TB SATA-III 7200RPM 256MB','https://5.grgs.ro/images/products/1/2998/1865358/thumbnails/ironwolf-8tb-sata-iii-7200rpm-256mb-4d5bdae959528ce421675fdbc911d65f.jpg'
+        ,'HDD',362,100, 3,100),
+        ('F4-2133C15S-4GNT','Hard disk Seagate BarraCuda 3TB SATA-III 5400RPM 256MB','https://4.grgs.ro/images/products/1/1025736/1530791/thumbnails/barracuda-3tb-sata-iii-5400rpm-256mb-679b4f3ee67291a0aac6f8453053c660.jpg'
+        ,'HDD',362,100, 3,100),
+        ('F4-2133C15S-4GNT','Hard disk Seagate SkyHawk 2TB 5900RPM SATA-III 64MB','https://5.grgs.ro/images/products/1/2998/1407690/thumbnails/skyhawk-2tb-5900rpm-sata-iii-64mb-3c83f3b6e1c207fc5a54456717d1e610.jpg'
+        ,'HDD',362,100, 3,100),
+        ('F4-2133C15S-4GNT','Hard disk Seagate IronWolf Pro 20TB SATA-III 7200RPM 256MB','https://1.grgs.ro/images/products/1/8221/2487692/thumbnails/sg-hdd35-20tb-7200-st20000ne000-980952f60ea59acc5708f82517ecfa2b.jpg'
+        ,'HDD',362,100, 3,100),
+        ('F4-2133C15S-4GNT','Hard disk Seagate IronWolf Pro 18TB SATA-III 7200RPM 256MB','https://1.grgs.ro/images/products/1/4273/2070106/thumbnails/ironwolf-pro-18tb-sata-iii-7200rpm-256mb-eb4a1d720b430291971d16cebcef73fa.jpg'
+        ,'HDD',362,100, 3,100),
+        ('F4-2133C15S-4GNT','Hard disk Seagate IronWolf Pro 14TB SATA-III 7200RPM 256MB','https://4.grgs.ro/images/products/1/4590/1738420/thumbnails/ironwolf-pro-14tb-sata-iii-7200rpm-256mb-b6e19267a658ae6df890da694f7ea549.jpg'
         ,'HDD',362,100, 3,100),
 
         ('F4-2133C15S-4GNT','SSD Kingston A400 120GB SATA-III 2.5 inch','https://3.grgs.ro/images/products/1/1427502/1487666/thumbnails/a400-120gb-sata-iii-25-inch-ace5ac38fb969418fdf46f467226e385.jpg'
@@ -65,6 +100,26 @@ INSERT INTO products(code, description, image_url, name, price, quantity, id_cat
         ,'SSD',360,100, 4,100),
         ('F4-2133C15S-4GNT','SSD Samsung 980 250GB PCI Express 3.0 x4 M.2 2280','https://4.grgs.ro/images/products/1/9395/2136430/thumbnails/870-evo-1tb-sata-iii-25-inch-13fcd8e5f2722e40e2e96e8a49645f13.jpg'
         ,'SSD',365,100, 4,100),
+        ('F4-2133C15S-4GNT','SSD Crucial P3 4TB PCI Express 3.0 x4 M.2 2280','https://2.grgs.ro/images/products/1/5170/2480348/thumbnails/ct4000p3ssd8-bf989e805f4abdbaf65a46d88d666d72.jpg'
+        ,'SSD',365,100, 4,100),
+        ('F4-2133C15S-4GNT','SSD Samsung 870 QVO 4TB SATA-III 2.5 inch','https://4.grgs.ro/images/products/1/6440/2066870/thumbnails/870-qvo-1tb-sata-iii-25-inch-c54a8ffcc3a0d57b56f8280e58dec3f9.jpg'
+        ,'SSD',365,100, 4,100),
+        ('F4-2133C15S-4GNT','SSD Solidigm P44 Pro 2TB PCI Express 4.0 x4 M.2 2280','https://3.grgs.ro/images/products/1/8196/2523415/thumbnails/ssd-m2-2280-512gb-p44-pro-ssdpfkkw512h7x1-solidigm-b64495f4e38e86da3dbb58d4d18be470.jpg'
+        ,'SSD',365,100, 4,100),
+        ('F4-2133C15S-4GNT','SSD ADATA XPG Gammix S5 2TB PCI Express 3.0 x4 M.2 2280','https://3.grgs.ro/images/products/1/1774300/2309102/thumbnails/xpg-gammix-s5-256gb-pci-express-x4-m2-2280-12f617c47f775e5b6913c9ba36f7d290.jpg'
+        ,'SSD',365,100, 4,100),
+        ('F4-2133C15S-4GNT','SSD Kingston Renegade Heatsink 1TB PCI Express 4.0 x4 M.2 2280','https://4.grgs.ro/images/products/1/6008/2511679/thumbnails/ks-ssd-2tb-m2-2280-nvme-sfyrdk-2000g-84aa9f2497a5d39c8397229883cd3cf7.jpg'
+        ,'SSD',365,100, 4,100),
+        ('F4-2133C15S-4GNT','SSD Intel 670p Series 2TB PCI Express 3.0 x4 M.2 2280','https://5.grgs.ro/images/products/1/721/2174378/thumbnails/670p-series-512gb-pci-express-30-x4-m2-2280-05d2895369f0a229ff1edce3e4476277.jpg'
+        ,'SSD',365,100, 4,100),
+        ('F4-2133C15S-4GNT','SSD Samsung Portable T7 Red 1TB USB 3.2 tip C','https://1.grgs.ro/images/products/1/2528/2316636/thumbnails/portable-t7-red-500gb-usb-32-tip-c-826cf57c536464e518418ee40070075a.jpg'
+        ,'SSD',365,100, 4,100),
+        ('F4-2133C15S-4GNT','SSD Samsung 970 EVO Plus 1TB PCI Express 3.0 x4 M.2 2280','https://2.grgs.ro/images/products/1/6361/1798380/thumbnails/970-evo-plus-series-1tb-pci-express-x4-m2-2280-d66ca3919b4a310dcca496500b4d1208.jpg'
+        ,'SSD',365,100, 4,100),
+        ('F4-2133C15S-4GNT','SSD Samsung 980 1TB PCI Express 3.0 x4 M.2 2280','https://1.grgs.ro/images/products/1/4659/2161506/thumbnails/980-1tb-pci-express-30-x4-m2-2280-8fb6e0b9f191ea9116ac880c4af981ce.jpg'
+        ,'SSD',365,100, 4,100),
+        ('F4-2133C15S-4GNT','SSD Kingston KC3000 1TB PCI Express 4.0 x4 M.2 228','https://3.grgs.ro/images/products/1/9033/2292198/thumbnails/kc3000-512gb-pci-express-40-x4-m2-2280-535968594d6e99503bb83d1bbff7a2e6.jpg'
+        ,'SSD',365,100, 4,100),
 
         ('F4-2133C15S-4GNT','Procesor Intel Comet Lake, Celeron G5925 3.6GHz box','https://5.grgs.ro/images/products/1/6924/2120514/thumbnails/comet-lake-celeron-g5925-36ghz-box-40dc6a717ec5260d90767dd588c86038.jpg'
         ,'CPU',1200,100, 5,100),
@@ -84,6 +139,26 @@ INSERT INTO products(code, description, image_url, name, price, quantity, id_cat
         ,'CPU',2500,100, 5,100),
         ('F4-2133C15S-4GNT','Procesor AMD Ryzen 7 5700X 3.4GHz box','https://4.grgs.ro/images/products/1/9544/2355140/thumbnails/amd-ryzen-7-5700x-box-169e6f569506a5acf930abef5324d2db.jpg'
         ,'CPU',2600,100, 5,100),
+        ('F4-2133C15S-4GNT','Procesor AMD Ryzen 9 7900X3D 4.4GHz box','https://4.grgs.ro/images/products/1/8524/2571243/thumbnails/ryzen-9-7900x3d-12c-24t-440-560ghz-boxed-a1631e9e53cc82caf2b2000b69e12fe3.jpg'
+        ,'CPU',2600,100, 5,100),
+        ('F4-2133C15S-4GNT','Procesor Intel Alder Lake, Core i9 12900KS 3.4GHz box','https://2.grgs.ro/images/products/1/724/2351080/thumbnails/alder-lake-core-i9-12900ks-32ghz-box-3ff7ba20ea3e236a1581fbb554d84098.jpg'
+        ,'CPU',2600,100, 5,100),
+        ('F4-2133C15S-4GNT','Procesor Intel Raptor Lake, Core i9 13900K 3.0GHz box','https://3.grgs.ro/images/products/1/3991/2481264/thumbnails/raptor-lake-core-i9-13900k-34ghz-box-b07de29f11b8a9136205b3c581c29b68.jpg'
+        ,'CPU',2600,100, 5,100),
+        ('F4-2133C15S-4GNT','Procesor AMD Ryzen 9 7950X 4.5GHz box','https://3.grgs.ro/images/products/1/8524/2451320/thumbnails/ryzen-9-7950x-45ghz-box-73e7107964673d30d0aae4978663fc53.jpg'
+        ,'CPU',2600,100, 5,100),
+        ('F4-2133C15S-4GNT','Procesor Intel Raptor Lake, Core i9 13900 2.0GHz box','https://3.grgs.ro/images/products/1/8295/2525915/thumbnails/raptor-lake-core-i9-13900-20ghz-box-566852b8ccdfdda73b822dac127f1c44.jpg'
+        ,'CPU',2600,100, 5,100),
+        ('F4-2133C15S-4GNT','Procesor AMD Ryzen 9 7900X 4.7GHz box','https://5.grgs.ro/images/products/1/8524/2451324/thumbnails/ryzen-9-7900x-47ghz-box-c6592d5c866068c64628cac0fc3a972e.jpg'
+        ,'CPU',2600,100, 5,100),
+        ('F4-2133C15S-4GNT','Procesor Intel Raptor Lake, Core i7 13700 2.1GHz box','https://5.grgs.ro/images/products/1/8295/2525907/thumbnails/raptor-lake-core-i7-13700-21ghz-box-bc0a5064144c87361422e784a87bf5cf.jpg'
+        ,'CPU',2600,100, 5,100),
+        ('F4-2133C15S-4GNT','Procesor AMD Ryzen 9 5900X 3.7GHz box','https://2.grgs.ro/images/products/1/9507/2102406/thumbnails/ryzen-9-5900x-37ghz-box-c247d4989f3397ecb4fe137edb79befb.jpg'
+        ,'CPU',2600,100, 5,100),
+        ('F4-2133C15S-4GNT','Procesor AMD Ryzen 7 7700X 4.5GHz box','https://3.grgs.ro/images/products/1/2770/2451328/thumbnails/ryzen-7-7700x-45ghz-box-2e0a7fcf7a7cc46aac8fecc80705f5f6.jpg'
+        ,'CPU',2600,100, 5,100),
+
+
 
 
         ('F4-2133C15S-4GNT','Placa video GIGABYTE GeForce GTX 1650 OC 4GB GDDR5 128-bit','https://5.grgs.ro/images/products/1/1848774/1857054/thumbnails/geforce-gtx-1650-oc-4gb-gddr5-128-bit-7a2cc05bff396cd62b251d432f8aeac2.png'
@@ -104,6 +179,27 @@ INSERT INTO products(code, description, image_url, name, price, quantity, id_cat
         ,'GPU',2500,100, 6,100),
         ('F4-2133C15S-4GNT','Placa video MSI Radeon RX 6600 MECH 2X 8GB GDDR6 128-bit','https://3.grgs.ro/images/products/1/9551/2281094/thumbnails/radeon-rx-6600-mech-2x-oc-8gb-gddr6-128-bit-dfce7399853d457f07017f99266a8e86.jpg'
         ,'GPU',1455,100, 6,100),
+        ('F4-2133C15S-4GNT','Placa video MSI GeForce RTX 4080 SUPRIM X 16GB GDDR6X 256-bit','https://2.grgs.ro/images/products/1/6008/2508975/thumbnails/geforce-rtx-4080-suprim-x-5ec361cc6f312eaa2f9029e55c2d2389.jpg'
+        ,'GPU',1455,100, 6,100),
+        ('F4-2133C15S-4GNT','Placa video MSI GeForce RTX 4080 GAMING X TRIO 16GB GDDR6X 256-bit','https://4.grgs.ro/images/products/1/6008/2512527/thumbnails/geforce-rtx-4080-16gb-gaming-x-trio-40502f36a31b5df9599bdb9429647adc.jpg'
+        ,'GPU',1455,100, 6,100),
+        ('F4-2133C15S-4GNT','Placa video GIGABYTE GeForce RTX 4080 EAGLE OC 16GB GDDR6X 256-bit','https://1.grgs.ro/images/products/1/6995/2508111/thumbnails/geforce-rtx-4080-eagle-oc-16g-16gb-gddr6x-hdmi-3x-dp-c3dacadab98c0e31f29acf08d10d849a.jpg'
+        ,'GPU',1455,100, 6,100),
+        ('F4-2133C15S-4GNT','Placa video ASUS Radeon RX 7900 XTX TUF GAMING 24GB GDDR6 384-bit','https://5.grgs.ro/images/products/1/9301/2554019/thumbnails/tuf-rx7900xtx-o24g-28e62db7dfcd2bbd10fb02b4628cb413.jpg'
+        ,'GPU',1455,100, 6,100),
+        ('F4-2133C15S-4GNT','Placa video Sapphire Nitro+ Radeon RX 7900 XTX Vapor-X 24GB GDDR6 384-bit','https://1.grgs.ro/images/products/1/45/2549651/thumbnails/nitro-plus-radeon-rx-7900-xtx-vapor-x-24gb-gddr6-384-bit-58b803771922a2737002cd047f36c33e.jpg'
+        ,'GPU',1455,100, 6,100),
+        ('F4-2133C15S-4GNT','Placa video PowerColor Radeon RX 7900 XTX Red Devil 24GB GDDR6 384-bit','https://3.grgs.ro/images/products/1/2216/2532111/thumbnails/radeon-rx-7900-xtx-red-devil-24gb-gddr6-384-bit-0f0484d5ee06e39d0dbd29f2bd51cef5.jpg'
+        ,'GPU',1455,100, 6,100),
+        ('F4-2133C15S-4GNT','Placa video Sapphire Nitro+ Radeon RX 7900 XT Vapor-X 20GB GDDR6 320-bit','https://2.grgs.ro/images/products/1/9301/2551911/thumbnails/nitro-plus-radeon-rx-7900-xt-vapor-x-20gb-gddr6-320-bit-829e0cc7354416bd8797ca65e143eed4.jpg'
+        ,'GPU',1455,100, 6,100),
+        ('F4-2133C15S-4GNT','Placa video PowerColor Radeon RX 7900 XT Red Devil 20GB GDDR6 320-bit','https://4.grgs.ro/images/products/1/8196/2521823/thumbnails/radeon-rx-7900-xt-red-devil-20gb-gddr6-hdmi-3x-dp-8ac74afb5656adfd56bf0764fe352f24.jpg'
+        ,'GPU',1455,100, 6,100),
+        ('F4-2133C15S-4GNT','Placa video Sapphire Radeon RX 7900 XT Pulse 20GB GDDR6 320-bit','https://3.grgs.ro/images/products/1/9301/2551915/thumbnails/radeon-rx-7900-xt-pulse-20gb-gddr6-320-bit-c72d919f380518dce5bc3df044a24785.jpg'
+        ,'GPU',1455,100, 6,100),
+        ('F4-2133C15S-4GNT','Placa video GIGABYTE Radeon RX 7900 XT GAMING OC 20GB GDDR6 320-bit','https://2.grgs.ro/images/products/1/2216/2533151/thumbnails/gb-radeon-rx7900-xt-gaming-oc-20g-e5efe8aae294e5c831100fa168af0090.jpg'
+        ,'GPU',1455,100, 6,100),
+
 
 
         ('F4-2133C15S-4GNT','Placa de baza ASUS PRIME H310M-K R2.0','https://3.grgs.ro/images/products/1/5015/1772992/thumbnails/prime-h310m-k-r20-ee27e813e8d0c1a1e94b328ef1d4b5be.jpg'
@@ -229,10 +325,10 @@ INSERT INTO products(code, description, image_url, name, price, quantity, id_cat
 
 INSERT INTO roles(name) VALUES ('ROLE_USER'), ('ROLE_ADMIN'),('ROLE_EMPLOYEE');
 
-INSERT INTO users(address, birthday, email, first_name,mobile ,  password, last_name, id_role)
-VALUES ('Brasov', '1999-08-01', 'gabriel.stanciulescu@admin.itcomponents.ro', 'Stanciulescu', '0748000000', '$2a$12$R7SYQz6YjarscS/c3qqVjeg.kPJQuPRK5yOORqXQXcXrz62G.eEPC', 'Gabriel', 2),-- password: qmajdyhn
-       ('Brasov', '1999-08-01', 'gabriel.stanciulescu@gmail.com', 'Stanciulescu', '0748000000', '$2a$12$R7SYQz6YjarscS/c3qqVjeg.kPJQuPRK5yOORqXQXcXrz62G.eEPC', 'Gabriel', 1),-- password: qmajdyhn
-       ('Brasov', '1999-08-01', 'gabriel.stanciulescu@itcomponents.ro', 'Stanciulescu', '0748000000', '$2a$12$R7SYQz6YjarscS/c3qqVjeg.kPJQuPRK5yOORqXQXcXrz62G.eEPC', 'Gabriel', 3); -- password: qmajdyhn
+INSERT INTO users(address, birthday, email, first_name,mobile ,  password, last_name, id_role, active)
+VALUES ('Brasov', '1999-08-01', 'gabriel.stanciulescu@admin.itcomponents.ro', 'Stanciulescu', '0748000000', '$2a$12$R7SYQz6YjarscS/c3qqVjeg.kPJQuPRK5yOORqXQXcXrz62G.eEPC', 'Gabriel', 2, true),-- password: qmajdyhn
+       ('Brasov', '1999-08-01', 'gabriel.stanciulescu@gmail.com', 'Stanciulescu', '0748000000', '$2a$12$R7SYQz6YjarscS/c3qqVjeg.kPJQuPRK5yOORqXQXcXrz62G.eEPC', 'Gabriel', 1, true),-- password: qmajdyhn
+       ('Brasov', '1999-08-01', 'gabriel.stanciulescu@itcomponents.ro', 'Stanciulescu', '0748000000', '$2a$12$R7SYQz6YjarscS/c3qqVjeg.kPJQuPRK5yOORqXQXcXrz62G.eEPC', 'Gabriel', 3, true); -- password: qmajdyhn
 
 
 

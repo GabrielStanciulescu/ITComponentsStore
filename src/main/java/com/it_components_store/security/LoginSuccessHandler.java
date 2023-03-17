@@ -14,11 +14,11 @@ public class LoginSuccessHandler extends SavedRequestAwareAuthenticationSuccessH
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException {
         SecurityUsers securityUsers = (SecurityUsers) authentication.getPrincipal();
         if (securityUsers.hasRole("ROLE_ADMIN") || securityUsers.hasRole("ROLE_EMPLOYEE")) {
-            response.sendRedirect("/dashboard");
+            response.sendRedirect("/dashboard/page/0");
         }
         if (securityUsers.hasRole("ROLE_USER")) {
 
-            response.sendRedirect("/category/1");
+            response.sendRedirect("/category/1/page/1");
         }
 
 

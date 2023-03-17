@@ -33,7 +33,7 @@ public class UserDto {
     private String email;
 
     @NotNull(message = "Introdu parola")
-    @Size(min=7, max = 100, message = "Parola trebuie sa contina minim 7 caractere")
+    @Size(min=1, max = 100, message = "Parola trebuie sa contina minim 7 caractere")
     private String password;
 
     @NotNull(message = "Introdu data nasterii")
@@ -48,6 +48,8 @@ public class UserDto {
     @Pattern(regexp = "^(\\+4|)?(07\\d{2}|02\\d{2}|03\\d{2})(\\s|\\.|)?(\\d{3}(\\s|\\.|)){2}$",message = "Numarul  de telefon este invalid")
     @Size(max = 10, message = "The maximum length for mobile is 15 characters")
     private String mobile;
+
+    private Boolean isActive;
 
     private String resetPasswordToken;
 
