@@ -116,7 +116,7 @@
             <li th:if="${currentPage !=1}" class="page-item"><a class="page-link" th:href="@{'/dashboard/page/'+${currentPage-1}}">Inapoi</a></li>
 
 
-            <li th:each="i:${#numbers.sequence(1,totalPages)}"  th:classappend="${currentPage==i ? 'active' : '' }"  class="page-item">
+            <li th:each="i:${#numbers.sequence(1,totalPages-1)}"  th:classappend="${currentPage==i ? 'active' : '' }"  class="page-item">
 
                 <a class="page-link" th:href="@{'/dashboard/page/'+${i}}">[[${i}]]</a>
 
