@@ -30,6 +30,7 @@ public class ForgotPasswordController {
     @PostMapping("/forgot_password")
     public String processForgotPassword(HttpServletRequest request, Model model ) {
         String email = request.getParameter("email");
+
         String token = RandomString.make(30);
         try{
             userService.updateResetPasswordToken(token, email);

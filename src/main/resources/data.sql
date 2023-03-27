@@ -325,6 +325,43 @@ INSERT INTO products(code, description, image_url, name, price, quantity, id_cat
 
 INSERT INTO roles(name) VALUES ('ROLE_USER'), ('ROLE_ADMIN'),('ROLE_EMPLOYEE');
 
+
+-- Memorii RAM
+INSERT INTO  mouse_detailS(color, interface_mouse, name, sensor, id_product) VALUES ('Black', 'Laser', 'Mouse gaming','optic', 104),
+                                                                                    ('Negru', 'Bluetooth,USB ', 'Mouse Logitech MX Master 3','Optic', 105),
+                                                                                    ('Negru', 'USB', 'Mouse Gaming Redragon TitanoBoa2 V2 RGB','Optic', 106),
+                                                                                    ('Negru', 'USB', 'Mouse Gaming Redragon Impact Elite RGB Wireless','Optic', 107),
+                                                                                    ('Rosu', 'USB', 'Mouse Logitech M185','Optic', 108),
+                                                                                    ('Albastru', 'USB', 'Mouse Logitech M185, Wireless, Blue','Optic', 109),
+                                                                                    ('Albstaru', 'USB', 'Mouse Logitech M185, Wireless, Blue','Optic', 110),
+                                                                                    ('Negru', 'USB', 'Mouse HP 200 Black','Optic', 111),
+                                                                                    ('Albastru', 'USB', 'Mouse Microsoft Wireless Mobile 1850 Black','Optic', 112);
+
+
+INSERT INTO ram_details(name, code, warrant, for_gaming, type , capacity, frequent, latency, standard, voltage, timing, id_product )
+VALUES ('Memorie G.Skill F4 4GB DDR4 2133MHz CL15','F4-2133C15S-4GNT','24 luni','Da','DDR4','4 GB','2133 MHz','15 CL','PC4-17000','1.2 V','15-15-15-35',1),
+       ('Memorie GOODRAM IRDM X 8GB DDR4 2666MHz CL16','IR-X2666D464L16S/8G','24 luni','Da','DDR4','8 GB','2666 MHz','16 CL','PC4-21300','1.2 V','16-18-18',2),
+       ('Memorie GOODRAM IRDM X 8GB DDR4 2666MHz CL16','IR-X2666D464L16S/8G','24 luni','Da','DDR4','8 GB','2666 MHz','16 CL','PC4-21300','1.2 V','16-18-18',3),
+       ('Memorie GOODRAM 8GB DDR3 1600MHz CL11 1.5v','IR-X2666D464L16S/8G','24 luni','Da','DDR3','8 GB','2666 MHz','11 CL','PC4-21300','1.2 V','16-18-18',4),
+       ('Memorie Patriot Viper Steel 8GB DDR4 3000MHz CL16','PVS48G300C6','24 luni','Da','DDR4','8 GB','3000 MHz','16 CL','PC4-24000','1.35 V','16-18-18-36',5),
+       ('Memorie Patriot Signature Line 8GB DDR3 1600MHz CL11 1.5v','PSD38G16002','24 luni','Nu','DDR3','8 GB','1600 MHz','11 CL','PC3-12800','1.5 V','16-18-18',6),
+       ('Memorie ADATA XPG Spectrix D50 8GB DDR4 3200MHz CL16','AX4U32008G16A-ST41','24 luni','Da','DDR4','8 GB','3200 MHz','16 CL','PC4-25600','1.35 V','16-18-18',7),
+       ('Memorie Kingston FURY Beast 8GB DDR4 2666MHz CL16','KF426C16BB/8','24 luni','Da','DDR4','8 GB','2666 MHz','16 CL','PC4-21300','1.2 V','16-18-18',8),
+       ('Memorie Patriot Viper Steel 8GB DDR4 3000MHz CL16','PVS48G300C6','24 luni','Da','DDR4','8 GB','3000 MHz','16 CL','PC4-24000','1.35 V','16-18-18-36',9),
+       ('Memorie Crucial 8GB DDR4 3200MHz CL22','CT8G4DFRA32A','24 luni','DDR4','Nu','DDR4','8 GB','3200 MHz','22 CL','1.2V','PC4-25600',10),
+       ('Memorie G.Skill F4 4GB DDR4 2133MHz CL15','F4-2133C15S-4GNT','24 luni','Da','DDR4','4 GB','2133 MHz','15 CL','PC4-17000','1.2 V','15-15-15-35',11),
+       ('Memorie TeamGroup Elite 8GB DDR4 3200MHz CL22','TED48G3200C2201','24 luni','Da','DDR4','8 GB','3200 MHz','22 CL','PC4-25600','1.2 V','22-22-22-52',12),
+       ('Memorie G.Skill Aegis 8GB DDR4 3200MHz CL16','F4-3200C16S-8GIS','24 luni','Da','DDR4','8 GB','3200 MHz','16 CL','PC4-25600','1.35 V','16-18-18-38',13),
+       ('Memorie Patriot Viper 4 Blackout 16GB DDR4 3200MHz CL16 Dual Channel Kit','PVB416G320C6K','24 luni','Da','DDR4','16 GB','3200 MHz','16 CL','PC4-25600','1.35 V','16-18-18-36',14),
+       ('Memorie Corsair Vengeance RGB 64GB DDR5 5600MHz CL36 Dual Channel Kit','CMH64GX5M2B5600C36','24 luni','Da','DDR5','64 GB','5600 MHz','36 CL','PC4-25600','1.25 V','16-18-18-36',15),
+       ('Memorie Kingston Kingston FURY Beast 64GB DDR5 5600MHz CL40 Dual Channel Kit','KF556C40BBK2-64','24 luni','Da','DDR5','64 GB','5600 MHz','40 CL','PC5-48000U','1.25 V','40-40-40',16),
+       ('Memorie G.Skill Trident Z Neo 64GB DDR4 3200MHz CL16 Dual Channel Kit','F4-3200C16D-64GTZN','24 luni','Da','DDR4','64 GB','3200 MHz','16 CL','PC4-25600','1.35 V','16-18-18-38',17),
+       ('Memorie Patriot Viper Venom RGB 32GB DDR5 6200MHz CL40 Dual Channel Kit','PVVR532G620C40K','24 luni','Da','DDR5','32 GB','6200 MHz','40 CL','PC5-49600','1.35 V','40-40-40-76',18),
+       ('Memorie Corsair Vengeance LPX Black 64GB DDR4 3200MHz CL16 Dual Channel Kit','CMK64GX4M2E3200C16','24 luni','Da','DDR4','64 GB','3200 MHz','16 CL','PC4-25600','1.35 V','16-20-20-38',19),
+       ('Memorie Kingston FURY Beast RGB 32GB DDR5 6000MHz CL36','KF560C36BBEA-32','24 luni','DDR5','32 GB','6000 MHz','36 CL','PC5-48000U','1.35 V','16 CL','16-20-20-38',20),
+       ('Memorie Corsair Vengeance 32GB DDR5 5600MHz CL36 Dual Channel Kit','CMK32GX5M2B5600C36','24 luni','Da','DDR5','32 GB','5600 MHz','36 CL','PC5-44800U','1.25 V','36-36-36-76',21);
+
+
 INSERT INTO users(address, birthday, email, first_name,mobile ,  password, last_name, id_role, active)
 VALUES ('Brasov', '1999-08-01', 'gabriel.stanciulescu@admin.itcomponents.ro', 'Stanciulescu', '0748000000', '$2a$12$R7SYQz6YjarscS/c3qqVjeg.kPJQuPRK5yOORqXQXcXrz62G.eEPC', 'Gabriel', 2, true),-- password: qmajdyhn
        ('Brasov', '1999-08-01', 'gabriel.stanciulescu@gmail.com', 'Stanciulescu', '0748000000', '$2a$12$R7SYQz6YjarscS/c3qqVjeg.kPJQuPRK5yOORqXQXcXrz62G.eEPC', 'Gabriel', 1, true),-- password: qmajdyhn
