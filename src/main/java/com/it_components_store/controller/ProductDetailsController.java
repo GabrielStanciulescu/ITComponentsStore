@@ -4,6 +4,7 @@ import com.it_components_store.dto.ProductDto;
 import com.it_components_store.dto.product_details_Dto.HddDto;
 import com.it_components_store.dto.product_details_Dto.MouseDto;
 import com.it_components_store.dto.product_details_Dto.RamDto;
+import com.it_components_store.dto.product_details_Dto.SsdDto;
 import com.it_components_store.service.ProductDetailsService;
 import com.it_components_store.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -49,6 +50,14 @@ public class ProductDetailsController {
                 model.addAttribute("hdd", hddDto.get());
                 model.addAttribute("link", productDto.get().getImageUrl());
                 return "productDetails/HddDetails";
+
+
+            case 4:
+                Optional<SsdDto>ssdDto = productDetailsService.getSsdDetailsByIdCategory(idProduct);
+                productDto = productService.getProductById(idProduct);
+                model.addAttribute("ssd", ssdDto.get());
+                model.addAttribute("link", productDto.get().getImageUrl());
+                return "productDetails/SsdDetails";
 
 
             default:

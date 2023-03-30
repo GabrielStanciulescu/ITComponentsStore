@@ -381,6 +381,28 @@ VALUES ('Hard disk WD Blue 1TB SATA-III 7200 RPM 64MB','ST1000DM010','24 luni','
        ('Hard disk Seagate IronWolf Pro 14TB SATA-III 7200RPM 256MB','ST14000NE0008','24 luni','SATA-III','14 TB','256 MB','7200 RPM',38);
 
 
+INSERT INTO ssd_details(name, code, warrant,tipssd, form_factor, interfaces, nvme, capacity, controller, read_max,write_max, id_product)
+VALUES ('SSD Kingston A400 120GB SATA-III 2.5 inch','SA400S37/120G','24 luni','Intern','2.5 inch','SATA-III','Nu','120 GB','Phison S11','500 MB/s','320 MB/s',39),
+       ('SSD Silicon-Power Ace A55 128GB SATA-III 2.5 inch','SP128GBSS3A55S25','24 luni','Intern','2.5 inch','SATA-III','Nu','128 GB','Phison','550 MB/s','420 MB/s',40),
+       ('SSD ADATA SU630 240GB SATA-III 2.5 inch','ASU630SS-240GQ-R','24 luni','Intern','2.5 inch','SATA-III','Nu','240 GB','Phison','520 MB/s','450 MB/s',41),
+       ('SSD Kingston NV2 250GB PCI Express 4.0 x4 M.2 2280','SNV2S/250G','24 luni','Intern','M.2','PCI Express 3.0 x4','Da','250 GB','-','3000 MB/s','1300 MB/s',42),
+       ('SSD ADATA Legend 750 500GB PCI Express 3.0 x4 M.2 2280','ALEG-750-500GCS','24 luni','Intern','M.2','PCI Express 3.0 x4','Da','500 GB','-','3350 MB/s','2450 MB/s',43),
+       ('SSD Samsung 870 EVO 250GB SATA-III 2.5 inch','MZ-77E250B/EU','24 luni','Intern','2.5 inch','SATA-III','Nu','250 GB','Samsung MKX','560 MB/s','530 MB/s',44),
+       ('SSD Silicon-Power P34A60 512GB PCI Express 3.0 x4 M.2 2280','SP512GBP34A60M28','24 luni','Intern','M.2','PCI Express 3.0 x4','Da','512 GB','-','2200 MB/s','1600 MB/s',45),
+       ('SSD ADATA Legend 710 512GB PCI Express 3.0 x4 M.2 2280','ALEG-710-512GCS','24 luni','Intern','M.2','PCI Express 3.0 x4','Nu','512 GB','-','2400 MB/s','1800 MB/s',46),
+       ('SSD Samsung 980 250GB PCI Express 3.0 x4 M.2 2280','MZ-V8V250BW','24 luni','Intern','M.2','PCI Express 3.0 x4','Da','250 GB','Samsung Pablo','2900 MB/s','1300 MB/s',47),
+       ('SSD Crucial P3 4TB PCI Express 3.0 x4 M.2 2280','CT4000P3SSD8','24 luni','Intern','M.2','PCI Express 3.0 x4','Da','4 TB','-','3500 MB/s','3000 MB/s',48),
+       ('SSD Samsung 870 QVO 4TB SATA-III 2.5 inch','MZ-77Q4T0BW','24 luni','Intern','2.5 inch','SATA-III','Nu','4 TB','Samsung MKX','560 MB/s','530 MB/s',49),
+       ('SSD Solidigm P44 Pro 2TB PCI Express 4.0 x4 M.2 2280','SSDPFKKW020X7X1','24 luni','Intern','M.2','PCI Express 4.0 x4','Da','2TB','-','7000 MB/s','6500 MB/s',50),
+       ('SSD ADATA XPG Gammix S5 2TB PCI Express 3.0 x4 M.2 2280','AGAMMIXS5-2TT-C','24 luni','Intern','M.2','PCI Express 3.0 x4','Da','2 TB','-','2100 MB/s','1500 MB/s',51),
+       ('SSD Kingston Renegade Heatsink 1TB PCI Express 4.0 x4 M.2 2280','SFYRSK/1000G','24 luni','Intern','M.2','PCI Express 4.0 x4','Da','1 TB','Phison E18','7300 MB/s','6000 MB/s',52),
+       ('SSD Intel 670p Series 2TB PCI Express 3.0 x4 M.2 2280','SSDPEKNU020TZX1','24 luni','Intern','M.2','PCI Express 3.0 x4','Da','2 TB','-','3500 MB/s','2700 MB/s',53),
+       ('SSD Samsung Portable T7 Red 1TB USB 3.2 tip C','MU-PC1T0R/WW','24 luni','Extern','Extern','USB 3.2 tip C','Nu','1 TB','-','3500 MB/s','2500 MB/s',54),
+       ('SSD Samsung 970 EVO Plus 1TB PCI Express 3.0 x4 M.2 2280','MZ-V7S1T0BW','24 luni','Intern','M.2','PCI Express 3.0 x4','Da','1 TB','Samsung Phoenix','3500 MB/s','3300 MB/s',55),
+       ('SSD Samsung 980 1TB PCI Express 3.0 x4 M.2 2280','MZ-V8V1T0BW','24 luni','Intern','M.2','PCI Express 3.0 x4','Da','1 TB','Samsung Pablo','3500 MB/s','3000 MB/s',56),
+       ('SSD Kingston KC3000 1TB PCI Express 4.0 x4 M.2 2280','SKC3000S/1024G','24 luni','Intern','M.2','PCI Express 4.0 x4','Da','1 TB','Phison E18','7000 MB/s','6000 MB/s',57);
+
+
 INSERT INTO users(address, birthday, email, first_name,mobile ,  password, last_name, id_role, active)
 VALUES ('Brasov', '1999-08-01', 'gabriel.stanciulescu@admin.itcomponents.ro', 'Stanciulescu', '0748000000', '$2a$12$R7SYQz6YjarscS/c3qqVjeg.kPJQuPRK5yOORqXQXcXrz62G.eEPC', 'Gabriel', 2, true),-- password: qmajdyhn
        ('Brasov', '1999-08-01', 'gabriel.stanciulescu@gmail.com', 'Stanciulescu', '0748000000', '$2a$12$R7SYQz6YjarscS/c3qqVjeg.kPJQuPRK5yOORqXQXcXrz62G.eEPC', 'Gabriel', 1, true),-- password: qmajdyhn
