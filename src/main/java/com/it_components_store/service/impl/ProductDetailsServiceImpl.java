@@ -1,11 +1,14 @@
 package com.it_components_store.service.impl;
 
+import com.it_components_store.dto.product_details_Dto.HddDto;
 import com.it_components_store.dto.product_details_Dto.MouseDto;
 import com.it_components_store.dto.product_details_Dto.RamDto;
+import com.it_components_store.entity.product_details.Hdd;
 import com.it_components_store.entity.product_details.Mouse;
 import com.it_components_store.entity.product_details.Ram;
 import com.it_components_store.exception.DataNotFoundException;
 import com.it_components_store.exception.InvalidDataException;
+import com.it_components_store.repository.product_details_repository.HddRepository;
 import com.it_components_store.repository.product_details_repository.MouseRepository;
 import com.it_components_store.repository.product_details_repository.RamRepository;
 import com.it_components_store.service.ProductDetailsService;
@@ -20,6 +23,7 @@ public class ProductDetailsServiceImpl implements ProductDetailsService {
 
     private final MouseRepository mouseRepository;
     private final RamRepository ramRepository;
+    private final HddRepository hddRepository;
     private final ModelMapper modelMapper;
     @Override
     public Optional<MouseDto> getMouseDetailsByIdCategory(Long id) {
@@ -54,6 +58,23 @@ public class ProductDetailsServiceImpl implements ProductDetailsService {
             Ram ram = optionalRam.get();
             RamDto ramDto = modelMapper.map(ram, RamDto.class);
             return Optional.of(ramDto);
+        }
+    }
+
+    @Override
+    public Optional<HddDto> getHddDetailsByIdCategory(Long id) {
+        if (id < 0) {
+            throw new InvalidDataException("Your id " + id + " it's not valid");
+        }
+
+        Optional<Hdd> optionalHdd = hddRepository.getByProductId(id);
+        if (optionalHdd.isEmpty()){
+            throw new DataNotFoundException("The product with id " + id + " does not exist!");
+        }
+        else{
+            Hdd hdd = optionalHdd.get();
+            HddDto hddDto = modelMapper.map(hdd, HddDto.class);
+            return Optional.of(hddDto);
         }
     }
 }

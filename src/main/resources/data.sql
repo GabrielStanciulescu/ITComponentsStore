@@ -361,6 +361,25 @@ VALUES ('Memorie G.Skill F4 4GB DDR4 2133MHz CL15','F4-2133C15S-4GNT','24 luni',
        ('Memorie Kingston FURY Beast RGB 32GB DDR5 6000MHz CL36','KF560C36BBEA-32','24 luni','DDR5','32 GB','6000 MHz','36 CL','PC5-48000U','1.35 V','16 CL','16-20-20-38',20),
        ('Memorie Corsair Vengeance 32GB DDR5 5600MHz CL36 Dual Channel Kit','CMK32GX5M2B5600C36','24 luni','Da','DDR5','32 GB','5600 MHz','36 CL','PC5-44800U','1.25 V','36-36-36-76',21);
 
+INSERT INTO hdd_details(name, code, warrant, interfaces, capacity,buffer,speed,id_product)
+VALUES ('Hard disk WD Blue 1TB SATA-III 7200 RPM 64MB','ST1000DM010','24 luni','SATA-III','1 TB','64 MB','7200 RPM',22),
+       ('Hard disk Seagate BarraCuda 1TB SATA-III 7200RPM 64MB','ST1000DM010','24 luni','SATA-III','1 TB','64 MB','7200 RPM',23),
+       ('Hard disk WD New Purple 1TB SATA-III IntelliPower 64MB','WD10PURZ','24 luni','SATA-III','1 TB','64 MB','5400 RPM',24),
+       ('Hard disk Seagate BarraCuda 2TB SATA-III 7200RPM 256MB','ST2000DM008','24 luni','SATA-III','2 TB','256 MB','7200 RPM',25),
+       ('Hard disk Toshiba P300 3TB SATA-III 7200 RPM 64MB bulk','HDWD130UZSVA','24 luni','SATA-III','3 TB','64 MB','7200 RPM',26),
+       ('Hard disk Seagate IronWolf 2TB SATA-III 5900RPM 64MB','ST2000VN004','24 luni','SATA-III','2 TB','64 MB','5900 RPM',27),
+       ('Hard disk Seagate IronWolf 2TB SATA-III 5900RPM 64MB','ST2000VN004','24 luni','SATA-III','2 TB','64 MB','5900 RPM',28),
+       ('Hard disk Seagate IronWolf 3TB SATA-III 5400RPM 256MB','ST3000VN006','24 luni','SATA-III','3 TB','256 MB','5400 RPM',29),
+       ('Hard disk Seagate IronWolf Pro 12TB SATA-III 7200RPM 256MB','ST12000NE0008','24 luni','SATA-III','12 TB','256 MB','7200 RPM',30),
+       ('Hard disk Seagate IronWolf 12TB SATA-III 7200RPM 256MB','ST12000VN0008','24 luni','SATA-III','12 TB','256 MB','7200 RPM',31),
+       ('Hard disk Seagate IronWolf Pro 8TB SATA-III 7200RPM 256MB','ST8000NT001','24 luni','SATA-III','8 TB','256 MB','7200 RPM',32),
+       ('Hard disk Seagate IronWolf 8TB SATA-III 7200RPM 256MB','ST8000VN004','24 luni','SATA-III','8 TB','256 MB','7200 RPM',33),
+       ('Hard disk Seagate BarraCuda 3TB SATA-III 5400RPM 256MB','ST3000DM007','24 luni','SATA-III','3 TB','256 MB','5400 RPM',34),
+       ('Hard disk Seagate SkyHawk 2TB 5900RPM SATA-III 64MB','ST2000VX008','24 luni','SATA-III','2 TB','64 MB','5900 RPM',35),
+       ('Hard disk Seagate IronWolf Pro 20TB SATA-III 7200RPM 256MB','ST20000NT001','24 luni','SATA-III','20 TB','256 MB','7200 RPM',36),
+       ('Hard disk Seagate IronWolf Pro 18TB SATA-III 7200RPM 256MB','ST18000NT001','24 luni','SATA-III','18 TB','256 MB','7200 RPM',37),
+       ('Hard disk Seagate IronWolf Pro 14TB SATA-III 7200RPM 256MB','ST14000NE0008','24 luni','SATA-III','14 TB','256 MB','7200 RPM',38);
+
 
 INSERT INTO users(address, birthday, email, first_name,mobile ,  password, last_name, id_role, active)
 VALUES ('Brasov', '1999-08-01', 'gabriel.stanciulescu@admin.itcomponents.ro', 'Stanciulescu', '0748000000', '$2a$12$R7SYQz6YjarscS/c3qqVjeg.kPJQuPRK5yOORqXQXcXrz62G.eEPC', 'Gabriel', 2, true),-- password: qmajdyhn

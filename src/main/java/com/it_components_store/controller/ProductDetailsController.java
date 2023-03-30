@@ -1,6 +1,7 @@
 package com.it_components_store.controller;
 
 import com.it_components_store.dto.ProductDto;
+import com.it_components_store.dto.product_details_Dto.HddDto;
 import com.it_components_store.dto.product_details_Dto.MouseDto;
 import com.it_components_store.dto.product_details_Dto.RamDto;
 import com.it_components_store.service.ProductDetailsService;
@@ -41,6 +42,14 @@ public class ProductDetailsController {
                 model.addAttribute("ram",ramDto.get());
                 model.addAttribute("link", productDto.get().getImageUrl());
                 return "productDetails/RamDetails";
+
+            case 3:
+                Optional<HddDto> hddDto = productDetailsService.getHddDetailsByIdCategory(idProduct);
+                productDto = productService.getProductById(idProduct);
+                model.addAttribute("hdd", hddDto.get());
+                model.addAttribute("link", productDto.get().getImageUrl());
+                return "productDetails/HddDetails";
+
 
             default:
                 return "login/login";
