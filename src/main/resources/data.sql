@@ -403,6 +403,31 @@ VALUES ('SSD Kingston A400 120GB SATA-III 2.5 inch','SA400S37/120G','24 luni','I
        ('SSD Kingston KC3000 1TB PCI Express 4.0 x4 M.2 2280','SKC3000S/1024G','24 luni','Intern','M.2','PCI Express 4.0 x4','Da','1 TB','Phison E18','7000 MB/s','6000 MB/s',57);
 
 
+INSERT INTO cpu_details(name, code, warrant, gaming,socket, series, kernel, number_of_kernel,number_of_thread, frequency, frequency_turbo, nm, power, model, tip, memory_supported, frequency_memory, pciexpress, pciexpress_lanes, id_product)
+VALUES ('Procesor Intel Comet Lake, Celeron G5925 3.6GHz box','BX80701G5925','24 luni','Nu','1200','Celeron Dual-Core','Comet Lake','2','2','3,6 GHz','3,6 GHz','14 nm','58 W','UHD 610','DDR4','128 GB','2666 MHz','3.0','x16',58),
+       ('Procesor AMD Ryzen 3 4100 3.8GHz box','100-100000510BOX','24 luni','Da','AM4','Ryzen 3 4000 Series','Renoir','4','8','3,8 GHz','4 GHz','7 nm','65 W','Fara grafica integrata','DDR4','128 GB','3200 MHz','3.0','-',59),
+       ('Procesor Intel Comet Lake, Core i3 10105F 3.7GHz box','BX8070110105F','24 luni','Da','1200','Core i3 10th gen','Comet Lake','4','8','3.7 GHz','4.4 GHz','14 nm','65 W','Fara grafica integrata','DDR4','128 GB','2666 MHz','-','-',60),
+       ('Procesor AMD Ryzen 3 3200G 3.6GHz box','YD3200C5FHBOX','24 luni','Da','AM4','Ryzen 3 3000 Series','Picasso','4','4','3,6 GHz','4 GHz','12 nm','65 W','Radeon™ Vega 8','DDR4','64 GB','2933 MHz','3.0','-',61),
+       ('Procesor Intel Comet Lake, Core i5 10400F 2.9GHz box','BX8070110400F','24 luni','Da','1200','Core i5 10th gen','Comet Lake','6','12','2,9 GHz','4,3 GHz','14 nm','65 W','Fara grafica integrata','DDR4','128 GB','2666 MHz','3.0','x16',62),
+       ('Procesor Intel Alder Lake, Core i5 12400F 2.5GHz box','BX8071512400F','24 luni','Da','1700','Core i5 12th gen','Alder Lake','6','12','2,5 GHz','4,4 GHz','14 nm','65W','Fara grafica integrata','DDR4/DDR5','128 GB','DDR4 3200 MHz /DDR5 4800 MHz ','-','-',63),
+       ('Procesor AMD Ryzen 7 5800X 3.8GHz box','100-100000063WOF','24 luni','Da','AM4','Ryzen 7 5000 Series','Vermeer','8','16','3.8 GHz','4,7 GHz','7nm','105 W','Fara grafica integrata','DDR4','128 GB','3200 MHz','4.0','-',64),
+       ('Procesor AMD Ryzen 3 1200 3.1GHz Tray','YD1200BBM4KAF','24 luni0','Da','AM4','Ryzen 3 1000 Series','Summit Ridge','4','4','3,1 GHz','3,4 GHz','14nm','65 W','Fara grafica integrata','DDR4','64 GB','2400 MHz','3.0','x24',65),
+       ('Procesor AMD Ryzen 7 5700X 3.4GHz box','100-100000926WOF','24 luni','Da','AM4','Ryzen 7 5000 Series','Vermeer','8','16','3,4 GHz','4,6GHz','7 nm','65W','Fara grafica integrata','DDR4','128 GB','3200 MHz','4.0','-',66),
+       ('Procesor AMD Ryzen 9 7900X3D 4.4GHz box','100-100000909WOF','24 luni','Da','AM5','Ryzen 9 7000 Series','Raphael','12','24','4,4 GHz','5,6 GHz','5 nm','120W','Radeon Graphics','DDR5','128GB','5200 MHz','5.0','-',67),
+       ('Procesor Intel Alder Lake, Core i9 12900KS 3.4GHz box','BX8071512900KS','24 luni','Da','1700','Core i9 12th gen','Alder Lake','16','24','3,4 GHz','5,5 GHz','7nm','150W','UHD 770','DDR4/DDR5','128 GB','DDR4 3200 MHz/DDR5 4800 MHz','5.0','20',68),
+       ('Procesor Intel Raptor Lake, Core i9 13900K 3.0GHz box','BX8071513900K','24 luni','Da','1700','Core i9 13th gen','Raptor Lake','24','32','3 GHz','5,8 GHz','7nm','125W','UHD 770','DDR4/DDR5','128GB','DDR4 3200 MHz/DDR5 5600 MHz','-','-',69),
+       ('Procesor AMD Ryzen 9 7950X 4.5GHz box','100-100000514WOF','24 luni','Da','AM5','Ryzen 9 7000 Series','Raphael','16','32','4,5GHz','5,7GHz','5nm','170W','Radeon Graphics','DDR5','128 GB','5200 MHz','-','-',70),
+       ('Procesor Intel Raptor Lake, Core i9 13900 2.0GHz box','BX8071513900','24 luni','Da','1700','Core i9 13th gen','Raptor Lake','24','30','2GHz','5,6GHz','5nm','125W','UHD 770','DDR4/DDR5','DDR4 3200 MHz/','DDR5 5600 MHz','5.0','20',71),
+       ('Procesor AMD Ryzen 9 7900X 4.7GHz box','100-100000589WOF','24 luni','Da','AM5','Ryzen 9 7000 Series','Raphael','12','24','4,7 GHz','5,6 GHz','5 nm','170W','Radeon Graphics','DDR5','128 GB','5200 MHz','5.0','-',72),
+       ('Procesor Intel Raptor Lake, Core i7 13700 2.1GHz box','BX8071513700','24 luni','Da','1700','Core i7 13th gen','Raptor Lake','16','24','2,1GHz','5.2GHz','5nm','65nm','UHD 770','DDR4/DDR5','128 GB','DDR4 3200 MHz/DDR5 5600 MHz','5.0','20',73),
+       ('Procesor AMD Ryzen 9 5900X 3.7GHz box','100-100000061WOF','24 luni','Da','AM4','Ryzen 9 5000 Series','Vermeer','12','24','3,7GHz','4,8GHz','7nm','105w','Fara grafica integrata','DDR4','128GB','3200 MHz','4.0','-',74),
+       ('Procesor AMD Ryzen 7 7700X 4.5GHz box','100-100000591WOF','24 luni','Da','AM5','Ryzen 7 7000 Series','Raphael','8','16','4,5GHz','5,4GHz','8ms','105W','Radeon Graphics','DDR5','128Gb','5200MHx','5.0','-',75);
+
+
+
+
+
+
 INSERT INTO users(address, birthday, email, first_name,mobile ,  password, last_name, id_role, active)
 VALUES ('Brasov', '1999-08-01', 'gabriel.stanciulescu@admin.itcomponents.ro', 'Stanciulescu', '0748000000', '$2a$12$R7SYQz6YjarscS/c3qqVjeg.kPJQuPRK5yOORqXQXcXrz62G.eEPC', 'Gabriel', 2, true),-- password: qmajdyhn
        ('Brasov', '1999-08-01', 'gabriel.stanciulescu@gmail.com', 'Stanciulescu', '0748000000', '$2a$12$R7SYQz6YjarscS/c3qqVjeg.kPJQuPRK5yOORqXQXcXrz62G.eEPC', 'Gabriel', 1, true),-- password: qmajdyhn

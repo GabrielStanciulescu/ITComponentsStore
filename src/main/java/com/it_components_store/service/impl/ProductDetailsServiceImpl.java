@@ -1,19 +1,10 @@
 package com.it_components_store.service.impl;
 
-import com.it_components_store.dto.product_details_Dto.HddDto;
-import com.it_components_store.dto.product_details_Dto.MouseDto;
-import com.it_components_store.dto.product_details_Dto.RamDto;
-import com.it_components_store.dto.product_details_Dto.SsdDto;
-import com.it_components_store.entity.product_details.Hdd;
-import com.it_components_store.entity.product_details.Mouse;
-import com.it_components_store.entity.product_details.Ram;
-import com.it_components_store.entity.product_details.Ssd;
+import com.it_components_store.dto.product_details_Dto.*;
+import com.it_components_store.entity.product_details.*;
 import com.it_components_store.exception.DataNotFoundException;
 import com.it_components_store.exception.InvalidDataException;
-import com.it_components_store.repository.product_details_repository.HddRepository;
-import com.it_components_store.repository.product_details_repository.MouseRepository;
-import com.it_components_store.repository.product_details_repository.RamRepository;
-import com.it_components_store.repository.product_details_repository.SsdRepository;
+import com.it_components_store.repository.product_details_repository.*;
 import com.it_components_store.service.ProductDetailsService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -28,6 +19,7 @@ public class ProductDetailsServiceImpl implements ProductDetailsService {
     private final RamRepository ramRepository;
     private final HddRepository hddRepository;
     private final SsdRepository ssdRepository;
+    private final CpuRepository cpuRepository;
     private final ModelMapper modelMapper;
     @Override
     public Optional<MouseDto> getMouseDetailsByIdCategory(Long id) {
@@ -97,6 +89,24 @@ public class ProductDetailsServiceImpl implements ProductDetailsService {
             Ssd ssd = optionalSsd.get();
             SsdDto ssdDto = modelMapper.map(ssd, SsdDto.class);
             return Optional.of(ssdDto);
+        }
+    }
+
+    @Override
+    public Optional<CpuDto> getCpuDetailsByIdCategory(Long id) {
+        if (id < 0) {
+            throw new InvalidDataException("Your id " + id + " it's not valid");
+        }
+
+
+        Optional<Cpu> optionalCpu = cpuRepository.getByProductId(id);
+        if (optionalCpu.isEmpty()){
+            throw new DataNotFoundException("The product with id " + id + " does not exist!");
+        }
+        else{
+            Cpu cpu = optionalCpu.get();
+            CpuDto cpuDto = modelMapper.map(cpu, CpuDto.class);
+            return Optional.of(cpuDto);
         }
     }
 }
