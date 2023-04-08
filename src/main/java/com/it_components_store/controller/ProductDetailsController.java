@@ -2,6 +2,7 @@ package com.it_components_store.controller;
 
 import com.it_components_store.dto.ProductDto;
 import com.it_components_store.dto.product_details_Dto.*;
+import com.it_components_store.entity.product_details.Motherboard;
 import com.it_components_store.service.ProductDetailsService;
 import com.it_components_store.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -70,6 +71,13 @@ public class ProductDetailsController {
                 model.addAttribute("gpu", gpuDto.get());
                 model.addAttribute("link", productDto.get().getImageUrl());
                 return "productDetails/GpuDetails";
+
+            case 7:
+                Optional<MotherboardDto> motherboardDto = productDetailsService.getMotherboardDetailsByIdCategory(idProduct);
+                productDto = productService.getProductById(idProduct);
+                model.addAttribute("motherboard", motherboardDto.get());
+                model.addAttribute("link", productDto.get().getImageUrl());
+                return "productDetails/MotherboardDetails";
 
 
             default:

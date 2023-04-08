@@ -446,6 +446,16 @@ VALUES ('Placa video GIGABYTE GeForce GTX 1650 OC 4GB GDDR5 128-bit','GV-N1650OC
 
 
 
+INSERT INTO motherboard_details(name, code,warrant, format, socket, chipset_manufacturer, model_chipset, cpu_supported, interfaces, gpu, number_of_sata, tip, memory, number_of_slots, frequency, id_product )
+VALUES ('Placa de baza ASUS PRIME H310M-K R2.0','PRIME H310M-K R2.0','24 luni','mATX','1151 v2','Intel','H310','Intel 9th/8th Generation Core/Pentium/Celeron','PCI Express x16 3.0','Necesita procesor cu tehnologia Intel HD Graphics','4','DDR4','32 GB','2','2666/2400/2133 MHz',95),
+       ('Placa de baza ASUS PRIME H310M-R R2.0','PRIME H310M-R R2.0','24 luni','mATX','1151 v2','Intel','H310','Intel 9th/8th Generation Core/Pentium/Celeron','PCI Express x16 3.0','Necesita procesor cu tehnologia Intel HD Graphics','4','DDR4','32Gb','2','2666/2400/2133 MHz',96),
+       ('Placa de baza GIGABYTE H410M H V3','H410M H V3','24 luni','mATX','1200','Intel','H510','Intel 10th Generation Core/Pentium/Celeron','PCI Express x16 3.0','Necesita procesor cu tehnologia Intel HD Graphics','4','DDR4','64GB','2','2933/2666/2400/2133 MHz',97),
+       ('Placa de baza ASRock H510M-HVS R2.0','H510M-HVS R2.0','24 luni','mATX','1200','Intel','H510','Intel 11th/10th Generation Core/Pentium/Celeron','PCI Express x16 4.0','Necesita procesor cu tehnologia Intel HD Graphics','4','DDR4','64 GB','2','3200/2933/2800/2666/2400/2133 MHz',98),
+       ('Placa de baza GIGABYTE Z590 GAMING X','Z590 GAMING X','24 luni','ATX','1200','Intel','Z590','Intel 11th/10th Generation Core/Pentium/Celeron','PCI Express x16 4.0','Necesita procesor cu tehnologia Intel HD Graphics','4','DDR4','128 GB','4','3200/2933/2800/2666/2400/2133 MHz',99),
+       ('Placa de baza GIGABYTE B660M GAMING X DDR4','B660M GAMING X DDR4','24 luni','mATX','1700','Intel','B660','Intel 12th/13th Generation Core/Pentium Gold/Celeron','PCI Express x16 4.0','Necesita procesor cu tehnologia Intel HD Graphics','4','DDR4','128GB','4','3200/2933/2800/2666/2400/2133 MHz',100),
+       ('Placa de baza GIGABYTE B550 AORUS ELITE V2','B550 AORUS ELITE V2','24 luni','ATX','AM4','AMD','B550','AMD AM4 Socket Ryzen™ 3000/5000 Series','PCI Express x16 4.0','Necesita procesor cu tehnologia AMD Radeon Vega Graphics','4','DDR4','128GB','4','3200/2933/2667/2400/2133 MHz',101),
+       ('Placa de baza ASRock Z790 PRO RS/D4','Z790 PRO RS/D4','24 luni','ATX','1700','Intel','Z790','Intel 12th/13th Generation Core/Pentium Gold/Celeron','PCI Express x16 5.0','Necesita procesor cu tehnologia Intel HD Graphics','8','DDR4','128GB','4','3200/2933/2667/2400/2133 MHz',102),
+       ('Placa de baza ASRock B650E PG RIPTIDE WIFI','B650E PG Riptide WiFi','24 luni','ATX','AM5','AMD','B650E','AMD AM5 Socket Ryzen™ 7000 Series','PCI Express x16 5.0','Necesita procesor cu tehnologia AMD Radeon Vega Graphics','4','DDR5','128GB','4','4800 / 4000 MHz',103);
 
 
 

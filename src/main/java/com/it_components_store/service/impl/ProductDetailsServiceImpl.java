@@ -21,6 +21,7 @@ public class ProductDetailsServiceImpl implements ProductDetailsService {
     private final SsdRepository ssdRepository;
     private final CpuRepository cpuRepository;
     private final GpuRepository gpuRepository;
+    private final MotherboardRepository motherboardRepository;
     private final ModelMapper modelMapper;
     @Override
     public Optional<MouseDto> getMouseDetailsByIdCategory(Long id) {
@@ -126,6 +127,25 @@ public class ProductDetailsServiceImpl implements ProductDetailsService {
             Gpu gpu = optionalGpu.get();
             GpuDto gpuDto = modelMapper.map(gpu, GpuDto.class);
             return Optional.of(gpuDto);
+        }
+    }
+
+    @Override
+    public Optional<MotherboardDto> getMotherboardDetailsByIdCategory(Long id) {
+        if (id < 0) {
+            throw new InvalidDataException("Your id " + id + " it's not valid");
+        }
+
+
+
+        Optional<Motherboard> optionalMotherboard = motherboardRepository.getByProductId(id);
+        if (optionalMotherboard.isEmpty()){
+            throw new DataNotFoundException("The product with id " + id + " does not exist!");
+        }
+        else{
+            Motherboard motherboard = optionalMotherboard.get();
+            MotherboardDto motherboardDto = modelMapper.map(motherboard, MotherboardDto.class);
+            return Optional.of(motherboardDto);
         }
     }
 }
