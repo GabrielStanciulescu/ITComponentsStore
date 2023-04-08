@@ -458,6 +458,16 @@ VALUES ('Placa de baza ASUS PRIME H310M-K R2.0','PRIME H310M-K R2.0','24 luni','
        ('Placa de baza ASRock B650E PG RIPTIDE WIFI','B650E PG Riptide WiFi','24 luni','ATX','AM5','AMD','B650E','AMD AM5 Socket Ryzen™ 7000 Series','PCI Express x16 5.0','Necesita procesor cu tehnologia AMD Radeon Vega Graphics','4','DDR5','128GB','4','4800 / 4000 MHz',103);
 
 
+INSERT INTO monitor_details(name,warrant,panel, diagonal, anti_glare, resolution, refresh_rate, id_product)
+VALUES ('Monitor LED ViewSonic Gaming Curbat 23.6 inch FHD VA 1 ms 165 Hz','24 luni','VA','23.6 inch','Da','1920 x 1080 pixeli','165 Hz',113),
+       ('Monitor LED LG Gaming 24MK430H 23.8 inch FHD IPS 5 ms 75 Hz FreeSync','36 luni','IPS','23.8 inch','Da','1920 x 1080 pixeli','75 Hz',114),
+       ('Monitor LED Acer Gaming VG270 27 inch FHD IPS 1 ms 75 Hz FreeSync','24 luni','27IPS','27inch','Da','1920 x 1080 pixeli','75 Hz',115),
+       ('Monitor LED Acer Gaming PG1 23.8 inch FHD VA 1 ms 144 Hz','24 luni','VA','23.8 inch','Da','1920 x 1080 pixeli','144 Hz',116),
+       ('Monitor LED ViewSonic VA2406-H 23.8 inch FHD VA 4 ms 60 Hz','24 luni','VA','23.8 inch','Da','1920 x 1080 pixeli','60 Hz',117),
+       ('Monitor LED DELL SE2422H 23.8 inch FHD VA 5 ms 75 Hz FreeSync','24 luni','VA','23.8','Da','1920 x 1080 pixeli','75 Hz',118),
+       ('Monitor LED Tesla 24MC625BF 23.8 inch FHD IPS 5 ms 75 Hz FreeSync','24 luni','IPS','23.8 inch','Da','1920 x 1080 pixeli','75 Hz',119),
+       ('Monitor LED Acer V247Y 23.8 inch FHD IPS 4 ms 75 Hz','24 luni','IPS','23.8 inch','Da','1920 x 1080 pixeli','75 Hz',120);
+
 
 INSERT INTO users(address, birthday, email, first_name,mobile ,  password, last_name, id_role, active)
 VALUES ('Brasov', '1999-08-01', 'gabriel.stanciulescu@admin.itcomponents.ro', 'Stanciulescu', '0748000000', '$2a$12$R7SYQz6YjarscS/c3qqVjeg.kPJQuPRK5yOORqXQXcXrz62G.eEPC', 'Gabriel', 2, true),-- password: qmajdyhn

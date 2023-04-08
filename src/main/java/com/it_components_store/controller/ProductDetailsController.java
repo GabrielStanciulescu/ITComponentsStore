@@ -79,6 +79,14 @@ public class ProductDetailsController {
                 model.addAttribute("link", productDto.get().getImageUrl());
                 return "productDetails/MotherboardDetails";
 
+            case 8 :
+                Optional<MonitorDto> monitorDto = productDetailsService.getMonitorDetailsByIdCategory(idProduct);
+                productDto = productService.getProductById(idProduct);
+                model.addAttribute("monitor", monitorDto.get());
+                model.addAttribute("link", productDto.get().getImageUrl());
+                return "productDetails/MonitorDetails";
+
+
 
             default:
                 return "login/login";
