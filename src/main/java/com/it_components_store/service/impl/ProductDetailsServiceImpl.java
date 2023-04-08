@@ -20,6 +20,7 @@ public class ProductDetailsServiceImpl implements ProductDetailsService {
     private final HddRepository hddRepository;
     private final SsdRepository ssdRepository;
     private final CpuRepository cpuRepository;
+    private final GpuRepository gpuRepository;
     private final ModelMapper modelMapper;
     @Override
     public Optional<MouseDto> getMouseDetailsByIdCategory(Long id) {
@@ -107,6 +108,24 @@ public class ProductDetailsServiceImpl implements ProductDetailsService {
             Cpu cpu = optionalCpu.get();
             CpuDto cpuDto = modelMapper.map(cpu, CpuDto.class);
             return Optional.of(cpuDto);
+        }
+    }
+
+    @Override
+    public Optional<GpuDto> getGpuDetailsByIdCategory(Long id) {
+        if (id < 0) {
+            throw new InvalidDataException("Your id " + id + " it's not valid");
+        }
+
+
+        Optional<Gpu> optionalGpu = gpuRepository.getByProductId(id);
+        if (optionalGpu.isEmpty()){
+            throw new DataNotFoundException("The product with id " + id + " does not exist!");
+        }
+        else{
+            Gpu gpu = optionalGpu.get();
+            GpuDto gpuDto = modelMapper.map(gpu, GpuDto.class);
+            return Optional.of(gpuDto);
         }
     }
 }

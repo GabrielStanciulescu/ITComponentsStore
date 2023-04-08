@@ -11,6 +11,7 @@ public interface ProductDetailsService {
     Optional<HddDto> getHddDetailsByIdCategory(Long id);
     Optional<SsdDto> getSsdDetailsByIdCategory(Long id);
     Optional<CpuDto> getCpuDetailsByIdCategory(Long id);
+    Optional<GpuDto> getGpuDetailsByIdCategory(Long id);
 
 
 

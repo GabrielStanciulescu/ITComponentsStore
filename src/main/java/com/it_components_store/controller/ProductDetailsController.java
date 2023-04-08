@@ -64,6 +64,13 @@ public class ProductDetailsController {
                model.addAttribute("link", productDto.get().getImageUrl());
                 return "productDetails/CpuDetails";
 
+            case 6:
+                Optional<GpuDto> gpuDto = productDetailsService.getGpuDetailsByIdCategory(idProduct);
+                productDto = productService.getProductById(idProduct);
+                model.addAttribute("gpu", gpuDto.get());
+                model.addAttribute("link", productDto.get().getImageUrl());
+                return "productDetails/GpuDetails";
+
 
             default:
                 return "login/login";
