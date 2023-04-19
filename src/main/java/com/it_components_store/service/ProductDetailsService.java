@@ -16,6 +16,7 @@ public interface ProductDetailsService {
     Optional<GpuDto> getGpuDetailsByIdCategory(Long id);
     Optional<MotherboardDto> getMotherboardDetailsByIdCategory(Long id);
     Optional<MonitorDto> getMonitorDetailsByIdCategory(Long id);
+    Optional<CaseDto> getCaseDetailsByIdCategory(Long id);
 
 
 

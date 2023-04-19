@@ -469,6 +469,19 @@ VALUES ('Monitor LED ViewSonic Gaming Curbat 23.6 inch FHD VA 1 ms 165 Hz','24 l
        ('Monitor LED Acer V247Y 23.8 inch FHD IPS 4 ms 75 Hz','24 luni','IPS','23.8 inch','Da','1920 x 1080 pixeli','75 Hz',120);
 
 
+INSERT INTO case_details(name, code, tip, color, source, dimension, id_product)
+VALUES ('Carcasa Floston RED BARS','RED BARS','MiddleTower','Negru','Sus','410 x 410 x 175 mm',121),
+       ('Carcasa Redragon Devastator','GC-550-BK','MiddleTower','Negru','Jos','445 x 380 x 180 mm',122),
+       ('Carcasa AQIRYS Bellatrix Pro White','AQRYS_BELLATRIXPROWH','MiniTower','Alb','Sus','358 x 325 x 175 mm',123),
+       ('Carcasa Floston Blue Style','BLUE STYLE','MiddleTower','Negru','Jos','413 x 342 x 185 mm',124),
+       ('Carcasa Floston Dark Brushed RGB','DARK BRUSHED RGB','MiddleTower','Negru','Jos','455 x 360 x 192 mm',125),
+       ('Carcasa Gamemax Typhoon COC','CAGMTYPHOC','MiddleTower','Negru','Jos','440 x 360 x 210 mm',126),
+       ('Carcasa Segotep LUX II Black RGB','LUX-II-RGB-BK','MiddleTower','Negru','Jos','505 x 445 x 200 mm',127),
+       ('Carcasa Segotep Nova S6 Black','SG-NS6','MiddleTower','Negru','Jos','472 x 375 x 200 mm',128),
+       ('Carcasa ALPHAGEAR Sentinel ARGB','AG-SENTINEL','MiddleTower','Negru','Jos','430 x 390 x 200mm',129),
+       ('Carcasa AQIRYS Canopus White ARGB','AQRYS_CANOPUSWH','MiddleTower','Alb','Jos','450 x 385 x 200 mm',130);
+
+
 INSERT INTO users(address, birthday, email, first_name,mobile ,  password, last_name, id_role, active)
 VALUES ('Brasov', '1999-08-01', 'gabriel.stanciulescu@admin.itcomponents.ro', 'Stanciulescu', '0748000000', '$2a$12$R7SYQz6YjarscS/c3qqVjeg.kPJQuPRK5yOORqXQXcXrz62G.eEPC', 'Gabriel', 2, true),-- password: qmajdyhn
        ('Brasov', '1999-08-01', 'gabriel.stanciulescu@gmail.com', 'Stanciulescu', '0748000000', '$2a$12$R7SYQz6YjarscS/c3qqVjeg.kPJQuPRK5yOORqXQXcXrz62G.eEPC', 'Gabriel', 1, true),-- password: qmajdyhn

@@ -21,6 +21,7 @@ public class ProductDetailsServiceImpl implements ProductDetailsService {
     private final SsdRepository ssdRepository;
     private final CpuRepository cpuRepository;
     private final GpuRepository gpuRepository;
+    private final CaseRepository caseRepository;
     private final MonitorRepository monitorRepository;
     private final MotherboardRepository motherboardRepository;
     private final ModelMapper modelMapper;
@@ -166,6 +167,27 @@ public class ProductDetailsServiceImpl implements ProductDetailsService {
             Monitor monitor = optionalMonitor.get();
             MonitorDto motherboardDto = modelMapper.map(monitor, MonitorDto.class);
             return Optional.of(motherboardDto);
+        }
+    }
+
+    @Override
+    public Optional<CaseDto> getCaseDetailsByIdCategory(Long id) {
+
+
+        if (id < 0) {
+            throw new InvalidDataException("Your id " + id + " it's not valid");
+        }
+
+
+
+        Optional<Case> optionalMonitor = caseRepository.getByProductId(id);
+        if (optionalMonitor.isEmpty()){
+            throw new DataNotFoundException("The product with id " + id + " does not exist!");
+        }
+        else{
+            Case aCase = optionalMonitor.get();
+            CaseDto caseDto = modelMapper.map(aCase, CaseDto.class);
+            return Optional.of(caseDto);
         }
     }
 }

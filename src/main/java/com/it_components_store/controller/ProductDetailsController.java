@@ -86,6 +86,13 @@ public class ProductDetailsController {
                 model.addAttribute("link", productDto.get().getImageUrl());
                 return "productDetails/MonitorDetails";
 
+            case 9:
+                Optional<CaseDto> caseDto = productDetailsService.getCaseDetailsByIdCategory(idProduct);
+                productDto = productService.getProductById(idProduct);
+                model.addAttribute("case", caseDto.get());
+                model.addAttribute("link", productDto.get().getImageUrl());
+                return "productDetails/CaseDetails";
+
 
 
             default:
