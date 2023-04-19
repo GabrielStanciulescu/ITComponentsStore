@@ -17,6 +17,7 @@ public interface ProductDetailsService {
     Optional<MotherboardDto> getMotherboardDetailsByIdCategory(Long id);
     Optional<MonitorDto> getMonitorDetailsByIdCategory(Long id);
     Optional<CaseDto> getCaseDetailsByIdCategory(Long id);
+    Optional<SourceDto> getSourceDetailsByIdCategory(Long id);
 
 
 

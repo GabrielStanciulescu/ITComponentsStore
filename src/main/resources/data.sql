@@ -482,6 +482,19 @@ VALUES ('Carcasa Floston RED BARS','RED BARS','MiddleTower','Negru','Sus','410 x
        ('Carcasa AQIRYS Canopus White ARGB','AQRYS_CANOPUSWH','MiddleTower','Alb','Jos','450 x 385 x 200 mm',130);
 
 
+INSERT INTO source_details(name, code, warrant, tip, power, id_product)
+VALUES ('Sursa Segotep ATX-500WH','ATX-500WH','24 luni','ATX','500 W',131),
+       ('Sursa Floston FL500 Extra','FL500 EXTRA','24 luni','ATX','500 W',132),
+       ('Sursa AQIRYS Pulsar, 80+ Bronze, 750W','','24 luni','AQRYS_PULSARLSWH750W','750 W',133),
+       ('Sursa Aerocool LUX RGB, 80+ Bronze, 650W','','24 luni','LUX-RGB-650','650 W',134),
+       ('Sursa Gamemax VP-800-RGB, 80+ Bronze, 800W','SAGMVP800RGB','24 luni','ATX','800 W',135),
+       ('Sursa PCCOOLER GI-BR700, 80+ Bronze, 700W','GI-BR700','24 luni','ATX 2.31','700 W',136),
+       ('Sursa Seasonic G12 GC-550, 80+ Gold, 550W','G12-GC-550','24 luni','ATX 12V','550 W',137),
+       ('Sursa Redragon RGPS650W, 80+ Gold, 650W','RGPS-650W','24 luni','ATX','650 W',138),
+       ('Sursa Seasonic G12 GM-550, 80+ Gold, 550W','G12-GM-550','24 luni','ATX','550 W',139),
+       ('Sursa Inaza Fusion, 80+ Gold, 700W','FUSION-700','24 luni','ATX 2.31','700 W',140);
+
+
 INSERT INTO users(address, birthday, email, first_name,mobile ,  password, last_name, id_role, active)
 VALUES ('Brasov', '1999-08-01', 'gabriel.stanciulescu@admin.itcomponents.ro', 'Stanciulescu', '0748000000', '$2a$12$R7SYQz6YjarscS/c3qqVjeg.kPJQuPRK5yOORqXQXcXrz62G.eEPC', 'Gabriel', 2, true),-- password: qmajdyhn
        ('Brasov', '1999-08-01', 'gabriel.stanciulescu@gmail.com', 'Stanciulescu', '0748000000', '$2a$12$R7SYQz6YjarscS/c3qqVjeg.kPJQuPRK5yOORqXQXcXrz62G.eEPC', 'Gabriel', 1, true),-- password: qmajdyhn

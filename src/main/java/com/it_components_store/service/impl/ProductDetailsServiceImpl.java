@@ -22,6 +22,7 @@ public class ProductDetailsServiceImpl implements ProductDetailsService {
     private final CpuRepository cpuRepository;
     private final GpuRepository gpuRepository;
     private final CaseRepository caseRepository;
+    private final SourceRepository sourceRepository;
     private final MonitorRepository monitorRepository;
     private final MotherboardRepository motherboardRepository;
     private final ModelMapper modelMapper;
@@ -188,6 +189,25 @@ public class ProductDetailsServiceImpl implements ProductDetailsService {
             Case aCase = optionalMonitor.get();
             CaseDto caseDto = modelMapper.map(aCase, CaseDto.class);
             return Optional.of(caseDto);
+        }
+    }
+
+    @Override
+    public Optional<SourceDto> getSourceDetailsByIdCategory(Long id) {
+        if (id < 0) {
+            throw new InvalidDataException("Your id " + id + " it's not valid");
+        }
+
+
+
+        Optional<Source> optionalSource = sourceRepository.getByProductId(id);
+        if (optionalSource.isEmpty()){
+            throw new DataNotFoundException("The product with id " + id + " does not exist!");
+        }
+        else{
+            Source source = optionalSource.get();
+            SourceDto sourceDto = modelMapper.map(source, SourceDto.class);
+            return Optional.of(sourceDto);
         }
     }
 }

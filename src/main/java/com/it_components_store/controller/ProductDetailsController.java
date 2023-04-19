@@ -93,6 +93,13 @@ public class ProductDetailsController {
                 model.addAttribute("link", productDto.get().getImageUrl());
                 return "productDetails/CaseDetails";
 
+            case 10:
+                Optional<SourceDto> sourceDto = productDetailsService.getSourceDetailsByIdCategory(idProduct);
+                productDto = productService.getProductById(idProduct);
+                model.addAttribute("source", sourceDto.get());
+                model.addAttribute("link", productDto.get().getImageUrl());
+                return "productDetails/SourceDetails";
+
 
 
             default:
