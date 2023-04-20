@@ -494,6 +494,19 @@ VALUES ('Sursa Segotep ATX-500WH','ATX-500WH','24 luni','ATX','500 W',131),
        ('Sursa Seasonic G12 GM-550, 80+ Gold, 550W','G12-GM-550','24 luni','ATX','550 W',139),
        ('Sursa Inaza Fusion, 80+ Gold, 700W','FUSION-700','24 luni','ATX 2.31','700 W',140);
 
+INSERT INTO  headphones_details(name, warrant, technology, sound, microphone, id_product)
+VALUES ('Casti Gaming Corsair Virtuoso RGB Carbon Wireless','24 luni','Wired, Wireless 2.4 GHz','7.1 Surround','Da',141),
+       ('Casti Gaming ASUS ROG Delta S RGB','24 luni','Wired','7.1 Surround','Da',142),
+       ('Casti Gaming Logitech G735 Lightspeed Wireless RGB White','24 luni','Wireless 2.4 GHz','7.1 Surround','Da',143),
+       ('Casti Gaming Logitech G PRO X Wireless Lightspeed','24 luni','Wireless 2.4 GHz','7.1 Surround','Da',144),
+       ('Casti Gaming SkullCandy PLYR Black DigiHype','24 luni','Bluetooth','Stereo','Da',145),
+       ('Casti Gaming SkullCandy PLYR Black DigiHype','24 luni','Bluetooth','Stereo','Da',146),
+       ('Casti Gaming SkullCandy SLYR Pro Blue Digi Hype','24 luni','Wired','Stereo','Da',147),
+       ('Casti Gaming SkullCandy SLYR Pro Black DigiHype','24 luni','Wired','Stereo','Da',148),
+       ('Casti Gaming SkullCandy SLYR Pro Black DigiHype','24 luni','Wired','Stereo','Da',149);
+
+
+
 
 INSERT INTO users(address, birthday, email, first_name,mobile ,  password, last_name, id_role, active)
 VALUES ('Brasov', '1999-08-01', 'gabriel.stanciulescu@admin.itcomponents.ro', 'Stanciulescu', '0748000000', '$2a$12$R7SYQz6YjarscS/c3qqVjeg.kPJQuPRK5yOORqXQXcXrz62G.eEPC', 'Gabriel', 2, true),-- password: qmajdyhn

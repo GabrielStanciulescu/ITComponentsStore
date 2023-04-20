@@ -1,6 +1,7 @@
 package com.it_components_store.service;
 
 import com.it_components_store.dto.product_details_Dto.*;
+import com.it_components_store.entity.product_details.Headphones;
 import com.it_components_store.entity.product_details.Monitor;
 import com.it_components_store.entity.product_details.Motherboard;
 
@@ -18,6 +19,7 @@ public interface ProductDetailsService {
     Optional<MonitorDto> getMonitorDetailsByIdCategory(Long id);
     Optional<CaseDto> getCaseDetailsByIdCategory(Long id);
     Optional<SourceDto> getSourceDetailsByIdCategory(Long id);
+    Optional<HeadphonesDto> getHeadphonesDetailsByIdCategory(Long id);
 
 
 

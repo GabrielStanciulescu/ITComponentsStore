@@ -22,6 +22,7 @@ public class ProductDetailsServiceImpl implements ProductDetailsService {
     private final CpuRepository cpuRepository;
     private final GpuRepository gpuRepository;
     private final CaseRepository caseRepository;
+    private final HeadphonesRepository headphonesRepository;
     private final SourceRepository sourceRepository;
     private final MonitorRepository monitorRepository;
     private final MotherboardRepository motherboardRepository;
@@ -209,5 +210,24 @@ public class ProductDetailsServiceImpl implements ProductDetailsService {
             SourceDto sourceDto = modelMapper.map(source, SourceDto.class);
             return Optional.of(sourceDto);
         }
+    }
+
+    @Override
+    public Optional<HeadphonesDto> getHeadphonesDetailsByIdCategory(Long id) {
+
+        if (id < 0) {
+            throw new InvalidDataException("Your id " + id + " it's not valid");
+        }
+
+        Optional<Headphones> optionalHeadphones = headphonesRepository.getByProductId(id);
+        if (optionalHeadphones.isEmpty()){
+            throw new DataNotFoundException("The product with id " + id + " does not exist!");
+        }
+        else{
+            Headphones headphones = optionalHeadphones.get();
+            HeadphonesDto headphonesDto = modelMapper.map(headphones, HeadphonesDto.class);
+            return Optional.of(headphonesDto);
+        }
+
     }
 }

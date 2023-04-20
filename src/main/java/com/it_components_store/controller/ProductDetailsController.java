@@ -2,7 +2,6 @@ package com.it_components_store.controller;
 
 import com.it_components_store.dto.ProductDto;
 import com.it_components_store.dto.product_details_Dto.*;
-import com.it_components_store.entity.product_details.Motherboard;
 import com.it_components_store.service.ProductDetailsService;
 import com.it_components_store.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -30,7 +29,7 @@ public class ProductDetailsController {
             case 1:
                 Optional<MouseDto> mouseDto = productDetailsService.getMouseDetailsByIdCategory(idProduct);
                 productDto = productService.getProductById(idProduct);
-                model.addAttribute("mouse",mouseDto.get());
+                model.addAttribute("mouse", mouseDto.get());
                 model.addAttribute("link", productDto.get().getImageUrl());
 
                 return "productDetails/MouseDetails";
@@ -38,7 +37,7 @@ public class ProductDetailsController {
 
                 Optional<RamDto> ramDto = productDetailsService.getRamDetailsByIdCategory(idProduct);
                 productDto = productService.getProductById(idProduct);
-                model.addAttribute("ram",ramDto.get());
+                model.addAttribute("ram", ramDto.get());
                 model.addAttribute("link", productDto.get().getImageUrl());
                 return "productDetails/RamDetails";
 
@@ -51,7 +50,7 @@ public class ProductDetailsController {
 
 
             case 4:
-                Optional<SsdDto>ssdDto = productDetailsService.getSsdDetailsByIdCategory(idProduct);
+                Optional<SsdDto> ssdDto = productDetailsService.getSsdDetailsByIdCategory(idProduct);
                 productDto = productService.getProductById(idProduct);
                 model.addAttribute("ssd", ssdDto.get());
                 model.addAttribute("link", productDto.get().getImageUrl());
@@ -59,10 +58,10 @@ public class ProductDetailsController {
 
 
             case 5:
-               Optional<CpuDto> cpuDto = productDetailsService.getCpuDetailsByIdCategory(idProduct);
-               productDto = productService.getProductById(idProduct);
-               model.addAttribute("cpu", cpuDto.get());
-               model.addAttribute("link", productDto.get().getImageUrl());
+                Optional<CpuDto> cpuDto = productDetailsService.getCpuDetailsByIdCategory(idProduct);
+                productDto = productService.getProductById(idProduct);
+                model.addAttribute("cpu", cpuDto.get());
+                model.addAttribute("link", productDto.get().getImageUrl());
                 return "productDetails/CpuDetails";
 
             case 6:
@@ -79,7 +78,7 @@ public class ProductDetailsController {
                 model.addAttribute("link", productDto.get().getImageUrl());
                 return "productDetails/MotherboardDetails";
 
-            case 8 :
+            case 8:
                 Optional<MonitorDto> monitorDto = productDetailsService.getMonitorDetailsByIdCategory(idProduct);
                 productDto = productService.getProductById(idProduct);
                 model.addAttribute("monitor", monitorDto.get());
@@ -101,11 +100,17 @@ public class ProductDetailsController {
                 return "productDetails/SourceDetails";
 
 
+            case 11:
+                Optional<HeadphonesDto> headphonesDto = productDetailsService.getHeadphonesDetailsByIdCategory(idProduct);
+                productDto = productService.getProductById(idProduct);
+                model.addAttribute("headphones", headphonesDto.get());
+                model.addAttribute("link", productDto.get().getImageUrl());
+                return "productDetails/HeadphonesDetails";
+
 
             default:
                 return "login/login";
         }
-
 
 
     }
