@@ -325,6 +325,189 @@ INSERT INTO products(code, description, image_url, name, price, quantity, id_cat
 
 INSERT INTO roles(name) VALUES ('ROLE_USER'), ('ROLE_ADMIN'),('ROLE_EMPLOYEE');
 
+
+-- Memorii RAM
+INSERT INTO  mouse_detailS(color, interface_mouse, name, sensor, id_product) VALUES ('Black', 'Laser', 'Mouse gaming','optic', 104),
+                                                                                    ('Negru', 'Bluetooth,USB ', 'Mouse Logitech MX Master 3','Optic', 105),
+                                                                                    ('Negru', 'USB', 'Mouse Gaming Redragon TitanoBoa2 V2 RGB','Optic', 106),
+                                                                                    ('Negru', 'USB', 'Mouse Gaming Redragon Impact Elite RGB Wireless','Optic', 107),
+                                                                                    ('Rosu', 'USB', 'Mouse Logitech M185','Optic', 108),
+                                                                                    ('Albastru', 'USB', 'Mouse Logitech M185, Wireless, Blue','Optic', 109),
+                                                                                    ('Albstaru', 'USB', 'Mouse Logitech M185, Wireless, Blue','Optic', 110),
+                                                                                    ('Negru', 'USB', 'Mouse HP 200 Black','Optic', 111),
+                                                                                    ('Albastru', 'USB', 'Mouse Microsoft Wireless Mobile 1850 Black','Optic', 112);
+
+
+INSERT INTO ram_details(name, code, warrant, for_gaming, type , capacity, frequent, latency, standard, voltage, timing, id_product )
+VALUES ('Memorie G.Skill F4 4GB DDR4 2133MHz CL15','F4-2133C15S-4GNT','24 luni','Da','DDR4','4 GB','2133 MHz','15 CL','PC4-17000','1.2 V','15-15-15-35',1),
+       ('Memorie GOODRAM IRDM X 8GB DDR4 2666MHz CL16','IR-X2666D464L16S/8G','24 luni','Da','DDR4','8 GB','2666 MHz','16 CL','PC4-21300','1.2 V','16-18-18',2),
+       ('Memorie GOODRAM IRDM X 8GB DDR4 2666MHz CL16','IR-X2666D464L16S/8G','24 luni','Da','DDR4','8 GB','2666 MHz','16 CL','PC4-21300','1.2 V','16-18-18',3),
+       ('Memorie GOODRAM 8GB DDR3 1600MHz CL11 1.5v','IR-X2666D464L16S/8G','24 luni','Da','DDR3','8 GB','2666 MHz','11 CL','PC4-21300','1.2 V','16-18-18',4),
+       ('Memorie Patriot Viper Steel 8GB DDR4 3000MHz CL16','PVS48G300C6','24 luni','Da','DDR4','8 GB','3000 MHz','16 CL','PC4-24000','1.35 V','16-18-18-36',5),
+       ('Memorie Patriot Signature Line 8GB DDR3 1600MHz CL11 1.5v','PSD38G16002','24 luni','Nu','DDR3','8 GB','1600 MHz','11 CL','PC3-12800','1.5 V','16-18-18',6),
+       ('Memorie ADATA XPG Spectrix D50 8GB DDR4 3200MHz CL16','AX4U32008G16A-ST41','24 luni','Da','DDR4','8 GB','3200 MHz','16 CL','PC4-25600','1.35 V','16-18-18',7),
+       ('Memorie Kingston FURY Beast 8GB DDR4 2666MHz CL16','KF426C16BB/8','24 luni','Da','DDR4','8 GB','2666 MHz','16 CL','PC4-21300','1.2 V','16-18-18',8),
+       ('Memorie Patriot Viper Steel 8GB DDR4 3000MHz CL16','PVS48G300C6','24 luni','Da','DDR4','8 GB','3000 MHz','16 CL','PC4-24000','1.35 V','16-18-18-36',9),
+       ('Memorie Crucial 8GB DDR4 3200MHz CL22','CT8G4DFRA32A','24 luni','DDR4','Nu','DDR4','8 GB','3200 MHz','22 CL','1.2V','PC4-25600',10),
+       ('Memorie G.Skill F4 4GB DDR4 2133MHz CL15','F4-2133C15S-4GNT','24 luni','Da','DDR4','4 GB','2133 MHz','15 CL','PC4-17000','1.2 V','15-15-15-35',11),
+       ('Memorie TeamGroup Elite 8GB DDR4 3200MHz CL22','TED48G3200C2201','24 luni','Da','DDR4','8 GB','3200 MHz','22 CL','PC4-25600','1.2 V','22-22-22-52',12),
+       ('Memorie G.Skill Aegis 8GB DDR4 3200MHz CL16','F4-3200C16S-8GIS','24 luni','Da','DDR4','8 GB','3200 MHz','16 CL','PC4-25600','1.35 V','16-18-18-38',13),
+       ('Memorie Patriot Viper 4 Blackout 16GB DDR4 3200MHz CL16 Dual Channel Kit','PVB416G320C6K','24 luni','Da','DDR4','16 GB','3200 MHz','16 CL','PC4-25600','1.35 V','16-18-18-36',14),
+       ('Memorie Corsair Vengeance RGB 64GB DDR5 5600MHz CL36 Dual Channel Kit','CMH64GX5M2B5600C36','24 luni','Da','DDR5','64 GB','5600 MHz','36 CL','PC4-25600','1.25 V','16-18-18-36',15),
+       ('Memorie Kingston Kingston FURY Beast 64GB DDR5 5600MHz CL40 Dual Channel Kit','KF556C40BBK2-64','24 luni','Da','DDR5','64 GB','5600 MHz','40 CL','PC5-48000U','1.25 V','40-40-40',16),
+       ('Memorie G.Skill Trident Z Neo 64GB DDR4 3200MHz CL16 Dual Channel Kit','F4-3200C16D-64GTZN','24 luni','Da','DDR4','64 GB','3200 MHz','16 CL','PC4-25600','1.35 V','16-18-18-38',17),
+       ('Memorie Patriot Viper Venom RGB 32GB DDR5 6200MHz CL40 Dual Channel Kit','PVVR532G620C40K','24 luni','Da','DDR5','32 GB','6200 MHz','40 CL','PC5-49600','1.35 V','40-40-40-76',18),
+       ('Memorie Corsair Vengeance LPX Black 64GB DDR4 3200MHz CL16 Dual Channel Kit','CMK64GX4M2E3200C16','24 luni','Da','DDR4','64 GB','3200 MHz','16 CL','PC4-25600','1.35 V','16-20-20-38',19),
+       ('Memorie Kingston FURY Beast RGB 32GB DDR5 6000MHz CL36','KF560C36BBEA-32','24 luni','DDR5','32 GB','6000 MHz','36 CL','PC5-48000U','1.35 V','16 CL','16-20-20-38',20),
+       ('Memorie Corsair Vengeance 32GB DDR5 5600MHz CL36 Dual Channel Kit','CMK32GX5M2B5600C36','24 luni','Da','DDR5','32 GB','5600 MHz','36 CL','PC5-44800U','1.25 V','36-36-36-76',21);
+
+INSERT INTO hdd_details(name, code, warrant, interfaces, capacity,buffer,speed,id_product)
+VALUES ('Hard disk WD Blue 1TB SATA-III 7200 RPM 64MB','ST1000DM010','24 luni','SATA-III','1 TB','64 MB','7200 RPM',22),
+       ('Hard disk Seagate BarraCuda 1TB SATA-III 7200RPM 64MB','ST1000DM010','24 luni','SATA-III','1 TB','64 MB','7200 RPM',23),
+       ('Hard disk WD New Purple 1TB SATA-III IntelliPower 64MB','WD10PURZ','24 luni','SATA-III','1 TB','64 MB','5400 RPM',24),
+       ('Hard disk Seagate BarraCuda 2TB SATA-III 7200RPM 256MB','ST2000DM008','24 luni','SATA-III','2 TB','256 MB','7200 RPM',25),
+       ('Hard disk Toshiba P300 3TB SATA-III 7200 RPM 64MB bulk','HDWD130UZSVA','24 luni','SATA-III','3 TB','64 MB','7200 RPM',26),
+       ('Hard disk Seagate IronWolf 2TB SATA-III 5900RPM 64MB','ST2000VN004','24 luni','SATA-III','2 TB','64 MB','5900 RPM',27),
+       ('Hard disk Seagate IronWolf 2TB SATA-III 5900RPM 64MB','ST2000VN004','24 luni','SATA-III','2 TB','64 MB','5900 RPM',28),
+       ('Hard disk Seagate IronWolf 3TB SATA-III 5400RPM 256MB','ST3000VN006','24 luni','SATA-III','3 TB','256 MB','5400 RPM',29),
+       ('Hard disk Seagate IronWolf Pro 12TB SATA-III 7200RPM 256MB','ST12000NE0008','24 luni','SATA-III','12 TB','256 MB','7200 RPM',30),
+       ('Hard disk Seagate IronWolf 12TB SATA-III 7200RPM 256MB','ST12000VN0008','24 luni','SATA-III','12 TB','256 MB','7200 RPM',31),
+       ('Hard disk Seagate IronWolf Pro 8TB SATA-III 7200RPM 256MB','ST8000NT001','24 luni','SATA-III','8 TB','256 MB','7200 RPM',32),
+       ('Hard disk Seagate IronWolf 8TB SATA-III 7200RPM 256MB','ST8000VN004','24 luni','SATA-III','8 TB','256 MB','7200 RPM',33),
+       ('Hard disk Seagate BarraCuda 3TB SATA-III 5400RPM 256MB','ST3000DM007','24 luni','SATA-III','3 TB','256 MB','5400 RPM',34),
+       ('Hard disk Seagate SkyHawk 2TB 5900RPM SATA-III 64MB','ST2000VX008','24 luni','SATA-III','2 TB','64 MB','5900 RPM',35),
+       ('Hard disk Seagate IronWolf Pro 20TB SATA-III 7200RPM 256MB','ST20000NT001','24 luni','SATA-III','20 TB','256 MB','7200 RPM',36),
+       ('Hard disk Seagate IronWolf Pro 18TB SATA-III 7200RPM 256MB','ST18000NT001','24 luni','SATA-III','18 TB','256 MB','7200 RPM',37),
+       ('Hard disk Seagate IronWolf Pro 14TB SATA-III 7200RPM 256MB','ST14000NE0008','24 luni','SATA-III','14 TB','256 MB','7200 RPM',38);
+
+
+INSERT INTO ssd_details(name, code, warrant,tipssd, form_factor, interfaces, nvme, capacity, controller, read_max,write_max, id_product)
+VALUES ('SSD Kingston A400 120GB SATA-III 2.5 inch','SA400S37/120G','24 luni','Intern','2.5 inch','SATA-III','Nu','120 GB','Phison S11','500 MB/s','320 MB/s',39),
+       ('SSD Silicon-Power Ace A55 128GB SATA-III 2.5 inch','SP128GBSS3A55S25','24 luni','Intern','2.5 inch','SATA-III','Nu','128 GB','Phison','550 MB/s','420 MB/s',40),
+       ('SSD ADATA SU630 240GB SATA-III 2.5 inch','ASU630SS-240GQ-R','24 luni','Intern','2.5 inch','SATA-III','Nu','240 GB','Phison','520 MB/s','450 MB/s',41),
+       ('SSD Kingston NV2 250GB PCI Express 4.0 x4 M.2 2280','SNV2S/250G','24 luni','Intern','M.2','PCI Express 3.0 x4','Da','250 GB','-','3000 MB/s','1300 MB/s',42),
+       ('SSD ADATA Legend 750 500GB PCI Express 3.0 x4 M.2 2280','ALEG-750-500GCS','24 luni','Intern','M.2','PCI Express 3.0 x4','Da','500 GB','-','3350 MB/s','2450 MB/s',43),
+       ('SSD Samsung 870 EVO 250GB SATA-III 2.5 inch','MZ-77E250B/EU','24 luni','Intern','2.5 inch','SATA-III','Nu','250 GB','Samsung MKX','560 MB/s','530 MB/s',44),
+       ('SSD Silicon-Power P34A60 512GB PCI Express 3.0 x4 M.2 2280','SP512GBP34A60M28','24 luni','Intern','M.2','PCI Express 3.0 x4','Da','512 GB','-','2200 MB/s','1600 MB/s',45),
+       ('SSD ADATA Legend 710 512GB PCI Express 3.0 x4 M.2 2280','ALEG-710-512GCS','24 luni','Intern','M.2','PCI Express 3.0 x4','Nu','512 GB','-','2400 MB/s','1800 MB/s',46),
+       ('SSD Samsung 980 250GB PCI Express 3.0 x4 M.2 2280','MZ-V8V250BW','24 luni','Intern','M.2','PCI Express 3.0 x4','Da','250 GB','Samsung Pablo','2900 MB/s','1300 MB/s',47),
+       ('SSD Crucial P3 4TB PCI Express 3.0 x4 M.2 2280','CT4000P3SSD8','24 luni','Intern','M.2','PCI Express 3.0 x4','Da','4 TB','-','3500 MB/s','3000 MB/s',48),
+       ('SSD Samsung 870 QVO 4TB SATA-III 2.5 inch','MZ-77Q4T0BW','24 luni','Intern','2.5 inch','SATA-III','Nu','4 TB','Samsung MKX','560 MB/s','530 MB/s',49),
+       ('SSD Solidigm P44 Pro 2TB PCI Express 4.0 x4 M.2 2280','SSDPFKKW020X7X1','24 luni','Intern','M.2','PCI Express 4.0 x4','Da','2TB','-','7000 MB/s','6500 MB/s',50),
+       ('SSD ADATA XPG Gammix S5 2TB PCI Express 3.0 x4 M.2 2280','AGAMMIXS5-2TT-C','24 luni','Intern','M.2','PCI Express 3.0 x4','Da','2 TB','-','2100 MB/s','1500 MB/s',51),
+       ('SSD Kingston Renegade Heatsink 1TB PCI Express 4.0 x4 M.2 2280','SFYRSK/1000G','24 luni','Intern','M.2','PCI Express 4.0 x4','Da','1 TB','Phison E18','7300 MB/s','6000 MB/s',52),
+       ('SSD Intel 670p Series 2TB PCI Express 3.0 x4 M.2 2280','SSDPEKNU020TZX1','24 luni','Intern','M.2','PCI Express 3.0 x4','Da','2 TB','-','3500 MB/s','2700 MB/s',53),
+       ('SSD Samsung Portable T7 Red 1TB USB 3.2 tip C','MU-PC1T0R/WW','24 luni','Extern','Extern','USB 3.2 tip C','Nu','1 TB','-','3500 MB/s','2500 MB/s',54),
+       ('SSD Samsung 970 EVO Plus 1TB PCI Express 3.0 x4 M.2 2280','MZ-V7S1T0BW','24 luni','Intern','M.2','PCI Express 3.0 x4','Da','1 TB','Samsung Phoenix','3500 MB/s','3300 MB/s',55),
+       ('SSD Samsung 980 1TB PCI Express 3.0 x4 M.2 2280','MZ-V8V1T0BW','24 luni','Intern','M.2','PCI Express 3.0 x4','Da','1 TB','Samsung Pablo','3500 MB/s','3000 MB/s',56),
+       ('SSD Kingston KC3000 1TB PCI Express 4.0 x4 M.2 2280','SKC3000S/1024G','24 luni','Intern','M.2','PCI Express 4.0 x4','Da','1 TB','Phison E18','7000 MB/s','6000 MB/s',57);
+
+
+INSERT INTO cpu_details(name, code, warrant, gaming,socket, series, kernel, number_of_kernel,number_of_thread, frequency, frequency_turbo, nm, power, model, tip, memory_supported, frequency_memory, pciexpress, pciexpress_lanes, id_product)
+VALUES ('Procesor Intel Comet Lake, Celeron G5925 3.6GHz box','BX80701G5925','24 luni','Nu','1200','Celeron Dual-Core','Comet Lake','2','2','3,6 GHz','3,6 GHz','14 nm','58 W','UHD 610','DDR4','128 GB','2666 MHz','3.0','x16',58),
+       ('Procesor AMD Ryzen 3 4100 3.8GHz box','100-100000510BOX','24 luni','Da','AM4','Ryzen 3 4000 Series','Renoir','4','8','3,8 GHz','4 GHz','7 nm','65 W','Fara grafica integrata','DDR4','128 GB','3200 MHz','3.0','-',59),
+       ('Procesor Intel Comet Lake, Core i3 10105F 3.7GHz box','BX8070110105F','24 luni','Da','1200','Core i3 10th gen','Comet Lake','4','8','3.7 GHz','4.4 GHz','14 nm','65 W','Fara grafica integrata','DDR4','128 GB','2666 MHz','-','-',60),
+       ('Procesor AMD Ryzen 3 3200G 3.6GHz box','YD3200C5FHBOX','24 luni','Da','AM4','Ryzen 3 3000 Series','Picasso','4','4','3,6 GHz','4 GHz','12 nm','65 W','Radeon™ Vega 8','DDR4','64 GB','2933 MHz','3.0','-',61),
+       ('Procesor Intel Comet Lake, Core i5 10400F 2.9GHz box','BX8070110400F','24 luni','Da','1200','Core i5 10th gen','Comet Lake','6','12','2,9 GHz','4,3 GHz','14 nm','65 W','Fara grafica integrata','DDR4','128 GB','2666 MHz','3.0','x16',62),
+       ('Procesor Intel Alder Lake, Core i5 12400F 2.5GHz box','BX8071512400F','24 luni','Da','1700','Core i5 12th gen','Alder Lake','6','12','2,5 GHz','4,4 GHz','14 nm','65W','Fara grafica integrata','DDR4/DDR5','128 GB','DDR4 3200 MHz /DDR5 4800 MHz ','-','-',63),
+       ('Procesor AMD Ryzen 7 5800X 3.8GHz box','100-100000063WOF','24 luni','Da','AM4','Ryzen 7 5000 Series','Vermeer','8','16','3.8 GHz','4,7 GHz','7nm','105 W','Fara grafica integrata','DDR4','128 GB','3200 MHz','4.0','-',64),
+       ('Procesor AMD Ryzen 3 1200 3.1GHz Tray','YD1200BBM4KAF','24 luni0','Da','AM4','Ryzen 3 1000 Series','Summit Ridge','4','4','3,1 GHz','3,4 GHz','14nm','65 W','Fara grafica integrata','DDR4','64 GB','2400 MHz','3.0','x24',65),
+       ('Procesor AMD Ryzen 7 5700X 3.4GHz box','100-100000926WOF','24 luni','Da','AM4','Ryzen 7 5000 Series','Vermeer','8','16','3,4 GHz','4,6GHz','7 nm','65W','Fara grafica integrata','DDR4','128 GB','3200 MHz','4.0','-',66),
+       ('Procesor AMD Ryzen 9 7900X3D 4.4GHz box','100-100000909WOF','24 luni','Da','AM5','Ryzen 9 7000 Series','Raphael','12','24','4,4 GHz','5,6 GHz','5 nm','120W','Radeon Graphics','DDR5','128GB','5200 MHz','5.0','-',67),
+       ('Procesor Intel Alder Lake, Core i9 12900KS 3.4GHz box','BX8071512900KS','24 luni','Da','1700','Core i9 12th gen','Alder Lake','16','24','3,4 GHz','5,5 GHz','7nm','150W','UHD 770','DDR4/DDR5','128 GB','DDR4 3200 MHz/DDR5 4800 MHz','5.0','20',68),
+       ('Procesor Intel Raptor Lake, Core i9 13900K 3.0GHz box','BX8071513900K','24 luni','Da','1700','Core i9 13th gen','Raptor Lake','24','32','3 GHz','5,8 GHz','7nm','125W','UHD 770','DDR4/DDR5','128GB','DDR4 3200 MHz/DDR5 5600 MHz','-','-',69),
+       ('Procesor AMD Ryzen 9 7950X 4.5GHz box','100-100000514WOF','24 luni','Da','AM5','Ryzen 9 7000 Series','Raphael','16','32','4,5GHz','5,7GHz','5nm','170W','Radeon Graphics','DDR5','128 GB','5200 MHz','-','-',70),
+       ('Procesor Intel Raptor Lake, Core i9 13900 2.0GHz box','BX8071513900','24 luni','Da','1700','Core i9 13th gen','Raptor Lake','24','30','2GHz','5,6GHz','5nm','125W','UHD 770','DDR4/DDR5','DDR4 3200 MHz/','DDR5 5600 MHz','5.0','20',71),
+       ('Procesor AMD Ryzen 9 7900X 4.7GHz box','100-100000589WOF','24 luni','Da','AM5','Ryzen 9 7000 Series','Raphael','12','24','4,7 GHz','5,6 GHz','5 nm','170W','Radeon Graphics','DDR5','128 GB','5200 MHz','5.0','-',72),
+       ('Procesor Intel Raptor Lake, Core i7 13700 2.1GHz box','BX8071513700','24 luni','Da','1700','Core i7 13th gen','Raptor Lake','16','24','2,1GHz','5.2GHz','5nm','65nm','UHD 770','DDR4/DDR5','128 GB','DDR4 3200 MHz/DDR5 5600 MHz','5.0','20',73),
+       ('Procesor AMD Ryzen 9 5900X 3.7GHz box','100-100000061WOF','24 luni','Da','AM4','Ryzen 9 5000 Series','Vermeer','12','24','3,7GHz','4,8GHz','7nm','105w','Fara grafica integrata','DDR4','128GB','3200 MHz','4.0','-',74),
+       ('Procesor AMD Ryzen 7 7700X 4.5GHz box','100-100000591WOF','24 luni','Da','AM5','Ryzen 7 7000 Series','Raphael','8','16','4,5GHz','5,4GHz','8ms','105W','Radeon Graphics','DDR5','128Gb','5200MHx','5.0','-',75);
+
+INSERT INTO gpu_details(name, code, warrant, interfaces, resolution, model, cooling, gaming, chipset, series, nm, gpu_graphics, gpu_boost, tip,memory, directx, opengl, vulkan, id_product)
+VALUES ('Placa video GIGABYTE GeForce GTX 1650 OC 4GB GDDR5 128-bit','GV-N1650OC-4GD','24 luni','PCI Express x16 3.0','7680x4320 pixeli','GeForce GTX 1650','OC','Da','NVIDIA','GeForce GTX 1600','12 nm','Turing TU117','1710 MHz','GDDR5','4 GB','12.1','4.1','Da',76),
+       ('Placa video Palit GeForce GTX 1650 GP 4GB GDDR6 128-bit','NE6165001BG1-1175A','24 luni','PCI Express x16 3.0','7680x4320 pixeli','GeForce GTX 1650','GP','Da','NVIDIA','GeForce GTX 1600','12 nm','Turing TU117','1590 MHz','GDDR6','4 GB','12.1','4.1','Da',77),
+       ('Placa video Gainward GeForce RTX 3060 Ghost LHR 12GB GDDR6 192-bit','471056224-2430','24 luni','PCI Express x16 4.0','7680x4320 pixeli','GeForce RTX 3060','Ghost','Da','NVIDIA','GeForce RTX 3000','8 nm','Ampere GA106','1777 MHz','GDDR6','12 GB','12.1','4.1','Da',78),
+       ('Placa video GIGABYTE GeForce RTX 3060 EAGLE LHR 12GB GDDR6 192-bit','GV-N3060EAGLE-12GD LHR','24 luni','PCI Express x16 4.0','7680x4320 pixeli','GeForce RTX 3060','EAGLE','Da','NVIDIA','GeForce RTX 3000','8 nm','Ampere GA106','-','GDDR6','12 GB','12 ','4.6','Da',79),
+       ('Placa video Palit GeForce RTX 3060 Ti Dual LHR 8GB GDDR6 256-bit','NE6306T019P2-190AD','24 luni','PCI Express x16 4.0','7680x4320 pixeli','GeForce RTX 3060 Ti','Dual','Da','NVIDIA','GeForce RTX 3000','8 nm','Ampere GA104','1665 MHz','GDDR6','8 GB','12 Ultimate','4.6','Da',80),
+       ('Placa video Biostar Radeon RX 550 4GB GDDR5 128-bit','VA5505RF41-SBHRA-BS2','24 luni','PCI Express x16 3.0','4096x2160 pixeli','Radeon RX 550','-','Da','AMD','Radeon RX 500','14 nm','Lexa Pro','1183 MHz','GDDR5','4 GB','12.1','4.0','Da',81),
+       ('Placa video MSI Radeon RX 6400 Aero ITX 4GB GDDR6 64-bit','RX6400 AERO ITX 4G','24 luni','PCI Express x4 4.0','7680x4320 pixeli','Radeon RX 6400','Aero ITX','Da','AMD','Radeon RX 6000','6 nm','Navi 24','2321 MHz','GDDR6','4 GB','12 Ultimate','12 ','Da',82),
+       ('Placa video ASUS GeForce RTX 3050 DUAL OC LHR 8GB GDDR6 128-bit','DUAL-RTX3050-O8G','24 luni','PCI Express x16 4.0','7680x4320 pixeli','GeForce RTX 3050','Dual OC','Da','NVVIDIA','GeForce RTX 3000','8 nm','Ampere GA106','1822 MHz','GDDR6','8 GB','12 Ultimate','4.6','Da',83),
+       ('Placa video MSI Radeon RX 6600 MECH 2X 8GB GDDR6 128-bit','RX 6600 MECH 2X 8G','24 luni','PCI Express x16 4.0','7680x4320 pixeli','Radeon RX 6600','MECH 2X','Da','AMD','Radeon RX 6000','7nm','Navi 23','2491 MHz','GDDR6','8 GB','12 Ultimate','4.6','da',84),
+       ('Placa video MSI GeForce RTX 4080 SUPRIM X 16GB GDDR6X 256-bit DLSS 3.0','RTX 4080 SUPRIM X','24 luni','PCI Express x16 4.0','7680x4320 pixeli','GeForce RTX 4080','SUPRIM X','Da','NVIDIA','GeForce RTX 4000','5nm','Ada Lovelace','2625 MHz','GDDR6X','16 GB','12 Ultimate','4.6','Da',85),
+       ('Placa video MSI GeForce RTX 4090 GAMING X TRIO 24GB GDDR6X 384-bit DLSS 3.0','GeForce RTX 4090 GAMING X TRIO 24G','24 luni','PCI Express x16 4.0','7680x4320 pixeli','GeForce RTX 4090','GAMING X TRIO','Da','NVIDIA','GeForce RTX 4000','5nm','Ada Lovelace AD102','2230 MHz','GDDR6X','24 GB','12 Ultimate','4.6','Da',86),
+       ('Placa video GIGABYTE GeForce RTX 4080 EAGLE OC 16GB GDDR6X 256-bit DLSS 3.0','GV-N4080EAGLE OC-16GD','24 luni','PCI Express x16 4.0','7680x4320 pixeli','GeForce RTX 4080','EAGLE OC','Da','NVIDIA','GeForce RTX 4000','5nm','Ada Lovelace','2520 MHz','GDDR6X','16 GB','12 Ultimate','4.6','Da',87),
+       ('Placa video ASUS Radeon RX 7900 XTX TUF GAMING 24GB GDDR6 384-bit','TUF-RX7900XTX-O24G','24 luni','PCI Express x16 4.0','7680x4320 pixeli','Radeon RX 7900 XTX','TUF GAMING','Da','AMD','Radeon RX 7000','5nm','Navi 31 XTX','2615 MHz','GDDR6','24 GB','12 Ultimate','4.6','Da',88),
+       ('Placa video Sapphire Nitro+ Radeon RX 7900 XTX Vapor-X 24GB GDDR6 384-bit','11322-01-40G','24 luni','PCI Express x16 4.0','7680x4320 pixeli','Radeon RX 7900 XTX','Vapor-X','Da','AMD','Radeon RX 7000','5nm','Navi 31 XTX','2680 MHz','GDDR6','24 GB','12 Ultimate','4.6','Da',89),
+       ('Placa video PowerColor Radeon RX 7900 XTX Red Devil 24GB GDDR6 384-bit','RX 7900 XTX 24G-E/OC','24 luni','PCI Express x16 4.0','7680x4320 pixeli','Radeon RX 7900 XTX','Red Devil','Da','AMD','Radeon RX 7000','5nm','Navi 31 XTX','2565 MHz','GDDR6','24 GB','12 Ultimate','4.6','Da',90),
+       ('Placa video Sapphire Nitro+ Radeon RX 7900 XT Vapor-X 20GB GDDR6 320-bit','11323-01-40G','24 luni','PCI Express x16 4.0','7680x4320 pixeli','Radeon RX 7900 XT','Vapor-X','Da','AMD','Radeon RX 7000','5nm','Navi 31 XT','2500 MHz','GDDR6','20 GB','12 Ultimate','4.6','Da',91),
+       ('Placa video PowerColor Radeon RX 7900 XT Red Devil 20GB GDDR6 320-bit','RX 7900 XT 20G-E/OC','24 luni','PCI Express x16 4.0','7680x4320 pixeli','Radeon RX 7900 XT','Red Devil','Da','AMD','Radeon RX 7000','5nm','Navi 31 XT','2535 MHz','GDDR6','20 GB','12 Ultimate','4.6','Da',92),
+       ('Placa video Sapphire Radeon RX 7900 XT Pulse 20GB GDDR6 320-bit','11323-02-20G','24 luni','PCI Express x16 4.0','7680x4320 pixeli','Radeon RX 7900 XT','PULSE','Da','AMD','Radeon RX 7000','5nm','Navi 31 XT','2450 MHz','GDDR6','20 GB','12 Ultimate','4.6','Da',93),
+       ('Placa video GIGABYTE Radeon RX 7900 XT GAMING OC 20GB GDDR6 320-bit','GV-R79XTGAMING-OC-20GD','24 luni','PCI Express x16 4.0','7680x4320 pixeli','Radeon RX 7900 XT','GAMING OC','Da','AMD','Radeon RX 7000','5nm','Navi 31 XT','2535 MHz','GDDR6','20 GB','12 Ultimate','4.6','Da',94);
+
+
+
+INSERT INTO motherboard_details(name, code,warrant, format, socket, chipset_manufacturer, model_chipset, cpu_supported, interfaces, gpu, number_of_sata, tip, memory, number_of_slots, frequency, id_product )
+VALUES ('Placa de baza ASUS PRIME H310M-K R2.0','PRIME H310M-K R2.0','24 luni','mATX','1151 v2','Intel','H310','Intel 9th/8th Generation Core/Pentium/Celeron','PCI Express x16 3.0','Necesita procesor cu tehnologia Intel HD Graphics','4','DDR4','32 GB','2','2666/2400/2133 MHz',95),
+       ('Placa de baza ASUS PRIME H310M-R R2.0','PRIME H310M-R R2.0','24 luni','mATX','1151 v2','Intel','H310','Intel 9th/8th Generation Core/Pentium/Celeron','PCI Express x16 3.0','Necesita procesor cu tehnologia Intel HD Graphics','4','DDR4','32Gb','2','2666/2400/2133 MHz',96),
+       ('Placa de baza GIGABYTE H410M H V3','H410M H V3','24 luni','mATX','1200','Intel','H510','Intel 10th Generation Core/Pentium/Celeron','PCI Express x16 3.0','Necesita procesor cu tehnologia Intel HD Graphics','4','DDR4','64GB','2','2933/2666/2400/2133 MHz',97),
+       ('Placa de baza ASRock H510M-HVS R2.0','H510M-HVS R2.0','24 luni','mATX','1200','Intel','H510','Intel 11th/10th Generation Core/Pentium/Celeron','PCI Express x16 4.0','Necesita procesor cu tehnologia Intel HD Graphics','4','DDR4','64 GB','2','3200/2933/2800/2666/2400/2133 MHz',98),
+       ('Placa de baza GIGABYTE Z590 GAMING X','Z590 GAMING X','24 luni','ATX','1200','Intel','Z590','Intel 11th/10th Generation Core/Pentium/Celeron','PCI Express x16 4.0','Necesita procesor cu tehnologia Intel HD Graphics','4','DDR4','128 GB','4','3200/2933/2800/2666/2400/2133 MHz',99),
+       ('Placa de baza GIGABYTE B660M GAMING X DDR4','B660M GAMING X DDR4','24 luni','mATX','1700','Intel','B660','Intel 12th/13th Generation Core/Pentium Gold/Celeron','PCI Express x16 4.0','Necesita procesor cu tehnologia Intel HD Graphics','4','DDR4','128GB','4','3200/2933/2800/2666/2400/2133 MHz',100),
+       ('Placa de baza GIGABYTE B550 AORUS ELITE V2','B550 AORUS ELITE V2','24 luni','ATX','AM4','AMD','B550','AMD AM4 Socket Ryzen™ 3000/5000 Series','PCI Express x16 4.0','Necesita procesor cu tehnologia AMD Radeon Vega Graphics','4','DDR4','128GB','4','3200/2933/2667/2400/2133 MHz',101),
+       ('Placa de baza ASRock Z790 PRO RS/D4','Z790 PRO RS/D4','24 luni','ATX','1700','Intel','Z790','Intel 12th/13th Generation Core/Pentium Gold/Celeron','PCI Express x16 5.0','Necesita procesor cu tehnologia Intel HD Graphics','8','DDR4','128GB','4','3200/2933/2667/2400/2133 MHz',102),
+       ('Placa de baza ASRock B650E PG RIPTIDE WIFI','B650E PG Riptide WiFi','24 luni','ATX','AM5','AMD','B650E','AMD AM5 Socket Ryzen™ 7000 Series','PCI Express x16 5.0','Necesita procesor cu tehnologia AMD Radeon Vega Graphics','4','DDR5','128GB','4','4800 / 4000 MHz',103);
+
+
+INSERT INTO monitor_details(name,warrant,panel, diagonal, anti_glare, resolution, refresh_rate, id_product)
+VALUES ('Monitor LED ViewSonic Gaming Curbat 23.6 inch FHD VA 1 ms 165 Hz','24 luni','VA','23.6 inch','Da','1920 x 1080 pixeli','165 Hz',113),
+       ('Monitor LED LG Gaming 24MK430H 23.8 inch FHD IPS 5 ms 75 Hz FreeSync','36 luni','IPS','23.8 inch','Da','1920 x 1080 pixeli','75 Hz',114),
+       ('Monitor LED Acer Gaming VG270 27 inch FHD IPS 1 ms 75 Hz FreeSync','24 luni','27IPS','27inch','Da','1920 x 1080 pixeli','75 Hz',115),
+       ('Monitor LED Acer Gaming PG1 23.8 inch FHD VA 1 ms 144 Hz','24 luni','VA','23.8 inch','Da','1920 x 1080 pixeli','144 Hz',116),
+       ('Monitor LED ViewSonic VA2406-H 23.8 inch FHD VA 4 ms 60 Hz','24 luni','VA','23.8 inch','Da','1920 x 1080 pixeli','60 Hz',117),
+       ('Monitor LED DELL SE2422H 23.8 inch FHD VA 5 ms 75 Hz FreeSync','24 luni','VA','23.8','Da','1920 x 1080 pixeli','75 Hz',118),
+       ('Monitor LED Tesla 24MC625BF 23.8 inch FHD IPS 5 ms 75 Hz FreeSync','24 luni','IPS','23.8 inch','Da','1920 x 1080 pixeli','75 Hz',119),
+       ('Monitor LED Acer V247Y 23.8 inch FHD IPS 4 ms 75 Hz','24 luni','IPS','23.8 inch','Da','1920 x 1080 pixeli','75 Hz',120);
+
+
+INSERT INTO case_details(name, code, tip, color, source, dimension, id_product)
+VALUES ('Carcasa Floston RED BARS','RED BARS','MiddleTower','Negru','Sus','410 x 410 x 175 mm',121),
+       ('Carcasa Redragon Devastator','GC-550-BK','MiddleTower','Negru','Jos','445 x 380 x 180 mm',122),
+       ('Carcasa AQIRYS Bellatrix Pro White','AQRYS_BELLATRIXPROWH','MiniTower','Alb','Sus','358 x 325 x 175 mm',123),
+       ('Carcasa Floston Blue Style','BLUE STYLE','MiddleTower','Negru','Jos','413 x 342 x 185 mm',124),
+       ('Carcasa Floston Dark Brushed RGB','DARK BRUSHED RGB','MiddleTower','Negru','Jos','455 x 360 x 192 mm',125),
+       ('Carcasa Gamemax Typhoon COC','CAGMTYPHOC','MiddleTower','Negru','Jos','440 x 360 x 210 mm',126),
+       ('Carcasa Segotep LUX II Black RGB','LUX-II-RGB-BK','MiddleTower','Negru','Jos','505 x 445 x 200 mm',127),
+       ('Carcasa Segotep Nova S6 Black','SG-NS6','MiddleTower','Negru','Jos','472 x 375 x 200 mm',128),
+       ('Carcasa ALPHAGEAR Sentinel ARGB','AG-SENTINEL','MiddleTower','Negru','Jos','430 x 390 x 200mm',129),
+       ('Carcasa AQIRYS Canopus White ARGB','AQRYS_CANOPUSWH','MiddleTower','Alb','Jos','450 x 385 x 200 mm',130);
+
+
+INSERT INTO source_details(name, code, warrant, tip, power, id_product)
+VALUES ('Sursa Segotep ATX-500WH','ATX-500WH','24 luni','ATX','500 W',131),
+       ('Sursa Floston FL500 Extra','FL500 EXTRA','24 luni','ATX','500 W',132),
+       ('Sursa AQIRYS Pulsar, 80+ Bronze, 750W','','24 luni','AQRYS_PULSARLSWH750W','750 W',133),
+       ('Sursa Aerocool LUX RGB, 80+ Bronze, 650W','','24 luni','LUX-RGB-650','650 W',134),
+       ('Sursa Gamemax VP-800-RGB, 80+ Bronze, 800W','SAGMVP800RGB','24 luni','ATX','800 W',135),
+       ('Sursa PCCOOLER GI-BR700, 80+ Bronze, 700W','GI-BR700','24 luni','ATX 2.31','700 W',136),
+       ('Sursa Seasonic G12 GC-550, 80+ Gold, 550W','G12-GC-550','24 luni','ATX 12V','550 W',137),
+       ('Sursa Redragon RGPS650W, 80+ Gold, 650W','RGPS-650W','24 luni','ATX','650 W',138),
+       ('Sursa Seasonic G12 GM-550, 80+ Gold, 550W','G12-GM-550','24 luni','ATX','550 W',139),
+       ('Sursa Inaza Fusion, 80+ Gold, 700W','FUSION-700','24 luni','ATX 2.31','700 W',140);
+
+INSERT INTO  headphones_details(name, warrant, technology, sound, microphone, id_product)
+VALUES ('Casti Gaming Corsair Virtuoso RGB Carbon Wireless','24 luni','Wired, Wireless 2.4 GHz','7.1 Surround','Da',141),
+       ('Casti Gaming ASUS ROG Delta S RGB','24 luni','Wired','7.1 Surround','Da',142),
+       ('Casti Gaming Logitech G735 Lightspeed Wireless RGB White','24 luni','Wireless 2.4 GHz','7.1 Surround','Da',143),
+       ('Casti Gaming Logitech G PRO X Wireless Lightspeed','24 luni','Wireless 2.4 GHz','7.1 Surround','Da',144),
+       ('Casti Gaming SkullCandy PLYR Black DigiHype','24 luni','Bluetooth','Stereo','Da',145),
+       ('Casti Gaming SkullCandy PLYR Black DigiHype','24 luni','Bluetooth','Stereo','Da',146),
+       ('Casti Gaming SkullCandy SLYR Pro Blue Digi Hype','24 luni','Wired','Stereo','Da',147),
+       ('Casti Gaming SkullCandy SLYR Pro Black DigiHype','24 luni','Wired','Stereo','Da',148),
+       ('Casti Gaming SkullCandy SLYR Pro Black DigiHype','24 luni','Wired','Stereo','Da',149);
+
+
+
+
 INSERT INTO users(address, birthday, email, first_name,mobile ,  password, last_name, id_role, active)
 VALUES ('Brasov', '1999-08-01', 'gabriel.stanciulescu@admin.itcomponents.ro', 'Stanciulescu', '0748000000', '$2a$12$R7SYQz6YjarscS/c3qqVjeg.kPJQuPRK5yOORqXQXcXrz62G.eEPC', 'Gabriel', 2, true),-- password: qmajdyhn
        ('Brasov', '1999-08-01', 'gabriel.stanciulescu@gmail.com', 'Stanciulescu', '0748000000', '$2a$12$R7SYQz6YjarscS/c3qqVjeg.kPJQuPRK5yOORqXQXcXrz62G.eEPC', 'Gabriel', 1, true),-- password: qmajdyhn

@@ -21,6 +21,7 @@
                         <h5 class="card-title">[[${productDto.name}]]</h5>
                         <p class="card-text">[[${productDto.description}]]</p>
                         <p class="card-text"> stock magazin [[${productDto.quantity}]] </p>
+                        <a th:href="@{/details/{idCategory}/products/{idProduct}(idCategory=${productDto.categoryId}, idProduct = ${productDto.idProduct})}">Detalii</a>
                         <p class="card-text">[[${productDto.price}]] RON </p>
                         <form action="#"
                               th:action="@{/add/cart/{id}(id=${productDto.idProduct})  }"

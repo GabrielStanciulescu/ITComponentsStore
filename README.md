@@ -120,6 +120,9 @@ spring.mail.properties.mail.smtp.starttls.enable=true
 * **My Account**:
 * ![My Account](src/main/resources/static/documentation/14_my_account.jpg)
 
+* **Product Details**:
+* ![Product  =Details](src/main/resources/static/documentation/7_1_details.jpg)
+
 * **Order Details**:
 * ![Order Details](src/main/resources/static/documentation/7_order.jpg)
 
